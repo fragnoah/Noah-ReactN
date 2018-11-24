@@ -17,7 +17,7 @@
       "catergory": ""
     },
     "frage2": {
-      "frageText": "abs",
+      "frageText": "abs2",
       "correctAnswer": "option1",
       "options": {
         "option1": "a",
@@ -33,7 +33,7 @@
       "catergory": ""
     },
     "frage3": {
-      "frageText": "abs",
+      "frageText": "abs3",
       "correctAnswer": "option1",
       "options": {
         "option1": "a",
@@ -49,7 +49,7 @@
       "catergory": ""
     },
     "frage4": {
-      "frageText": "abs",
+      "frageText": "abs4",
       "correctAnswer": "option1",
       "options": {
         "option1": "a",
