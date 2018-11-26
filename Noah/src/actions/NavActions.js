@@ -9,6 +9,11 @@ export const toLearn = () => {
   Actions.learn(); 
 };
 
+export const toResult = () => {
+  // ToDo: Prüflogik bisherige Fragen
+  Actions.result();
+};
+
 //export const toQuestions = ({ testNumber }) => {
  export const toQuestions = () => {
   //console.log(testNumber);

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Scene, Router } from 'react-native-router-flux';
 
 import MainMenu from './components/MainMenu';
 import TestMenu from './components/TestMenu';
 import LearnMenu from './components/LearnMenu';
 import Quest from './components/Questions';
 import Result from './components/Result';
+import { toResult } from './actions';
 
 const RouterComponent = () => {
     return (
@@ -19,7 +20,7 @@ const RouterComponent = () => {
                     key="quest" 
                     title="Prüfung" 
                     rightTitle="Check"
-                    onRight={() => Actions.result()}
+                    onRight={toResult}
                     component={Quest} 
                 />
                 <Scene key="result" title="Ergebnis" component={Result} />
