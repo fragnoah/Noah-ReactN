@@ -7,7 +7,7 @@ import {
     StyleSheet,
     Button
     } from 'react-native';
-import Animbutton from '../components/common/AnimButton';
+import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/test.json';
 
 
@@ -16,7 +16,6 @@ class QuestionPage extends Component {
         super(props);
         this.qno = 0;
         this.score = 0;
-        this.selectedAns= 0;
         
         // hier muss aus redux fb1 bzw fb2 xyz abgerufen
         const jdata = jsondata.fb1;
@@ -26,13 +25,16 @@ class QuestionPage extends Component {
             question: this.arrnew[this.qno].frageText,
             options: this.arrnew[this.qno].options,
             correctoption: this.arrnew[this.qno].correctAnswer,
-            categories: this.arrnew[this.qno].category
+            categories: this.arrnew[this.qno].category,
+            selectedAns: -1
         };
         /* durch redux Mitgabe von: 
         FB,score, richtig beantworte Fragen, falsch beantwortete Fragen, gehighlightete Fragen
         */
     }
     prev() {
+        // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale
+        // gegenteilig von next() später
         if (this.qno > 0) {
           this.qno--;
           this.setState({
@@ -45,9 +47,12 @@ class QuestionPage extends Component {
         }
       }
     next() {
+        // hier noch verschieden Kat. scores einfügen und übergeben
         if (this.qno < this.arrnew.length - 1) {
-            if (this.selectedAns === this.state.correctoption) {
+            // bei letzter stelle touchable text nicht next sondern result
+            if (this.state.selectedAns === this.state.correctoption) {
                 this.score += 1;
+          // hier für redux die correctAnswer,wronganswer,hightlightes übergeben
             }
             this.qno++;
             this.setState({
@@ -55,58 +60,35 @@ class QuestionPage extends Component {
                 id: this.arrnew[this.qno].id, 
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
-                correctoption: this.arrnew[this.qno].correctAnswer });
+                correctoption: this.arrnew[this.qno].correctAnswer,
+                selectedAns: -1 });
         } else {
             this.props.quizFinish(this.score);
         }
     }
     answer(ans) {
-        this.selectedAns = ans;
+        this.state.selectedAns = ans;
     } 
-    /*_answer(status, ans) { 
-        if (status === true) {
-            const count = this.state.countCheck + 1;
-            this.setState({ countCheck: count });
-            if (ans === this.state.correctoption) {
-                this.score += 1;
-            }
-        }
-    } /*
-     TO-DO 
-     1.nur ein Button clickbar machen -> vielleicht mit counCheck arbeiten? :/
-     2.bei next button neu rendern
-     3.score den Kategorien anpassen
-     4.bei zurück umgekehrt von next machen -
-     > wenn antwort falsch bleibt score gleich, bei antwort richtig wir score einen abgezogen ;) 
-    
-    */
-     render() {
-        let _this = this;
-        const currentOptions = this.state.options;
-        const options = Object.keys(currentOptions).map( function (k) {
-        return (
-                <View key={k} style={{ margin: 10 }}>
-        
-            <Animbutton countCheck={_this.state.countCheck} onColor={'green'} effect={'tada'} _onPress={() => _this.answer(k)} text={currentOptions[k]} />
+     /*
      
-          </View>
-        );
-        });
-        /*
-        const currentOptions = this.state.options;
-        const options = Object.keys(currentOptions).map(function (k) {
-            return (
-                <View key={k} style={{ margin: 10 }}>
- 
-                    <Button
-                        countCheck={this.state.countCheck} 
-                        onPress={
-                        (status) => this.answer(status, k)} 
-                        title={currentOptions[k]} 
-                    />
-                </View>);
-            });
-            */
+     1.score den Kategorien anpassen
+     2.bei zurück umgekehrt von next machen -
+     -> wenn antwort falsch bleibt score gleich, bei antwort richtig wir score einen abgezogen ;) 
+     -> außerdem muss selectAns gespeicht 
+        (am besten array mit id.lenght oder qno.lenght und dann neuen Index erstellen und so mitzählen) 
+        bei prev muss dann index.array aufgerufen werden
+        -> zudem muss radioform neu gerendert werden 
+        */
+    
+
+     render() {
+        const radioProps = [
+            { label: this.state.options.option1, value: 'option1' },
+            { label: this.state.options.option2, value: 'option2' },
+            { label: this.state.options.option3, value: 'option3' },
+            { label: this.state.options.option4, value: 'option4' },
+        ];    
+        
         return (
            <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 10 }}>
                 <View style={styles.container}>
@@ -124,12 +106,16 @@ class QuestionPage extends Component {
                         </Text>
                     </View>
                     <View>
-                        { options }
+                        <RadioForm
+                            radio_props={radioProps}
+                            initial={-1}
+                            onPress={(value) => { this.answer(value); }}
+                        />
                     </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Button
                      onPress={() => this.prev()}
-                     title="Prev"
+                     title="noch verändern"
                      color="#841584"
                     />
                 <View style={{ margin: 15 }} />                 
@@ -142,7 +128,8 @@ class QuestionPage extends Component {
                             borderRadius: 10,
                             backgroundColor: 'green' }} 
                         />
-                        <Text>Next</Text>
+                    
+                        <Text>Hier noch settext einfügen</Text>
                     </TouchableOpacity >
                     <Text>
                         {this.score}
