@@ -61,7 +61,7 @@ class QuestionPage extends Component {
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
-                selectedAns: -1 });
+                selectedAns: -1 }); // hier am besten in array schreiben
         } else {
             this.props.quizFinish(this.score);
         }
@@ -75,9 +75,8 @@ class QuestionPage extends Component {
      2.bei zurück umgekehrt von next machen -
      -> wenn antwort falsch bleibt score gleich, bei antwort richtig wir score einen abgezogen ;) 
      -> außerdem muss selectAns gespeicht 
-        (am besten array mit id.lenght oder qno.lenght und dann neuen Index erstellen und so mitzählen) 
+        (am besten array mit id.lenght und dann neuen Index erstellen und so mitzählen) 
         bei prev muss dann index.array aufgerufen werden
-        -> zudem muss radioform neu gerendert werden 
         */
     
 
@@ -107,6 +106,7 @@ class QuestionPage extends Component {
                     </View>
                     <View>
                         <RadioForm
+                            key={this.qno}
                             radio_props={radioProps}
                             initial={-1}
                             onPress={(value) => { this.answer(value); }}
