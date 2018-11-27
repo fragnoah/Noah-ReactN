@@ -2,7 +2,7 @@ import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import startPage from './components/startPage';
 import QuestionPage from './components/QuestionPage';
-import QuestionTest from './components/QuestionTest';
+import ResultPage from './components/ResultPage';
 
 
 const RouterComponent = () => {
@@ -11,7 +11,7 @@ const RouterComponent = () => {
             <Scene key="root">
                 <Scene key="startPage" component={startPage} title="start Page" initial />
                     <Scene key="QuestionPage" component={QuestionPage} title="Fragebogen" />
-                        <Scene key="QuestionTest" component={QuestionTest} title="Testbogen" /> 
+                        <Scene key="QuestionTest" component={ResultPage} title="Result" /> 
             </Scene>
         </Router>
     );
