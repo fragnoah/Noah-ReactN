@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { 
     View,
     Text,
-    TouchableOpacity,
     ScrollView,
     StyleSheet,
     Button
     } from 'react-native';
+import { connect } from 'react-redux';
+import actions from '../actions/actions';
 import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/test.json';
 
@@ -18,6 +19,7 @@ class QuestionPage extends Component {
         this.score = 0;
         
         // hier muss aus redux fb1 bzw fb2 xyz abgerufen
+        const fb=this.props.pickFb;
         const jdata = jsondata.fb1;
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
@@ -112,30 +114,28 @@ class QuestionPage extends Component {
                             onPress={(value) => { this.answer(value); }}
                         />
                     </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <Button
-                     onPress={() => this.prev()}
-                     title="noch verändern"
-                     color="#841584"
-                    />
-                <View style={{ margin: 15 }} />                 
-                    <TouchableOpacity onPress={() => this.next()} >
-                        <View 
-                            style={{ paddingTop: 5,
-                            paddingBottom: 5,
-                            paddingRight: 20,
-                            paddingLeft: 20,
-                            borderRadius: 10,
-                            backgroundColor: 'green' }} 
+                    <View style={{ flexDirection: 'row', flex: 1 }}>
+                        <Button
+                         onPress={() => this.prev()}
+                        title="noch verändern(prev)"
+                         color="#841584"
                         />
-                    
-                        <Text>Hier noch settext einfügen</Text>
-                    </TouchableOpacity >
-                    <Text>
-                        {this.score}
-                    </Text>
+                    <View style={{ margin: 15 }} />                 
+                        <Button
+                         onPress={() => this.next()}
+                        title="noch verändern(next)"
+                         color="#841584"
+                        />
+                    </View>
+                    <View>
+                        <Text color>
+                            score: {this.score}
+                        </Text>
+                        <Text>
+                            FB: {this.fb}
+                        </Text>
+                    </View>
                 </View>
-            </View>
         </ScrollView>
         );
     }
@@ -162,5 +162,10 @@ const styles = StyleSheet.create({
       marginBottom: 5,
     },
   });
-export default QuestionPage;
+const mapStateToProbs = ({ quiz }) => {
+    return { 
+        pickFb: quiz.pickFB };
+};
+
+export default connect(mapStateToProbs, actions)(QuestionPage);
 
