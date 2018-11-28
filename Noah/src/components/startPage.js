@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import actions from '../actions/actions';
+import actions from '../actions/';
 
 class startPage extends Component {
     
     
     getFb1() {
-        this.props.fb1;
-        Actions.QuestionPage();
+       // this.props.fb1;
+        Actions.quest();
     }
     getFb2() {
-        this.props.fb2;
-        Actions.QuestionPage();
+       // this.props.fb2;
+        Actions.quest();
     }
     render() {
         return (
@@ -36,8 +36,12 @@ class startPage extends Component {
         );
     }
 }
+/* Hier für redux dann
 const mapStateToProbs = ({ quiz }) => {
     return { pickFb: quiz.pickFB };
 };
 
 export default connect(mapStateToProbs, actions)(startPage);
+*/
+export default startPage;
+

@@ -7,7 +7,7 @@ import {
     Button
     } from 'react-native';
 import { connect } from 'react-redux';
-import actions from '../actions/actions';
+import actions from '../actions/Quizactions';
 import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/test.json';
 
@@ -19,7 +19,7 @@ class QuestionPage extends Component {
         this.score = 0;
         
         // hier muss aus redux fb1 bzw fb2 xyz abgerufen
-        const fb=this.props.pickFb;
+       // const fb=this.props.pickFb;
         const jdata = jsondata.fb1;
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
@@ -132,7 +132,7 @@ class QuestionPage extends Component {
                             score: {this.score}
                         </Text>
                         <Text>
-                            FB: {this.fb}
+                         abs
                         </Text>
                     </View>
                 </View>
@@ -162,10 +162,12 @@ const styles = StyleSheet.create({
       marginBottom: 5,
     },
   });
+/*  
 const mapStateToProbs = ({ quiz }) => {
     return { 
         pickFb: quiz.pickFB };
 };
 
 export default connect(mapStateToProbs, actions)(QuestionPage);
-
+*/
+export default QuestionPage;
