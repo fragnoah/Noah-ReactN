@@ -1,4 +1,4 @@
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
 import App from './src/App';
 
-AppRegistry.registerComponent('NOAH', () => App);
+AppRegistry.registerComponent('Noah', () => App);
