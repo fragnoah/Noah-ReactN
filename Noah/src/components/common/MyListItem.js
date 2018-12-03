@@ -1,10 +1,10 @@
 //import React, { Component } from 'react';
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, TouchableHighlight } from 'react-native';
 // import { Actions } from 'react-native-router-flux';
 import { CardSection } from '../common';
 
-const ListItem = (props) => {
+export const ListItem = (props) => {
     return (
             //<TouchableWithoutFeedback onPress={this}>
             <TouchableOpacity onPress={props.onPress} >
@@ -16,6 +16,21 @@ const ListItem = (props) => {
             </TouchableOpacity>
 
     );
+};
+
+export const ListRadio = (props) => { 
+  return (
+    <TouchableHighlight
+      accessible={true}
+      accessibilityLabel="Tap me!"
+      onPress={this.props.onPress}>
+        <CardSection style={styles.rowStyle}>
+          <Text style={styles.titleStyle}>
+            {props.children}
+          </Text>
+        </CardSection>
+    </TouchableHighlight>
+  );
 };
 
 /*
@@ -60,5 +75,3 @@ const styles = {
     marginRight: 5
   }
 };
-
-export { ListItem };
