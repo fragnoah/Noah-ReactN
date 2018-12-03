@@ -6,11 +6,14 @@ import {
     StyleSheet,
     Button
     } from 'react-native';
-import { connect } from 'react-redux';
-import actions from '../actions/actions';
-import RadioForm from 'react-native-simple-radio-button';
-import jsondata from '../assets/datasrc/test.json';
 
+// import { connect } from 'react-redux';
+// import actions from '../actions/Quizactions';
+import RadioForm from 'react-native-simple-radio-button';
+//import jsondata from '../assets/datasrc/test.json';
+import jsondata from '../assets/datasrc/FB1_2.json';
+//import { QCard, QImgCard } from './common/';
+import { Card, CardSection } from './common';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -19,7 +22,7 @@ class QuestionPage extends Component {
         this.score = 0;
         
         // hier muss aus redux fb1 bzw fb2 xyz abgerufen
-        const fb=this.props.pickFb;
+       // const fb=this.props.pickFb;
         const jdata = jsondata.fb1;
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
@@ -81,7 +84,6 @@ class QuestionPage extends Component {
         bei prev muss dann index.array aufgerufen werden
         */
     
-
      render() {
         const radioProps = [
             { label: this.state.options.option1, value: 'option1' },
@@ -91,52 +93,49 @@ class QuestionPage extends Component {
         ];    
         
         return (
-           <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 10 }}>
-                <View style={styles.container}>
-                    <View 
-                    style={{
-                        flex: 1,
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        alignItems: 'center' }} 
+            <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 5, marginLeft: 2, marginRight: 2 }}>
+                <Card>
+                
+                <CardSection style={{ backgroundColor: '#002D40' }}>              
+                    <Text style={styles.welcome}>
+                        {this.state.question}
+                    </Text>                
+                </CardSection>
+                
+                <CardSection>                  
+                    <RadioForm
+                        key={this.qno}
+                        radio_props={radioProps}
+                        initial={-1}
+                        onPress={(value) => { this.answer(value); }}
+                    />              
+                </CardSection>  
+                </Card> 
+                <View style={{ flexDirection: 'row', flex: 1 }}>
+                    <Button
+                     onPress={() => this.prev()}
+                    title="noch verändern(prev)"
+                     color="#841584"
                     />
-       
-                    <View style={styles.oval} >
-                        <Text style={styles.welcome}>
-                            {this.state.question}
-                        </Text>
-                    </View>
-                    <View>
-                        <RadioForm
-                            key={this.qno}
-                            radio_props={radioProps}
-                            initial={-1}
-                            onPress={(value) => { this.answer(value); }}
-                        />
-                    </View>
-                    <View style={{ flexDirection: 'row', flex: 1 }}>
-                        <Button
-                         onPress={() => this.prev()}
-                        title="noch verändern(prev)"
-                         color="#841584"
-                        />
-                    <View style={{ margin: 15 }} />                 
-                        <Button
-                         onPress={() => this.next()}
-                        title="noch verändern(next)"
-                         color="#841584"
-                        />
-                    </View>
-                    <View>
-                        <Text color>
-                            score: {this.score}
-                        </Text>
-                        <Text>
-                            FB: {this.fb}
-                        </Text>
-                    </View>
+
+                <View style={{ margin: 15 }} />                 
+                    <Button
+                     onPress={() => this.next()}
+                    title="noch verändern(next)"
+                     color="#841584"
+                    />
                 </View>
-        </ScrollView>
+
+                <View>
+                    <Text color>
+                        score: {this.score}
+                    </Text>
+                    <Text>
+                     abs
+                    </Text>
+                </View>
+            
+        </ScrollView> 
         );
     }
 }
@@ -162,10 +161,12 @@ const styles = StyleSheet.create({
       marginBottom: 5,
     },
   });
+/*
 const mapStateToProbs = ({ quiz }) => {
     return { 
         pickFb: quiz.pickFB };
 };
 
 export default connect(mapStateToProbs, actions)(QuestionPage);
-
+*/
+export default QuestionPage;

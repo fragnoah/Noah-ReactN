@@ -2,13 +2,13 @@
   "fb1": {
     "frage1": {
       "id": "1",
-      "frageText": "abs1",
+      "frageText": "ich bin eine Frage",
       "correctAnswer": "option1",
       "options": {
-        "option1": "a1",
-        "option2": "b1",
-        "option3": "c1",
-        "option4": "d1"
+        "option1": "Richtig",
+        "option2": "hallo",
+        "option3": "du",
+        "option4": "wie gehts"
       },
       "buchRef": "",
       "image": "",
