@@ -7,16 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/ios/Noah.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/ios/Noah.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/ios/Noah/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/ios/Noah/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/actions/Quizactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/actions/Quizactions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/assets/datasrc/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/assets/datasrc/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noah/src/components/LearnMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/LearnMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noah/src/components/QuestionPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/QuestionPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/common/MyListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/common/MyListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/common/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/common/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noah/src/components/common/CardSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/common/CardSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noah/src/components/common/commonStyles.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -133,11 +127,11 @@
   <component name="ToolWindowManager">
     <frame x="626" y="0" width="1249" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.49876136" visible="true" weight="0.32896176" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.4979356" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50123864" side_tool="true" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5020644" side_tool="true" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49876136" weight="0.32896176" />

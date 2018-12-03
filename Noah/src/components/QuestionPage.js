@@ -13,6 +13,7 @@ import RadioForm from 'react-native-simple-radio-button';
 //import jsondata from '../assets/datasrc/test.json';
 import jsondata from '../assets/datasrc/FB1_2.json';
 //import { QCard, QImgCard } from './common/';
+import { Card, CardSection } from './common';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -95,31 +96,24 @@ class QuestionPage extends Component {
         ];    
         
         return (
-            <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 10 }}>
-            <View style={styles.container}>
-                <View 
-                style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    alignItems: 'center' }} 
-                />
-               
-                <View style={styles.oval} >
+            <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 5, marginLeft: 2, marginRight: 2 }}>
+                <Card>
+                
+                <CardSection style={{ backgroundColor: '#002D40' }}>              
                     <Text style={styles.welcome}>
                         {this.state.question}
-                    </Text>
-                </View>
-
-                <View>
+                    </Text>                
+                </CardSection>
+                
+                <CardSection>                  
                     <RadioForm
                         key={this.qno}
                         radio_props={radioProps}
                         initial={-1}
                         onPress={(value) => { this.answer(value); }}
-                    />
-                </View>
-
+                    />              
+                </CardSection>  
+                </Card> 
                 <View style={{ flexDirection: 'row', flex: 1 }}>
                     <Button
                      onPress={() => this.prev()}
@@ -143,7 +137,7 @@ class QuestionPage extends Component {
                      abs
                     </Text>
                 </View>
-            </View>
+            
         </ScrollView> 
         );
     }

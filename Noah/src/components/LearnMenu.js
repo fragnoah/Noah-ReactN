@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { ListItem } from './common/MyListItem';
-import CardQuestion from './CardQuestion';
 
 class LearnMenu extends Component {
     render() {
@@ -13,8 +12,6 @@ class LearnMenu extends Component {
                 <ListItem children="Kapitel 2" />
                 <ListItem children="Kapitel 3" />
 
-                
-                <CardQuestion question={q} />
             </ScrollView>
         );
     }
