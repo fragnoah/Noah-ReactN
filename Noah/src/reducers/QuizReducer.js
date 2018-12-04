@@ -1,4 +1,4 @@
-
+/*
 const QuizReducer = (state = { pickFb: 0 }, action) => {
     switch (action.type) {
         case 'fb1': return { pickFb: state.pickFb = 'fb1' };
@@ -6,4 +6,11 @@ const QuizReducer = (state = { pickFb: 0 }, action) => {
         default: return state;
     }
   }
+
 export default QuizReducer;
+*/
+export default (state, action) => {
+    console.log(action);
+    return null;
+};
+

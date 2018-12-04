@@ -14,6 +14,8 @@ import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
 //import { QCard, QImgCard } from './common/';
 import { Card, CardSection } from './common';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -93,7 +95,14 @@ class QuestionPage extends Component {
         ];    
         
         return (
-            <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 5, marginLeft: 2, marginRight: 2 }}>
+            <ScrollView
+            style={{ 
+                backgroundColor: '#F5FCFF',
+                paddingTop: 5,
+                marginLeft: 2,
+                marginRight: 2 
+            }}
+            >
                 <Card>
                 
                 <CardSection style={{ backgroundColor: '#002D40' }}>              
@@ -131,7 +140,9 @@ class QuestionPage extends Component {
                         score: {this.score}
                     </Text>
                     <Text>
-                     abs
+                      fragebogen: {this.select_fb}
+                    {console.log(this.props)}
+                      
                     </Text>
                 </View>
             
@@ -169,4 +180,4 @@ const mapStateToProbs = ({ quiz }) => {
 
 export default connect(mapStateToProbs, actions)(QuestionPage);
 */
-export default QuestionPage;
+export default connect(null, actions)(QuestionPage);

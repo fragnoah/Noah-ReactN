@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableWithoutFeedback } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import actions from '../actions/';
+import * as actions from '../actions';
 
 class startPage extends Component {
     
-    
+ 
     getFb1() {
-     //   this.props.fb1;
+     //   scheint erstmal zu funktionieren
+        const fb = 'fb1';
+        this.props.selectFb(fb);
         Actions.quest();
     }
     getFb2() {
@@ -17,7 +19,15 @@ class startPage extends Component {
     }
     render() {
         return (
-            <View>
+           
+                <TouchableWithoutFeedback
+                    onPress={() => this.getFb1()}
+                >
+                    <View>
+                        <Text> Test, Redux, Fragebogen 1</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+          /*  <View>
                 <Text>
                 Start Seite. 
                 Nachfolgende Szene ist die QuestionPage für ein Fragebogen
@@ -32,7 +42,11 @@ class startPage extends Component {
                 title="Fragebogen 2"
                 color="#841584"
                 />
-        </View>
+                <Text>
+                    abc 
+                </Text>
+            </View>
+        */
         );
     }
 }
@@ -43,5 +57,5 @@ const mapStateToProbs = ({ quiz }) => {
 
 export default connect(mapStateToProbs, actions)(startPage);
 */
-export default startPage;
+export default connect(null, actions)(startPage);
 
