@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListRadio } from './common/MyListItem';
-import { addOrRemove } from '../utils/objectArray';
+import { ListRadio } from '../common/MyListItem';
+import { addOrRemove } from '../../utils/objectArray';
 
 
 export default class TagsView extends React.Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import React from 'react';
 import { ScrollView } from 'react-native';
-import { ListItem } from './common/MyListItem';
+import { ListItem } from '../common/MyListItem';
 
 class Quest extends Component {
 //const Quest = (props) => {

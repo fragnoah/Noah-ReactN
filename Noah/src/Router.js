@@ -6,6 +6,7 @@ import LearnMenu from './components/LearnMenu';
 import QuestionPage from './components/QuestionPage';
 import Result from './components/Result';
 import startPage from './components/startPage';
+import { toResult } from './actions';
 
 const RouterComponent = () => {
     return (
@@ -17,8 +18,10 @@ const RouterComponent = () => {
 
                 <Scene 
                     key="quest" 
-                    title="Prüfung" 
-                    component={QuestionPage} 
+                    title="Prüfung"
+                    rightTitle="Check"
+                    onRight={toResult} 
+                    component={QuestionPage}                     
                 />
                 <Scene key="result" title="Ergebnis" component={Result} />
             </Scene>

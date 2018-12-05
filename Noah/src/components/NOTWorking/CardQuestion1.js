@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 //import { connect } from 'react-redux';
-import { Card, Cardsection } from './common';
+import { Card, Cardsection } from '../common';
 //import { choiceUpdate } from '../actions';
  
 
