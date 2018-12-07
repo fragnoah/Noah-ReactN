@@ -9,8 +9,12 @@ const QuizReducer = (state = { pickFb: 0 }, action) => {
 
 export default QuizReducer;
 */
-export default (state, action) => {
-    console.log(action);
-    return null;
+export default (state = null, action) => {
+    switch (action.type) {
+        case 'select_fb':
+            return action.payload;
+        default:
+            return state;
+    }
 };
 

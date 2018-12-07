@@ -25,7 +25,7 @@ class QuestionPage extends Component {
         
         // hier muss aus redux fb1 bzw fb2 xyz abgerufen
        // const fb=this.props.pickFb;
-        const jdata = jsondata.fb1;
+        const jdata = jsondata[this.props.selectedFragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
             id: this.arrnew[this.qno].id,
@@ -140,9 +140,8 @@ class QuestionPage extends Component {
                         score: {this.score}
                     </Text>
                     <Text>
-                      fragebogen: {this.select_fb}
-                    {console.log(this.props)}
-                      
+                     {console.log(this.props)}
+                     Fragebogen: {this.props.selectedFragebogen}
                     </Text>
                 </View>
             
@@ -180,4 +179,9 @@ const mapStateToProbs = ({ quiz }) => {
 
 export default connect(mapStateToProbs, actions)(QuestionPage);
 */
-export default connect(null, actions)(QuestionPage);
+
+const mapStateToProbs = state => {
+    return { selectedFragebogen: state.selectedFb };
+};
+
+export default connect(mapStateToProbs, actions)(QuestionPage);
