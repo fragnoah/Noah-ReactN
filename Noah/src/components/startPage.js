@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import actions from '../actions/';
+import * as actions from '../actions';
 
 class startPage extends Component {
     
-    
+ 
     getFb1() {
-       // this.props.fb1;
+        const fb = 'fb1';
+        this.props.selectFb(fb);
         Actions.quest();
     }
     getFb2() {
-       // this.props.fb2;
+        const fb = 'fb2';
+        this.props.selectFb(fb);
         Actions.quest();
     }
     render() {
         return (
             <View>
                 <Text>
-                Start Seite. 
-                Nachfolgende Szene ist die QuestionPage für ein Fragebogen
+                    Start Seite. 
+                    Nachfolgende Szene ist die QuestionPage für ein Fragebogen
                 </Text>
                 <Button
                 onPress={() => this.getFb1()}
@@ -32,16 +34,17 @@ class startPage extends Component {
                 title="Fragebogen 2"
                 color="#841584"
                 />
-        </View>
+                <Text>
+                    abc
+                    {console.log(this.props)}
+                </Text>
+            </View>
         );
     }
 }
-/* Hier für redux dann
-const mapStateToProbs = ({ quiz }) => {
-    return { pickFb: quiz.pickFB };
+const mapStateToProbs = state => {
+    return { quiz: state.selectedFb };
 };
 
 export default connect(mapStateToProbs, actions)(startPage);
-*/
-export default startPage;
 

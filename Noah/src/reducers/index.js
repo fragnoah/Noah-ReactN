@@ -4,9 +4,7 @@ import QuestionPoolReducer from './QuestionPoolReducer';
 import QuestionSolveReducer from './QuestionSolveReducer';
 
 export default combineReducers({
-    quiz: QuizReducer,
+    selectedFb: QuizReducer,
     pool: QuestionPoolReducer,
     solveSelectedQuestionID: QuestionSolveReducer
 });
-
-// im quizreducer lassen sich vermutlich erstmal alle Funktionen abbilden
