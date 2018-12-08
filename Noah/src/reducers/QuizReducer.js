@@ -1,18 +1,19 @@
-/*
-const QuizReducer = (state = { pickFb: 0 }, action) => {
-    switch (action.type) {
-        case 'fb1': return { pickFb: state.pickFb = 'fb1' };
-        case 'fb2': return { pickFb: state.pickFb = 'fb2' };
-        default: return state;
-    }
-  }
+const initalstate = {
+    arr: [],
+    fragebogen: ''
+};
 
-export default QuizReducer;
-*/
-export default (state = null, action) => {
+export default (state = initalstate, action) => {
     switch (action.type) {
         case 'select_fb':
-            return action.payload;
+           return { ...state, fragebogen: action.payload };
+        case 'select_answer': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                arr: [...state.arr, newItem]
+            };
+        }
         default:
             return state;
     }

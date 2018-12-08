@@ -25,7 +25,7 @@ class QuestionPage extends Component {
         
         // hier muss aus redux fb1 bzw fb2 xyz abgerufen
        // const fb=this.props.pickFb;
-        const jdata = jsondata[this.props.selectedFragebogen];
+        const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
             id: this.arrnew[this.qno].id,
@@ -54,6 +54,14 @@ class QuestionPage extends Component {
         }
       }
     next() {
+        const antwort = this.state.selectedAns;
+        if (this.props.quiz.arr[this.qno] === undefined) {
+            this.props.selectAnswer(antwort);
+            console.log('item wurde hinzugefügt');
+        } else {
+            this.props.updateAnswer(antwort); //Methode fehlt noch 
+            console.log('item wurde geupdated');
+        } 
         // hier noch verschieden Kat. scores einfügen und übergeben
         if (this.qno < this.arrnew.length - 1) {
             // bei letzter stelle touchable text nicht next sondern result
@@ -68,7 +76,7 @@ class QuestionPage extends Component {
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
-                selectedAns: -1 }); // hier am besten in array schreiben
+                selectedAns: -1 });
         } else {
             this.props.quizFinish(this.score);
         }
@@ -92,8 +100,29 @@ class QuestionPage extends Component {
             { label: this.state.options.option2, value: 'option2' },
             { label: this.state.options.option3, value: 'option3' },
             { label: this.state.options.option4, value: 'option4' },
-        ];    
-        
+        ];
+        /*
+        let init = this.props.quiz.arr[this.qno];
+        if (this.props.quiz.arr[this.qno] === null) {
+           init = -1;
+        }*/
+        let init = null;
+        switch (this.props.quiz.arr[this.qno]) {
+            case 'option1':
+                init = 0;
+            break;
+            case 'option2':
+                init = 1;
+            break;
+            case 'option3':
+                init = 2;
+            break;
+            case 'option4':
+                init = 3;
+            break;
+            default:
+                init = -1;
+        }
         return (
             <ScrollView
             style={{ 
@@ -115,7 +144,7 @@ class QuestionPage extends Component {
                     <RadioForm
                         key={this.qno}
                         radio_props={radioProps}
-                        initial={-1}
+                        initial={init}
                         onPress={(value) => { this.answer(value); }}
                     />              
                 </CardSection>  
@@ -141,7 +170,10 @@ class QuestionPage extends Component {
                     </Text>
                     <Text>
                      {console.log(this.props)}
-                     Fragebogen: {this.props.selectedFragebogen}
+                     Fragebogen: {this.props.quiz.fragebogen}
+                    </Text>
+                    <Text>
+                        Qno: {this.qno}
                     </Text>
                 </View>
             
@@ -181,7 +213,9 @@ export default connect(mapStateToProbs, actions)(QuestionPage);
 */
 
 const mapStateToProbs = state => {
-    return { selectedFragebogen: state.selectedFb };
+    return { quiz: state.selectedFb
+    //selectedAntwort: state.selectedAntwort
+    };
 };
 
 export default connect(mapStateToProbs, actions)(QuestionPage);

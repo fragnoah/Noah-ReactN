@@ -35,14 +35,15 @@ class startPage extends Component {
                 color="#841584"
                 />
                 <Text>
-                    abc 
+                    abc
+                    {console.log(this.props)}
                 </Text>
             </View>
         );
     }
 }
 const mapStateToProbs = state => {
-    return { selectedFragebogen: state.selectedFb };
+    return { quiz: state.selectedFb };
 };
 
 export default connect(mapStateToProbs, actions)(startPage);

@@ -8,3 +8,10 @@ export const selectFb = (fb) => {
       payload: fb
     };
 };
+
+export const selectAnswer = (antwort) => {
+  return {
+    type: 'select_answer',
+    payload: antwort
+  };
+};
