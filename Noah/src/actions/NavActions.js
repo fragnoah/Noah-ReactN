@@ -21,6 +21,24 @@ export const toResult = () => {
   Actions.quest();
 };
 
+export const toLearnBasicQuestions = () => {
+  //console.log(testNumber);
+  //Actions.quest({ Testnumber: testNumber });
+  Actions.learnbasic();
+};
+
+export const toLearnBinnenQuestions = () => {
+  //console.log(testNumber);
+  //Actions.quest({ Testnumber: testNumber });
+  Actions.learnbinnen();
+};
+
+export const toLearnSegelQuestions = () => {
+  //console.log(testNumber);
+  //Actions.quest({ Testnumber: testNumber });
+  Actions.learnsegel();
+};
+
 /*
 export const employeeUpdate = ({ prop, value }) => {
   return {

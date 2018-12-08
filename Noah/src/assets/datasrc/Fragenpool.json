@@ -1,5 +1,5 @@
-{
-  "frage7": {
+[
+	{
     "id": "7",
     "frageText": "Welches Signal führt ein Fahrzeug unter Segel, das als Maschinenfahrzeug gilt, zusätzlich am Tage?",
     "correctAnswer": "option1",
@@ -17,7 +17,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage8": {
+  {
     "id": "8",
     "frageText": "Welche Seite wird als Luvseite bezeichnet?",
     "correctAnswer": "option2",
@@ -35,7 +35,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage15": {
+  {
     "id": "15",
     "frageText": "Zwei Motorboote nähern sich auf kreuzenden Kursen. Es besteht die Gefahr eines Zusammenstoßes. Wer ist ausweichpflichtig?",
     "correctAnswer": "option4",
@@ -53,7 +53,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage16": {
+  {
     "id": "16",
     "frageText": "Welche Bedeutung hat folgendes Schallsignal: (• — • — • — • — • —)",
     "correctAnswer": "option1",
@@ -71,7 +71,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage17": {
+  {
     "id": "17",
     "frageText": "3.Welche Bedeutung hat folgendes Tafelzeichen?",
     "correctAnswer": "option2",
@@ -89,7 +89,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage27": {
+  {
     "id": "27",
     "frageText": "Welche Bedeutung hat folgendes Tafelzeichen?",
     "correctAnswer": "option3",
@@ -107,7 +107,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage32": {
+  {
     "id": "32",
     "frageText": "Wie kann mitgeholfen werden, die Lebensmöglichkeiten der Pflanzen- und Tierwelt in Gewässern und Feuchtgebieten zu bewahren und zu fördern?",
     "correctAnswer": "option1",
@@ -125,7 +125,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage39": {
+  {
     "id": "39",
     "frageText": "Woran kann man erkennen, ob der Anker hält?",
     "correctAnswer": "option4",
@@ -143,7 +143,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage47": {
+  {
     "id": "47",
     "frageText": "Weshalb ist die Kenntnis der Propellerdrehrichtung von Bedeutung?",
     "correctAnswer": "option4",
@@ -161,7 +161,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage48": {
+  {
     "id": "48",
     "frageText": "Welche Anlegeseite ist mit rechtsdrehendem Propeller empfehlenswert und warum?",
     "correctAnswer": "option1",
@@ -179,7 +179,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage60": {
+  {
     "id": "60",
     "frageText": "Welche Vorkehrungen sind für das längere Verlassen des Fahrzeugs zu treffen?",
     "correctAnswer": "option2",
@@ -197,7 +197,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage63": {
+  {
     "id": "63",
     "frageText": "Warum sind die Flüssiggase Propan und Butan an Bord besonders gefährlich?",
     "correctAnswer": "option2",
@@ -215,7 +215,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage67": {
+  {
     "id": "67",
     "frageText": "Wie oft muss man aufblasbare Rettungsmittel warten lassen?",
     "correctAnswer": "option2",
@@ -233,7 +233,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage71": {
+  {
     "id": "71",
     "frageText": "Welche Faktoren sind hauptsächlich für das Wettergeschehen, also für Wind und Niederschläge, ausschlaggebend?",
     "correctAnswer": "option2",
@@ -251,7 +251,7 @@
     "category": "Basis",
     "solve": ""
   },
-  "frage78": {
+  {
     "id": "78",
     "frageText": "Welche Sicherheitsmaßnahmen hat der Fahrzeugführer im Rahmen seiner seemännischen Sorgfaltspflicht vor Fahrtantritt zum Schutze und für die Sicherheit der Personen an Bord zu treffen?",
     "correctAnswer": "option3",
@@ -269,7 +269,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage79": {
+  {
     "id": "79",
     "frageText": "Was bedeutet das ?Manöver des letzten Augenblicks??",
     "correctAnswer": "option2",
@@ -287,7 +287,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage88": {
+  {
     "id": "88",
     "frageText": "Wie sind Verkehrstrennungsgebiete zu befahren?",
     "correctAnswer": "option3",
@@ -305,7 +305,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage89": {
+  {
     "id": "89",
     "frageText": "Was bedeutet ?in Sicht befindlich??",
     "correctAnswer": "option1",
@@ -323,7 +323,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage92": {
+  {
     "id": "92",
     "frageText": "Welches Fahrzeug muss diese Lichter führen?",
     "correctAnswer": "option4",
@@ -341,7 +341,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage93": {
+  {
     "id": "93",
     "frageText": "Welches Fahrzeug führt diese Lichter? -",
     "correctAnswer": "option3",
@@ -359,7 +359,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage100": {
+  {
     "id": "100",
     "frageText": "Welche Lichter führen manövrierunfähige Fahrzeuge von 12 und mehr Meter Länge in Fahrt, ohne Fahrt durch das Wasser?",
     "correctAnswer": "option1",
@@ -377,7 +377,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage106": {
+  {
     "id": "106",
     "frageText": "Welches Fahrzeug führt diese Signalkörper?",
     "correctAnswer": "option3",
@@ -395,7 +395,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage118": {
+  {
     "id": "118",
     "frageText": "Welche Fahrzeuge geben bei verminderter Sicht mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz (— • •)?",
     "correctAnswer": "option4",
@@ -413,7 +413,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage122": {
+  {
     "id": "122",
     "frageText": "Welches Fahrzeug gibt bei verminderter Sicht mindestens jede Minute etwa 5 Sekunden lang rasches Läuten der Glocke?",
     "correctAnswer": "option1",
@@ -431,7 +431,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage124": {
+  {
     "id": "124",
     "frageText": "Welches zusätzliche Schallsignal darf jeder Ankerlieger bei verminderter Sicht geben, um einem sich nähernden Fahrzeug seinen Standort anzuzeigen?",
     "correctAnswer": "option2",
@@ -449,7 +449,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage132": {
+  {
     "id": "132",
     "frageText": "Wie hat sich ein Segelfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen fischenden Fahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht? ",
     "correctAnswer": "option3",
@@ -467,7 +467,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage134": {
+  {
     "id": "134",
     "frageText": "Wie muss man sich gegenüber diesem Fahrzeug verhalten?",
     "correctAnswer": "option2",
@@ -485,7 +485,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage139": {
+  {
     "id": "139",
     "frageText": "Wie verhält man sich als Kurshalter, wenn man feststellt, dass ein anderes Fahrzeug seiner Ausweichpflicht nicht nachkommt und die Gefahr einer unmittelbaren Kollision bevorsteht?",
     "correctAnswer": "option2",
@@ -503,7 +503,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage140": {
+  {
     "id": "140",
     "frageText": "Welche Bedeutung hat folgendes Schallsignal: (mindestens • • • • •)?",
     "correctAnswer": "option2",
@@ -521,7 +521,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage147": {
+  {
     "id": "147",
     "frageText": "Wie haben sich Fahrzeuge von weniger als 20 m Länge oder Segelfahrzeuge in Verkehrstrennungsgebieten zu verhalten?",
     "correctAnswer": "option2",
@@ -539,7 +539,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage150": {
+  {
     "id": "150",
     "frageText": "Was ist das für ein Fahrzeug und was ist zu beachten?",
     "correctAnswer": "option3",
@@ -557,7 +557,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage152": {
+  {
     "id": "152",
     "frageText": "Wo ist festgelegt, welche Wasserflächen Seeschifffahrtsstraßen sind?",
     "correctAnswer": "option3",
@@ -575,7 +575,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage157": {
+  {
     "id": "157",
     "frageText": "Welches ist ? außer in Wattgebieten ? die Steuerbordseite eines Fahrwassers?",
     "correctAnswer": "option3",
@@ -593,7 +593,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage158": {
+  {
     "id": "158",
     "frageText": "Welche verkehrsrechtliche Verpflichtung hat ein Fahrzeugführer nach � 3 der Seeschifffahrtsstraßen-Ordnung (SeeSchStrO), dessen Fahrzeug mit einer UKW-Funkanlage ausgerüstet ist?",
     "correctAnswer": "option1",
@@ -611,7 +611,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage159": {
+  {
     "id": "159",
     "frageText": "Welches Licht muss ein Fahrzeug unter Segel von weniger als 12 m Länge oder ein Fahrzeug unter Ruder auf der Seeschifffahrtsstraße führen, wenn es die nach den Kollisionsverhütungsregeln (KVR) vorgeschriebenen Lichter nicht führen kann?",
     "correctAnswer": "option3",
@@ -629,7 +629,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage166": {
+  {
     "id": "166",
     "frageText": "Wie haben Segelfahrzeuge im Fahrwasser, die nicht deutlich der Richtung eines Fahrwassers folgen, untereinander auszuweichen?",
     "correctAnswer": "option2",
@@ -647,7 +647,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage167": {
+  {
     "id": "167",
     "frageText": "Welche Ausweichregeln gelten außerhalb des Fahrwassers?",
     "correctAnswer": "option2",
@@ -665,7 +665,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage171": {
+  {
     "id": "171",
     "frageText": "Wo ist das Ankern verboten?",
     "correctAnswer": "option1",
@@ -683,7 +683,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage176": {
+  {
     "id": "176",
     "frageText": "Welche Bedeutung hat folgendes Tafelzeichen?",
     "correctAnswer": "option2",
@@ -701,7 +701,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage177": {
+  {
     "id": "177",
     "frageText": "Welche Bedeutung haben folgende Sichtzeichen?",
     "correctAnswer": "option3",
@@ -719,7 +719,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage181": {
+  {
     "id": "181",
     "frageText": "Welche Höchstgeschwindigkeit darf vor Stellen mit erkennbarem Badebetrieb ? außerhalb des Fahrwassers ? in einem Abstand von 500 m und weniger vom Ufer nicht überschritten werden?",
     "correctAnswer": "option4",
@@ -737,7 +737,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage182": {
+  {
     "id": "182",
     "frageText": "Welche Bedeutung hat folgendes Schifffahrtszeichen?",
     "correctAnswer": "option4",
@@ -755,7 +755,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage187": {
+  {
     "id": "187",
     "frageText": "Welche Bedeutung haben folgende Sichtzeichen?",
     "correctAnswer": "option4",
@@ -773,7 +773,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage194": {
+  {
     "id": "194",
     "frageText": "Welche Bedeutung hat folgende(s) Tonne/Schifffahrtszeichen ?",
     "correctAnswer": "option2",
@@ -791,7 +791,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage197": {
+ {
     "id": "197",
     "frageText": "Welche Bedeutung hat folgende Kennung:?Oc (2) R. Whis.??",
     "correctAnswer": "option2",
@@ -809,7 +809,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage202": {
+  {
     "id": "202",
     "frageText": "Welche Bedeutung hat folgendes Schifffahrtszeichen? ",
     "correctAnswer": "option1",
@@ -827,7 +827,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage207": {
+  {
     "id": "207",
     "frageText": "Welche Bedeutung hat das Feuer einer Leuchttonne mit folgender Kennung? oder",
     "correctAnswer": "option3",
@@ -845,7 +845,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage209": {
+  {
     "id": "209",
     "frageText": "Welche Bedeutung hat das Feuer einer Leuchttonne mit folgender Kennung: Fl. (2)?",
     "correctAnswer": "option3",
@@ -863,7 +863,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage214": {
+  {
     "id": "214",
     "frageText": "Wie navigiert man mittels eines Quermarkenfeuers?",
     "correctAnswer": "option1",
@@ -881,7 +881,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage216": {
+  {
     "id": "216",
     "frageText": "Wo findet man die Grenzen der Naturschutzgebiete auf See?",
     "correctAnswer": "option4",
@@ -899,7 +899,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage218": {
+  {
     "id": "218",
     "frageText": "Weshalb sollte das Anlaufen von Seehundbänken im Bereich der Watten vermieden werden?",
     "correctAnswer": "option2",
@@ -917,7 +917,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage224": {
+  {
     "id": "224",
     "frageText": "Was versteht man unter der Wiederkehr eines Leuchtfeuers?",
     "correctAnswer": "option1",
@@ -935,7 +935,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage232": {
+  {
     "id": "232",
     "frageText": "Welche Angaben enthalten die Nachrichten für Seefahrer (NfS) und die Bekanntmachungen für Seefahrer (BfS)?",
     "correctAnswer": "option3",
@@ -953,7 +953,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage235": {
+  {
     "id": "235",
     "frageText": "Wovon sollte man sich vor Gebrauch einer Seekarte überzeugen?",
     "correctAnswer": "option3",
@@ -971,7 +971,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage243": {
+  {
     "id": "243",
     "frageText": "Was versteht man in der terrestrischen Navigation unter einer Peilung?",
     "correctAnswer": "option1",
@@ -989,7 +989,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage252": {
+  {
     "id": "252",
     "frageText": "Was versteht man unter einem Niedrigwasser?",
     "correctAnswer": "option4",
@@ -1007,7 +1007,7 @@
     "category": "Segeln",
     "solve": ""
   },
-  "frage253": {
+  {
     "id": "253",
     "frageText": "Was versteht man unter einem Hochwasser?",
     "correctAnswer": "option4",
@@ -1025,7 +1025,7 @@
     "category": "Binnen",
     "solve": ""
   },
-  "frage265": {
+  {
     "id": "265",
     "frageText": "Was zeigt die folgende Abbildung? ",
     "correctAnswer": "option1",
@@ -1043,7 +1043,7 @@
     "category": "Segeln",
     "solve": ""
   },
-  "frage271": {
+  {
     "id": "271",
     "frageText": "Wie hat man seine Fahrweise im Fahrwasser bei verminderter Sicht aufgrund seemännischer Sorgfaltspflicht einzurichten, wenn das Fahrzeug nicht über die technische Ausrüstung, insbesondere zur Ortung anderer Fahrzeuge, verfügt?",
     "correctAnswer": "option1",
@@ -1061,7 +1061,7 @@
     "category": "Segeln",
     "solve": ""
   },
-  "frage279": {
+  {
     "id": "279",
     "frageText": "Welche Notsignale können gegeben werden?",
     "correctAnswer": "option1",
@@ -1079,4 +1079,4 @@
     "category": "Segeln",
     "solve": ""
   }
-}
+]

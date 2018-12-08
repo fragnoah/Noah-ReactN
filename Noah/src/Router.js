@@ -6,6 +6,9 @@ import LearnMenu from './components/LearnMenu';
 import QuestionPage from './components/QuestionPage';
 import Result from './components/Result';
 import startPage from './components/startPage';
+import learnbasic from './components/LearnBasic';
+import learnbinnen from './components/LearnBinnen';
+import learnsegel from './components/LearnSegel';
 import { toResult } from './actions';
 
 const RouterComponent = () => {
@@ -24,6 +27,9 @@ const RouterComponent = () => {
                     component={QuestionPage}                     
                 />
                 <Scene key="result" title="Ergebnis" component={Result} />
+                <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
+                <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
+                <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
             </Scene>
              
         </Router>

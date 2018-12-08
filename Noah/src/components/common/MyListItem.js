@@ -23,7 +23,8 @@ export const ListRadio = (props) => {
     <TouchableHighlight
       accessible={true}
       accessibilityLabel="Tap me!"
-      onPress={this.props.onPress}>
+      onPress={this.props.onPress}
+    >
         <CardSection style={styles.rowStyle}>
           <Text style={styles.titleStyle}>
             {props.children}
