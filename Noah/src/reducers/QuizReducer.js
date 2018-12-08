@@ -1,9 +1,31 @@
+import update from 'immutability-helper';
 
-const QuizReducer = (state = { pickFb: 0 }, action) => {
+const initalstate = {
+    arr: [],
+    fragebogen: ''
+};
+
+export default (state = initalstate, action) => {
     switch (action.type) {
-        case 'fb1': return { pickFb: state.pickFb = 'fb1' };
-        case 'fb2': return { pickFb: state.pickFb = 'fb2' };
-        default: return state;
+        case 'select_fb':
+           return { ...state, fragebogen: action.payload };
+        case 'select_answer': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                arr: [...state.arr, newItem]
+            };
+        }
+        case 'update_answer':
+            return update(state, { 
+                arr: { 
+                [action.index]: 
+                { $set: action.payload }
+              }
+            }
+          ); 
+        default:
+            return state;
     }
-  }
-export default QuizReducer;
+};
+

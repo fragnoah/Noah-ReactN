@@ -1,4 +1,4 @@
-import {
+/*import {
   CHOICE_UPDATE
 } from './types';
 
@@ -13,3 +13,10 @@ export const actions = {
       payload: { prop, value }
     };
   }; 
+*/
+export const selectFb = (fb) => {
+  return {
+    type: 'select_Fb',
+    payload: fb
+  };
+};
