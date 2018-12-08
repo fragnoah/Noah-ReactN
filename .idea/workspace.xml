@@ -131,7 +131,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="626" y="0" width="1249" height="1047" extended-state="0" />
+    <frame x="626" y="0" width="1249" height="1047" extended-state="1" />
     <layout>
       <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.49298102" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
