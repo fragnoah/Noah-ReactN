@@ -1,0 +1,1082 @@
+[
+	{
+    "id": "7",
+    "frageText": "Welches Signal führt ein Fahrzeug unter Segel, das als Maschinenfahrzeug gilt, zusätzlich am Tage?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Einen schwarzen Kegel, Spitze unten.",
+      "option2": "Einen schwarzen Kegel, Spitze oben.",
+      "option3": "Einen schwarzen Rhombus.",
+      "option4": "Zwei schwarze Bälle senkrecht übereinander."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "8",
+    "frageText": "Welche Seite wird als Luvseite bezeichnet?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Die Seite in Fahrtrichtung links.",
+      "option2": "Die dem Wind zugekehrte Seite.",
+      "option3": "Die dem Wind abgewandte Seite.",
+      "option4": "Die Seite in Fahrtrichtung rechts."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "15",
+    "frageText": "Zwei Motorboote nähern sich auf kreuzenden Kursen. Es besteht die Gefahr eines Zusammenstoßes. Wer ist ausweichpflichtig?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Es muss das leewärtige Fahrzeug dem luvwärtigen Fahrzeug ausweichen.",
+      "option2": "Dasjenige Fahrzeug muss ausweichen, welches das Andere an seiner Backbordseite hat.",
+      "option3": "Es muss das luvwärtige Fahrzeug dem leewärtigen Fahrzeug ausweichen.",
+      "option4": "Dasjenige Fahrzeug muss ausweichen, welches das Andere an seiner Steuerbordseite hat."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "16",
+    "frageText": "Welche Bedeutung hat folgendes Schallsignal: (• — • — • — • — • —)",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Bleib-weg-Signal, Gefahrenbereich sofort verlassen.",
+      "option2": "Manövrierbehinderter Schleppverband über 200 m Länge.",
+      "option3": "Ankerlieger über 100 m Länge.",
+      "option4": "Allgemeines Gefahr- und Warnsignal."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "17",
+    "frageText": "3.Welche Bedeutung hat folgendes Tafelzeichen?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Begegnungsverbot für Fahrzeuge über 20 m Länge.",
+      "option2": "Überholverbot.",
+      "option3": "Überholverbot für Fahrzeuge unter 20 m Länge.",
+      "option4": "Begegnungsverbot."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "27",
+    "frageText": "Welche Bedeutung hat folgendes Tafelzeichen?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Verbot der Durchfahrt, jedoch für Kleinfahrzeuge ohne laufende Antriebsmaschine befahrbar.",
+      "option2": "Verbot der Durchfahrt und Sperrung für Kleinfahrzeuge.",
+      "option3": "Verbot der Durchfahrt und Sperrung der Schifffahrt.",
+      "option4": "Verbot der Durchfahrt, jedoch für Kleinfahrzeuge ohne Antriebsmaschine befahrbar."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "32",
+    "frageText": "Wie kann mitgeholfen werden, die Lebensmöglichkeiten der Pflanzen- und Tierwelt in Gewässern und Feuchtgebieten zu bewahren und zu fördern?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Durch umweltbewusstes Verhalten und Beachtung der ?Zehn goldenen Regeln für das Verhalten von Wassersportlern in der Natur?.",
+      "option2": "Durch vorausschauendes Fahren und Ausweichen entsprechend der Verkehrsvorschriften.",
+      "option3": "Durch umweltbewusstes Verhalten und Beachtung der ?Zehn Grundregeln für den Wassersport?.",
+      "option4": "Durch umsichtiges Verhalten und Beachtung der Verkehrsvorschriften."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "39",
+    "frageText": "Woran kann man erkennen, ob der Anker hält?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Wenn Ankerkette oder -leine nicht vibrieren und sich der anliegende Magnetkompasskurs nicht verändert.",
+      "option2": "Wenn beim Handauflegen auf die Ankerkette oder -leine kein Rucken zu verspüren ist und das Fahrzeug nicht schwojt.\n",
+      "option3": "Wenn beim Handauflegen auf die Ankerkette oder -leine kein Rucken zu verspüren ist und sich die Ankerpeilung ändert.",
+      "option4": "Wenn beim Handauflegen auf die Ankerkette oder -leine kein Rucken zu verspüren ist und sich die Ankerpeilung nicht ändert."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "47",
+    "frageText": "Weshalb ist die Kenntnis der Propellerdrehrichtung von Bedeutung?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Sie hilft beim Überholen.",
+      "option2": "Sie hilft beim Kurshalten.",
+      "option3": "Sie hilft beim Begegnen.",
+      "option4": "Sie hilft beim Manövrieren."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "48",
+    "frageText": "Welche Anlegeseite ist mit rechtsdrehendem Propeller empfehlenswert und warum?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Die Backbordseite ? der Radeffekt zieht das Fahrzeug an die Pier.",
+      "option2": "Die Steuerbordseite ? der Radeffekt zieht das Fahrzeug an die Pier.",
+      "option3": "Die Steuerbord- oder Backbordseite je nach Ruderlage.",
+      "option4": "Es gibt keine empfehlenswerte Anlegeseite."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "60",
+    "frageText": "Welche Vorkehrungen sind für das längere Verlassen des Fahrzeugs zu treffen?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Fahrzeug seefest hinterlassen und den Hafenmeister verständigen.",
+      "option2": "Alle Seeventile schließen und den Hauptschalter des Bordnetzes ausschalten.",
+      "option3": "Tagestank schließen und Kraftstofffilter entwässern.",
+      "option4": "Kraftstoff- und Wassertank auffüllen und das Bordnetz aufladen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "63",
+    "frageText": "Warum sind die Flüssiggase Propan und Butan an Bord besonders gefährlich?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Beide Gase sind schwerer als Wasser und bilden mit Wasser ein explosives Gemisch.",
+      "option2": "Beide Gase sind schwerer als Luft und bilden mit Luft ein explosives Gemisch.",
+      "option3": "Beide Gase sind schwerer als Luft und bilden mit Wasser ein explosives Gemisch.",
+      "option4": "Beide Gase sind leichter als Luft und bilden mit Luft ein explosives Gemisch."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "67",
+    "frageText": "Wie oft muss man aufblasbare Rettungsmittel warten lassen?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Entsprechend der Herstellerangabe, mindestens alle 3 Jahre.",
+      "option2": "Entsprechend der Herstellerangabe, mindestens alle 2 Jahre.",
+      "option3": "Jährlich und nach jedem Einsatz oder Übungsgebrauch.",
+      "option4": "Jährlich, jeweils vor Beginn der Wassersportsaison."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "71",
+    "frageText": "Welche Faktoren sind hauptsächlich für das Wettergeschehen, also für Wind und Niederschläge, ausschlaggebend?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Luftdruckänderung, Tageszeit und Temperatur.",
+      "option2": "Luftdruckänderung, Luftfeuchtigkeit und Temperatur.",
+      "option3": "Luftdruckänderung, Luftfeuchtigkeit und Jahreszeit.",
+      "option4": "Luftdruckänderung, Sonneneinstrahlung und Höhenlage."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Basis",
+    "solve": ""
+  },
+  {
+    "id": "78",
+    "frageText": "Welche Sicherheitsmaßnahmen hat der Fahrzeugführer im Rahmen seiner seemännischen Sorgfaltspflicht vor Fahrtantritt zum Schutze und für die Sicherheit der Personen an Bord zu treffen?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Der Fahrzeugführer hat die verantwortlichen Besatzungsmitglieder über die Sicherheitsvorkehrungen an Bord zu unterrichten, in die Handhabung der Rettungs- und Feuerlöschmittel einzuweisen und auf geeignete Maßnahmen gegen das Überbordfallen hinzuweisen.",
+      "option2": "Der Fahrzeugführer muss die Besatzungsmitglieder und Gäste anweisen, dass sie sich über die Sicherheitsvorkehrungen an Bord informieren, sich die Gebrauchsanweisungen der Rettungs- und Feuerlöschmittel ansehen und auf geeignete Maßnahmen gegen das Überbordfallen achten.",
+      "option3": "Der Fahrzeugführer hat die Besatzungsmitglieder und Gäste über die Sicherheitsvorkehrungen an Bord zu unterrichten, in die Handhabung der Rettungs- und Feuerlöschmittel einzuweisen und auf geeignete Maßnahmen gegen das Überbordfallen hinzuweisen.",
+      "option4": "Der Fahrzeugführer hat die Gäste an Bord über die Sicherheitsvorkehrungen an Bord zu unterrichten, in die Handhabung der Rettungs- und Feuerlöschmittel einzuweisen und auf geeignete Maßnahmen gegen das Überbordfallen hinzuweisen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "79",
+    "frageText": "Was bedeutet das ?Manöver des letzten Augenblicks??",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Ausweichmanöver des Kurshalters oder des Ausweichpflichtigen.",
+      "option2": "Ausweichmanöver des Kurshalters.",
+      "option3": "Ausweichmanöver des Kurshalters und des Ausweichpflichtigen.",
+      "option4": "Ausweichmanöver des Ausweichpflichtigen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "88",
+    "frageText": "Wie sind Verkehrstrennungsgebiete zu befahren?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Sie dürfen jeweils nur in Fahrtrichtung links der Trennlinie oder Trennzone befahren werden.",
+      "option2": "Sie dürfen innerhalb der äußeren Trennlinien nur in einer Fahrtrichtung befahren werden.",
+      "option3": "Sie dürfen jeweils nur in der allgemeinen Verkehrsrichtung rechts der Trennlinie oder Trennzone befahren werden.",
+      "option4": "Sie dürfen nur vom Anfang bis zum Ende und jeweils nur in Fahrtrichtung rechts der Trennzone befahren werden."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "89",
+    "frageText": "Was bedeutet ?in Sicht befindlich??",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Wenn jedes Fahrzeug vom anderen optisch wahrgenommen werden kann.",
+      "option2": "Wenn jedes Fahrzeug auch bei unsichtigem Wetter optisch wahrgenommen werden kann.",
+      "option3": "Wenn jeder Fahrzeugführer vom anderen optisch wahrgenommen werden kann.",
+      "option4": "Wenn beide Fahrzeuge optisch wahrgenommen werden können."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "92",
+    "frageText": "Welches Fahrzeug muss diese Lichter führen?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Maschinenfahrzeug in Fahrt von weniger als 50 m Länge.",
+      "option2": "Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser von 50 und mehr Meter Länge.",
+      "option3": "Ein manövrierunfähiges Fahrzeug in Fahrt.",
+      "option4": "Maschinenfahrzeug in Fahrt von 50 und mehr Meter Länge."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "93",
+    "frageText": "Welches Fahrzeug führt diese Lichter? -",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser von 50 und mehr Meter Länge.",
+      "option2": "Manövrierbehinderter Schleppverband in Fahrt von mehr als 200 m Länge.",
+      "option3": "Manövrierbehinderter Schleppverband in Fahrt von 200 m Länge oder weniger.",
+      "option4": "Manövrierbehinderter Schleppverband in Fahrt von 200 m Länge oder weniger, ohne Fahrt durchs Wasser."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "100",
+    "frageText": "Welche Lichter führen manövrierunfähige Fahrzeuge von 12 und mehr Meter Länge in Fahrt, ohne Fahrt durch das Wasser?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Zwei rote Rundumlichter senkrecht übereinander.",
+      "option2": "Zwei rote Rundumlichter senkrecht übereinander und zusätzlich die Seitenlichter und das Hecklicht.",
+      "option3": "Drei rote Rundumlichter senkrecht übereinander.",
+      "option4": "Drei rote Rundumlichter senkrecht übereinander und zusätzlich die Seitenlichter und das Hecklicht."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "106",
+    "frageText": "Welches Fahrzeug führt diese Signalkörper?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Ein manövrierunfähiges Fahrzeug.",
+      "option2": "Ein fischendes Fahrzeug.",
+      "option3": "Ein Grundsitzer.",
+      "option4": "Ein manövrierbehindertes Fahrzeug."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "118",
+    "frageText": "Welche Fahrzeuge geben bei verminderter Sicht mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz (— • •)?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Segelfahrzeug in Fahrt, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker.",
+      "option2": "Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Segelfahrzeug in Fahrt, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker, ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.",
+      "option3": "Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Maschinenfahrzeug in Fahrt, das Fahrt durchs Wasser macht, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker.",
+      "option4": "Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Segelfahrzeug in Fahrt, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "122",
+    "frageText": "Welches Fahrzeug gibt bei verminderter Sicht mindestens jede Minute etwa 5 Sekunden lang rasches Läuten der Glocke?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Ein Fahrzeug vor Anker von weniger als 100 m Länge.",
+      "option2": "Ein Fahrzeug vor Anker von 100 und mehr Meter Länge.",
+      "option3": "Ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.",
+      "option4": "Ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "124",
+    "frageText": "Welches zusätzliche Schallsignal darf jeder Ankerlieger bei verminderter Sicht geben, um einem sich nähernden Fahrzeug seinen Standort anzuzeigen?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Mindestens alle zwei Minuten ein kräftiges Schallsignal, das mit den vorgeschriebenen nicht verwechselt werden kann.",
+      "option2": "Mit der Pfeife kurz, lang, kurz (• — •).",
+      "option3": "Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz (— • •).",
+      "option4": "Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, lang, kurz (— — •)."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "132",
+    "frageText": "Wie hat sich ein Segelfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen fischenden Fahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht? ",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Das Segelfahrzeug muss Kurs und Geschwindigkeit zunächst beibehalten.",
+      "option2": "Das Segelfahrzeug darf die sichere Durchfahrt nicht behindern.",
+      "option3": "Das Segelfahrzeug muss ausweichen.",
+      "option4": "Das Segelfahrzeug muss seinen Kurs nach Steuerbord ändern."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "134",
+    "frageText": "Wie muss man sich gegenüber diesem Fahrzeug verhalten?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Das Fahrzeug muss an Steuerbord passiert werden.",
+      "option2": "Die sichere Durchfahrt des Fahrzeugs darf nicht behindert werden.",
+      "option3": "Kurs und Geschwindigkeit beibehalten.",
+      "option4": "Sog und Wellenschlag vermeiden."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "139",
+    "frageText": "Wie verhält man sich als Kurshalter, wenn man feststellt, dass ein anderes Fahrzeug seiner Ausweichpflicht nicht nachkommt und die Gefahr einer unmittelbaren Kollision bevorsteht?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Man gibt mindestens fünf kurze Töne mit der Pfeife ab und reduziert die Geschwindigkeit, um Sog und Wellenschlag zu vermeiden.",
+      "option2": "Man gibt mindestens fünf kurze Töne mit der Pfeife ab und führt das ?Manöver des letzten Augenblicks? durch. Dabei ist so zu manövrieren, wie es zur Vermeidung eines Zusammenstoßes am dienlichsten ist.",
+      "option3": "Man behält Kurs und Geschwindigkeit zunächst bei und widmet dem Ausweichpflichtigen besondere Aufmerksamkeit.",
+      "option4": "Man gibt ein Schallsignal (vier kurze Töne) ab und verlangsamt die Fahrt soweit, dass die Steuerfähigkeit noch erhalten bleibt. Erforderlichenfalls ist ganz aufzustoppen. In jedem Fall ist vorsichtig zu manövrieren, bis die Gefahr eines Zusammenstoßes vorüber ist."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "140",
+    "frageText": "Welche Bedeutung hat folgendes Schallsignal: (mindestens • • • • •)?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Bleib-Weg-Signal, Explosionsgefahr durch gefährliche Güter. Sofort den Gefahrenbereich verlassen. Feuer und Zündfunken vermeiden.",
+      "option2": "Ein ausweichpflichtiges Fahrzeug wird auf seine Ausweichpflicht aufmerksam gemacht.",
+      "option3": "Seeschifffahrtsstraße gesperrt. Weiterfahrt verboten, sofort aufstoppen.",
+      "option4": "Allgemeines Gefahren- und Warnsignal."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "147",
+    "frageText": "Wie haben sich Fahrzeuge von weniger als 20 m Länge oder Segelfahrzeuge in Verkehrstrennungsgebieten zu verhalten?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Sie gelten als Kleinfahrzeuge und dürfen Verkehrstrennungsgebiete nicht befahren.",
+      "option2": "Sie dürfen die sichere Durchfahrt eines dem Einbahnweg folgenden Maschinenfahrzeugs nicht behindern.",
+      "option3": "Sie dürfen die Trennzone befahren, damit der durchgehende Verkehr nicht behindert wird.",
+      "option4": "Sie gelten als Kleinfahrzeuge und dürfen Verkehrstrennungsgebiete nur am Tage und bei guter Sicht befahren."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "150",
+    "frageText": "Was ist das für ein Fahrzeug und was ist zu beachten?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das die Schifffahrt behindert. Es ist an der Seite zu passieren, an der zwei rote Rundumlichter senkrecht übereinander angeordnet sind.",
+      "option2": "Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Steuerbordseite des Fahrwassers (Rechtsfahrgebot) zu passieren.",
+      "option3": "Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, an der zwei grüne Rundumlichter senkrecht übereinander angeordnet sind.",
+      "option4": "Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, die in Fahrtrichtung links liegt."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "152",
+    "frageText": "Wo ist festgelegt, welche Wasserflächen Seeschifffahrtsstraßen sind?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Seeschifffahrtsstraßen-Ordnung und Kollisionsverhütungsregeln.",
+      "option2": "Kollisionsverhütungsregeln und Seeaufgabengesetz.",
+      "option3": "Seeschifffahrtsstraßen-Ordnung und Schifffahrtsordnung Emsmündung.",
+      "option4": "Kollisionsverhütungsregeln und Schifffahrtsordnung Emsmündung."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "157",
+    "frageText": "Welches ist ? außer in Wattgebieten ? die Steuerbordseite eines Fahrwassers?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Es ist die Seite, auf der die Tonnen mit fortlaufenden geraden Zahlen gekennzeichnet sind.",
+      "option2": "Es ist die Seite, die ein von See kommendes Schiff an seiner Backbordseite hat.",
+      "option3": "Es ist die Seite, die ein von See kommendes Schiff an seiner Steuerbordseite hat.",
+      "option4": "Es ist die Seite, die von See kommend mit roten Tonnen bezeichnet ist."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "158",
+    "frageText": "Welche verkehrsrechtliche Verpflichtung hat ein Fahrzeugführer nach � 3 der Seeschifffahrtsstraßen-Ordnung (SeeSchStrO), dessen Fahrzeug mit einer UKW-Funkanlage ausgerüstet ist?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Er ist verpflichtet, die von der Verkehrszentrale gegebenen Verkehrsinformationen und -unterstützungen abzuhören und zu berücksichtigen.",
+      "option2": "Er ist verpflichtet, bei der Nutzung einer UKW-Funkanlage im Besitz des entsprechenden Funkzeugnisses zu sein.",
+      "option3": "Er ist verpflichtet, die Funkanlage während der Fahrt in Betrieb zu halten und alle sein Fahrzeug betreffenden Mitteilungen im Schiffslogbuch festzuhalten.",
+      "option4": "Er ist verpflichtet, bei verminderter Sicht regelmäßig seinen Schiffsnamen und seine Position der Verkehrszentrale mitzuteilen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "159",
+    "frageText": "Welches Licht muss ein Fahrzeug unter Segel von weniger als 12 m Länge oder ein Fahrzeug unter Ruder auf der Seeschifffahrtsstraße führen, wenn es die nach den Kollisionsverhütungsregeln (KVR) vorgeschriebenen Lichter nicht führen kann?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Ein rotes Rundumlicht.",
+      "option2": "Ein weißes Topplicht.",
+      "option3": "Ein weißes Rundumlicht.",
+      "option4": "Eine Dreifarbenlaterne."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "166",
+    "frageText": "Wie haben Segelfahrzeuge im Fahrwasser, die nicht deutlich der Richtung eines Fahrwassers folgen, untereinander auszuweichen?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Sie haben untereinander nach den Regeln der Schifffahrtsordnung Ems auszuweichen, wenn sie dadurch vorfahrtberechtigte Fahrzeuge nicht gefährden oder behindern.",
+      "option2": "Sie haben untereinander nach den Regeln der KVR auszuweichen, wenn sie dadurch vorfahrtberechtigte Fahrzeuge nicht gefährden oder behindern.",
+      "option3": "Sie haben untereinander nach den Regeln der Binnenschifffahrtsstraßen- Ordnung auszuweichen, wenn sie dadurch vorfahrtberechtigte Fahrzeuge nicht gefährden oder behindern.",
+      "option4": "Sie haben untereinander nach den Regeln der Seeschifffahrtsstraßen- Ordnung auszuweichen, wenn sie dadurch vorfahrtberechtigte Fahrzeuge nicht gefährden oder behindern."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "167",
+    "frageText": "Welche Ausweichregeln gelten außerhalb des Fahrwassers?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Die Regeln der Schifffahrtsordnung Emsmündung.",
+      "option2": "Die Regeln der KVR.",
+      "option3": "Die Regeln der Binnenschifffahrtsstraßen-Ordnung.",
+      "option4": "Die Regeln der Seeschifffahrtsstraßen-Ordnung."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "171",
+    "frageText": "Wo ist das Ankern verboten?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Im Fahrwasser, an Engstellen und in unübersichtlichen Krümmungen; im Umkreis von 300 m von schwimmenden Geräten, Wracks und sonstigen Schifffahrtshindernissen, Kabeltonnen und sonstigen Stellen für militärische und zivile Zwecke; vor Hafeneinfahrten, Schleusen, Anlegestellen und Sielen sowie in den Zufahrten des Nord-Ostsee-Kanals; innerhalb von Fähr- und Brückenstrecken; 300 m vor und hinter Ankerverbotszeichen.",
+      "option2": "Im Fahrwasser, an Engstellen und in unübersichtlichen Krümmungen; im Umkreis von 300 m von schwimmenden Geräten, Kabeltonnen und sonstigen Stellen für militärische und zivile Zwecke; vor Hafeneinfahrten, Schleusen, Anlegestellen und Sielen sowie in den Zufahrten des Nord-Ostsee-Kanals und in Vogelschutz- und Naturschutzgebieten sowie generell innerhalb von Nationalparks.",
+      "option3": "Im Fahrwasser, auf Seeschifffahrtsstraßen, an Engstellen und in unübersichtlichen Krümmungen; im Umkreis von 300 m von schwimmenden Geräten, Wracks und sonstigen Schifffahrtshindernissen, Kabeltonnen und sonstigen Stellen für militärische und zivile Zwecke; vor Hafeneinfahrten, Schleusen, Anlegestellen und Sielen sowie in den Zufahrten des Nord-Ostsee-Kanals; innerhalb von Fähr- und Brückenstrecken; 300 m vor und hinter Ankerverbotszeichen.",
+      "option4": "Im Fahrwasser, wenn es durch die Wasser- und Schifffahrtsdirektion bekanntgemacht worden ist. Außerhalb des Fahrwassers auf Abschnitten, die durch die Wasser- und Schifffahrtsdirektion bekanntgemacht oder durch entsprechende Sichtzeichen bezeichnet sind.\n"
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "176",
+    "frageText": "Welche Bedeutung hat folgendes Tafelzeichen?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Mindestabstand in Metern, der in der nachfolgenden Strecke vom Aufstellungsort der Tafel an eingehalten werden muss.",
+      "option2": "Die Geschwindigkeit durch das Wasser in km/h, auf dem Nord-Ostsee- Kanal (NOK) über Grund in km/h, die nicht überschritten werden darf.",
+      "option3": "Mindestabstand zu anderen Fahrzeugen in Metern, der im bekanntgemachten Streckenabschnitt nicht unterschritten werden darf.",
+      "option4": "Die Geschwindigkeit durch das Wasser in sm/h (Knoten) auf dem Nord- Ostsee-Kanal (NOK) über Grund in sm/h, die nicht überschritten werden darf."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "177",
+    "frageText": "Welche Bedeutung haben folgende Sichtzeichen?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Dauernde Sperrung einer Teilstrecke der Seeschifffahrtsstraße.",
+      "option2": "Außergewöhnliche Schifffahrtsbehinderung.",
+      "option3": "Schutzbedürftige Anlage.",
+      "option4": "Dauernde Sperrung der Seeschifffahrtsstraße."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "181",
+    "frageText": "Welche Höchstgeschwindigkeit darf vor Stellen mit erkennbarem Badebetrieb ? außerhalb des Fahrwassers ? in einem Abstand von 500 m und weniger vom Ufer nicht überschritten werden?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "4,8 Knoten.",
+      "option2": "3,8 Knoten.",
+      "option3": "3,4 Knoten.",
+      "option4": "4,3 Knoten."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "182",
+    "frageText": "Welche Bedeutung hat folgendes Schifffahrtszeichen?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Kennzeichnung von Badegebieten.",
+      "option2": "Kennzeichnung von Sperrgebieten.",
+      "option3": "Kennzeichnung von Schießgebieten.",
+      "option4": "Kennzeichnung von besonderen Gebieten und Stellen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "187",
+    "frageText": "Welche Bedeutung haben folgende Sichtzeichen?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Schutzbedürftige Anlage. Sog und Wellenschlag vermeiden.",
+      "option2": "Ende einer Gebots- oder Verbotsstrecke. Freie Weiterfahrt.",
+      "option3": "Außergewöhnliche Schifffahrtsbehinderung. Vorsichtig passieren.",
+      "option4": "Dauernde Sperrung der Seeschifffahrtsstraße. Weiterfahrt verboten."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "194",
+    "frageText": "Welche Bedeutung hat folgende(s) Tonne/Schifffahrtszeichen ?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Die Kennzeichnung eines Hindernisses im Wattfahrwasser.",
+      "option2": "Die Backbordseite des Fahrwassers.",
+      "option3": "Die Mitte eines Wattfahrwassers.",
+      "option4": "Die Steuerbordseite des Fahrwassers."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+ {
+    "id": "197",
+    "frageText": "Welche Bedeutung hat folgende Kennung:?Oc (2) R. Whis.??",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Blink (2) rot, Glockentonne.",
+      "option2": "Unterbrochen (2) rot, Heultonne.",
+      "option3": "Blitz (2) rot, Glockentonne.",
+      "option4": "Leitfeuer rot, zwei Warnsektoren."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "202",
+    "frageText": "Welche Bedeutung hat folgendes Schifffahrtszeichen? ",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Kennzeichnung einer allgemeinen Gefahrenstelle, Südquadrant.",
+      "option2": "Kennzeichnung einer allgemeinen Gefahrenstelle, Ostquadrant.",
+      "option3": "Kennzeichnung einer allgemeinen Gefahrenstelle, Westquadrant.",
+      "option4": "Kennzeichnung einer allgemeinen Gefahrenstelle, Nordquadrant."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "207",
+    "frageText": "Welche Bedeutung hat das Feuer einer Leuchttonne mit folgender Kennung? oder",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Kennzeichnung einer allgemeinen Gefahrenstelle, Südquadrant. Sie ist südlich zu passieren.",
+      "option2": "Kennzeichnung einer allgemeinen Gefahrenstelle, Nordquadrant. Sie ist nördlich zu passieren.",
+      "option3": "Kennzeichnung einer allgemeinen Gefahrenstelle, Westquadrant. Sie ist westlich zu passieren.",
+      "option4": "Kennzeichnung einer allgemeinen Gefahrenstelle, Ostquadrant. Sie ist östlich zu passieren."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "209",
+    "frageText": "Welche Bedeutung hat das Feuer einer Leuchttonne mit folgender Kennung: Fl. (2)?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Westlicher Quadrant einer allgemeinen Gefahrenstelle, die westlich passiert werden muss.",
+      "option2": "Nördlicher Quadrant einer allgemeinen Gefahrenstelle, die nördlich passiert werden muss.",
+      "option3": "Eine Einzelgefahrenstelle, die an allen Seiten passiert werden kann.",
+      "option4": "Südlicher Quadrant einer allgemeinen Gefahrenstelle, die südlich passiert werden muss."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "214",
+    "frageText": "Wie navigiert man mittels eines Quermarkenfeuers?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Beim Übergang vom Ankündigungssektor in den Kursänderungssektor die Kursänderung vornehmen.",
+      "option2": "Beim Erreichen des Ankündigungssektors Ober- und Unterfeuer in Deckung halten.",
+      "option3": "Beim Erreichen des Ankündigungssektors die Kursänderung vornehmen.",
+      "option4": "Beim Erreichen des Kursänderungssektors den Kurs beibehalten."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "216",
+    "frageText": "Wo findet man die Grenzen der Naturschutzgebiete auf See?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "In den Kollisionsverhütungsregeln.",
+      "option2": "In der Seeschifffahrtsstraßen-Ordnung.",
+      "option3": "Im Bundesnaturschutzgesetz.",
+      "option4": "In Seekarten und Sportschifffahrtskarten des Bundesamtes für Seeschifffahrt und Hydrographie."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "218",
+    "frageText": "Weshalb sollte das Anlaufen von Seehundbänken im Bereich der Watten vermieden werden?",
+    "correctAnswer": "option2",
+    "options": {
+      "option1": "Tiefenangaben zu Seehundbänken sind im Kartenwerk nicht verzeichnet.",
+      "option2": "Die Tiere sollen nicht gestört oder vertrieben werden.",
+      "option3": "Seehundbänke sind gesperrte Wasserflächen.",
+      "option4": "Im Bereich von Seehundbänken ist mit Untiefen zu rechnen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "224",
+    "frageText": "Was versteht man unter der Wiederkehr eines Leuchtfeuers?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Zeitraum vom Einsetzen der Taktkennung bis zum Einsetzen der nächsten gleichen Taktkennung.",
+      "option2": "Zeitraum vom Einsetzen der Taktkennung bis zum Ende der Taktkennung.",
+      "option3": "Dass die Karte auf den neuesten Stand berichtigt ist.",
+      "option4": "Dass die obere Kante in Nordrichtung weist."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "232",
+    "frageText": "Welche Angaben enthalten die Nachrichten für Seefahrer (NfS) und die Bekanntmachungen für Seefahrer (BfS)?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks, Untiefen sowie andere Änderungen der Seeschifffahrtstraßen- Ordnung.",
+      "option2": "Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks sowie die aktuellen Wasserstände.",
+      "option3": "Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks, Untiefen sowie andere die Schifffahrt betreffende Maßnahmen und Ereignisse.",
+      "option4": "Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks, Untiefen sowie andere die Schifffahrt betreffende meteorologische Hinweise."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "235",
+    "frageText": "Wovon sollte man sich vor Gebrauch einer Seekarte überzeugen?",
+    "correctAnswer": "option3",
+    "options": {
+      "option1": "Dass die Nummerierung mit dem Katalog übereinstimmt.",
+      "option2": "Dass die Seekarte auf mittleres Tidehochwasser bezogen ist.",
+      "option3": "Dass die Karte auf den neuesten Stand berichtigt ist.",
+      "option4": "Dass die obere Kante in Nordrichtung weist."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "243",
+    "frageText": "Was versteht man in der terrestrischen Navigation unter einer Peilung?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Das Feststellen der Richtung eines bekannten feststehenden Objektes durch Winkelmessung.",
+      "option2": "Das Feststellen der Abweichung des Steuerkompasses vom Peilkompass.",
+      "option3": "Das Feststellen der Entfernung zu einem bekannten feststehenden Objekt.",
+      "option4": "Das Feststellen des Koppelortes durch Winkelmessung."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "252",
+    "frageText": "Was versteht man unter einem Niedrigwasser?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Eintritt des höchsten Wasserstands beim Übergang vom Steigen zum Fallen.",
+      "option2": "Das Feststellen der Abweichung des Steuerkompasses vom Peilkompass.",
+      "option3": "Das Feststellen der Entfernung zu einem bekannten feststehenden Objekt.",
+      "option4": "Das Feststellen des Koppelortes durch Winkelmessung."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Segeln",
+    "solve": ""
+  },
+  {
+    "id": "253",
+    "frageText": "Was versteht man unter einem Hochwasser?",
+    "correctAnswer": "option4",
+    "options": {
+      "option1": "Fallen des Wassers nach Eintritt des höchsten Wasserstands.",
+      "option2": "Steigen des Wassers nach Eintritt des niedrigsten Wasserstands.",
+      "option3": "Eintritt des niedrigsten Wasserstands beim Übergang vom Fallen zum Steigen.",
+      "option4": "Eintritt des höchsten Wasserstands beim Übergang vom Steigen zum Fallen."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Binnen",
+    "solve": ""
+  },
+  {
+    "id": "265",
+    "frageText": "Was zeigt die folgende Abbildung? ",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Abbildung eines Hochdruckgebietes auf der Nordhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa.",
+      "option2": "Abbildung eines Hochdruckgebietes auf der Südhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa.",
+      "option3": "Abbildung eines Hochdruckgebietes auf der Nordhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa, Zugrichtung Nordwest.",
+      "option4": "Abbildung eines Hochdruckgebietes auf der Südhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa, Zugrichtung Südwest."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Segeln",
+    "solve": ""
+  },
+  {
+    "id": "271",
+    "frageText": "Wie hat man seine Fahrweise im Fahrwasser bei verminderter Sicht aufgrund seemännischer Sorgfaltspflicht einzurichten, wenn das Fahrzeug nicht über die technische Ausrüstung, insbesondere zur Ortung anderer Fahrzeuge, verfügt?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Das Fahrwasser verlassen und wenn möglich, Flachwassergebiet aufsuchen und ankern. Wenn dies nicht möglich ist, im Fahrwasser äußerst rechts halten.",
+      "option2": "Im Fahrwasser äußerst rechts halten und den nächstgelegenen Hafen oder Liegeplatz anlaufen. Im Zweifel andere Fahrzeuge nach Position und richtigem Kurs fragen.",
+      "option3": "Umsichtig, aber zügig weiterfahren, um den übrigen Verkehr nicht zu behindern. Beim Hören fremder Nebelsignale aufstoppen und abwarten, dabei fortlaufend die Wassertiefe loten.",
+      "option4": "Unverzüglich die Fahrt einstellen und ankern, wenn dies nicht möglich ist, vorsichtig weiterfahren und möglichst im Kielwasser eines vorausfahrenden Fahrzeugs halten."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Segeln",
+    "solve": ""
+  },
+  {
+    "id": "279",
+    "frageText": "Welche Notsignale können gegeben werden?",
+    "correctAnswer": "option1",
+    "options": {
+      "option1": "Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (• • • — — — • • •) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.",
+      "option2": "Leuchtrakete mit orangem Leuchtstern oder orange brennende Handfackel, rotes Rauchsignal, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (• • • — — — • • •) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.",
+      "option3": "Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (— — — • • • — — —) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal MC, EPIRB, DSC, Radartransponder.",
+      "option4": "Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (• • • — — — • • •) per Licht oder Ton, Seewasserfärber, seitliches Heben und Senken der Arme, Ball über oder unter Flaggensignal NC, EPIRB, DSC, Radartransponder."
+    },
+    "buchRef": "",
+    "image": "",
+    "lernhilfen": "",
+    "highlightWords": [],
+    "video": "",
+    "category": "Segeln",
+    "solve": ""
+  }
+]

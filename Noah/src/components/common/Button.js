@@ -31,7 +31,12 @@ const styles = {
     borderWidth: 1,
     borderColor: '#007aff',
     marginLeft: 5,
+<<<<<<< HEAD
     marginRight: 5
+=======
+    marginRight: 5,
+    marginTop: 10
+>>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
   }
 };
 

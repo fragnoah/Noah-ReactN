@@ -2,6 +2,7 @@
   "fb1": {
     "frage1": {
       "id": "1",
+<<<<<<< HEAD
       "frageText": "abs1",
       "correctAnswer": "option1",
       "options": {
@@ -9,6 +10,15 @@
         "option2": "b1",
         "option3": "c1",
         "option4": "d1"
+=======
+      "frageText": "ich bin eine Frage",
+      "correctAnswer": "option1",
+      "options": {
+        "option1": "Richtig",
+        "option2": "hallo",
+        "option3": "du",
+        "option4": "wie gehts"
+>>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
       },
       "buchRef": "",
       "image": "",

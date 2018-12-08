@@ -4,8 +4,17 @@ import { Scene, Router } from 'react-native-router-flux';
 import MainMenu from './components/MainMenu';
 import LearnMenu from './components/LearnMenu';
 import QuestionPage from './components/QuestionPage';
+<<<<<<< HEAD
 import ResultPage from './components/ResultPage';
 import startPage from './components/startPage';
+=======
+import Result from './components/Result';
+import startPage from './components/startPage';
+import learnbasic from './components/LearnBasic';
+import learnbinnen from './components/LearnBinnen';
+import learnsegel from './components/LearnSegel';
+import { toResult } from './actions';
+>>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
 
 const RouterComponent = () => {
     return (
@@ -17,10 +26,22 @@ const RouterComponent = () => {
 
                 <Scene 
                     key="quest" 
+<<<<<<< HEAD
                     title="Prüfung" 
                     component={QuestionPage} 
                 />
                 <Scene key="result" title="Ergebnis" component={ResultPage} />
+=======
+                    title="Prüfung"
+                    rightTitle="Check"
+                    onRight={toResult} 
+                    component={QuestionPage}                     
+                />
+                <Scene key="result" title="Ergebnis" component={Result} />
+                <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
+                <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
+                <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
+>>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
             </Scene>
              
         </Router>
