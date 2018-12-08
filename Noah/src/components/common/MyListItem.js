@@ -1,18 +1,10 @@
 //import React, { Component } from 'react';
 import React from 'react';
-<<<<<<< HEAD
-import { Text, TouchableOpacity } from 'react-native';
-// import { Actions } from 'react-native-router-flux';
-import { CardSection } from '../common';
-
-const ListItem = (props) => {
-=======
 import { Text, TouchableOpacity, TouchableHighlight } from 'react-native';
 // import { Actions } from 'react-native-router-flux';
 import { CardSection } from '../common';
 
 export const ListItem = (props) => {
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
     return (
             //<TouchableWithoutFeedback onPress={this}>
             <TouchableOpacity onPress={props.onPress} >
@@ -26,8 +18,6 @@ export const ListItem = (props) => {
     );
 };
 
-<<<<<<< HEAD
-=======
 export const ListRadio = (props) => { 
   return (
     <TouchableHighlight
@@ -44,7 +34,6 @@ export const ListRadio = (props) => {
   );
 };
 
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
 /*
 class ListItem { children } extends Component {
   onRowPress() {
@@ -87,8 +76,3 @@ const styles = {
     marginRight: 5
   }
 };
-<<<<<<< HEAD
-
-export { ListItem };
-=======
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e

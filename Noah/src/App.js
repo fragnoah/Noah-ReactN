@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-=======
 import SplashScreen from 'react-native-splash-screen';
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';

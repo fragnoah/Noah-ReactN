@@ -6,13 +6,6 @@ import {
     StyleSheet,
     Button
     } from 'react-native';
-<<<<<<< HEAD
-import { connect } from 'react-redux';
-import actions from '../actions/Quizactions';
-import RadioForm from 'react-native-simple-radio-button';
-import jsondata from '../assets/datasrc/test.json';
-
-=======
 
 // import { connect } from 'react-redux';
 // import actions from '../actions/Quizactions';
@@ -21,7 +14,6 @@ import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
 //import { QCard, QImgCard } from './common/';
 import { Card, CardSection } from './common';
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -74,14 +66,10 @@ class QuestionPage extends Component {
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
-<<<<<<< HEAD
-                selectedAns: -1 }); // hier am besten in array schreiben
-=======
                 selectedAns: -1,
                 image: this.arrnew[this.qno].image });  // img must be uri!!!
                 
                 // hier am besten in array schreiben
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
         } else {
             this.props.quizFinish(this.score);
         }
@@ -99,10 +87,6 @@ class QuestionPage extends Component {
         bei prev muss dann index.array aufgerufen werden
         */
     
-<<<<<<< HEAD
-
-=======
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
      render() {
         const radioProps = [
             { label: this.state.options.option1, value: 'option1' },
@@ -112,54 +96,6 @@ class QuestionPage extends Component {
         ];    
         
         return (
-<<<<<<< HEAD
-           <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 10 }}>
-                <View style={styles.container}>
-                    <View 
-                    style={{
-                        flex: 1,
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        alignItems: 'center' }} 
-                    />
-       
-                    <View style={styles.oval} >
-                        <Text style={styles.welcome}>
-                            {this.state.question}
-                        </Text>
-                    </View>
-                    <View>
-                        <RadioForm
-                            key={this.qno}
-                            radio_props={radioProps}
-                            initial={-1}
-                            onPress={(value) => { this.answer(value); }}
-                        />
-                    </View>
-                    <View style={{ flexDirection: 'row', flex: 1 }}>
-                        <Button
-                         onPress={() => this.prev()}
-                        title="noch verändern(prev)"
-                         color="#841584"
-                        />
-                    <View style={{ margin: 15 }} />                 
-                        <Button
-                         onPress={() => this.next()}
-                        title="noch verändern(next)"
-                         color="#841584"
-                        />
-                    </View>
-                    <View>
-                        <Text color>
-                            score: {this.score}
-                        </Text>
-                        <Text>
-                         abs
-                        </Text>
-                    </View>
-                </View>
-        </ScrollView>
-=======
             <ScrollView style={{ backgroundColor: '#F5FCFF', paddingTop: 5, marginLeft: 2, marginRight: 2 }}>
                 <Card>
                 
@@ -203,7 +139,6 @@ class QuestionPage extends Component {
                 </View>
             
         </ScrollView> 
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
         );
     }
 }

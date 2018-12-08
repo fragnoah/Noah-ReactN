@@ -21,8 +21,6 @@ export const toResult = () => {
   Actions.quest();
 };
 
-<<<<<<< HEAD
-=======
 export const toLearnBasicQuestions = () => {
   //console.log(testNumber);
   //Actions.quest({ Testnumber: testNumber });
@@ -41,7 +39,6 @@ export const toLearnSegelQuestions = () => {
   Actions.learnsegel();
 };
 
->>>>>>> ddbf39451b640ee054f42f7cbf2fc3e34072a99e
 /*
 export const employeeUpdate = ({ prop, value }) => {
   return {
