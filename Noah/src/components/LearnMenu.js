@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { ListItem } from './common/MyListItem';
-import { 
-    toLearnBasicQuestions, 
-    toLearnBinnenQuestions, 
-    toLearnSegelQuestions 
-        } from '../actions';
+import * as actions from '../actions';
 
 class LearnMenu extends Component {
     render() {
@@ -13,17 +9,13 @@ class LearnMenu extends Component {
         console.log(q); 
         return (
             <ScrollView>
-                <ListItem children="Kapitel 1" onPress={toLearnBasicQuestions} />
-                <ListItem children="Kapitel 2" onPress={toLearnBinnenQuestions} />
-                <ListItem children="Kapitel 3" onPress={toLearnSegelQuestions} />
+                <ListItem children="Kapitel 1" onPress={actions.toLearnBasicQuestions} />
+                <ListItem children="Kapitel 2" onPress={actions.toLearnBinnenQuestions} />
+                <ListItem children="Kapitel 3" onPress={actions.toLearnSegelQuestions} />
 
             </ScrollView>
         );
     }
 }
 
-
-/*
-
-*/
 export default LearnMenu;
