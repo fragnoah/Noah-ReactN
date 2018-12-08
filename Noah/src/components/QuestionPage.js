@@ -59,7 +59,7 @@ class QuestionPage extends Component {
             this.props.selectAnswer(antwort);
             console.log('item wurde hinzugefügt');
         } else {
-            this.props.updateAnswer(antwort); //Methode fehlt noch 
+            this.props.updateAnswer(antwort, this.qno); 
             console.log('item wurde geupdated');
         } 
         // hier noch verschieden Kat. scores einfügen und übergeben

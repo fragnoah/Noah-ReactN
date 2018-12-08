@@ -1,3 +1,5 @@
+import update from 'immutability-helper';
+
 const initalstate = {
     arr: [],
     fragebogen: ''
@@ -14,6 +16,14 @@ export default (state = initalstate, action) => {
                 arr: [...state.arr, newItem]
             };
         }
+        case 'update_answer':
+            return update(state, { 
+                arr: { 
+                [action.index]: 
+                { $set: action.payload }
+              }
+            }
+          ); 
         default:
             return state;
     }

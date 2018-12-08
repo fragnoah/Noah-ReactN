@@ -15,3 +15,11 @@ export const selectAnswer = (antwort) => {
     payload: antwort
   };
 };
+
+export const updateAnswer = (antwort, qno) => {
+  return {
+    type: 'update_answer',
+    payload: antwort,
+    index: qno
+  };
+};
