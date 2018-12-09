@@ -24,3 +24,10 @@ export const updateAnswer = (antwort, qno) => {
     index: qno
   };
 };
+
+export const resetFb = () => {
+  return {
+    type: 'reset_fb'
+  };
+};
+

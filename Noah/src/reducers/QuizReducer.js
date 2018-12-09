@@ -23,7 +23,10 @@ export default (state = initalstate, action) => {
                 { $set: action.payload }
               }
             }
-          ); 
+          );
+        case 'reset_fb': {
+            return { ...initalstate };
+        }
         default:
             return state;
     }
