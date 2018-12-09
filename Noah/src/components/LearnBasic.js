@@ -7,7 +7,7 @@ class LearnBasic extends Component {
     //render(props) {
     render() {
         return (
-            <LearnQuestionList fromID={1} toID={73} />
+            <LearnQuestionList fromID={1} toID={72} />
         );
     }
 }

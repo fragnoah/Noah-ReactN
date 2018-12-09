@@ -73,7 +73,7 @@
   },
   {
     "id": 17,
-    "frageText": "3.Welche Bedeutung hat folgendes Tafelzeichen?",
+    "frageText": "Welche Bedeutung hat folgendes Tafelzeichen?",
     "correctAnswer": "option2",
     "options": {
       "option1": "Begegnungsverbot für Fahrzeuge über 20 m Länge.",

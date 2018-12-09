@@ -9,9 +9,9 @@ class LearnMenu extends Component {
         console.log(q); 
         return (
             <ScrollView>
-                <ListItem children="Kapitel 1" onPress={actions.toLearnBasicQuestions} />
-                <ListItem children="Kapitel 2" onPress={actions.toLearnBinnenQuestions} />
-                <ListItem children="Kapitel 3" onPress={actions.toLearnSegelQuestions} />
+                <ListItem children="Basisfragen" onPress={actions.toLearnBasicQuestions} />
+                <ListItem children="Binnenfragen" onPress={actions.toLearnBinnenQuestions} />
+                <ListItem children="Segelfragen" onPress={actions.toLearnSegelQuestions} />
 
             </ScrollView>
         );

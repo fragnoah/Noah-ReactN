@@ -16,27 +16,42 @@ class LearnQuestionList extends Component {
     } else {
       this.toID = 300;
     }
-    console.log(this.fromID, this.toID);
+
+
+    //console.log(this.fromID, this.toID);
   }
 
-  renderItem(question) {
-    console.log('QuestionID: ', question.item.id);
-    console.log('FromID: ', this.fromID, this.toID);
-    if (question.item.id >= this.fromID && question.item.id <= this.toID) {
-    return <LearnQuestionItem question={question.item} />;
+  generateActualPool(){
+    if (this.props.fromID == null || this.props.toID == null) {
+      this.newPool = this.props.pool;
     } else {
-      return null;
+      const jdata = this.props.pool;
+      let tempPool = Object.keys(jdata).map(k => jdata[k]);
+      // console.log(tempPool);
+      let i;
+      let secPool = [];
+      for (i = 0; i < tempPool.length; i++) {
+        // console.log('tempPool.ID: ', tempPool[i].id);
+        if (tempPool[i].id >= this.fromID && tempPool[i].id <= this.toID) {
+          secPool.push(tempPool[i]);
+        }
+      }
+      this.newPool = secPool;
+      // console.log('newPool: ', this.newPool);
     }
   }
 
+  renderItem(question) {
+    return <LearnQuestionItem question={question.item} />;
+  }
+
   render() {
-    console.log(this.fromID, this.toID);
+    this.generateActualPool();
     return (
       <FlatList
-        data={this.props.pool}
+        data={this.newPool}
         renderItem={this.renderItem}
         keyExtractor={question => String(question.id)}
-        extraData={this.state}
       />
     );
   }
