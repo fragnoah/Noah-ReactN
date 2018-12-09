@@ -7,14 +7,13 @@ import {
     Button
     } from 'react-native';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import actions from '../actions/Quizactions';
 import RadioForm from 'react-native-simple-radio-button';
 //import jsondata from '../assets/datasrc/test.json';
 import jsondata from '../assets/datasrc/FB1_2.json';
 //import { QCard, QImgCard } from './common/';
 import { Card, CardSection } from './common';
-import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class QuestionPage extends Component {

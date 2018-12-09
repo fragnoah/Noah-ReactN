@@ -25,8 +25,7 @@ class App extends Component {
     }
 
     render() {
-        return (
-            
+        return (            
             <Provider store={createStore(reducers)}>
                 <Router />
             </Provider>
@@ -35,4 +34,3 @@ class App extends Component {
 }
 
 export default App;
-
