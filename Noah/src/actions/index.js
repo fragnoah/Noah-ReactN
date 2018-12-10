@@ -31,3 +31,15 @@ export const resetFb = () => {
   };
 };
 
+export const getBasisScore = (basisScore) => {
+  return {
+    type: 'get_BasisScore',
+    payload: basisScore
+  };
+};
+export const getSpezScore = (spezScore) => {
+  return {
+    type: 'get_SpezScore',
+    payload: spezScore
+  };
+};

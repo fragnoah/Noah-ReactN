@@ -30,32 +30,19 @@ class QuestionPage extends Component {
             correctoption: this.arrnew[this.qno].correctAnswer,
             categories: this.arrnew[this.qno].category,
             selectedAns: -1
-        };
-        /* durch redux Mitgabe von: 
-        FB,score, richtig beantworte Fragen, falsch beantwortete Fragen, gehighlightete Fragen
-        */
+        };   
     }
     prev() {
-        // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale
-        if (this.qno > 0) {
-            if (this.props.quiz.arr[this.qno] === this.state.correctoption) {
-                if (this.state.categories === 'Basis') {
-                    this.basisScore--;
-                }
-                if (this.state.categories === 'Binnen') {
-                    this.spezScore--;
-                }
-                if (this.state.categories === 'Segeln') {
-                    this.spezScore--;
-                }
-            }
-          this.qno--;
-          this.setState({
-            id: this.arrnew[this.qno].id,
-            question: this.arrnew[this.qno].frageText,
-            options: this.arrnew[this.qno].options,
-            correctoption: this.arrnew[this.qno].correctAnswer,
-            categories: this.arrnew[this.qno].category
+        // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale   
+        if (this.qno >= 1) {
+            this.qno--;       
+            this.setState({
+                id: this.arrnew[this.qno].id,
+                question: this.arrnew[this.qno].frageText,
+                options: this.arrnew[this.qno].options,
+                correctoption: this.arrnew[this.qno].correctAnswer,
+                categories: this.arrnew[this.qno].category,
+                selectedAns: this.props.quiz.arr[this.qno]
             });
         }
     }
@@ -69,42 +56,51 @@ class QuestionPage extends Component {
             this.props.updateAnswer(antwort, this.qno); 
             console.log('item wurde geupdated');
         } 
-            // bei letzter stelle touchable text nicht next sondern result
-            if (antwort === this.state.correctoption) {
-                if (this.state.categories === 'Basis') {
-                    this.basisScore++;
-                }
-                if (this.state.categories === 'Binnen') {
-                    this.spezScore++;
-                }
-                if (this.state.categories === 'Segeln') {
-                    this.spezScore++;
-                }
-          // hier für redux die correctAnswer,wronganswer,hightlightes übergeben
-            }
             this.qno++;
+            if (this.qno - 1 === this.props.quiz.arr.length) {
+                this.setState({
+                    id: this.arrnew[this.qno].id, 
+                    question: this.arrnew[this.qno].frageText,
+                    options: this.arrnew[this.qno].options,
+                    correctoption: this.arrnew[this.qno].correctAnswer,
+                    categories: this.arrnew[this.qno].category,
+                    selectedAns: -1
+                    });    
+            } else {
             this.setState({
-                countCheck: 0,
                 id: this.arrnew[this.qno].id, 
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
-                categories: this.arrnew[this.qno].category
+                categories: this.arrnew[this.qno].category,
+                selectedAns: this.props.quiz.arr[this.qno]
                 });
+            }
         } else {
+            for (var i = 0, l = this.arrnew.length; i < l; i++) {
+                if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
+                    if (this.arrnew[i].category === 'Basis') {
+                        this.basisScore++;
+                        console.log('BasisFrage richtig');
+                    }
+                    if (this.arrnew[i].category === 'Binnen') {
+                        this.spezScore++;
+                        console.log('BinnenFrage richtig');
+                    }
+                    if (this.arrnew[i].category === 'Segeln') {
+                        this.spezScore++;
+                        console.log('SegelnFrage richtig');
+                    }
+                }
+            }
+            this.props.getBasisScore(this.basisScore);
+            this.props.getSpezScore(this.spezScore);
             Actions.result();
         }
     }
     answer(ans) {
         this.state.selectedAns = ans;
     } 
-     /*
-     
-     1.score den Kategorien anpassen
-     2.bei zurück umgekehrt von next machen -
-     -> wenn antwort falsch bleibt score gleich, bei antwort richtig wir score einen abgezogen ;)
-     */
-    
      render() {
         const radioProps = [
             { label: this.state.options.option1, value: 'option1' },
