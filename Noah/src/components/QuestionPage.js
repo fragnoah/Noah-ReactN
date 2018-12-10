@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection } from './common';
-import { Actions } from 'react-native-router-flux';
 import * as actions from '../actions';
 
 class QuestionPage extends Component {
@@ -48,14 +47,14 @@ class QuestionPage extends Component {
     }
     next() {
         if (this.qno < this.arrnew.length - 1) {
-        const antwort = this.state.selectedAns;
-        if (this.props.quiz.arr[this.qno] === undefined) {
-            this.props.selectAnswer(antwort);
-            console.log('item wurde hinzugefügt');
-        } else {
-            this.props.updateAnswer(antwort, this.qno); 
-            console.log('item wurde geupdated');
-        } 
+            const antwort = this.state.selectedAns;
+            if (this.props.quiz.arr[this.qno] === undefined) {
+                this.props.selectAnswer(antwort);
+                console.log('item wurde hinzugefügt');
+            } else {
+                this.props.updateAnswer(antwort, this.qno); 
+                console.log('item wurde geupdated');
+            } 
             this.qno++;
             if (this.qno - 1 === this.props.quiz.arr.length) {
                 this.setState({
@@ -77,7 +76,7 @@ class QuestionPage extends Component {
                 });
             }
         } else {
-            for (var i = 0, l = this.arrnew.length; i < l; i++) {
+            for (let i = 0, l = this.arrnew.length; i < l; i++) {
                 if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
                     if (this.arrnew[i].category === 'Basis') {
                         this.basisScore++;
@@ -95,7 +94,7 @@ class QuestionPage extends Component {
             }
             this.props.getBasisScore(this.basisScore);
             this.props.getSpezScore(this.spezScore);
-            Actions.result();
+            actions.toResult();
         }
     }
     answer(ans) {
