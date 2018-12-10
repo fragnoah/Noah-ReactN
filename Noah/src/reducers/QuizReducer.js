@@ -2,7 +2,9 @@ import update from 'immutability-helper';
 
 const initalstate = {
     arr: [],
-    fragebogen: ''
+    fragebogen: '',
+    basisScore: 0,
+    spezScore: 0
 };
 
 export default (state = initalstate, action) => {
@@ -23,7 +25,14 @@ export default (state = initalstate, action) => {
                 { $set: action.payload }
               }
             }
-          ); 
+          );
+        case 'reset_fb': {
+            return { ...initalstate };
+        }
+        case 'get_BasisScore': 
+            return { ...state, basisScore: action.payload };
+        case 'get_SpezScore':
+            return { ...state, spezScore: action.payload };
         default:
             return state;
     }

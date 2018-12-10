@@ -8,22 +8,19 @@ import {
     } from 'react-native';
 
 import { connect } from 'react-redux';
-// import actions from '../actions/Quizactions';
 import RadioForm from 'react-native-simple-radio-button';
-//import jsondata from '../assets/datasrc/test.json';
 import jsondata from '../assets/datasrc/FB1_2.json';
-//import { QCard, QImgCard } from './common/';
 import { Card, CardSection } from './common';
+import { Actions } from 'react-native-router-flux';
 import * as actions from '../actions';
 
 class QuestionPage extends Component {
     constructor(props) {
         super(props);
         this.qno = 0;
-        this.score = 0;
-        
-        // hier muss aus redux fb1 bzw fb2 xyz abgerufen
-       // const fb=this.props.pickFb;
+        this.basisScore = 0;
+        this.spezScore = 0;
+
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
@@ -33,26 +30,24 @@ class QuestionPage extends Component {
             correctoption: this.arrnew[this.qno].correctAnswer,
             categories: this.arrnew[this.qno].category,
             selectedAns: -1
-        };
-        /* durch redux Mitgabe von: 
-        FB,score, richtig beantworte Fragen, falsch beantwortete Fragen, gehighlightete Fragen
-        */
+        };   
     }
     prev() {
-        // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale
-        // gegenteilig von next() später
-        if (this.qno > 0) {
-          this.qno--;
-          this.setState({
-            id: this.arrnew[this.qno].id,
-            question: this.arrnew[this.qno].frageText,
-            options: this.arrnew[this.qno].options,
-            correctoption: this.arrnew[this.qno].correctAnswer,
-            countCheck: 0
-        });
+        // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale   
+        if (this.qno >= 1) {
+            this.qno--;       
+            this.setState({
+                id: this.arrnew[this.qno].id,
+                question: this.arrnew[this.qno].frageText,
+                options: this.arrnew[this.qno].options,
+                correctoption: this.arrnew[this.qno].correctAnswer,
+                categories: this.arrnew[this.qno].category,
+                selectedAns: this.props.quiz.arr[this.qno]
+            });
         }
-      }
+    }
     next() {
+        if (this.qno < this.arrnew.length - 1) {
         const antwort = this.state.selectedAns;
         if (this.props.quiz.arr[this.qno] === undefined) {
             this.props.selectAnswer(antwort);
@@ -61,38 +56,51 @@ class QuestionPage extends Component {
             this.props.updateAnswer(antwort, this.qno); 
             console.log('item wurde geupdated');
         } 
-        // hier noch verschieden Kat. scores einfügen und übergeben
-        if (this.qno < this.arrnew.length - 1) {
-            // bei letzter stelle touchable text nicht next sondern result
-            if (this.state.selectedAns === this.state.correctoption) {
-                this.score += 1;
-          // hier für redux die correctAnswer,wronganswer,hightlightes übergeben
-            }
             this.qno++;
+            if (this.qno - 1 === this.props.quiz.arr.length) {
+                this.setState({
+                    id: this.arrnew[this.qno].id, 
+                    question: this.arrnew[this.qno].frageText,
+                    options: this.arrnew[this.qno].options,
+                    correctoption: this.arrnew[this.qno].correctAnswer,
+                    categories: this.arrnew[this.qno].category,
+                    selectedAns: -1
+                    });    
+            } else {
             this.setState({
-                countCheck: 0,
                 id: this.arrnew[this.qno].id, 
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
-                selectedAns: -1 });
+                categories: this.arrnew[this.qno].category,
+                selectedAns: this.props.quiz.arr[this.qno]
+                });
+            }
         } else {
-            this.props.quizFinish(this.score);
+            for (var i = 0, l = this.arrnew.length; i < l; i++) {
+                if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
+                    if (this.arrnew[i].category === 'Basis') {
+                        this.basisScore++;
+                        console.log('BasisFrage richtig');
+                    }
+                    if (this.arrnew[i].category === 'Binnen') {
+                        this.spezScore++;
+                        console.log('BinnenFrage richtig');
+                    }
+                    if (this.arrnew[i].category === 'Segeln') {
+                        this.spezScore++;
+                        console.log('SegelnFrage richtig');
+                    }
+                }
+            }
+            this.props.getBasisScore(this.basisScore);
+            this.props.getSpezScore(this.spezScore);
+            Actions.result();
         }
     }
     answer(ans) {
         this.state.selectedAns = ans;
     } 
-     /*
-     
-     1.score den Kategorien anpassen
-     2.bei zurück umgekehrt von next machen -
-     -> wenn antwort falsch bleibt score gleich, bei antwort richtig wir score einen abgezogen ;) 
-     -> außerdem muss selectAns gespeicht 
-        (am besten array mit id.lenght und dann neuen Index erstellen und so mitzählen) 
-        bei prev muss dann index.array aufgerufen werden
-        */
-    
      render() {
         const radioProps = [
             { label: this.state.options.option1, value: 'option1' },
@@ -100,11 +108,7 @@ class QuestionPage extends Component {
             { label: this.state.options.option3, value: 'option3' },
             { label: this.state.options.option4, value: 'option4' },
         ];
-        /*
-        let init = this.props.quiz.arr[this.qno];
-        if (this.props.quiz.arr[this.qno] === null) {
-           init = -1;
-        }*/
+
         let init = null;
         switch (this.props.quiz.arr[this.qno]) {
             case 'option1':
@@ -163,9 +167,12 @@ class QuestionPage extends Component {
                     />
                 </View>
 
-                <View>
-                    <Text color>
-                        score: {this.score}
+                <View style={{ flexDirection: 'column' }}>
+                    <Text>
+                    Kategorie: {this.state.categories}
+                    </Text>
+                    <Text>
+                    Korrekteantwort: { this.state.correctoption}
                     </Text>
                     <Text>
                      {console.log(this.props)}
@@ -202,19 +209,9 @@ const styles = StyleSheet.create({
       marginBottom: 5,
     },
   });
-/*
-const mapStateToProbs = ({ quiz }) => {
-    return { 
-        pickFb: quiz.pickFB };
-};
-
-export default connect(mapStateToProbs, actions)(QuestionPage);
-*/
 
 const mapStateToProbs = state => {
-    return { quiz: state.selectedFb
-    //selectedAntwort: state.selectedAntwort
-    };
+    return { quiz: state.selectedFb };
 };
 
 export default connect(mapStateToProbs, actions)(QuestionPage);

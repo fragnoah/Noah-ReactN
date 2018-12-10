@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class startPage extends Component {
-    
- 
+
+    componentWillMount() {
+        this.props.resetFb(); // muss noch jedes mal wenn aufgerufen wird
+    }
     getFb1() {
         const fb = 'fb1';
         this.props.selectFb(fb);
