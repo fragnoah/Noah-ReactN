@@ -6,9 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,9 +27,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -124,11 +122,11 @@
   <component name="ToolWindowManager">
     <frame x="626" y="0" width="1249" height="1047" extended-state="1" />
     <layout>
-      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.4913295" visible="true" weight="0.32896176" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.49050373" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5086705" side_tool="true" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5094963" side_tool="true" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49876136" weight="0.32896176" />
