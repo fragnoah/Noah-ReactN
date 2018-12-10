@@ -175,12 +175,6 @@ class QuestionPage extends Component {
                     Korrekteantwort: { this.state.correctoption}
                     </Text>
                     <Text>
-                    Basisscore: {this.basisScore}
-                    </Text>
-                    <Text>
-                    Spezscore: {this.spezScore}
-                    </Text>
-                    <Text>
                      {console.log(this.props)}
                      Fragebogen: {this.props.quiz.fragebogen}
                     </Text>
