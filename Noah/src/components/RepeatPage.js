@@ -14,21 +14,20 @@ import { Card, CardSection } from './common';
 import { Actions } from 'react-native-router-flux';
 import * as actions from '../actions';
 
-class QuestionPage extends Component {
+class RepeatPage extends Component {
     constructor(props) {
         super(props);
         this.qno = 0;
-        this.basisScore = 0;
-        this.spezScore = 0;
+        this.props.quiz.wrongAns[this.qno];
 
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
-            id: this.arrnew[this.qno].id,
-            question: this.arrnew[this.qno].frageText,
-            options: this.arrnew[this.qno].options,
-            correctoption: this.arrnew[this.qno].correctAnswer,
-            categories: this.arrnew[this.qno].category,
+            id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id,
+            question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
+            options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
+            correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
+            categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
             selectedAns: -1
         };   
     }
@@ -37,46 +36,51 @@ class QuestionPage extends Component {
         if (this.qno >= 1) {
             this.qno--;       
             this.setState({
-                id: this.arrnew[this.qno].id,
-                question: this.arrnew[this.qno].frageText,
-                options: this.arrnew[this.qno].options,
-                correctoption: this.arrnew[this.qno].correctAnswer,
-                categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id,
+                question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
+                options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
+                correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
+                categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
+                selectedAns: -1
             });
         }
     }
     next() {
-        if (this.qno < this.arrnew.length - 1) {
+        if (this.qno < this.props.quiz.wrongAns.length - 1) {
         const antwort = this.state.selectedAns;
+        /*
         if (this.props.quiz.arr[this.qno] === undefined) {
             this.props.selectAnswer(antwort);
             console.log('item wurde hinzugefügt');
         } else {
             this.props.updateAnswer(antwort, this.qno); 
             console.log('item wurde geupdated');
-        } 
+        }
+        */
+         
+        
             this.qno++;
-            if (this.qno - 1 === this.props.quiz.arr.length) {
+            if (this.qno - 1 === this.props.quiz.wrongAns.length) {
                 this.setState({
-                    id: this.arrnew[this.qno].id, 
-                    question: this.arrnew[this.qno].frageText,
-                    options: this.arrnew[this.qno].options,
-                    correctoption: this.arrnew[this.qno].correctAnswer,
-                    categories: this.arrnew[this.qno].category,
+                    id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
+                    question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
+                    options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
+                    correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
+                    categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
                     selectedAns: -1
                     });    
             } else {
             this.setState({
-                id: this.arrnew[this.qno].id, 
-                question: this.arrnew[this.qno].frageText,
-                options: this.arrnew[this.qno].options,
-                correctoption: this.arrnew[this.qno].correctAnswer,
-                categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
+                question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
+                options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
+                correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
+                categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
+                selectedAns: -1
                 });
             }
         } else {
+            /*
             for (var i = 0, l = this.arrnew.length; i < l; i++) {
                 if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
                     if (this.arrnew[i].category === 'Basis') {
@@ -92,13 +96,15 @@ class QuestionPage extends Component {
                         console.log('SegelnFrage richtig');
                     }
                 }
-                else {
+                else { 
                     this.props.wrong(i);
                 }
-            }
+            
             this.props.getBasisScore(this.basisScore);
             this.props.getSpezScore(this.spezScore);
             Actions.result();
+            */
+            Actions.menu();
         }
     }
     answer(ans) {
@@ -111,7 +117,7 @@ class QuestionPage extends Component {
             { label: this.state.options.option3, value: 'option3' },
             { label: this.state.options.option4, value: 'option4' },
         ];
-
+        /*
         let init = null;
         switch (this.props.quiz.arr[this.qno]) {
             case 'option1':
@@ -129,6 +135,7 @@ class QuestionPage extends Component {
             default:
                 init = -1;
         }
+        */
         return (
             <ScrollView
             style={{ 
@@ -150,7 +157,7 @@ class QuestionPage extends Component {
                     <RadioForm
                         key={this.qno}
                         radio_props={radioProps}
-                        initial={init}
+                        initial={-1}
                         onPress={(value) => { this.answer(value); }}
                     />              
                 </CardSection>  
@@ -217,4 +224,4 @@ const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
 
-export default connect(mapStateToProbs, actions)(QuestionPage);
+export default connect(mapStateToProbs, actions)(RepeatPage);
