@@ -43,3 +43,9 @@ export const getSpezScore = (spezScore) => {
     payload: spezScore
   };
 };
+export const wrong = (i) => {
+  return {
+    type: 'wrong',
+    payload: i
+  };
+};

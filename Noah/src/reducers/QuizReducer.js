@@ -4,7 +4,8 @@ const initalstate = {
     arr: [],
     fragebogen: '',
     basisScore: 0,
-    spezScore: 0
+    spezScore: 0,
+    wrongAns: []
 };
 
 export default (state = initalstate, action) => {
@@ -33,6 +34,13 @@ export default (state = initalstate, action) => {
             return { ...state, basisScore: action.payload };
         case 'get_SpezScore':
             return { ...state, spezScore: action.payload };
+        case 'wrong': {
+            const wrongItem = action.payload;
+            return { 
+                ...state,
+                wrongAns: [...state.wrongAns, wrongItem]
+                };
+            }
         default:
             return state;
     }

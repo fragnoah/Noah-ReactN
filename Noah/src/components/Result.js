@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import * as actions from '../actions';
 
 
@@ -19,6 +20,12 @@ class Result extends Component {
                 <Text>Basispunkte: {this.props.quiz.basisScore} von 7 </Text>
                 <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>
                 <Text>{this.Ergebnis}</Text>
+
+                <Button
+                onPress={() => Actions.repeat()}
+                title="Falsche Fragen wiederholen"
+                color='#ff00ff00'
+                />
             </View>
         );
     }
