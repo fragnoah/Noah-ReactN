@@ -10,6 +10,7 @@ import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
 import { toResult } from './actions';
+import RepeatPage from './components/RepeatPage';
 
 const RouterComponent = () => {
     return (
@@ -27,6 +28,7 @@ const RouterComponent = () => {
                     component={QuestionPage}                     
                 />
                 <Scene key="result" title="Ergebnis" component={Result} />
+                <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
                 <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
                 <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
                 <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
