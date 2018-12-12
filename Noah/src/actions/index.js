@@ -49,3 +49,23 @@ export const wrong = (i) => {
     payload: i
   };
 };
+
+export const selectWrongAnswer = (antwort) => {
+  return {
+    type: 'select_WrongAnswer',
+    payload: antwort
+  };
+};
+
+export const updateWrongAnswer = (antwort, qno) => {
+  return {
+    type: 'update_answer',
+    payload: antwort,
+    index: qno
+  };
+};
+export const resetWrong = () => {
+  return {
+    type: 'reset_wrong'
+  };
+};

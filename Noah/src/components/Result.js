@@ -12,6 +12,14 @@ class Result extends Component {
             this.Ergebnis = 'Glückwünsch,bestanden';
         }
     }
+    wrongRepeate() {
+        if (this.props.quiz.wrongAns !== []) {
+        Actions.repeat();
+        } else {
+            //hier noch was einfügen falls keine Fragen falsch ist..
+        
+        }
+    }
     render() {
         this.checkScore();
         return (
@@ -22,7 +30,7 @@ class Result extends Component {
                 <Text>{this.Ergebnis}</Text>
 
                 <Button
-                onPress={() => Actions.repeat()}
+                onPress={() => this.wrongRepeate()}
                 title="Falsche Fragen wiederholen"
                 color='#ff00ff00'
                 />

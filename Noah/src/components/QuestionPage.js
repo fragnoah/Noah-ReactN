@@ -34,7 +34,7 @@ class QuestionPage extends Component {
     }
     prev() {
         // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale   
-        if (this.qno >= 1) {
+        if (this.qno >= 1) { 
             this.qno--;       
             this.setState({
                 id: this.arrnew[this.qno].id,
@@ -77,7 +77,16 @@ class QuestionPage extends Component {
                 });
             }
         } else {
+            const antwort = this.state.selectedAns;
+            if (this.props.quiz.arr[this.qno] === undefined) {
+                this.props.selectAnswer(antwort);
+                console.log('item wurde hinzugefügt');
+            } else {
+                this.props.updateAnswer(antwort, this.qno); 
+                console.log('item wurde geupdated');
+            } 
             for (var i = 0, l = this.arrnew.length; i < l; i++) {
+                console.log(i);
                 if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
                     if (this.arrnew[i].category === 'Basis') {
                         this.basisScore++;
@@ -92,7 +101,7 @@ class QuestionPage extends Component {
                         console.log('SegelnFrage richtig');
                     }
                 }
-                else {
+                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer)
                     this.props.wrong(i);
                 }
             }

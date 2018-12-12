@@ -1,7 +1,9 @@
 import { Actions } from 'react-native-router-flux';
+import { resetFb } from '../actions';
 
 
 export const toTests = () => {
+ // resetFb();
         Actions.test(); 
 };
 
