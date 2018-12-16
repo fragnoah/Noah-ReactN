@@ -12,7 +12,10 @@ import learnsegel from './components/LearnSegel';
 import { toResult } from './actions';
 import RepeatPage from './components/RepeatPage';
 
+
 const RouterComponent = () => {
+    //read();
+    
     return (
         <Router navigationBarStyle={styles.viewStyle} >
             <Scene key="root" titleStyle={styles.titleStyle}>

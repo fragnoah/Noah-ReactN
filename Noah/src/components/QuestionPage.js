@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
-import { Card, CardSection } from './common';
+import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
 
 class QuestionPage extends Component {
@@ -28,7 +28,8 @@ class QuestionPage extends Component {
             options: this.arrnew[this.qno].options,
             correctoption: this.arrnew[this.qno].correctAnswer,
             categories: this.arrnew[this.qno].category,
-            selectedAns: -1
+            selectedAns: -1,
+            image: this.arrnew[this.qno].image
         };   
     }
     prev() {
@@ -41,7 +42,8 @@ class QuestionPage extends Component {
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
                 categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                selectedAns: this.props.quiz.arr[this.qno],
+                image: this.arrnew[this.qno].image
             });
         }
     }
@@ -63,7 +65,8 @@ class QuestionPage extends Component {
                     options: this.arrnew[this.qno].options,
                     correctoption: this.arrnew[this.qno].correctAnswer,
                     categories: this.arrnew[this.qno].category,
-                    selectedAns: -1
+                    selectedAns: -1,
+                    image: this.arrnew[this.qno].image
                     });    
             } else {
             this.setState({
@@ -72,7 +75,8 @@ class QuestionPage extends Component {
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
                 categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                selectedAns: this.props.quiz.arr[this.qno],               
+                image: this.arrnew[this.qno].image
                 });
             }
         } else {
@@ -139,11 +143,12 @@ class QuestionPage extends Component {
             >
                 <Card>
                 
-                <CardSection style={{ backgroundColor: '#002D40' }}>              
-                    <Text style={styles.welcome}>
-                        {this.state.question}
-                    </Text>                
-                </CardSection>
+                <ImageCardSection 
+                    style={{ backgroundColor: '#8CD6FC' }} 
+                    id={this.state.id} 
+                    text={this.state.question} 
+                    image={this.state.image}
+                />
                 
                 <CardSection>                  
                     <RadioForm
