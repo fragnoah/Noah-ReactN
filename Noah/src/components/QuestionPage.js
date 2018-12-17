@@ -10,8 +10,7 @@ import {
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
-import { Card, CardSection } from './common';
-import { Actions } from 'react-native-router-flux';
+import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
 
 class QuestionPage extends Component {
@@ -29,7 +28,8 @@ class QuestionPage extends Component {
             options: this.arrnew[this.qno].options,
             correctoption: this.arrnew[this.qno].correctAnswer,
             categories: this.arrnew[this.qno].category,
-            selectedAns: -1
+            selectedAns: -1,
+            image: this.arrnew[this.qno].image
         };   
     }
     prev() {
@@ -42,20 +42,21 @@ class QuestionPage extends Component {
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
                 categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                selectedAns: this.props.quiz.arr[this.qno],
+                image: this.arrnew[this.qno].image
             });
         }
     }
     next() {
         if (this.qno < this.arrnew.length - 1) {
-        const antwort = this.state.selectedAns;
-        if (this.props.quiz.arr[this.qno] === undefined) {
-            this.props.selectAnswer(antwort);
-            console.log('item wurde hinzugefügt');
-        } else {
-            this.props.updateAnswer(antwort, this.qno); 
-            console.log('item wurde geupdated');
-        } 
+            const antwort = this.state.selectedAns;
+            if (this.props.quiz.arr[this.qno] === undefined) {
+                this.props.selectAnswer(antwort);
+                console.log('item wurde hinzugefügt');
+            } else {
+                this.props.updateAnswer(antwort, this.qno); 
+                console.log('item wurde geupdated');
+            } 
             this.qno++;
             if (this.qno - 1 === this.props.quiz.arr.length) {
                 this.setState({
@@ -64,7 +65,8 @@ class QuestionPage extends Component {
                     options: this.arrnew[this.qno].options,
                     correctoption: this.arrnew[this.qno].correctAnswer,
                     categories: this.arrnew[this.qno].category,
-                    selectedAns: -1
+                    selectedAns: -1,
+                    image: this.arrnew[this.qno].image
                     });    
             } else {
             this.setState({
@@ -73,7 +75,8 @@ class QuestionPage extends Component {
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
                 categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                selectedAns: this.props.quiz.arr[this.qno],               
+                image: this.arrnew[this.qno].image
                 });
             }
         } else {
@@ -107,7 +110,7 @@ class QuestionPage extends Component {
             }
             this.props.getBasisScore(this.basisScore);
             this.props.getSpezScore(this.spezScore);
-            Actions.result();
+            actions.toResult();
         }
     }
     answer(ans) {
@@ -149,11 +152,12 @@ class QuestionPage extends Component {
             >
                 <Card>
                 
-                <CardSection style={{ backgroundColor: '#002D40' }}>              
-                    <Text style={styles.welcome}>
-                        {this.state.question}
-                    </Text>                
-                </CardSection>
+                <ImageCardSection 
+                    style={{ backgroundColor: '#8CD6FC' }} 
+                    id={this.state.id} 
+                    text={this.state.question} 
+                    image={this.state.image}
+                />
                 
                 <CardSection>                  
                     <RadioForm

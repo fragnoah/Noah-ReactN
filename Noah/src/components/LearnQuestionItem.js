@@ -3,11 +3,13 @@ import {
   Text,
   TouchableWithoutFeedback,
   View,
-  LayoutAnimation
+  LayoutAnimation,
+  Image
 } from 'react-native';
 import { connect } from 'react-redux';
-import { CardSection } from './common';
+import { CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
+// import CacheImage from './CacheImage';
 
 class LearnQuestionItem extends Component {
   
@@ -33,35 +35,31 @@ class LearnQuestionItem extends Component {
 
   renderDescription() {
     const { expanded } = this.props;
-    const { solve } = this.props.question;
+    const { solve, image } = this.props.question;
 
     if (expanded) {
+      console.log(image);
+      console.log(Image.resolveAssetSource(image));
       return (
-        <CardSection>
-          <Text sytle={{ flex: 1 }}>
-            Antwort: {this.getRightAnswer()}
-          </Text>
-          <Text style={{ flex: 1 }}>
-            Begründung: {solve}
-          </Text>
+        
+        <CardSection style={styles.descriptionStyle}>
+          <Text style={styles.boldText}>Antwort: </Text>
+          <Text >{this.getRightAnswer()} </Text>
+          <Text style={styles.boldText}>Begründung: </Text>
+          <Text > {solve} </Text>         
         </CardSection>
       );
     }
   }
 
   render() {
-    const { titleStyle } = styles;
     const { id, frageText } = this.props.question;
     return (
       <TouchableWithoutFeedback
         onPress={() => this.props.selectQuestion(id)}
       >
         <View>
-          <CardSection>
-            <Text style={titleStyle}>
-              {id}. {frageText}
-            </Text>
-          </CardSection>
+          <ImageCardSection id={id} text={frageText} image={this.props.question.image} />
           {this.renderDescription()}
         </View>
       </TouchableWithoutFeedback>
@@ -70,13 +68,13 @@ class LearnQuestionItem extends Component {
 }
 
 const styles = {
-  titleStyle: {
-    fontSize: 18,
-    paddingLeft: 15
-  },
   descriptionStyle: {
-    paddingLeft: 10,
-    paddingRight: 10
+    paddingLeft: 15,
+    paddingRight: 5,
+    flex: 1
+  }, 
+  boldText: {
+    fontWeight: 'bold'
   }
 };
 
