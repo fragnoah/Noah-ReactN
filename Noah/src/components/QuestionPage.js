@@ -112,7 +112,6 @@ class QuestionPage extends Component {
             this.props.getSpezScore(this.spezScore);
             actions.toResult();
         }
-    }
     answer(ans) {
         this.state.selectedAns = ans;
     } 
