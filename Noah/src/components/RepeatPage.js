@@ -26,7 +26,8 @@ class RepeatPage extends Component {
             options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
             correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
             categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-            selectedAns: -1
+            selectedAns: -1,
+            image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
         };   
     }
     prev() {
@@ -38,7 +39,8 @@ class RepeatPage extends Component {
                 options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
                 correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
                 categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.wrongArr[this.qno]
+                selectedAns: this.props.quiz.wrongArr[this.qno],
+                image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
             });
         }
     }
@@ -61,7 +63,8 @@ class RepeatPage extends Component {
                     options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
                     correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
                     categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                    selectedAns: this.props.quiz.wrongArr[this.qno]
+                    selectedAns: this.props.quiz.wrongArr[this.qno],
+                    image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
                     });    
             } else {
             this.setState({
@@ -70,7 +73,8 @@ class RepeatPage extends Component {
                 options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
                 correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
                 categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.arr[this.qno]
+                selectedAns: this.props.quiz.arr[this.qno],
+                image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
                 });
             }
         } else {
@@ -83,12 +87,13 @@ class RepeatPage extends Component {
                     console.log('Falsches item wurde geupdated');
         }
         this.props.resetWrong();
-        for (var i = 0, l = this.arrnew.length; i < l; i++) {
+        for (let i = 0, l = this.arrnew.length; i < l; i++) {
             if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
                 this.props.wrong(i);
             }
         }
-            actions.toResult();
+        this.props.resetWrongAnswer();
+        actions.toResult();
         }
     }
     answer(ans) {

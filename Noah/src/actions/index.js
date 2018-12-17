@@ -69,3 +69,8 @@ export const resetWrong = () => {
     type: 'reset_wrong'
   };
 };
+export const resetWrongAnswer = () => {
+  return {
+    type: 'reset_wrongAnswer'
+  };
+};

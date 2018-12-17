@@ -13,11 +13,10 @@ class Result extends Component {
         }
     }
     wrongRepeate() {
-        if (this.props.quiz.wrongAns !== []) {
+        if (this.props.quiz.wrongAns.length > 0) {
         Actions.repeat();
         } else {
-            //hier noch was einfügen falls keine Fragen falsch ist..
-        
+           console.log('array leer');
         }
     }
     render() {

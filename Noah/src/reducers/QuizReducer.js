@@ -35,6 +35,9 @@ export default (state = initalstate, action) => {
         case 'reset_wrong': {
             return { ...state, wrongAns: [] };
         }
+        case 'reset_wrongAnswer': {
+            return { ...state, wrongArr: [] };
+        }
         case 'get_BasisScore': 
             return { ...state, basisScore: action.payload };
         case 'get_SpezScore':

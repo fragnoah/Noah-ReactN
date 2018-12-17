@@ -88,7 +88,7 @@ class QuestionPage extends Component {
                 this.props.updateAnswer(antwort, this.qno); 
                 console.log('item wurde geupdated');
             } 
-            for (var i = 0, l = this.arrnew.length; i < l; i++) {
+            for (let i = 0, l = this.arrnew.length; i < l; i++) {
                 console.log(i);
                 if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
                     if (this.arrnew[i].category === 'Basis') {
