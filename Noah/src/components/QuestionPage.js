@@ -104,14 +104,15 @@ class QuestionPage extends Component {
                         console.log('SegelnFrage richtig');
                     }
                 }
-                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer)
-                    this.props.wrong(i);
+                    if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) {
+                        this.props.wrong(i);
+                    }
                 }
-            }
             this.props.getBasisScore(this.basisScore);
             this.props.getSpezScore(this.spezScore);
             actions.toResult();
         }
+    }
     answer(ans) {
         this.state.selectedAns = ans;
     } 
