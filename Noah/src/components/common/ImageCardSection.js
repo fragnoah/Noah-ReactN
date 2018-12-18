@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { CardSection } from './CardSection';
 
@@ -33,48 +33,59 @@ const getQuestion = (id, text) => {
   );
 };
 */
+class ImageCardSection extends Component {
 
-const ImageCardSection = (props) => {
-  const { image, text, id } = props;
-  console.log(props);
-
-  if (image == '') {
-    //getQuestion(text, id);
-    return (
-      <CardSection style={[props.style]}>
-        <View style={styles.containerStyle}>
-          <Text style={styles.idTextStyle} >
+  renderID(id) {
+    if (id !== null) {
+      return (
+        <Text style={styles.idTextStyle} >
             id: {id}
           </Text>
-          <Text style={styles.questionTextStyle} >
-            {text}
-          </Text>
-        </View>
-      </CardSection>
-    );
-  } else {
-    //getQuestion(text, id);
-    //getImage(image);
-    return (
-      <CardSection style={[props.style]}>
-        <View style={styles.containerStyle}>
-          <Text style={styles.idTextStyle} >
-            id: {id}
-          </Text>
-          <Text style={styles.questionTextStyle} >
-            {text}
-          </Text>
-        </View>
-        <View style={styles.imgContStyle}>
-          <Image 
-            style={styles.imgStyle}              
-            source={{ uri: image }}
-          />
-        </View>
-      </CardSection>
-    );
+      );
+    } else {
+      return;
+    }
+  } 
+
+  render() {
+    const { image, text, id } = this.props;
+    console.log(this.props);
+
+    if (image == '') {
+      //getQuestion(text, id);
+      return (
+        <CardSection style={[this.props.style]}>
+          <View style={styles.containerStyle}>
+            {this.renderID(id)}
+            <Text style={styles.questionTextStyle} >
+              {text}
+            </Text>
+          </View>
+        </CardSection>
+      );
+    } else {
+      //getQuestion(text, id);
+      //getImage(image);
+      return (
+        <CardSection style={[this.props.style]}>
+          <View style={styles.containerStyle}>
+            {this.renderID(id)}
+            <Text style={styles.questionTextStyle} >
+              {text}
+            </Text>
+          </View>
+          <View style={styles.imgContStyle}>
+            <Image 
+              style={styles.imgStyle}              
+              source={{ uri: image }}
+            />
+          </View>
+        </CardSection>
+      );
+    }
   }
-};
+}
+//const ImageCardSection = (props) => {
 
 const styles = {
   containerStyle: {

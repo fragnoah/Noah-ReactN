@@ -11,6 +11,7 @@ import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
 import { toResult } from './actions';
 import RepeatPage from './components/RepeatPage';
+import GlossarList from './components/GlossarList';
 
 
 const RouterComponent = () => {
@@ -35,6 +36,7 @@ const RouterComponent = () => {
                 <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
                 <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
                 <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
+                <Scene key="glossar" title="Glossar" component={GlossarList} />
             </Scene>
              
         </Router>

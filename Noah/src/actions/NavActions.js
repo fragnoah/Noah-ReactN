@@ -39,6 +39,10 @@ export const toLearnSegelQuestions = () => {
   Actions.learnsegel();
 };
 
+export const toGlossar = () => {
+  Actions.glossar();
+};
+
 /*
 export const employeeUpdate = ({ prop, value }) => {
   return {
