@@ -77,6 +77,9 @@ export default (state = initalstate, action) => {
                 marked: state.marked.filter(item => item !== action.payload)
             };
         }
+        case 'reset_marked': {
+            return { ...state, arr: [] };
+        }
         default:
             return state;
     }

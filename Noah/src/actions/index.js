@@ -86,3 +86,9 @@ export const unmark = (qno) => {
     payload: qno
   };
 };
+export const resetMarked = () => {
+  return {
+    type: 'reset_marked'
+  };
+};
+

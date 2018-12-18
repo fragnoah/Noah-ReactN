@@ -16,9 +16,17 @@ class Result extends Component {
         if (this.props.quiz.wrongAns.length > 0) {
         Actions.repeat();
         } else {
-           console.log('array leer');
+           console.log('Keine falschen Fragen vorhanden');
         }
     }
+    marked() {
+        this.props.resetMarked();
+        if (this.props.quiz.marked.length > 0) {
+            Actions.mark();
+            } else {
+               console.log('keine Fragen makiert');
+            }
+        }
     render() {
         this.checkScore();
         return (
@@ -31,6 +39,11 @@ class Result extends Component {
                 <Button
                 onPress={() => this.wrongRepeate()}
                 title="Falsche Fragen wiederholen"
+                color='#ff00ff00'
+                />
+                <Button
+                onPress={() => this.marked()}
+                title="Makierte Fragen wiederholen"
                 color='#ff00ff00'
                 />
             </View>

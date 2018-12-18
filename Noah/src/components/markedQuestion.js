@@ -13,7 +13,7 @@ import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
 
-class RepeatPage extends Component {
+class markedQuestion extends Component {
     constructor(props) {
         super(props);
         this.qno = 0;
@@ -21,61 +21,53 @@ class RepeatPage extends Component {
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
-            id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id,
-            question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-            options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-            correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-            categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
+            id: this.arrnew[this.props.quiz.marked[this.qno]].id,
+            question: this.arrnew[this.props.quiz.marked[this.qno]].frageText,
+            options: this.arrnew[this.props.quiz.marked[this.qno]].options,
+            correctoption: this.arrnew[this.props.quiz.marked[this.qno]].correctAnswer,
+            categories: this.arrnew[this.props.quiz.marked[this.qno]].category,
             selectedAns: -1,
-            image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
+            image: this.arrnew[this.props.quiz.marked[this.qno]].image
         };   
     }
     prev() {
         if (this.qno >= 1) {
             this.qno--;       
             this.setState({
-                id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id,
-                question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-                options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-                correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-                categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.wrongArr[this.qno],
-                image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
+                id: this.arrnew[this.props.quiz.marked[this.qno]].id,
+                question: this.arrnew[this.props.quiz.marked[this.qno]].frageText,
+                options: this.arrnew[this.props.quiz.marked[this.qno]].options,
+                correctoption: this.arrnew[this.props.quiz.marked[this.qno]].correctAnswer,
+                categories: this.arrnew[this.props.quiz.marked[this.qno]].category,
+                selectedAns: this.props.quiz.arr[this.qno],
+                image: this.arrnew[this.props.quiz.marked[this.qno]].image
             });
         }
     }
     next() {
-            const antwort = this.state.selectedAns;
-            this.props.updateAnswer(antwort, this.props.quiz.wrongAns[this.qno]);
-            if (this.props.quiz.wrongArr[this.qno] === undefined) {
-                this.props.selectWrongAnswer(antwort);
-                console.log('Falsches item wurde hinzugefügt');
-            } else {
-                this.props.updateWrongAnswer(antwort, this.qno); 
-                console.log('Falsches item wurde geupdated');
-            }
-            if (this.qno < this.props.quiz.wrongAns.length - 1) {
-            this.qno++;
-            this.setState({
-                id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
-                question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-                options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-                correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-                categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.wrongArr[this.qno],
-                image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
-                });    
-            } else {
-            this.props.resetWrong();
-            for (let i = 0, l = this.arrnew.length; i < l; i++) {
-                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
-                    this.props.wrong(i);
-                }
-            }
-            this.props.resetWrongAnswer();
-            actions.toResult();
-            }
+        const antwort = this.state.selectedAns;
+        if (this.props.quiz.arr[this.qno] === undefined) {
+            this.props.selectAnswer(antwort);
+            console.log('item wurde hinzugefügt');
+        } else {
+            this.props.updateAnswer(antwort, this.qno); 
+            console.log('item wurde geupdated');
         }
+        if (this.qno < this.props.quiz.marked.length - 1) {
+        this.qno++;
+        this.setState({
+            id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
+            question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
+            options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
+            correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
+            categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
+            selectedAns: this.props.quiz.arr[this.qno],
+            image: this.arrnew[this.props.quiz.marked[this.qno]].image
+            });    
+        } else {
+        actions.toResult();
+        }
+    }
     answer(ans) {
         this.state.selectedAns = ans;
     } 
@@ -88,7 +80,7 @@ class RepeatPage extends Component {
         ];
         
         let init = null;
-        switch (this.props.quiz.wrongArr[this.qno]) {
+        switch (this.props.quiz.arr[this.qno]) {
             case 'option1':
                 init = 0;
             break;
@@ -193,4 +185,4 @@ const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
 
-export default connect(mapStateToProbs, actions)(RepeatPage);
+export default connect(mapStateToProbs, actions)(markedQuestion);
