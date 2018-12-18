@@ -27,6 +27,10 @@ class Result extends Component {
                console.log('keine Fragen makiert');
             }
         }
+    all() {
+        this.props.resetMarked();
+        Actions.all();
+    }
     render() {
         this.checkScore();
         return (
@@ -44,6 +48,11 @@ class Result extends Component {
                 <Button
                 onPress={() => this.marked()}
                 title="Makierte Fragen wiederholen"
+                color='#ff00ff00'
+                />
+                <Button
+                onPress={() => this.all()}
+                title="Alle Fragen wiederholen"
                 color='#ff00ff00'
                 />
             </View>

@@ -13,7 +13,7 @@ import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
 
-class markedQuestion extends Component {
+class RepeatAll extends Component {
     constructor(props) {
         super(props);
         this.qno = 0;
@@ -21,26 +21,26 @@ class markedQuestion extends Component {
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
-            id: this.arrnew[this.props.quiz.marked[this.qno]].id,
-            question: this.arrnew[this.props.quiz.marked[this.qno]].frageText,
-            options: this.arrnew[this.props.quiz.marked[this.qno]].options,
-            correctoption: this.arrnew[this.props.quiz.marked[this.qno]].correctAnswer,
-            categories: this.arrnew[this.props.quiz.marked[this.qno]].category,
+            id: this.arrnew[this.qno].id,
+            question: this.arrnew[this.qno].frageText,
+            options: this.arrnew[this.qno].options,
+            correctoption: this.arrnew[this.qno].correctAnswer,
+            categories: this.arrnew[this.qno].category,
             selectedAns: -1,
-            image: this.arrnew[this.props.quiz.marked[this.qno]].image
+            image: this.arrnew[this.qno].image
         };   
     }
     prev() {
         if (this.qno >= 1) {
             this.qno--;       
             this.setState({
-                id: this.arrnew[this.props.quiz.marked[this.qno]].id,
-                question: this.arrnew[this.props.quiz.marked[this.qno]].frageText,
-                options: this.arrnew[this.props.quiz.marked[this.qno]].options,
-                correctoption: this.arrnew[this.props.quiz.marked[this.qno]].correctAnswer,
-                categories: this.arrnew[this.props.quiz.marked[this.qno]].category,
+                id: this.arrnew[this.qno].id,
+                question: this.arrnew[this.qno].frageText,
+                options: this.arrnew[this.qno].options,
+                correctoption: this.arrnew[this.qno].correctAnswer,
+                categories: this.arrnew[this.qno].category,
                 selectedAns: this.props.quiz.arr[this.qno],
-                image: this.arrnew[this.props.quiz.marked[this.qno]].image
+                image: this.arrnew[this.qno].image
             });
         }
     }
@@ -53,16 +53,16 @@ class markedQuestion extends Component {
             this.props.updateAnswer(antwort, this.qno); 
             console.log('item wurde geupdated');
         }
-        if (this.qno < this.props.quiz.marked.length - 1) {
+        if (this.qno < this.arrnew.length - 1) {
         this.qno++;
         this.setState({
-            id: this.arrnew[this.props.quiz.marked[this.qno]].id, 
-            question: this.arrnew[this.props.quiz.marked[this.qno]].frageText,
-            options: this.arrnew[this.props.quiz.marked[this.qno]].options,
-            correctoption: this.arrnew[this.props.quiz.marked[this.qno]].correctAnswer,
-            categories: this.arrnew[this.props.quiz.marked[this.qno]].category,
+            id: this.arrnew[this.qno].id, 
+            question: this.arrnew[this.qno].frageText,
+            options: this.arrnew[this.qno].options,
+            correctoption: this.arrnew[this.qno].correctAnswer,
+            categories: this.arrnew[this.qno].category,
             selectedAns: this.props.quiz.arr[this.qno],
-            image: this.arrnew[this.props.quiz.marked[this.qno]].image
+            image: this.arrnew[this.qno].image
             });    
         } else {
         actions.toResult();
@@ -185,4 +185,4 @@ const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
 
-export default connect(mapStateToProbs, actions)(markedQuestion);
+export default connect(mapStateToProbs, actions)(RepeatAll);
