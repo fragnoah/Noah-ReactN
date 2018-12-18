@@ -6,7 +6,7 @@ const initalstate = {
     basisScore: 0,
     spezScore: 0,
     wrongAns: [],
-    markedAns: [],
+    marked: [],
     wrongArr: []
 };
 
@@ -64,6 +64,19 @@ export default (state = initalstate, action) => {
                   }
                 }
               );
+        case 'mark_question': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                marked: [...state.marked, newItem]
+            };
+        }
+        case 'unmark_question': {
+            return {
+                ...state,
+                marked: state.marked.filter(item => item !== action.payload)
+            };
+        }
         default:
             return state;
     }

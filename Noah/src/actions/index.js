@@ -74,3 +74,15 @@ export const resetWrongAnswer = () => {
     type: 'reset_wrongAnswer'
   };
 };
+export const mark = (qno) => {
+  return {
+    type: 'mark_question',
+    payload: qno
+  };
+};
+export const unmark = (qno) => {
+  return {
+    type: 'unmark_question',
+    payload: qno
+  };
+};

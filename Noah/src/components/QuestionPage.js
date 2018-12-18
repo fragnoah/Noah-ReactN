@@ -29,11 +29,11 @@ class QuestionPage extends Component {
             correctoption: this.arrnew[this.qno].correctAnswer,
             categories: this.arrnew[this.qno].category,
             selectedAns: -1,
-            image: this.arrnew[this.qno].image
+            image: this.arrnew[this.qno].image,
+            marked: this.props.quiz.marked[this.qno]
         };   
     }
-    prev() {
-        // wenn hier gno = 0 dann set.Touchableocity leer oder nicht visibale   
+    prev() {  
         if (this.qno >= 1) { 
             this.qno--;       
             this.setState({
@@ -43,12 +43,12 @@ class QuestionPage extends Component {
                 correctoption: this.arrnew[this.qno].correctAnswer,
                 categories: this.arrnew[this.qno].category,
                 selectedAns: this.props.quiz.arr[this.qno],
-                image: this.arrnew[this.qno].image
+                image: this.arrnew[this.qno].image,
+                marked: this.props.quiz.marked[this.qno]
             });
         }
     }
     next() {
-        if (this.qno < this.arrnew.length - 1) {
             const antwort = this.state.selectedAns;
             if (this.props.quiz.arr[this.qno] === undefined) {
                 this.props.selectAnswer(antwort);
@@ -56,38 +56,20 @@ class QuestionPage extends Component {
             } else {
                 this.props.updateAnswer(antwort, this.qno); 
                 console.log('item wurde geupdated');
-            } 
+            }
+            if (this.qno < this.arrnew.length - 1) {
             this.qno++;
-            if (this.qno - 1 === this.props.quiz.arr.length) {
-                this.setState({
-                    id: this.arrnew[this.qno].id, 
-                    question: this.arrnew[this.qno].frageText,
-                    options: this.arrnew[this.qno].options,
-                    correctoption: this.arrnew[this.qno].correctAnswer,
-                    categories: this.arrnew[this.qno].category,
-                    selectedAns: -1,
-                    image: this.arrnew[this.qno].image
-                    });    
-            } else {
             this.setState({
-                id: this.arrnew[this.qno].id, 
+            id: this.arrnew[this.qno].id, 
                 question: this.arrnew[this.qno].frageText,
                 options: this.arrnew[this.qno].options,
                 correctoption: this.arrnew[this.qno].correctAnswer,
                 categories: this.arrnew[this.qno].category,
                 selectedAns: this.props.quiz.arr[this.qno],               
-                image: this.arrnew[this.qno].image
+                image: this.arrnew[this.qno].image,
+                marked: this.props.quiz.marked[this.qno]
                 });
-            }
-        } else {
-            const antwort = this.state.selectedAns;
-            if (this.props.quiz.arr[this.qno] === undefined) {
-                this.props.selectAnswer(antwort);
-                console.log('item wurde hinzugefügt');
             } else {
-                this.props.updateAnswer(antwort, this.qno); 
-                console.log('item wurde geupdated');
-            } 
             for (let i = 0, l = this.arrnew.length; i < l; i++) {
                 console.log(i);
                 if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
@@ -104,10 +86,10 @@ class QuestionPage extends Component {
                         console.log('SegelnFrage richtig');
                     }
                 }
-                    if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) {
+                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
                         this.props.wrong(i);
-                    }
                 }
+            }
             this.props.getBasisScore(this.basisScore);
             this.props.getSpezScore(this.spezScore);
             actions.toResult();
@@ -115,7 +97,15 @@ class QuestionPage extends Component {
     }
     answer(ans) {
         this.state.selectedAns = ans;
-    } 
+    }
+    markQuestion() {
+        if (this.props.quiz.marked.includes(this.qno) === true) {
+            console.log('Frage nicht mehr makiert');
+            this.props.unmark(this.qno);
+        } else {
+            this.props.mark(this.qno);
+        }
+    }
      render() {
         const radioProps = [
             { label: this.state.options.option1, value: 'option1' },
@@ -184,6 +174,11 @@ class QuestionPage extends Component {
                 </View>
 
                 <View style={{ flexDirection: 'column' }}>
+                    <Button
+                    onPress={() => this.markQuestion()}
+                    title="Frage makieren"
+                    color="#841584"
+                    />
                     <Text>
                     Kategorie: {this.state.categories}
                     </Text>

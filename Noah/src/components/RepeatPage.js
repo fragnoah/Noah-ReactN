@@ -45,7 +45,6 @@ class RepeatPage extends Component {
         }
     }
     next() {
-        if (this.qno < this.props.quiz.wrongAns.length - 1) {
             const antwort = this.state.selectedAns;
             this.props.updateAnswer(antwort, this.props.quiz.wrongAns[this.qno]);
             if (this.props.quiz.wrongArr[this.qno] === undefined) {
@@ -55,47 +54,28 @@ class RepeatPage extends Component {
                 this.props.updateWrongAnswer(antwort, this.qno); 
                 console.log('Falsches item wurde geupdated');
             }
+            if (this.qno < this.props.quiz.wrongAns.length - 1) {
             this.qno++;
-            if (this.qno - 1 === this.props.quiz.wrongAns.length) {
-                this.setState({
-                    id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
-                    question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-                    options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-                    correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-                    categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                    selectedAns: this.props.quiz.wrongArr[this.qno],
-                    image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
-                    });    
-            } else {
             this.setState({
                 id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
                 question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
                 options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
                 correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
                 categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.arr[this.qno],
+                selectedAns: this.props.quiz.wrongArr[this.qno],
                 image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
-                });
-            }
-        } else {
-            const antwort = this.state.selectedAns;
-            if (this.props.quiz.wrongArr[this.qno] === undefined) {
-                this.props.selectWrongAnswer(antwort);
-                console.log('Falsches item wurde hinzugefügt');
+                });    
             } else {
-                    this.props.updateWrongAnswer(antwort, this.qno); 
-                    console.log('Falsches item wurde geupdated');
-        }
-        this.props.resetWrong();
-        for (let i = 0, l = this.arrnew.length; i < l; i++) {
-            if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
-                this.props.wrong(i);
+            this.props.resetWrong();
+            for (let i = 0, l = this.arrnew.length; i < l; i++) {
+                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
+                    this.props.wrong(i);
+                }
+            }
+            this.props.resetWrongAnswer();
+            actions.toResult();
             }
         }
-        this.props.resetWrongAnswer();
-        actions.toResult();
-        }
-    }
     answer(ans) {
         this.state.selectedAns = ans;
     } 
