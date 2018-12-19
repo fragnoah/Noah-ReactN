@@ -6,15 +6,14 @@ import * as actions from '../actions';
 
 class startPage extends Component {
 
-    componentWillMount() {
-        this.props.resetFb(); // muss noch jedes mal wenn aufgerufen wird
-    }
     getFb1() {
+        this.props.resetFb();
         const fb = 'fb1';
         this.props.selectFb(fb);
         Actions.quest();
     }
     getFb2() {
+        this.props.resetFb();
         const fb = 'fb2';
         this.props.selectFb(fb);
         Actions.quest();
