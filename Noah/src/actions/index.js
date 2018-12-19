@@ -91,4 +91,3 @@ export const resetMarked = () => {
     type: 'reset_marked'
   };
 };
-
