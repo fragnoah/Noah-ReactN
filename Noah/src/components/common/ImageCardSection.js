@@ -8,7 +8,7 @@ const getImage = (image) => {
     <View style={styles.imgContStyle}>
       <Image 
         style={styles.imgStyle} 
-        //source={require(s)}
+        //source={require(s)} // geht nicht
         //source={require('../assets/img/NOAH_LoadScreen.png')}
         //source={{ 
         //  isStatic: true, 
