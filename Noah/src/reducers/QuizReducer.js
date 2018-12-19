@@ -5,7 +5,9 @@ const initalstate = {
     fragebogen: '',
     basisScore: 0,
     spezScore: 0,
-    wrongAns: []
+    wrongAns: [],
+    marked: [],
+    wrongArr: []
 };
 
 export default (state = initalstate, action) => {
@@ -30,6 +32,12 @@ export default (state = initalstate, action) => {
         case 'reset_fb': {
             return { ...initalstate };
         }
+        case 'reset_wrong': {
+            return { ...state, wrongAns: [] };
+        }
+        case 'reset_wrongAnswer': {
+            return { ...state, wrongArr: [] };
+        }
         case 'get_BasisScore': 
             return { ...state, basisScore: action.payload };
         case 'get_SpezScore':
@@ -41,6 +49,37 @@ export default (state = initalstate, action) => {
                 wrongAns: [...state.wrongAns, wrongItem]
                 };
             }
+        case 'select_WrongAnswer': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                wrongArr: [...state.wrongArr, newItem]
+                };
+            }
+        case 'update_WrongAnswer':
+                return update(state, { 
+                    wrongArr: { 
+                    [action.index]: 
+                    { $set: action.payload }
+                  }
+                }
+              );
+        case 'mark_question': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                marked: [...state.marked, newItem]
+            };
+        }
+        case 'unmark_question': {
+            return {
+                ...state,
+                marked: state.marked.filter(item => item !== action.payload)
+            };
+        }
+        case 'reset_marked': {
+            return { ...state, arr: [] };
+        }
         default:
             return state;
     }

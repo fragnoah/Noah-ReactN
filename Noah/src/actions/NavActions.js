@@ -1,7 +1,9 @@
 import { Actions } from 'react-native-router-flux';
+import { resetFb } from '../actions';
 
 
 export const toTests = () => {
+ // resetFb();
         Actions.test(); 
 };
 
@@ -37,6 +39,10 @@ export const toLearnSegelQuestions = () => {
   //console.log(testNumber);
   //Actions.quest({ Testnumber: testNumber });
   Actions.learnsegel();
+};
+
+export const toGlossar = () => {
+  Actions.glossar();
 };
 
 /*

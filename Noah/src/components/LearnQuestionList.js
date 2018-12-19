@@ -21,7 +21,7 @@ class LearnQuestionList extends Component {
     //console.log(this.fromID, this.toID);
   }
 
-  generateActualPool(){
+  generateActualPool() {
     if (this.props.fromID == null || this.props.toID == null) {
       this.newPool = this.props.pool;
     } else {

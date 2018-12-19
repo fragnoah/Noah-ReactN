@@ -12,6 +12,25 @@ class Result extends Component {
             this.Ergebnis = 'Glückwünsch,bestanden';
         }
     }
+    wrongRepeate() {
+        if (this.props.quiz.wrongAns.length > 0) {
+        Actions.repeat();
+        } else {
+           console.log('Keine falschen Fragen vorhanden');
+        }
+    }
+    marked() {
+        this.props.resetMarked();
+        if (this.props.quiz.marked.length > 0) {
+            Actions.mark();
+            } else {
+               console.log('keine Fragen makiert');
+            }
+        }
+    all() {
+        this.props.resetMarked();
+        Actions.all();
+    }
     render() {
         this.checkScore();
         return (
@@ -22,8 +41,18 @@ class Result extends Component {
                 <Text>{this.Ergebnis}</Text>
 
                 <Button
-                onPress={() => Actions.repeat()}
+                onPress={() => this.wrongRepeate()}
                 title="Falsche Fragen wiederholen"
+                color='#ff00ff00'
+                />
+                <Button
+                onPress={() => this.marked()}
+                title="Makierte Fragen wiederholen"
+                color='#ff00ff00'
+                />
+                <Button
+                onPress={() => this.all()}
+                title="Alle Fragen wiederholen"
                 color='#ff00ff00'
                 />
             </View>
