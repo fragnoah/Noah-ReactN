@@ -11,8 +11,12 @@ import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
 import { toResult } from './actions';
 import RepeatPage from './components/RepeatPage';
+<<<<<<< HEAD
 import markedQuestion from './components/markedQuestion';
 import RepeatAll from './components/RepeatAll';
+=======
+import GlossarList from './components/GlossarList';
+>>>>>>> 7e5f206494454f2ac4c382f3339882a5c9f6700d
 
 
 const RouterComponent = () => {
@@ -39,6 +43,7 @@ const RouterComponent = () => {
                 <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
                 <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
                 <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
+                <Scene key="glossar" title="Glossar" component={GlossarList} />
             </Scene>
              
         </Router>
