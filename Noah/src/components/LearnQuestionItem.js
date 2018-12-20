@@ -3,8 +3,7 @@ import {
   Text,
   TouchableWithoutFeedback,
   View,
-  LayoutAnimation,
-  Image
+  LayoutAnimation
 } from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection, ImageCardSection } from './common';
@@ -33,33 +32,54 @@ class LearnQuestionItem extends Component {
     }
   }
 
+  renderBuchRef(buchRef) {
+    if (buchRef !== '') {
+      return (
+        <Text style={styles.kursivText}>Buchreferenz: {buchRef} </Text>
+      );
+    }
+  }
+
+  renderSolve(solve) {
+    if (solve !== '') {
+      return (
+        <View>
+          <Text style={styles.boldText}>Begründung: </Text>
+          <Text > {solve} </Text>  
+        </View>
+      );
+    }
+  }
+
   renderDescription() {
     const { expanded } = this.props;
-    const { solve, image } = this.props.question;
+    const { solve, buchRef } = this.props.question;
 
     if (expanded) {
-      console.log(image);
-      console.log(Image.resolveAssetSource(image));
-      return (
-        
+      return (        
         <CardSection style={styles.descriptionStyle}>
           <Text style={styles.boldText}>Antwort: </Text>
           <Text >{this.getRightAnswer()} </Text>
-          <Text style={styles.boldText}>Begründung: </Text>
-          <Text > {solve} </Text>         
+          {this.renderSolve(solve)}  
+          {this.renderBuchRef(buchRef)}     
         </CardSection>
       );
     }
   }
 
   render() {
-    const { id, frageText } = this.props.question;
+    const { id, frageText, image } = this.props.question;
     return (
       <TouchableWithoutFeedback
         onPress={() => this.props.selectQuestion(id)}
       >
         <View>
-          <ImageCardSection id={id} text={frageText} image={this.props.question.image} />
+          <ImageCardSection 
+            id={id} 
+            text={frageText} 
+            image={image} 
+            buchRef={''}
+          />
           {this.renderDescription()}
         </View>
       </TouchableWithoutFeedback>
@@ -75,6 +95,10 @@ const styles = {
   }, 
   boldText: {
     fontWeight: 'bold'
+  },
+  kursivText: {
+    fontStyle: 'italic',
+    paddingTop: 5
   }
 };
 

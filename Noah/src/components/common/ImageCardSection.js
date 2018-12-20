@@ -36,53 +36,51 @@ const getQuestion = (id, text) => {
 class ImageCardSection extends Component {
 
   renderID(id) {
-    if (id !== null) {
+    if (id !== '' && id !== undefined) {
       return (
         <Text style={styles.idTextStyle} >
             id: {id}
           </Text>
       );
-    } else {
-      return;
-    }
+    } 
   } 
 
-  render() {
-    const { image, text, id } = this.props;
-    console.log(this.props);
-
-    if (image == '') {
-      //getQuestion(text, id);
+  renderBuchRef(buchRef) {
+    if (buchRef !== '' && buchRef !== undefined) {
       return (
-        <CardSection style={[this.props.style]}>
-          <View style={styles.containerStyle}>
-            {this.renderID(id)}
-            <Text style={styles.questionTextStyle} >
-              {text}
-            </Text>
-          </View>
-        </CardSection>
-      );
-    } else {
-      //getQuestion(text, id);
-      //getImage(image);
-      return (
-        <CardSection style={[this.props.style]}>
-          <View style={styles.containerStyle}>
-            {this.renderID(id)}
-            <Text style={styles.questionTextStyle} >
-              {text}
-            </Text>
-          </View>
-          <View style={styles.imgContStyle}>
-            <Image 
-              style={styles.imgStyle}              
-              source={{ uri: image }}
-            />
-          </View>
-        </CardSection>
+        <Text style={styles.BuchRefText}>Buchreferenz: {buchRef} </Text>
       );
     }
+  }
+
+  renderImage(image) {
+    if (image !== '' && image !== undefined) {
+      return (
+        <View style={styles.imgContStyle}>
+        <Image 
+          style={styles.imgStyle}              
+          source={{ uri: image }}
+        />
+      </View>
+      );
+    } 
+  }
+
+  render() {
+    const { image, text, id, buchRef } = this.props;
+    //getQuestion(text, id);
+    return (
+      <CardSection style={[this.props.style]}>
+        <View style={styles.containerStyle}>
+          {this.renderID(id)}
+          <Text style={[styles.questionTextStyle, this.props.textStyle]} >
+            {text}
+          </Text>
+        </View>
+        {this.renderImage(image)}
+        {this.renderBuchRef(buchRef)}
+      </CardSection>
+    );     
   }
 }
 //const ImageCardSection = (props) => {
@@ -113,6 +111,13 @@ const styles = {
     height: 75,
     width: 75,
     resizeMode: 'contain'   
+  },
+  BuchRefText: {
+    fontStyle: 'italic',
+    paddingTop: 5,
+    paddingLeft: 15,
+    paddingRight: 5,
+    flex: 1
   }
 };
 

@@ -10,7 +10,7 @@ class GlossarList extends Component {
   }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <ScrollView>
         <FlatList 
