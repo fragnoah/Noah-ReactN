@@ -6,15 +6,8 @@ import * as actions from '../actions';
 
 class startPage extends Component {
 
-    getFb1() {
+    getFb(fb) {
         this.props.resetFb();
-        const fb = 'fb1';
-        this.props.selectFb(fb);
-        Actions.quest();
-    }
-    getFb2() {
-        this.props.resetFb();
-        const fb = 'fb2';
         this.props.selectFb(fb);
         Actions.quest();
     }
@@ -26,12 +19,12 @@ class startPage extends Component {
                     Nachfolgende Szene ist die QuestionPage für ein Fragebogen
                 </Text>
                 <Button
-                onPress={() => this.getFb1()}
+                onPress={() => this.getFb('fb1')}
                 title="Fragebogen 1"
                 color="#841584"
                 />
                 <Button
-                onPress={() => this.getFb2()}
+                onPress={() => this.getFb('fb2')}
                 title="Fragebogen 2"
                 color="#841584"
                 />

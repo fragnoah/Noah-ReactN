@@ -1,4 +1,5 @@
 import update from 'immutability-helper';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initalstate = {
     arr: [],
@@ -12,6 +13,8 @@ const initalstate = {
 
 export default (state = initalstate, action) => {
     switch (action.type) {
+         // case REHYDRATE:
+        //    return action.payload.selectedFb || [];
         case 'select_fb':
            return { ...state, fragebogen: action.payload };
         case 'select_answer': {
