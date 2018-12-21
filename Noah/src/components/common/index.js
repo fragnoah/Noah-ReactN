@@ -6,4 +6,5 @@ export * from './Input';
 export * from './Spinner';
 export * from './Confirm';
 export * from './ImageCardSection';
+export * from './ImageButton';
 //export * from './CardQuestion';

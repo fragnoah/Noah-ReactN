@@ -42,3 +42,7 @@ export const toLearnSegelQuestions = () => {
 export const toGlossar = () => {
   Actions.glossar();
 };
+
+export const toVideos = () => {
+  Actions.videos();
+};

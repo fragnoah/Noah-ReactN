@@ -5,6 +5,7 @@ import QuestionSolveReducer from './QuestionSolveReducer';
 import GlossarReducer from './GlossarReducer';
 import GlossarSection from './GlossarySectionReducer';
 import GlossarTitle from './GlossaryTitleReducer';
+import VideoIndex from './VideoReducer';
  
 export default combineReducers({
     selectedFb: QuizReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
     solveSelectedQuestionID: QuestionSolveReducer,
     glossary: GlossarReducer,
     selectedGlossarSection: GlossarSection,
-    selectedGlossarTitle: GlossarTitle
+    selectedGlossarTitle: GlossarTitle,
+    videoindex: VideoIndex
 });
