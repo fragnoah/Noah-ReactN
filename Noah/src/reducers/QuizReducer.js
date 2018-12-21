@@ -1,5 +1,4 @@
 import update from 'immutability-helper';
-import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initalstate = {
     arr: [],
@@ -8,13 +7,14 @@ const initalstate = {
     spezScore: 0,
     wrongAns: [],
     marked: [],
-    wrongArr: []
+    wrongArr: [],
+    passedFb: [],
+    qno: 0
 };
 
 export default (state = initalstate, action) => {
     switch (action.type) {
-         // case REHYDRATE:
-        //    return action.payload.selectedFb || [];
+
         case 'select_fb':
            return { ...state, fragebogen: action.payload };
         case 'select_answer': {
@@ -33,7 +33,22 @@ export default (state = initalstate, action) => {
             }
           );
         case 'reset_fb': {
-            return { ...initalstate };
+            return { ...state,
+                arr: [],
+                fragebogen: '', 
+                basisScore: 0,
+                spezScore: 0,
+                marked: [],
+                wrongAns: [],
+                wrongArr: [],
+                qno: 0
+            };
+        }
+        case 'inc': {
+            return { ...state, qno: state.qno + 1 };
+        }
+        case 'dec': {
+            return { ...state, qno: state.qno - 1 };
         }
         case 'reset_wrong': {
             return { ...state, wrongAns: [] };
@@ -82,6 +97,21 @@ export default (state = initalstate, action) => {
         }
         case 'reset_marked': {
             return { ...state, arr: [] };
+        }
+        case 'reset_default': {
+            return { ...state, 
+                basisScore: 0,
+                spezScore: 0,
+                wrongAns: [],
+                wrongArr: [],
+            };
+        }
+        case 'pass_Fb': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                passedFb: [...state.passedFb, newItem]
+            };
         }
         default:
             return state;

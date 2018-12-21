@@ -91,4 +91,25 @@ export const resetMarked = () => {
     type: 'reset_marked'
   };
 };
+export const resetDefault = () => {
+  return {
+    type: 'reset_default'
+  };
+};
+export const passFb = (fb) => {
+  return {
+    type: 'pass_Fb',
+    payload: fb
+  };
+};
+export const increment = () => {
+  return {
+    type: 'inc'
+  };
+};
+export const decrement = () => {
+  return {
+    type: 'dec'
+  };
+};
 

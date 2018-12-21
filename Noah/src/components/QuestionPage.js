@@ -16,76 +16,65 @@ import * as actions from '../actions';
 class QuestionPage extends Component {
     constructor(props) {
         super(props);
-        this.qno = 0;
         this.basisScore = 0;
         this.spezScore = 0;
 
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
-            id: this.arrnew[this.qno].id,
-            question: this.arrnew[this.qno].frageText,
-            options: this.arrnew[this.qno].options,
-            correctoption: this.arrnew[this.qno].correctAnswer,
-            categories: this.arrnew[this.qno].category,
-            selectedAns: -1,
-            image: this.arrnew[this.qno].image,
-            marked: this.props.quiz.marked[this.qno]
+            selectedAns: -1
         };   
     }
     prev() {  
-        if (this.qno >= 1) { 
-            this.qno--;       
+        if (this.props.quiz.qno >= 1) { 
+            this.props.decrement();       
             this.setState({
-                id: this.arrnew[this.qno].id,
-                question: this.arrnew[this.qno].frageText,
-                options: this.arrnew[this.qno].options,
-                correctoption: this.arrnew[this.qno].correctAnswer,
-                categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno],
-                image: this.arrnew[this.qno].image,
-                marked: this.props.quiz.marked[this.qno]
+                selectedAns: this.props.quiz.arr[this.props.quiz.qno],
             });
         }
     }
     next() {
             const antwort = this.state.selectedAns;
-            if (this.props.quiz.arr[this.qno] === undefined) {
-                this.props.selectAnswer(antwort);
-                console.log('item wurde hinzugefügt');
-            } else {
-                this.props.updateAnswer(antwort, this.qno); 
-                console.log('item wurde geupdated');
-            }
-            if (this.qno < this.arrnew.length - 1) {
-            this.qno++;
-            this.setState({
-            id: this.arrnew[this.qno].id, 
-                question: this.arrnew[this.qno].frageText,
-                options: this.arrnew[this.qno].options,
-                correctoption: this.arrnew[this.qno].correctAnswer,
-                categories: this.arrnew[this.qno].category,
-                selectedAns: this.props.quiz.arr[this.qno],               
-                image: this.arrnew[this.qno].image,
-                marked: this.props.quiz.marked[this.qno]
-                });
-            } else {
-            for (let i = 0, l = this.arrnew.length; i < l; i++) {
-                console.log(i);
-                if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
-                    if (this.arrnew[i].category === 'Basis') {
-                        this.basisScore++;
-                        console.log('BasisFrage richtig');
-                    }
-                    if (this.arrnew[i].category === 'Binnen') {
-                        this.spezScore++;
-                        console.log('BinnenFrage richtig');
-                    }
-                    if (this.arrnew[i].category === 'Segeln') {
-                        this.spezScore++;
-                        console.log('SegelnFrage richtig');
-                    }
+            if (this.props.quiz.qno < this.arrnew.length - 1) {
+                if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
+                    this.props.selectAnswer(antwort);
+                    console.log('item wurde hinzugefügt');
+                    this.props.increment();
+                    this.setState({
+                        selectedAns: -1
+                        });
+                } else {
+                    this.props.updateAnswer(antwort, this.props.quiz.qno); 
+                    console.log('item wurde geupdated');
+                    this.props.increment();
+                    this.setState({
+                    selectedAns: this.props.quiz.arr[this.props.quiz.qno]
+                    });
                 }
+            } else {
+                if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
+                    this.props.selectAnswer(antwort);
+                    console.log('item wurde hinzugefügt');
+                } else {
+                    this.props.updateAnswer(antwort, this.props.quiz.qno); 
+                    console.log('item wurde geupdated');
+                }
+                for (let i = 0, l = this.arrnew.length; i < l; i++) {
+                    console.log(i);
+                    if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
+                        if (this.arrnew[i].category === 'Basis') {
+                            this.basisScore++;
+                            console.log('BasisFrage richtig');
+                        }
+                        if (this.arrnew[i].category === 'Binnen') {
+                            this.spezScore++;
+                            console.log('BinnenFrage richtig');
+                        }
+                        if (this.arrnew[i].category === 'Segeln') {
+                            this.spezScore++;
+                            console.log('SegelnFrage richtig');
+                        }
+                    }
                 if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
                         this.props.wrong(i);
                 }
@@ -99,23 +88,23 @@ class QuestionPage extends Component {
         this.state.selectedAns = ans;
     }
     markQuestion() {
-        if (this.props.quiz.marked.includes(this.qno) === true) {
+        if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
             console.log('Frage nicht mehr makiert');
-            this.props.unmark(this.qno);
+            this.props.unmark(this.props.quiz.qno);
         } else {
-            this.props.mark(this.qno);
+            this.props.mark(this.props.quiz.qno);
         }
     }
      render() {
         const radioProps = [
-            { label: this.state.options.option1, value: 'option1' },
-            { label: this.state.options.option2, value: 'option2' },
-            { label: this.state.options.option3, value: 'option3' },
-            { label: this.state.options.option4, value: 'option4' },
+            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
+            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
+            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
+            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
         ];
 
         let init = null;
-        switch (this.props.quiz.arr[this.qno]) {
+        switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':
                 init = 0;
             break;
@@ -144,14 +133,14 @@ class QuestionPage extends Component {
                 
                 <ImageCardSection 
                     style={{ backgroundColor: '#8CD6FC' }} 
-                    id={this.state.id} 
-                    text={this.state.question} 
-                    image={this.state.image}
+                    id={this.arrnew[this.props.quiz.qno].id} 
+                    text={this.arrnew[this.props.quiz.qno].frageText} 
+                    image={this.arrnew[this.props.quiz.qno].image}
                 />
                 
                 <CardSection>                  
                     <RadioForm
-                        key={this.qno}
+                        key={this.props.quiz.qno}
                         radio_props={radioProps}
                         initial={init}
                         onPress={(value) => { this.answer(value); }}
@@ -180,17 +169,17 @@ class QuestionPage extends Component {
                     color="#841584"
                     />
                     <Text>
-                    Kategorie: {this.state.categories}
+                    Kategorie: {this.arrnew[this.props.quiz.qno].category}
                     </Text>
                     <Text>
-                    Korrekteantwort: { this.state.correctoption}
+                    Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
                     </Text>
                     <Text>
                      {console.log(this.props)}
                      Fragebogen: {this.props.quiz.fragebogen}
                     </Text>
                     <Text>
-                        Qno: {this.qno}
+                        Qno: {this.props.quiz.qno}
                     </Text>
                 </View>
             

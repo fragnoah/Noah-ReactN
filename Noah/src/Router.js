@@ -9,7 +9,7 @@ import startPage from './components/startPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
-import { toResult } from './actions';
+import { toTests } from './actions';
 import RepeatPage from './components/RepeatPage';
 import markedQuestion from './components/markedQuestion';
 import RepeatAll from './components/RepeatAll';
@@ -28,11 +28,19 @@ const RouterComponent = () => {
                 <Scene 
                     key="quest" 
                     title="Prüfung"
-                    rightTitle="Check"
-                    onRight={toResult} 
+                    onLeft={toTests} 
+                    leftTitle='Abbrechen' 
                     component={QuestionPage}                     
                 />
-                <Scene key="result" title="Ergebnis" component={Result} />
+                
+                <Scene 
+                key="result" 
+                title="Ergebnis" 
+                onLeft={toTests} 
+                leftTitle='Start' 
+                component={Result} 
+                />
+
                 <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
                 <Scene key="all" title="Wiederholung" component={RepeatAll} />
                 <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
