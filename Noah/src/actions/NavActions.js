@@ -1,4 +1,8 @@
 import { Actions } from 'react-native-router-flux';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2dab1622a63bbdf7f7be1895533e00387a545e0c
 
 export const toTests = () => {
  // resetFb();
