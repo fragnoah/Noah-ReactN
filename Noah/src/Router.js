@@ -16,7 +16,7 @@ import markedQuestion from './components/markedQuestion';
 import RepeatAll from './components/RepeatAll';
 
 import GlossarList from './components/GlossarList';
-
+import VideoList from './components/VideoList';
 
 const RouterComponent = () => {
     //read();
@@ -51,6 +51,7 @@ const RouterComponent = () => {
                 <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
                 <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
                 <Scene key="glossar" title="Glossar" component={GlossarList} />
+                <Scene key="videos" title="Videos" component={VideoList} />
             </Scene>
              
         </Router>

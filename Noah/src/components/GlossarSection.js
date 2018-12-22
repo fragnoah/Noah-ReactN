@@ -29,13 +29,13 @@ class GlossarSection extends Component {
   render() {
     const { key } = this.props.glossar;
 
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <TouchableWithoutFeedback
       onPress={() => this.props.selectGlossarySection(key)}
       >
         <View>
-          <CardSection style={styles.sectionTitle}>
+          <CardSection style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>{key}</Text>
           </CardSection>
           {this.renderSection()}
@@ -59,6 +59,11 @@ const styles = {
     fontWeight: 'bold',
     fontSize: 18,
     backgroundColor: '#8CD6FC'
+  },
+  sectionContainer: {
+    backgroundColor: '#8CD6FC',
+    paddingTop: 5,
+    paddingBottom: 5
   }
 };
 

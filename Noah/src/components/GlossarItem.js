@@ -17,11 +17,16 @@ class GlossarSection extends Component {
   }
 
   renderDescription() {
-    const { description, image } = this.props.item;
+    const { description, image, buchRef } = this.props.item;
     //if (this.props.glossar.key === this.props.selectedGlossarSection) { 
     if (this.props.expanded) {
       return (
-        <ImageCardSection text={description} id={null} image={image} />
+        <ImageCardSection 
+          text={description} 
+          image={image} 
+          buchRef={buchRef}
+          textStyle={styles.descriptionTextStyle}
+        />
       );
     }
   }
@@ -34,8 +39,8 @@ class GlossarSection extends Component {
       onPress={() => this.props.selectGlossaryTitle(title)}
       >
         <View>
-          <CardSection>
-            <Text>{title}</Text>
+          <CardSection style={styles.sectionContainer}>
+            <Text style={styles.sectionTitle}>{title}</Text>
           </CardSection>
           {this.renderDescription()}
         </View>
@@ -46,13 +51,19 @@ class GlossarSection extends Component {
 }
 
 const styles = {
-  descriptionStyle: {
-    paddingLeft: 15,
+  descriptionTextStyle: {
+    fontSize: 15,
+    paddingLeft: 10,
     paddingRight: 5,
     flex: 1
-  }, 
-  boldText: {
-    fontWeight: 'bold'
+  },
+  sectionTitle: {
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+  sectionContainer: {
+    paddingTop: 5,
+    paddingBottom: 5
   }
 };
 
