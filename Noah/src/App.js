@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
+import { Platform } from 'react-native';
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
@@ -20,19 +21,25 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 class App extends Component {
     constructor() {
         super();
-        //SplashScreen.show();
+        console.log('OS: ', Platform.OS, ' (', Platform.Version, ')');
+        if (Platform.OS === 'android') {
+            console.log('Trying to show');
+            SplashScreen.show();
+        }
     }
 
     componentWillMount() {
         // https://github.com/crazycodeboy/react-native-splash-screen
-        //SplashScreen.show();
+        //if (Platform.OS === 'android') SplashScreen.show();
     }
 
     componentDidMount() {
         // https://github.com/crazycodeboy/react-native-splash-screen
         // do stuff while splash screen is shownc
-        // After having done stuff (such as async tasks) hide the splash screen
-        //‚SplashScreen.hide();
+        // After having done stuff (such as async tasks) hide the splash screen        
+        if (Platform.OS === 'android') {
+            SplashScreen.hide();
+        }
     }
 
     render() {
