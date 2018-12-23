@@ -20,7 +20,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 class App extends Component {
     constructor() {
         super();
-        SplashScreen.show();
+        //SplashScreen.show();
     }
 
     componentWillMount() {
@@ -32,7 +32,7 @@ class App extends Component {
         // https://github.com/crazycodeboy/react-native-splash-screen
         // do stuff while splash screen is shownc
         // After having done stuff (such as async tasks) hide the splash screen
-        SplashScreen.hide();
+        //‚SplashScreen.hide();
     }
 
     render() {
