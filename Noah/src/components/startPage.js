@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class startPage extends Component {
-
-    getFb1() {
-        this.props.resetFb();
-        const fb = 'fb1';
-        this.props.selectFb(fb);
-        Actions.quest();
+    componentWillMount() {
+        if (this.props.quiz.qno === 29) {
+            this.props.resetFb();
+        }
+        if (this.props.quiz.fragebogen !== '') {
+            this.props.resetDefault();
+        Alert.alert(
+            'Mitteilung',
+            'Letzen Versuch fortsetzen?',
+            [
+            { text: 'Abbrechen', onPress: () => this.props.resetFb(), style: 'cancel' },
+              { text: 'OK', onPress: () => Actions.quest() },
+            ],
+            { cancelable: false }
+          );
+        }
     }
-    getFb2() {
+
+    getFb(fb) {
         this.props.resetFb();
-        const fb = 'fb2';
         this.props.selectFb(fb);
         Actions.quest();
     }
@@ -26,12 +36,12 @@ class startPage extends Component {
                     Nachfolgende Szene ist die QuestionPage für ein Fragebogen
                 </Text>
                 <Button
-                onPress={() => this.getFb1()}
+                onPress={() => this.getFb('fb1')}
                 title="Fragebogen 1"
                 color="#841584"
                 />
                 <Button
-                onPress={() => this.getFb2()}
+                onPress={() => this.getFb('fb2')}
                 title="Fragebogen 2"
                 color="#841584"
                 />

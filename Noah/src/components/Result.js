@@ -10,6 +10,9 @@ class Result extends Component {
          this.Ergebnis = 'leider nicht bestanden';
         if (this.props.quiz.basisScore >= 5 && this.props.quiz.spezScore >= 18) {
             this.Ergebnis = 'Glückwünsch,bestanden';
+            if (this.props.quiz.passedFb.includes(this.props.quiz.fragebogen) === false) {
+                this.props.passFb(this.props.quiz.fragebogen);
+            }
         }
     }
     wrongRepeate() {
@@ -31,6 +34,10 @@ class Result extends Component {
         this.props.resetMarked();
         Actions.all();
     }
+    back() {
+        this.props.resetFb();
+        Actions.test();
+    }
     render() {
         this.checkScore();
         return (
@@ -39,6 +46,12 @@ class Result extends Component {
                 <Text>Basispunkte: {this.props.quiz.basisScore} von 7 </Text>
                 <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>
                 <Text>{this.Ergebnis}</Text>
+
+                <Button
+                onPress={() => this.back()}
+                title="Zurück zum Start-Menü"
+                color='#ff00ff00'
+                />
 
                 <Button
                 onPress={() => this.wrongRepeate()}
