@@ -38,7 +38,7 @@ class App extends Component {
     componentDidMount() {
         // https://github.com/crazycodeboy/react-native-splash-screen
         // do stuff while splash screen is shownc
-        // After having done stuff (such as async tasks) hide the splash screen        
+        // After having done stuff (such as async tasks) hide the splash screen
         if (Platform.OS === 'android') {
             SplashScreen.hide();
         }
