@@ -19,14 +19,16 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 //const store = compose(persistedReducer, {}, applyMiddleware(Thunk));
 
 class App extends Component {
+    /*
     constructor() {
         super();
         console.log('OS: ', Platform.OS, ' (', Platform.Version, ')');
         if (Platform.OS === 'android') {
             console.log('Trying to show');
-            SplashScreen.show();
+            //SplashScreen.show();
         }
     }
+    */
 
     componentWillMount() {
         // https://github.com/crazycodeboy/react-native-splash-screen
