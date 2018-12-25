@@ -34,17 +34,22 @@ class LearnMenu extends Component {
                         buttonStyle={smallButtonStyle} 
                     />
                 </Card>
-                
-                <Button 
-                    children="Glossar" 
-                    onPress={actions.toGlossar} 
-                    buttonStyle={bigButtonStyle} 
-                />
-                <Button 
-                    children="Videos" 
-                    onPress={actions.toVideos} 
-                    buttonStyle={bigButtonStyle} 
-                />
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>Nachschlagen</Text>
+                    <Button 
+                        children="Glossar" 
+                        onPress={actions.toGlossar} 
+                        buttonStyle={smallButtonStyle} 
+                    />
+                </Card>
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>Praxis </Text>
+                    <Button 
+                        children="Videos" 
+                        onPress={actions.toVideos} 
+                        buttonStyle={smallButtonStyle} 
+                    />
+            </Card>
             </ScrollView>
         );
     }
@@ -66,7 +71,7 @@ const styles = {
     smallButtonStyle: {
         padding: 5,
         marginLeft: 20,
-        marginRight: 0
+        marginRight: 2
     }
 };
 

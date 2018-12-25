@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
+import { ImageBackground } from 'react-native';
 
 import MainMenu from './components/MainMenu';
 import LearnMenu from './components/LearnMenu';
@@ -19,42 +20,48 @@ import GlossarList from './components/GlossarList';
 import VideoList from './components/VideoList';
 
 const RouterComponent = () => {
-    //read();
-    
     return (
-        <Router navigationBarStyle={styles.viewStyle} >
-            <Scene key="root" titleStyle={styles.titleStyle}>
-                <Scene key="menu" title="Menü" component={MainMenu} initial />
-                <Scene key="test" title="Tests" component={startPage} />
-                <Scene key="learn" title="Lernen" component={LearnMenu} />
+        <ImageBackground
+            source={require('./assets/img/NOAH_Wallpaper.png')}
+            style={styles.backgroundImage}
+        >
+            <Router 
+                navigationBarStyle={styles.viewStyle} 
+                sceneStyle={styles.sceneStyle}
+            >
+                <Scene key="root" titleStyle={styles.titleStyle}>
+                    <Scene key="menu" title="Menü" component={MainMenu} initial />
+                    <Scene key="test" title="Tests" component={startPage} />
+                    <Scene key="learn" title="Lernen" component={LearnMenu} />
 
-                <Scene 
-                    key="quest" 
-                    title="Prüfung"
+                    <Scene 
+                        key="quest" 
+                        title="Prüfung"
+                        onLeft={toTests} 
+                        leftTitle='Abbrechen' 
+                        component={QuestionPage}                     
+                    />
+                    
+                    <Scene 
+                    key="result" 
+                    title="Ergebnis" 
                     onLeft={toTests} 
-                    leftTitle='Abbrechen' 
-                    component={QuestionPage}                     
-                />
-                
-                <Scene 
-                key="result" 
-                title="Ergebnis" 
-                onLeft={toTests} 
-                leftTitle='Start' 
-                component={Result} 
-                />
+                    leftTitle='Start' 
+                    component={Result} 
+                    />
 
-                <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
-                <Scene key="all" title="Wiederholung" component={RepeatAll} />
-                <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
-                <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
-                <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
-                <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
-                <Scene key="glossar" title="Glossar" component={GlossarList} />
-                <Scene key="videos" title="Videos" component={VideoList} />
-            </Scene>
-             
-        </Router>
+                    <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
+                    <Scene key="all" title="Wiederholung" component={RepeatAll} />
+                    <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
+                    <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
+                    <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
+                    <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
+                    <Scene key="glossar" title="Glossar" component={GlossarList} />
+                    <Scene key="videos" title="Videos" component={VideoList} />
+                </Scene>
+                    
+            </Router>
+        </ImageBackground>
     );
 };
 
@@ -70,9 +77,15 @@ const styles = {
     },
     titleStyle: {
         alignSelf: 'center',
-      fontSize: 40,
+      fontSize: 25,
       color: '#FFFFFF',
-
+    },
+    sceneStyle: {
+        backgroundColor: 'transparent',
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
     }
   };
 
