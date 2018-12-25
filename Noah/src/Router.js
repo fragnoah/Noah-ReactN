@@ -25,30 +25,30 @@ const RouterComponent = () => {
             source={require('./assets/img/NOAH_Wallpaper.png')}
             style={styles.backgroundImage}
         >
-            <Router
-                navigationBarStyle={styles.viewStyle}
-                sceneStyle={styles.sceneStyle}
+            <Router 
+                navigationBarStyle={styles.viewStyle} 
                 getSceneStyle={() => ({ backgroundColor: 'transparent' })}
+                sceneStyle={styles.sceneStyle}
             >
                 <Scene key="root" titleStyle={styles.titleStyle}>
                     <Scene key="menu" title="Menü" component={MainMenu} initial />
                     <Scene key="test" title="Tests" component={startPage} />
                     <Scene key="learn" title="Lernen" component={LearnMenu} />
 
-                    <Scene
-                        key="quest"
+                    <Scene 
+                        key="quest" 
                         title="Prüfung"
-                        onLeft={toTests}
-                        leftTitle='Abbrechen'
-                        component={QuestionPage}
+                        onLeft={toTests} 
+                        leftTitle='Abbrechen' 
+                        component={QuestionPage}                     
                     />
-
-                    <Scene
-                    key="result"
-                    title="Ergebnis"
-                    onLeft={toTests}
-                    leftTitle='Start'
-                    component={Result}
+                    
+                    <Scene 
+                    key="result" 
+                    title="Ergebnis" 
+                    onLeft={toTests} 
+                    leftTitle='Start' 
+                    component={Result} 
                     />
 
                     <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
@@ -60,7 +60,7 @@ const RouterComponent = () => {
                     <Scene key="glossar" title="Glossar" component={GlossarList} />
                     <Scene key="videos" title="Videos" component={VideoList} />
                 </Scene>
-
+                    
             </Router>
         </ImageBackground>
     );
@@ -74,7 +74,7 @@ const styles = {
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         elevation: 2,
-        marginBottom: 10
+        marginBottom: 10 
     },
     titleStyle: {
         alignSelf: 'center',
@@ -82,14 +82,12 @@ const styles = {
       color: '#FFFFFF',
     },
     sceneStyle: {
-        backgroundColor: '#00000000',
+        backgroundColor: 'transparent',
+        //opacity: 1
     },
     backgroundImage: {
-        zIndex: -1,
         flex: 1,
-        resizeMode: 'stretch',
-        width: null,
-        height: null
+        resizeMode: 'cover'
     }
   };
 
