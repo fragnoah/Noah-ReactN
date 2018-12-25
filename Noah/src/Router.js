@@ -23,13 +23,17 @@ class RouterComponent extends Component {
 
     renderIOS() {
         return (
-            <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
+            <ImageBackground
+                source={require('./assets/img/NOAH_Wallpaper.png')}
+                style={styles.backgroundImage}
+            >
                 <Router
                     navigationBarStyle={styles.viewStyle}
+                    // Transparent funktioniert unter iOS nicht
                 >
                     {this.renderScenes()}
                 </Router>
-            </View>
+            </ImageBackground>
             /* sollte funktionieren ... tut es aber nicht ....
             <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
                 <Router
