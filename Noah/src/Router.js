@@ -29,19 +29,19 @@ class RouterComponent extends Component {
 
     renderIOS() {
         return (
-            <Router
-                navigationBarStyle={styles.viewStyle}
-                sceneStyle={styles.sceneStyleIOS}
-                // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
-                // Transparent funktioniert unter iOS nicht
-            >
-                <ImageBackground
-                    source={require('./assets/img/NOAH_Wallpaper.png')}
-                    style={styles.backgroundImage}
+            <ImageBackground
+                source={require('./assets/img/NOAH_Wallpaper.png')}
+                style={styles.backgroundImage}
+            >   
+                <Router
+                    navigationBarStyle={styles.viewNavBarStyle}
+                    sceneStyle={styles.sceneStyleIOS}
+                    // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
+                    // Transparent funktioniert unter iOS nicht
                 >
-                    {this.renderScenes()}
-                </ImageBackground>
-            </Router>
+                    {this.renderScenes()}                
+                </Router>
+            </ImageBackground>
            /* sollte funktionieren ... tut es aber nicht ....
             <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
                 <Router
@@ -72,7 +72,7 @@ class RouterComponent extends Component {
                 style={styles.backgroundImage}
             >
                 <Router
-                    navigationBarStyle={styles.viewStyle}
+                    navigationBarStyle={styles.viewNavBarStyle}
                     sceneStyle={styles.sceneStyle}
                 >
                     {this.renderScenes()}
@@ -131,8 +131,8 @@ class RouterComponent extends Component {
 }
 
 const styles = {
-    viewStyle: {
-        backgroundColor: '#1562E7',
+    viewNavBarStyle: {
+        backgroundColor: 'rgba(21,98,231,0.75)',
         paddingTop: 15,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
