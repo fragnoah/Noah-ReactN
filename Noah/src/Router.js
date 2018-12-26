@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import { ImageBackground, Image, View, Platform } from 'react-native';
+import { 
+    ImageBackground, 
+    //Image, 
+    //View, 
+    Platform 
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import MainMenu from './components/MainMenu';
 import LearnMenu from './components/LearnMenu';
@@ -23,19 +29,19 @@ class RouterComponent extends Component {
 
     renderIOS() {
         return (
-            <ImageBackground
-                source={require('./assets/img/NOAH_Wallpaper.png')}
-                style={styles.backgroundImage}
+            <Router
+                navigationBarStyle={styles.viewStyle}
+                sceneStyle={styles.sceneStyleIOS}
+                // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
+                // Transparent funktioniert unter iOS nicht
             >
-                <Router
-                    navigationBarStyle={styles.viewStyle}
-                    sceneStyle={styles.sceneStyleIOS}
-                    // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
-                    // Transparent funktioniert unter iOS nicht
+                <ImageBackground
+                    source={require('./assets/img/NOAH_Wallpaper.png')}
+                    style={styles.backgroundImage}
                 >
                     {this.renderScenes()}
-                </Router>
-            </ImageBackground>
+                </ImageBackground>
+            </Router>            
            /* sollte funktionieren ... tut es aber nicht ....
             <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
                 <Router
