@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import { 
-    ImageBackground, 
-    //Image, 
-    //View, 
-    Platform 
+import {
+    ImageBackground,
+    //Image,
+    //View,
+    Platform
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -41,7 +41,7 @@ class RouterComponent extends Component {
                 >
                     {this.renderScenes()}
                 </ImageBackground>
-            </Router>            
+            </Router>
            /* sollte funktionieren ... tut es aber nicht ....
             <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
                 <Router
