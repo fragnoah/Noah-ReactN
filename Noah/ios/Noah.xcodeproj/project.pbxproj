@@ -38,8 +38,6 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-<<<<<<< HEAD
-=======
 		5BD4653068F64713ABE4CEFE /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81A2C80CD8C748E7A7D5FCE6 /* Entypo.ttf */; };
 		A47B80C1DBEB4717B62C3782 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAD73E95C2504E9EAD716247 /* EvilIcons.ttf */; };
 		C575C279FD1D47CAA3601596 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47A3C01152474280B2D72B32 /* Feather.ttf */; };
@@ -58,7 +56,6 @@
 		0B56C8B28F704A81809CB265 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABA452E04EE480E885C99B8 /* libRNFS.a */; };
 		96C8C99F2C8F4BBFA6DA7564 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDC3C955CD441B997A9A9FA /* libRNSVG.a */; };
 		EE15DD652E184A53A99A54BB /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5AAED7F6BA6493989F066EA /* libRNSVG-tvOS.a */; };
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -364,8 +361,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		81A2C80CD8C748E7A7D5FCE6 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FAD73E95C2504E9EAD716247 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		47A3C01152474280B2D72B32 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
@@ -387,7 +382,6 @@
 		9CEAC01325A040FE960DF871 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; name = "RNSVG.xcodeproj"; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		6BDC3C955CD441B997A9A9FA /* libRNSVG.a */ = {isa = PBXFileReference; name = "libRNSVG.a"; path = "libRNSVG.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		F5AAED7F6BA6493989F066EA /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; name = "libRNSVG-tvOS.a"; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,12 +409,9 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-<<<<<<< HEAD
-=======
 				B367AD85038540B783105CA0 /* libSplashScreen.a in Frameworks */,
 				0B56C8B28F704A81809CB265 /* libRNFS.a in Frameworks */,
 				96C8C99F2C8F4BBFA6DA7564 /* libRNSVG.a in Frameworks */,
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,12 +599,9 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-<<<<<<< HEAD
-=======
 				6D968EABE75640A2ACC703AF /* SplashScreen.xcodeproj */,
 				54E8B56D194743CD96C9A732 /* RNFS.xcodeproj */,
 				9CEAC01325A040FE960DF871 /* RNSVG.xcodeproj */,
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1239,8 +1227,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Noah.app/Noah";
-<<<<<<< HEAD
-=======
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1254,7 +1240,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Debug;
 		};
@@ -1273,8 +1258,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Noah.app/Noah";
-<<<<<<< HEAD
-=======
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1288,7 +1271,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Release;
 		};
@@ -1308,15 +1290,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Noah;
 				VERSIONING_SYSTEM = "apple-generic";
-<<<<<<< HEAD
-=======
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Debug;
 		};
@@ -1335,15 +1314,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Noah;
 				VERSIONING_SYSTEM = "apple-generic";
-<<<<<<< HEAD
-=======
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Release;
 		};
@@ -1370,8 +1346,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-<<<<<<< HEAD
-=======
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1385,7 +1359,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Debug;
 		};
@@ -1412,8 +1385,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-<<<<<<< HEAD
-=======
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1427,7 +1398,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Release;
 		};
@@ -1453,8 +1423,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Noah-tvOS.app/Noah-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-<<<<<<< HEAD
-=======
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1468,7 +1436,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Debug;
 		};
@@ -1494,8 +1461,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Noah-tvOS.app/Noah-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-<<<<<<< HEAD
-=======
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1509,7 +1474,6 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 				);
->>>>>>> 9390d04d551428548c91cae4a9ee662f9f2a7671
 			};
 			name = Release;
 		};
