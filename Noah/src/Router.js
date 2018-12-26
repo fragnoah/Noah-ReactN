@@ -155,7 +155,7 @@ const styles = {
     },
     backgroundImage: {
         flex: 1,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     }
 };
 
