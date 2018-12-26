@@ -29,12 +29,13 @@ class RouterComponent extends Component {
             >
                 <Router
                     navigationBarStyle={styles.viewStyle}
+                    // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
                     // Transparent funktioniert unter iOS nicht
                 >
                     {this.renderScenes()}
                 </Router>
-            </ImageBackground>
-            /* sollte funktionieren ... tut es aber nicht ....
+            </ImageBackground>        
+           /* sollte funktionieren ... tut es aber nicht ....
             <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
                 <Router
                   navigationBarStyle={styles.viewStyle}
@@ -134,8 +135,8 @@ const styles = {
     },
     titleStyle: {
         alignSelf: 'center',
-      fontSize: 25,
-      color: '#FFFFFF',
+        fontSize: 25,
+        color: '#FFFFFF',
     },
     sceneStyle: {
         backgroundColor: 'transparent',
@@ -145,6 +146,6 @@ const styles = {
         flex: 1,
         resizeMode: 'cover'
     }
-  };
+};
 
 export default RouterComponent;
