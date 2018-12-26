@@ -33,7 +33,9 @@ class ButtonWithImage extends Component {
   renderText(buttonText, textStyle) {
     if (buttonText !== '' || buttonText !== undefined) {
       return (
-        <Text style={[styles.textStyle, textStyle]}>{buttonText}</Text>
+        <View style={styles.textContStyle}>
+          <Text style={[styles.textStyle, textStyle]}>{buttonText}</Text>
+        </View>
       );
     }
   }
@@ -62,17 +64,16 @@ class ButtonWithImage extends Component {
 
 }
 
-
 const styles = {
   imageStyle: {
     height: 70,
     width: 70,
-    borderWidth: 2,
+    //borderWidth: 2,
     resizeMode: 'contain'
   },
   containerStyle: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',    
+    justifyContent: 'space-between', //'flex-start',    
     padding: 10,    
   },
   buttonStyle: {
@@ -90,12 +91,19 @@ const styles = {
     marginTop: 10,
   },
   textStyle: {
-    alignSelf: 'center',
+    justifyContent: 'flex-start',
     color: '#007aff',
     fontSize: 16,
     paddingTop: 10,
     paddingBottom: 10,
     fontWeight: '600',
+  },
+  textContStyle: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+    //marginLeft: 10,
+    //marginRight: 15
   },
   imgContStyle: {
     justifyContent: 'center',
