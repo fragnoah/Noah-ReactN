@@ -12,6 +12,7 @@ import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
+import FlashMessage, { showMessage } from 'react-native-flash-message';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -89,10 +90,21 @@ class QuestionPage extends Component {
     }
     markQuestion() {
         if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
-            console.log('Frage nicht mehr makiert');
             this.props.unmark(this.props.quiz.qno);
+            showMessage({
+                message: 'Hinweis',
+                description: 'Frage nicht mehr makiert',
+                type: 'success',
+                icon: 'success'
+            });
         } else {
             this.props.mark(this.props.quiz.qno);
+            showMessage({
+                message: 'Hinweis',
+                description: 'Frage wurde makiert',
+                type: 'success',
+                icon: 'success'
+            });
         }
     }
      render() {
@@ -144,7 +156,7 @@ class QuestionPage extends Component {
                         radio_props={radioProps}
                         initial={init}
                         onPress={(value) => { this.answer(value); }}
-                    />              
+                    />        
                 </CardSection>  
                 </Card> 
                 <View style={{ flexDirection: 'row', flex: 1 }}>
@@ -182,32 +194,20 @@ class QuestionPage extends Component {
                         Qno: {this.props.quiz.qno}
                     </Text>
                 </View>
-            
+            <FlashMessage 
+                style={styles.flashMessage} 
+                ref="myLocalFlashMessage" 
+                position="bottom" 
+            />       
         </ScrollView> 
         );
     }
 }
 const styles = StyleSheet.create({
  
-    oval: {
-    width: 350,
-    borderRadius: 20,
-    backgroundColor: 'green'
-    },
-    container: {
-      flex: 1,
-      alignItems: 'center'
-    },
-    welcome: {
-      fontSize: 20,
-      margin: 15,
-      color: 'white'
-    },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-    },
+    flashMessage: {
+        zIndex: 7
+    }
   });
 
 const mapStateToProbs = state => {

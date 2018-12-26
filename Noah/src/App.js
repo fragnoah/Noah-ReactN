@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { createStore } from 'redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
