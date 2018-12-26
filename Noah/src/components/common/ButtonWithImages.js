@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { 
+import {
   TouchableOpacity,
-  Image, 
+  Image,
   Text,
   View
  } from 'react-native';
@@ -38,20 +38,20 @@ class ButtonWithImage extends Component {
     }
   }
 
-  render() { 
-    const { 
-      onPress, 
-      buttonStyle, 
-      imageStyle, 
-      imgLeft, 
-      imgRight, 
-      buttonText, 
-      textStyle 
+  render() {
+    const {
+      onPress,
+      buttonStyle,
+      imageStyle,
+      imgLeft,
+      imgRight,
+      buttonText,
+      textStyle
     } = this.props;
 
     return (
       <TouchableOpacity onPress={onPress} style={[styles.buttonStyle, buttonStyle]}>
-        <View style={styles.containerStyle}>        
+        <View style={styles.containerStyle}>
           {this.renderLeftImg(imgLeft, imageStyle)}
           {this.renderText(buttonText, textStyle)}
           {this.renderRightImg(imgRight, imageStyle)}
@@ -72,8 +72,8 @@ const styles = {
   },
   containerStyle: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',    
-    padding: 10,    
+    justifyContent: 'space-between', //'flex-start',
+    padding: 10,
   },
   buttonStyle: {
     flexDirection: 'column',
@@ -90,7 +90,7 @@ const styles = {
     marginTop: 10,
   },
   textStyle: {
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
     color: '#007aff',
     fontSize: 16,
     paddingTop: 10,

@@ -32,14 +32,14 @@ class RouterComponent extends Component {
             <ImageBackground
                 source={require('./assets/img/NOAH_Wallpaper.png')}
                 style={styles.backgroundImage}
-            >   
+            >
                 <Router
                     navigationBarStyle={styles.viewNavBarStyle}
                     sceneStyle={styles.sceneStyleIOS}
                     // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
                     // Transparent funktioniert unter iOS nicht
                 >
-                    {this.renderScenes()}                
+                    {this.renderScenes()}
                 </Router>
             </ImageBackground>
            /* sollte funktionieren ... tut es aber nicht ....
@@ -155,7 +155,7 @@ const styles = {
     },
     backgroundImage: {
         flex: 1,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     }
 };
 
