@@ -6,15 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/actions/NavActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/actions/NavActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/LearnMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/LearnMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/common/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/common/Button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/common/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/common/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/reducers/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="626" />
     <option name="width" value="1249" />
     <option name="height" value="1047" />
@@ -36,8 +28,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -128,13 +120,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="626" y="0" width="1249" height="1047" extended-state="1" />
+    <frame x="626" y="0" width="1249" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.48307183" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.48224607" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.51692814" side_tool="true" visible="true" weight="0.32896176" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5177539" side_tool="true" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49876136" weight="0.32896176" />
