@@ -89,7 +89,6 @@ class RouterComponent extends Component {
                     title="Menü"    
                     component={MainMenu} 
                     initial 
-                    onLeft={null} 
                 />
                 
                 <Scene 
