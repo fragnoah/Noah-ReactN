@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Alert } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { ScrollView, Text, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Card, ButtonWithImage } from './common';
 
 class startPage extends Component {
     componentWillMount() {
@@ -13,7 +13,7 @@ class startPage extends Component {
                 'Letzen Versuch fortsetzen?',
                 [
                 { text: 'Abbrechen', onPress: () => this.props.resetFb(), style: 'cancel' },
-                { text: 'OK', onPress: () => Actions.quest() },
+                { text: 'OK', onPress: () => actions.toQuestions() },
                 ],
                 { cancelable: false }
             );
@@ -25,37 +25,88 @@ class startPage extends Component {
     getFb(fb) {
         this.props.resetFb();
         this.props.selectFb(fb);
-        Actions.quest();
+        actions.toQuestions();
     }
-    toTest() {
-        Actions.result();
-    }
+
     render() {
+        const { 
+            cardStyle,
+            cardTitle,             
+            smallButtonStyle,
+            imageStyle,
+            noImageStyle
+        } = styles;
+
         return (
-            <View>
-                <Text>
-                    Start Seite. 
-                    Nachfolgende Szene ist die QuestionPage für ein Fragebogen
-                </Text>
-                <Button
-                onPress={() => this.getFb('fb1')}
-                title="Fragebogen 1"
-                color="#841584"
-                />
-                <Button
-                onPress={() => this.getFb('fb2')}
-                title="Fragebogen 2"
-                color="#841584"
-                />
-                <Button
-                onPress={() => this.toTest()}
-                title="Statistik Test"
-                color="#841584"
-                />
-            </View>
+            <ScrollView>
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>vorgefertigter Test </Text>
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 1" 
+                        onPress={() => this.getFb('fb1')}
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 2" 
+                        onPress={() => this.getFb('fb2')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+
+                </Card>
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>Test generieren</Text>
+                    <ButtonWithImage 
+                        buttonText="noch zu entwerfen" 
+                        onPress={actions.toGlossar} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                </Card>  
+
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>Statistik</Text>
+                    <ButtonWithImage 
+                        buttonText="Statistik Test" 
+                        onPress={actions.toResult} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={imageStyle}
+                        imgLeft={require('../assets/img/statistics.png')}
+                    />
+                </Card>
+            </ScrollView>
         );
     }
 }
+
+const styles = {
+    cardStyle: {
+        paddingLeft: 5,
+        paddingTop: 5,
+        paddingBottom: 5,
+        backgroundColor: 'rgba(255,255,255, 0.3)',
+    },
+    cardTitle: {
+        fontSize: 20,
+        opacity: 1
+    },
+    smallButtonStyle: {
+        padding: 0,
+        marginLeft: 20,
+        marginRight: 2,
+        opacity: 1
+    },
+    imageStyle: {
+        height: 50,
+        width: 50
+    },
+    noImageStyle: {
+        height: 0,
+        width: 50
+    }
+};
+
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
