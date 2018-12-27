@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Button } from './common/Button';
+import { Button, ButtonWithImage } from './common';
 import { toTests, toLearn } from '../actions';
 
 
@@ -8,8 +8,17 @@ class MainMenu extends Component {
     render() {
         return (
             <View>
-                <Button onPress={toTests} children="Prüfungsmodus" />
-                <Button onPress={toLearn} children="Lernmodus" />
+                <ButtonWithImage
+                    onPress={toTests}
+                    buttonText="Prüfungsmodus"
+                    imgLeft={require('../assets/img/test.png')}
+                />
+                
+                <ButtonWithImage
+                    onPress={toLearn} 
+                    buttonText="Lernmodus" 
+                    imgLeft={require('../assets/img/book.png')}
+                />
             </View>
         );
     }

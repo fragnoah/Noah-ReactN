@@ -28,6 +28,9 @@ class startPage extends Component {
         this.props.selectFb(fb);
         Actions.quest();
     }
+    toTest() {
+        Actions.result();
+    }
     render() {
         return (
             <View>
@@ -45,10 +48,6 @@ class startPage extends Component {
                 title="Fragebogen 2"
                 color="#841584"
                 />
-                <Text>
-                    abc
-                    {console.log(this.props)}
-                </Text>
             </View>
         );
     }

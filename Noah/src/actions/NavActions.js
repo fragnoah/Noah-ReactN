@@ -1,5 +1,9 @@
 import { Actions } from 'react-native-router-flux';
 
+export const toMain = () => {
+  Actions.menu(); 
+};
+
 export const toTests = () => {
  // resetFb();
         Actions.test(); 

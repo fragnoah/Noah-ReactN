@@ -6,13 +6,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="" />
+    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noah/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noah/src/components/LearnMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/LearnMenu.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,14 +30,98 @@
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="noah" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Noah-ReactNDev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Noah-ReactNDev" type="462c0819:PsiDirectoryNode" />
+              <item name="Noah" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -122,17 +213,17 @@
   <component name="ToolWindowManager">
     <frame x="626" y="0" width="1249" height="1047" extended-state="0" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.48224607" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.47976878" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5177539" side_tool="true" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5202312" side_tool="true" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25928983" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25928983" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -149,5 +240,41 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Noah/android/app/src/main/java/com/noah/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noah/android/app/src/main/java/com/noah/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>Android API 27 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

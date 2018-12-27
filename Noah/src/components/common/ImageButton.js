@@ -16,18 +16,21 @@ const ImageButton = ({ onPress, img, buttonStyle, imageStyle }) => {
 const styles = {
   imageStyle: {
     height: 50,
-    width: 50
+    width: 50,
+    justifyContent: 'space-around',
+    resizeMode: 'contain',
+
+    //
   },
   buttonStyle: {
     flex: 0,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    //backgroundColor: '#fff',
     borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 5
+    //borderWidth: 1,
+    //borderColor: '#007aff',
+    //elevation: 1,
+    justifyContent: 'space-around',
   }
 };
 
