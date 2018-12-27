@@ -54,7 +54,7 @@ const styles = {
     cardStyle: {
         paddingLeft: 5,
         paddingTop: 5,
-        paddingBottom: 5
+        paddingBottom: 5,
     },
     cardTitle: {
         fontSize: 20,
