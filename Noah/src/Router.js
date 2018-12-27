@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
+import {
+    ImageBackground,
+    //Image,
+    //View,
+    Platform
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import MainMenu from './components/MainMenu';
 import LearnMenu from './components/LearnMenu';
@@ -18,11 +25,64 @@ import RepeatAll from './components/RepeatAll';
 import GlossarList from './components/GlossarList';
 import VideoList from './components/VideoList';
 
-const RouterComponent = () => {
-    //read();
-    
-    return (
-        <Router navigationBarStyle={styles.viewStyle} >
+class RouterComponent extends Component {
+
+    renderIOS() {
+        return (
+            <ImageBackground
+                source={require('./assets/img/NOAH_Wallpaper.png')}
+                style={styles.backgroundImage}
+            >   
+                <Router
+                    navigationBarStyle={styles.viewNavBarStyle}
+                    sceneStyle={styles.sceneStyleIOS}
+                    // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
+                    // Transparent funktioniert unter iOS nicht
+                >
+                    {this.renderScenes()}                
+                </Router>
+            </ImageBackground>
+           /* sollte funktionieren ... tut es aber nicht ....
+            <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
+                <Router
+                  navigationBarStyle={styles.viewStyle}
+                  //getSceneStyle={() => ({ backgroundColor: 'transparent' })}
+                  //sceneStyle={styles.sceneStyle}
+                >
+                  {this.renderScenes()}
+                </Router>
+                <Image
+                    source={require('./assets/img/NOAH_Wallpaper.png')}
+                    style={{
+                        zIndex: 0,
+                        resizeMode: 'cover',
+                        height: '100%',
+                        width: '100%'
+                    }}
+                />
+            </View>
+            */
+        );
+    }
+
+    renderAndroid() {
+        return (
+            <ImageBackground
+                source={require('./assets/img/NOAH_Wallpaper.png')}
+                style={styles.backgroundImage}
+            >
+                <Router
+                    navigationBarStyle={styles.viewNavBarStyle}
+                    sceneStyle={styles.sceneStyle}
+                >
+                    {this.renderScenes()}
+                </Router>
+            </ImageBackground>
+        );
+    }
+
+    renderScenes() {
+        return (
             <Scene key="root" titleStyle={styles.titleStyle}>
                 <Scene key="menu" title="Menü" component={MainMenu} initial />
                 
@@ -34,20 +94,20 @@ const RouterComponent = () => {
                 />
                 <Scene key="learn" title="Lernen" component={LearnMenu} />
 
-                <Scene 
-                    key="quest" 
+                <Scene
+                    key="quest"
                     title="Prüfung"
                     onLeft={toMain} 
                     leftTitle='Abbrechen' 
                     component={QuestionPage}                     
                 />
-                
-                <Scene 
-                key="result" 
-                title="Ergebnis" 
-                onLeft={toTests} 
-                leftTitle='Start' 
-                component={Result} 
+
+                <Scene
+                    key="result"
+                    title="Ergebnis"
+                    onLeft={toTests}
+                    leftTitle='Start'
+                    component={Result}
                 />
 
                 <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
@@ -59,27 +119,50 @@ const RouterComponent = () => {
                 <Scene key="glossar" title="Glossar" component={GlossarList} />
                 <Scene key="videos" title="Videos" component={VideoList} />
             </Scene>
-             
-        </Router>
-    );
-};
+        );
+    }
+
+    render() {
+        if (Platform.OS === 'android') {
+            return (
+                this.renderAndroid()
+            );
+        }
+        if (Platform.OS === 'ios') {
+            return (
+                this.renderIOS()
+            );
+        }
+    }
+}
 
 const styles = {
-    viewStyle: {
-        backgroundColor: '#1562E7',
+    viewNavBarStyle: {
+        backgroundColor: 'rgba(21,98,231,0.75)',
         paddingTop: 15,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         elevation: 2,
-        marginBottom: 10 
+        marginBottom: 10
     },
     titleStyle: {
         alignSelf: 'center',
-      fontSize: 40,
-      color: '#FFFFFF',
-
+        fontSize: 25,
+        color: '#FFFFFF',
+    },
+    sceneStyle: {
+        backgroundColor: 'transparent',
+        //opacity: 1
+    },
+    sceneStyleIOS: {
+      flex: 1,
+      backgroundColor: 'rgba(145,200,250,1)'
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
     }
-  };
+};
 
 export default RouterComponent;
