@@ -33,6 +33,7 @@ class startPage extends Component {
             cardStyle,
             cardTitle,             
             smallButtonStyle,
+            bigButtonStyle,
             imageStyle,
             noImageStyle
         } = styles;
@@ -44,7 +45,7 @@ class startPage extends Component {
                     <ButtonWithImage 
                         buttonText="Fragebogen 1" 
                         onPress={() => this.getFb('fb1')}
-                        buttonStyle={smallButtonStyle} 
+                        buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
@@ -60,7 +61,7 @@ class startPage extends Component {
                     <ButtonWithImage 
                         buttonText="noch zu entwerfen" 
                         onPress={actions.toGlossar} 
-                        buttonStyle={smallButtonStyle} 
+                        buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                 </Card>  
@@ -70,7 +71,7 @@ class startPage extends Component {
                     <ButtonWithImage 
                         buttonText="Statistik Test" 
                         onPress={actions.toResult} 
-                        buttonStyle={smallButtonStyle} 
+                        buttonStyle={bigButtonStyle} 
                         imageStyle={imageStyle}
                         imgLeft={require('../assets/img/statistics.png')}
                     />
@@ -95,7 +96,14 @@ const styles = {
         padding: 0,
         marginLeft: 20,
         marginRight: 2,
-        opacity: 1
+        opacity: 1,
+        marginTop: 5
+    },
+    bigButtonStyle: {
+        padding: 0,
+        marginLeft: 20,
+        marginRight: 2,
+        opacity: 1,
     },
     imageStyle: {
         height: 50,

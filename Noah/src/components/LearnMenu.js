@@ -22,7 +22,7 @@ class LearnMenu extends Component {
                     <ButtonWithImage 
                         buttonText="Basis" 
                         onPress={actions.toLearnBasicQuestions}
-                        buttonStyle={smallButtonStyle} 
+                        buttonStyle={bigButtonStyle} 
                         imageStyle={imageStyle}
                         imgLeft={require('../assets/img/question.png')}
                     />
@@ -46,7 +46,7 @@ class LearnMenu extends Component {
                     <ButtonWithImage 
                         buttonText="Glossar" 
                         onPress={actions.toGlossar} 
-                        buttonStyle={smallButtonStyle} 
+                        buttonStyle={bigButtonStyle} 
                         imageStyle={imageStyle}
                         imgLeft={require('../assets/img/folder.png')}
                     />
@@ -56,7 +56,7 @@ class LearnMenu extends Component {
                     <ButtonWithImage 
                         buttonText="Videos" 
                         onPress={actions.toVideos} 
-                        buttonStyle={smallButtonStyle} 
+                        buttonStyle={bigButtonStyle} 
                         imageStyle={imageStyle}
                         imgLeft={require('../assets/img/film.png')}
                     />
@@ -78,14 +78,17 @@ const styles = {
         opacity: 1
     },
     bigButtonStyle: {
-        padding: 15,
+        padding: 0,
+        marginLeft: 20,
+        marginRight: 2,
         opacity: 1
     },
     smallButtonStyle: {
         padding: 0,
         marginLeft: 20,
         marginRight: 2,
-        opacity: 1
+        opacity: 1,
+        marginTop: 5
     },
     imageStyle: {
         height: 50,

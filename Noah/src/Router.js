@@ -94,13 +94,11 @@ class RouterComponent extends Component {
                 
                 <Scene 
                     key="test" 
-                    title="Tests"
+                    title="Prüfungsmodus"
                     onLeft={toMain} 
                     leftTitle="<"
                     component={startPage} 
                 />
-                <Scene key="learn" title="Lernen" component={LearnMenu} />
-
                 <Scene
                     key="quest"
                     title="Prüfung"
@@ -108,7 +106,6 @@ class RouterComponent extends Component {
                     leftTitle='Abbrechen' 
                     component={QuestionPage}                     
                 />
-
                 <Scene
                     key="result"
                     title="Ergebnis"
@@ -116,10 +113,11 @@ class RouterComponent extends Component {
                     leftTitle='Start'
                     component={Result}
                 />
-
                 <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
                 <Scene key="all" title="Wiederholung" component={RepeatAll} />
                 <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
+
+                <Scene key="learn" title="Lernen" component={LearnMenu} />
                 <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
                 <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
                 <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
