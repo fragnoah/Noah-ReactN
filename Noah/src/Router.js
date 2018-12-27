@@ -16,7 +16,7 @@ import startPage from './components/startPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
-import { toTests } from './actions';
+import { toTests, toMain } from './actions';
 import RepeatPage from './components/RepeatPage';
 
 import markedQuestion from './components/markedQuestion';
@@ -85,15 +85,21 @@ class RouterComponent extends Component {
         return (
             <Scene key="root" titleStyle={styles.titleStyle}>
                 <Scene key="menu" title="Menü" component={MainMenu} initial />
-                <Scene key="test" title="Tests" component={startPage} />
+                
+                <Scene 
+                    key="test" 
+                    title="Tests"
+                    onLeft={toMain} 
+                    component={startPage} 
+                />
                 <Scene key="learn" title="Lernen" component={LearnMenu} />
 
                 <Scene
                     key="quest"
                     title="Prüfung"
-                    onLeft={toTests}
-                    leftTitle='Abbrechen'
-                    component={QuestionPage}
+                    onLeft={toMain} 
+                    leftTitle='Abbrechen' 
+                    component={QuestionPage}                     
                 />
 
                 <Scene

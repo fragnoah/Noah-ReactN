@@ -12,6 +12,8 @@ import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
+import FlashMessage, { showMessage } from 'react-native-flash-message';
+import { toLearnSegelQuestions } from '../actions';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -89,10 +91,21 @@ class QuestionPage extends Component {
     }
     markQuestion() {
         if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
-            console.log('Frage nicht mehr makiert');
             this.props.unmark(this.props.quiz.qno);
+            showMessage({
+                message: 'Hinweis',
+                description: 'Frage nicht mehr makiert',
+                type: 'success',
+                icon: 'success'
+            });
         } else {
             this.props.mark(this.props.quiz.qno);
+            showMessage({
+                message: 'Hinweis',
+                description: 'Frage wurde makiert',
+                type: 'success',
+                icon: 'success'
+            });
         }
     }
      render() {
@@ -144,21 +157,22 @@ class QuestionPage extends Component {
                         radio_props={radioProps}
                         initial={init}
                         onPress={(value) => { this.answer(value); }}
-                    />              
+                    />        
                 </CardSection>  
                 </Card> 
                 <View style={{ flexDirection: 'row', flex: 1 }}>
                     <Button
-                     onPress={() => this.prev()}
-                    title="noch verändern(prev)"
-                     color="#841584"
+                    onPress={() => this.prev()}
+                    title="Zurück"
+                    color="#0000ff"
+                    disabled={this.props.quiz.qno === 0}
                     />
 
                 <View style={{ margin: 15 }} />                 
                     <Button
-                     onPress={() => this.next()}
-                    title="noch verändern(next)"
-                     color="#841584"
+                    onPress={() => this.next()}
+                    title={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
+                    color={this.props.quiz.qno !== 29 ? '#0000ff' : '#008000'}
                     />
                 </View>
 
@@ -182,32 +196,20 @@ class QuestionPage extends Component {
                         Qno: {this.props.quiz.qno}
                     </Text>
                 </View>
-            
+            <FlashMessage 
+                style={styles.flashMessage} 
+                ref="myLocalFlashMessage" 
+                position="bottom" 
+            />       
         </ScrollView> 
         );
     }
 }
 const styles = StyleSheet.create({
  
-    oval: {
-    width: 350,
-    borderRadius: 20,
-    backgroundColor: 'green'
-    },
-    container: {
-      flex: 1,
-      alignItems: 'center'
-    },
-    welcome: {
-      fontSize: 20,
-      margin: 15,
-      color: 'white'
-    },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-    },
+    flashMessage: {
+        zIndex: 7
+    }
   });
 
 const mapStateToProbs = state => {

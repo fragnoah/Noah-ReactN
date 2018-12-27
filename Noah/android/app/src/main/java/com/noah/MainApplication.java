@@ -3,6 +3,7 @@ package com.noah;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.rnfs.RNFSPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
             new LinearGradientPackage(),
             new RNFSPackage(),
             new SplashScreenReactPackage()
