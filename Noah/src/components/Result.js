@@ -47,7 +47,6 @@ class Result extends Component {
         Actions.all();
     }
     back() {
-        this.props.resetFb();
         Actions.test();
     }
     render() {

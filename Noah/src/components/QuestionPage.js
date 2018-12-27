@@ -13,6 +13,7 @@ import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
+import { toLearnSegelQuestions } from '../actions';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -161,16 +162,17 @@ class QuestionPage extends Component {
                 </Card> 
                 <View style={{ flexDirection: 'row', flex: 1 }}>
                     <Button
-                     onPress={() => this.prev()}
-                    title="noch verändern(prev)"
-                     color="#841584"
+                    onPress={() => this.prev()}
+                    title="Zurück"
+                    color="#0000ff"
+                    disabled={this.props.quiz.qno === 0}
                     />
 
                 <View style={{ margin: 15 }} />                 
                     <Button
-                     onPress={() => this.next()}
-                    title="noch verändern(next)"
-                     color="#841584"
+                    onPress={() => this.next()}
+                    title={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
+                    color={this.props.quiz.qno !== 29 ? '#0000ff' : '#008000'}
                     />
                 </View>
 

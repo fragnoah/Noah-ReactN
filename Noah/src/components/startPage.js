@@ -6,23 +6,22 @@ import * as actions from '../actions';
 
 class startPage extends Component {
     componentWillMount() {
+        if (this.props.quiz.qno !== 29 && this.props.quiz.fragebogen !== '') {
+            this.props.resetDefault();
+            Alert.alert(
+                'Mitteilung',
+                'Letzen Versuch fortsetzen?',
+                [
+                { text: 'Abbrechen', onPress: () => this.props.resetFb(), style: 'cancel' },
+                { text: 'OK', onPress: () => Actions.quest() },
+                ],
+                { cancelable: false }
+            );
+            }
         if (this.props.quiz.qno === 29) {
             this.props.resetFb();
-        }
-        if (this.props.quiz.fragebogen !== '') {
-            this.props.resetDefault();
-        Alert.alert(
-            'Mitteilung',
-            'Letzen Versuch fortsetzen?',
-            [
-            { text: 'Abbrechen', onPress: () => this.props.resetFb(), style: 'cancel' },
-              { text: 'OK', onPress: () => Actions.quest() },
-            ],
-            { cancelable: false }
-          );
-        }
-    }
-
+        } 
+    }   
     getFb(fb) {
         this.props.resetFb();
         this.props.selectFb(fb);
@@ -46,6 +45,11 @@ class startPage extends Component {
                 <Button
                 onPress={() => this.getFb('fb2')}
                 title="Fragebogen 2"
+                color="#841584"
+                />
+                <Button
+                onPress={() => this.toTest()}
+                title="Statistik Test"
                 color="#841584"
                 />
             </View>
