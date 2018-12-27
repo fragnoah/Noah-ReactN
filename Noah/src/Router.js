@@ -84,12 +84,19 @@ class RouterComponent extends Component {
     renderScenes() {
         return (
             <Scene key="root" titleStyle={styles.titleStyle}>
-                <Scene key="menu" title="Menü" component={MainMenu} initial />
+                <Scene 
+                    key="menu" 
+                    title="Menü"    
+                    component={MainMenu} 
+                    initial 
+                    onLeft={null} 
+                />
                 
                 <Scene 
                     key="test" 
                     title="Tests"
                     onLeft={toMain} 
+                    leftTitle="<"
                     component={startPage} 
                 />
                 <Scene key="learn" title="Lernen" component={LearnMenu} />
@@ -144,7 +151,7 @@ const styles = {
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         elevation: 2,
-        marginBottom: 10
+        //marginBottom: 10
     },
     titleStyle: {
         alignSelf: 'center',

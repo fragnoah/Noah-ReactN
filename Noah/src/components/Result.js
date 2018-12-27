@@ -78,9 +78,9 @@ class Result extends Component {
                 <Text>{this.Ergebnis}</Text>
 
                 <Button
-                onPress={() => this.back()}
-                title="Zurück zum Start-Menü"
-                color='#ff00ff00'
+                    onPress={() => this.back()}
+                    title="Zurück zum Start-Menü"
+                    color='#ff00ff00'
                 />
 
                 <Button

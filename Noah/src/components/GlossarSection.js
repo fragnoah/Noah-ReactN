@@ -58,12 +58,14 @@ const styles = {
   sectionTitle: {
     fontWeight: 'bold',
     fontSize: 18,
-    backgroundColor: '#8CD6FC'
+    //backgroundColor: '#8CD6FC'
   },
   sectionContainer: {
     backgroundColor: '#8CD6FC',
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderButtomWidth: 2,
+    borderColor: 'rgba(21,98,231,1)',
   }
 };
 

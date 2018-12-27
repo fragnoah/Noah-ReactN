@@ -62,8 +62,8 @@ const styles = {
     fontSize: 18
   },
   sectionContainer: {
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingTop: 10,
+    paddingBottom: 10
   }
 };
 

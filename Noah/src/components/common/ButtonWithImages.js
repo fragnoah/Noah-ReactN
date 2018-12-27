@@ -74,7 +74,7 @@ const styles = {
   containerStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between', //'flex-start',    
-    padding: 10,
+    padding: 5,
    },
   buttonStyle: {
     flexDirection: 'column',
