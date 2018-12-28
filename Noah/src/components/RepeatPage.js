@@ -16,79 +16,71 @@ import * as actions from '../actions';
 class RepeatPage extends Component {
     constructor(props) {
         super(props);
-        this.qno = 0;
-
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
-            id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id,
-            question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-            options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-            correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-            categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-            selectedAns: -1,
-            image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
-        };   
+            qno: 0
+        };
     }
     prev() {
-        if (this.qno >= 1) {
-            this.qno--;       
+        console.log('vorherige');
+        if (this.state.qno >= 1) {
+            if (this.props.quiz.wrongArr[this.state.qno] === undefined) {
+                this.props.selectWrongAnswer('-1');       
+            }
             this.setState({
-                id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id,
-                question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-                options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-                correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-                categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.wrongArr[this.qno],
-                image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
+                qno: this.state.qno - 1
             });
         }
     }
     next() {
-            const antwort = this.state.selectedAns;
-            this.props.updateAnswer(antwort, this.props.quiz.wrongAns[this.qno]);
-            if (this.props.quiz.wrongArr[this.qno] === undefined) {
-                this.props.selectWrongAnswer(antwort);
-                console.log('Falsches item wurde hinzugefügt');
-            } else {
-                this.props.updateWrongAnswer(antwort, this.qno); 
-                console.log('Falsches item wurde geupdated');
+        console.log('nächste');
+        if (this.state.qno < this.props.quiz.wrongAns.length - 1) {
+            if (this.props.quiz.wrongArr[this.state.qno] === undefined) {
+                this.props.selectWrongAnswer('-1');       
             }
-            if (this.qno < this.props.quiz.wrongAns.length - 1) {
-            this.qno++;
             this.setState({
-                id: this.arrnew[this.props.quiz.wrongAns[this.qno]].id, 
-                question: this.arrnew[this.props.quiz.wrongAns[this.qno]].frageText,
-                options: this.arrnew[this.props.quiz.wrongAns[this.qno]].options,
-                correctoption: this.arrnew[this.props.quiz.wrongAns[this.qno]].correctAnswer,
-                categories: this.arrnew[this.props.quiz.wrongAns[this.qno]].category,
-                selectedAns: this.props.quiz.wrongArr[this.qno],
-                image: this.arrnew[this.props.quiz.wrongAns[this.qno]].image
-                });    
+                qno: this.state.qno + 1
+            });
             } else {
-            this.props.resetWrong();
-            for (let i = 0, l = this.arrnew.length; i < l; i++) {
-                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
-                    this.props.wrong(i);
+                console.log('ende?');
+                const antworten = this.props.quiz.wrongAns;
+                this.props.resetWrong();
+                console.log('vor loop schleife');
+                for (let i = 0, l = this.props.quiz.wrongArr.length; i < l; i++) {
+                    if (this.props.quiz.wrongArr[i] !== 
+                        this.arrnew[antworten[i]].correctAnswer) { 
+                            this.props.wrong(antworten[i]);
+                    }
                 }
-            }
-            this.props.resetWrongAnswer();
-            actions.toResult();
+                console.log('nach loop schleife');
+                this.props.resetWrongAnswer();
+                console.log('nach reset');
+                actions.toResult();
             }
         }
     answer(ans) {
-        this.state.selectedAns = ans;
-    } 
+        if (this.props.quiz.wrongArr[this.state.qno] === undefined) {
+            this.props.selectWrongAnswer(ans);
+        } 
+        if (this.props.quiz.wrongArr[this.props.quiz.qno] !== ans) {
+            this.props.updateWrongAnswer(ans, this.state.qno); 
+        }
+    }
      render() {
         const radioProps = [
-            { label: this.state.options.option1, value: 'option1' },
-            { label: this.state.options.option2, value: 'option2' },
-            { label: this.state.options.option3, value: 'option3' },
-            { label: this.state.options.option4, value: 'option4' },
+            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option1,
+                value: 'option1' },
+            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option2,
+                value: 'option2' },
+            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option3,
+                value: 'option3' },
+            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option4,
+                value: 'option4' },
         ];
         
         let init = null;
-        switch (this.props.quiz.wrongArr[this.qno]) {
+        switch (this.props.quiz.wrongArr[this.state.qno]) {
             case 'option1':
                 init = 0;
             break;
@@ -117,14 +109,14 @@ class RepeatPage extends Component {
                 
                 <ImageCardSection 
                     style={{ backgroundColor: '#8CD6FC' }} 
-                    id={this.state.id} 
-                    text={this.state.question} 
-                    image={this.state.image}
+                    id={this.arrnew[this.props.quiz.wrongAns[this.state.qno]].id} 
+                    text={this.arrnew[this.props.quiz.wrongAns[this.state.qno]].frageText} 
+                    image={this.arrnew[this.props.quiz.wrongAns[this.state.qno]].image}
                 />
                 
                 <CardSection>                  
                     <RadioForm
-                        key={this.qno}
+                        key={this.state.qno}
                         radio_props={radioProps}
                         initial={init}
                         onPress={(value) => { this.answer(value); }}
@@ -132,33 +124,36 @@ class RepeatPage extends Component {
                 </CardSection>  
                 </Card> 
                 <View style={{ flexDirection: 'row', flex: 1 }}>
-                    <Button
-                     onPress={() => this.prev()}
-                    title="noch verändern(prev)"
-                     color="#841584"
-                    />
+                <Button
+                    onPress={() => this.prev()}
+                    title="Zurück"
+                    color="#0000ff"
+                    disabled={this.state.qno === 0}
+                />
 
                 <View style={{ margin: 15 }} />                 
-                    <Button
-                     onPress={() => this.next()}
-                    title="noch verändern(next)"
-                     color="#841584"
-                    />
+                <Button
+                    onPress={() => this.next()}
+                    title={this.state.qno === this.props.quiz.wrongAns.length - 1 ?
+                        'Ergebnis' : 'Nächste'}
+                    color={this.state.qno !== this.props.quiz.wrongAns.length - 1 ? 
+                        '#0000ff' : '#008000'}
+                />
                 </View>
 
                 <View style={{ flexDirection: 'column' }}>
                     <Text>
-                    Kategorie: {this.state.categories}
+                    Kategorie: { this.arrnew[this.props.quiz.wrongAns[this.state.qno]].category}
                     </Text>
                     <Text>
-                    Korrekteantwort: { this.state.correctoption}
+                    Korrekteantwort: {this.arrnew[this.props.quiz.wrongAns[this.state.qno]].correctAnswer}
                     </Text>
                     <Text>
                      {console.log(this.props)}
                      Fragebogen: {this.props.quiz.fragebogen}
                     </Text>
                     <Text>
-                        Qno: {this.qno}
+                        Qno: {this.state.qno}
                     </Text>
                 </View>
             
