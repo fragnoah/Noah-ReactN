@@ -69,7 +69,8 @@ const styles = {
     height: 70,
     width: 70,
     //borderWidth: 2,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    //elevation: 1,
   },
   containerStyle: {
     flexDirection: 'row',
@@ -89,6 +90,7 @@ const styles = {
     marginLeft: 5,
     marginRight: 5,
     marginTop: 10,
+    elevation: 1,
   },
   textStyle: {
     justifyContent: 'flex-start',

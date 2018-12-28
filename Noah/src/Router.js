@@ -16,7 +16,7 @@ import startPage from './components/startPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
-import { toTests, toMain } from './actions';
+import { toMain } from './actions';
 import RepeatPage from './components/RepeatPage';
 
 import markedQuestion from './components/markedQuestion';
@@ -25,12 +25,13 @@ import RepeatAll from './components/RepeatAll';
 import GlossarList from './components/GlossarList';
 import VideoList from './components/VideoList';
 
+
 class RouterComponent extends Component {
 
     renderIOS() {
         return (
             <ImageBackground
-                source={require('./assets/img/NOAH_Wallpaper.png')}
+                source={imagePaths.wallPaper}
                 style={styles.backgroundImage}
             >
                 <Router
@@ -68,7 +69,7 @@ class RouterComponent extends Component {
     renderAndroid() {
         return (
             <ImageBackground
-                source={require('./assets/img/NOAH_Wallpaper.png')}
+                source={imagePaths.wallPaper}
                 style={styles.backgroundImage}
             >
                 <Router
@@ -83,45 +84,89 @@ class RouterComponent extends Component {
 
     renderScenes() {
         return (
-            <Scene key="root" titleStyle={styles.titleStyle}>
-                <Scene 
-                    key="menu" 
-                    title="Menü"    
-                    component={MainMenu} 
-                    initial 
-                />
+            <Scene key="root" hideNavBar titleStyle={styles.titleStyle}>
+                <Scene key="main" initial>
+                    <Scene 
+                        key="menu" 
+                        title="Menü"    
+                        component={MainMenu} 
+                        renderBackButton={() => (null)}
+                        initial 
+                    />
+                </Scene>
                 
-                <Scene 
-                    key="test" 
-                    title="Prüfungsmodus"
-                    onLeft={toMain} 
-                    leftTitle="<"
-                    component={startPage} 
-                />
-                <Scene
-                    key="quest"
-                    title="Prüfung"
-                    onLeft={toMain} 
-                    leftTitle='Abbrechen' 
-                    component={QuestionPage}                     
-                />
-                <Scene
-                    key="result"
-                    title="Ergebnis"
-                    onLeft={toTests}
-                    leftTitle='Start'
-                    component={Result}
-                />
-                <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
-                <Scene key="all" title="Wiederholung" component={RepeatAll} />
-                <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
+                <Scene key="exam">
+                    <Scene 
+                        key="test" 
+                        title="Prüfungsmodus"
+                        component={startPage}
+                        onLeft={toMain}
+                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                    <Scene
+                        key="quest"
+                        title="Prüfung"
+                        onLeft={toMain} 
+                        leftTitle='Abbrechen' 
+                        component={QuestionPage}                     
+                    />
+                    <Scene
+                        key="result"
+                        title="Ergebnis"
+                        component={Result}
+                        renderBackButton={() => (null)}
+                    />
+                    <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
+                    <Scene key="all" title="Wiederholung" component={RepeatAll} />
+                    <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
 
-                <Scene key="learn" title="Lernen" component={LearnMenu} />
-                <Scene key="learnbasic" title="Basisfragen" component={learnbasic} />
-                <Scene key="learnbinnen" title="Binnenfragen" component={learnbinnen} />
-                <Scene key="learnsegel" title="Segelfragen" component={learnsegel} />
-                <Scene key="glossar" title="Glossar" component={GlossarList} />
-                <Scene key="videos" title="Videos" component={VideoList} />
+                </Scene>
+
+                <Scene key="prepare"> 
+                    <Scene 
+                        key="learn" 
+                        title="Lernen" 
+                        component={LearnMenu} 
+                        onLeft={toMain}
+                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                    <Scene 
+                        key="learnbasic" 
+                        title="Basisfragen" 
+                        component={learnbasic} 
+                        backButtonImage={imagePaths.backButton}
+                    />
+                    <Scene 
+                        key="learnbinnen" 
+                        title="Binnenfragen" 
+                        component={learnbinnen} 
+                        backButtonImage={imagePaths.backButton}
+                    />
+                    <Scene 
+                        key="learnsegel" 
+                        title="Segelfragen" 
+                        component={learnsegel} 
+                        backButtonImage={imagePaths.backButton}
+                    />
+                    <Scene 
+                        key="glossar" 
+                        title="Glossar" 
+                        component={GlossarList} 
+                        backButtonImage={imagePaths.backButton}
+                    />
+                    <Scene 
+                        key="videos" 
+                        title="Videos" 
+                        component={VideoList} 
+                        backButtonImage={imagePaths.backButton}
+                    />
+                </Scene>
             </Scene>
         );
     }
@@ -139,6 +184,12 @@ class RouterComponent extends Component {
         }
     }
 }
+
+const imagePaths = {
+    wallPaper: require('./assets/img/NOAH_Wallpaper.png'),
+    backButton: require('./assets/img/arrowLeft3.png'),
+    leftButton: require('./assets/img/arrowLeft3.png'),
+}; 
 
 const styles = {
     viewNavBarStyle: {
@@ -166,6 +217,17 @@ const styles = {
     backgroundImage: {
         flex: 1,
         resizeMode: 'cover',
+    },
+    leftImageButton: { 
+        //flex: 1,
+        resizeMode: 'contain',
+        height: 18,
+        width: 10,
+        paddingLeft: 15
+    },
+    navImageButtonStyle: {
+        height: 40,
+        width: 120
     }
 };
 

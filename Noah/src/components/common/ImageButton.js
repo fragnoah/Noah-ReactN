@@ -19,8 +19,6 @@ const styles = {
     width: 50,
     justifyContent: 'space-around',
     resizeMode: 'contain',
-
-    //
   },
   buttonStyle: {
     flex: 0,
@@ -31,6 +29,7 @@ const styles = {
     //borderColor: '#007aff',
     //elevation: 1,
     justifyContent: 'space-around',
+    elevation: 1,
   }
 };
 

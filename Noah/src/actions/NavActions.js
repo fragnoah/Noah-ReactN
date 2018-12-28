@@ -1,16 +1,16 @@
 import { Actions } from 'react-native-router-flux';
 
 export const toMain = () => {
-  Actions.menu(); 
+  Actions.main(); 
 };
 
 export const toTests = () => {
  // resetFb();
-        Actions.test(); 
+        Actions.exam(); 
 };
 
 export const toLearn = () => {
-  Actions.learn(); 
+  Actions.prepare(); 
 };
 
 export const toResult = () => {
