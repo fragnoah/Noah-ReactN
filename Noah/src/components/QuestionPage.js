@@ -20,47 +20,24 @@ class QuestionPage extends Component {
         super(props);
         this.basisScore = 0;
         this.spezScore = 0;
-
         const jdata = jsondata[this.props.quiz.fragebogen];
-        this.arrnew = Object.keys(jdata).map(k => jdata[k]);
-        this.state = {
-            selectedAns: -1
-        };   
+        this.arrnew = Object.keys(jdata).map(k => jdata[k]);   
     }
-    prev() {  
-        if (this.props.quiz.qno >= 1) { 
-            this.props.decrement();       
-            this.setState({
-                selectedAns: this.props.quiz.arr[this.props.quiz.qno],
-            });
+    prev() {
+        if (this.props.quiz.qno >= 1) {
+            if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
+                this.props.selectAnswer('-1');
+            }
+            this.props.decrement();
         }
     }
     next() {
-            const antwort = this.state.selectedAns;
             if (this.props.quiz.qno < this.arrnew.length - 1) {
                 if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-                    this.props.selectAnswer(antwort);
-                    console.log('item wurde hinzugefügt');
-                    this.props.increment();
-                    this.setState({
-                        selectedAns: -1
-                        });
-                } else {
-                    this.props.updateAnswer(antwort, this.props.quiz.qno); 
-                    console.log('item wurde geupdated');
-                    this.props.increment();
-                    this.setState({
-                    selectedAns: this.props.quiz.arr[this.props.quiz.qno]
-                    });
+                    this.props.selectAnswer('-1');
                 }
+                this.props.increment();
             } else {
-                if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-                    this.props.selectAnswer(antwort);
-                    console.log('item wurde hinzugefügt');
-                } else {
-                    this.props.updateAnswer(antwort, this.props.quiz.qno); 
-                    console.log('item wurde geupdated');
-                }
                 for (let i = 0, l = this.arrnew.length; i < l; i++) {
                     console.log(i);
                     if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
@@ -87,8 +64,13 @@ class QuestionPage extends Component {
         }
     }
     answer(ans) {
-        this.state.selectedAns = ans;
-    }
+        if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
+            this.props.selectAnswer(ans);
+        }
+        if (this.props.quiz.arr[this.props.quiz.qno] !== ans) {
+            this.props.updateAnswer(ans, this.props.quiz.qno);
+            }
+        }
     markQuestion() {
         if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
             this.props.unmark(this.props.quiz.qno);
