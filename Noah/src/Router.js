@@ -16,7 +16,7 @@ import startPage from './components/startPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
-import { toMain } from './actions';
+import { toMain, toResult } from './actions';
 import RepeatPage from './components/RepeatPage';
 
 import markedQuestion from './components/markedQuestion';
@@ -113,16 +113,54 @@ class RouterComponent extends Component {
                         leftTitle='Abbrechen' 
                         component={QuestionPage}                     
                     />
+                </Scene>
+                <Scene key="resultPages">
                     <Scene
                         key="result"
                         title="Ergebnis"
                         component={Result}
                         renderBackButton={() => (null)}
+                        initial
                     />
-                    <Scene key="mark" title="Makierte Fragen" component={markedQuestion} />
-                    <Scene key="all" title="Wiederholung" component={RepeatAll} />
-                    <Scene key="repeat" title="Wiederholung" component={RepeatPage} />
-
+                </Scene>
+                <Scene key="marked">
+                    <Scene 
+                        key="mark" 
+                        title="Makierte Fragen" 
+                        component={markedQuestion} 
+                        renderBackButton={() => (null)}
+                        onLeft={toResult}
+                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial
+                    />
+                </Scene>
+                <Scene key="repeatAll">
+                    <Scene 
+                        key="all" 
+                        title="Wiederholung" 
+                        component={RepeatAll}
+                        renderBackButton={() => (null)}
+                        onLeft={toResult}
+                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                </Scene>
+                <Scene key="repeatWrong">
+                    <Scene 
+                        key="repeat" 
+                        title="Wiederholung" 
+                        component={RepeatPage} 
+                        renderBackButton={() => (null)}
+                        onLeft={toResult}
+                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial
+                    />
                 </Scene>
 
                 <Scene key="prepare"> 

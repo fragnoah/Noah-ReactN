@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
 import { ProgressCircle, BarChart, Grid, XAxis } from 'react-native-svg-charts';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 import * as scale from 'd3-scale';
@@ -21,7 +20,7 @@ class Result extends Component {
     }
     wrongRepeate() {
         if (this.props.quiz.wrongAns.length > 0) {
-        Actions.repeat();
+        actions.toRepeatWrong();
         } else {
             showMessage({
                 message: 'Hinweis',
@@ -34,7 +33,7 @@ class Result extends Component {
     marked() {
         this.props.resetMarked();
         if (this.props.quiz.marked.length > 0) {
-            Actions.mark();
+            actions.toRepeatMarked();
             } else {
                 showMessage({
                     message: 'Hinweis',
@@ -46,10 +45,7 @@ class Result extends Component {
         }
     all() {
         this.props.resetMarked();
-        Actions.all();
-    }
-    back() {
-        Actions.test();
+        actions.toRepeatAll();
     }
     render() {
         const { 
@@ -134,7 +130,7 @@ class Result extends Component {
                         />
                         <ButtonWithImage
                         buttonText="alle Fragen" 
-                        onPress={() => this.marked()} 
+                        onPress={() => this.all()} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={imageStyle}
                         imgLeft={require('../assets/img/repeat.png')}
