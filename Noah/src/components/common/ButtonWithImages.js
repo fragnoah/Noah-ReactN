@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Image,
   Text,
   View
@@ -10,8 +11,16 @@ import {
 class ButtonWithImage extends Component {
 //= ({ onPress, imgLeft,buttonText, imgRight, buttonStyle, imageStyle, textSyle }) => {
 
-  renderLeftImg(imgLeft, imageStyle) {
-    if (imgLeft !== '' || imgLeft !== undefined) {
+  renderLeftImg(imgLeft, imageStyle, removeEmptyImage) {
+    if (imgLeft !== '' && imgLeft !== undefined) {
+      return (
+        <View style={styles.imgContStyle}>
+          <Image style={[styles.imageStyle, imageStyle]} source={imgLeft} />
+        </View>
+      );
+    } 
+    
+    if (removeEmptyImage === undefined) {
       return (
         <View style={styles.imgContStyle}>
           <Image style={[styles.imageStyle, imageStyle]} source={imgLeft} />
@@ -20,8 +29,16 @@ class ButtonWithImage extends Component {
     }
   }
 
-  renderRightImg(imgRight, imageStyle) {
-    if (imgRight !== '' || imgRight !== undefined) {
+  renderRightImg(imgRight, imageStyle, removeEmptyImage) {
+    if (imgRight !== '' && imgRight !== undefined) {
+      return (
+        <View style={styles.imgContStyle}>
+          <Image style={[styles.imageStyle, imageStyle]} source={imgRight} />
+        </View>
+      );
+    } 
+    
+    if (removeEmptyImage === undefined) {
       return (
         <View style={styles.imgContStyle}>
           <Image style={[styles.imageStyle, imageStyle]} source={imgRight} />
@@ -40,32 +57,57 @@ class ButtonWithImage extends Component {
     }
   }
 
+  renderElements(
+      imageStyle,
+      imgLeft,
+      imgRight,
+      buttonText,
+      textStyle,
+      removeEmptyImage
+    ) {
+    return (
+      <View style={styles.containerStyle}>
+        {this.renderLeftImg(imgLeft, imageStyle, removeEmptyImage)}
+        {this.renderText(buttonText, textStyle)}
+        {this.renderRightImg(imgRight, imageStyle, removeEmptyImage)}
+      </View>
+    );
+  }
+
   render() {
     console.log(this.props);
     const {
+      onPress,
       buttonStyle,
       imageStyle,
       imgLeft,
       imgRight,
       buttonText,
       textStyle,
-      disabled
+      disabled,
+      removeEmptyImage
     } = this.props;
 
-    if (disabled === true && disabled !== undefined) {
-      this.props.onPress = null;
+    if (disabled) {
       styles.actButtonStyle = styles.disabledButtonStyle;
     } else {
       styles.actButtonStyle = styles.buttonStyle;
     }
 
     return (
-      <TouchableOpacity onPress={this.props.onPress} style={[styles.actButtonStyle, buttonStyle]}>
-        <View style={styles.containerStyle}>
-          {this.renderLeftImg(imgLeft, imageStyle)}
-          {this.renderText(buttonText, textStyle)}
-          {this.renderRightImg(imgRight, imageStyle)}
-        </View>
+      <TouchableOpacity 
+        disabled={disabled} 
+        onPress={onPress} 
+        style={[styles.actButtonStyle, buttonStyle]}
+      >
+        {this.renderElements(
+            imageStyle, 
+            imgLeft, 
+            imgRight, 
+            buttonText, 
+            textStyle, 
+            removeEmptyImage
+          )}
       </TouchableOpacity>
     );
   }
@@ -76,7 +118,7 @@ const styles = {
   imageStyle: {
     height: 70,
     width: 70,
-    //borderWidth: 2,
+   
     resizeMode: 'contain',
     //elevation: 1,
   },
@@ -137,6 +179,13 @@ const styles = {
     marginLeft: 10,
     marginRight: 10
   },
+  emptyImage: {
+    height: 1,
+    width: 1,
+    padding: 0,
+    margin: 0, 
+    resizeMode: 'stretch',
+  }
 };
 
 export { ButtonWithImage };
