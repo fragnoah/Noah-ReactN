@@ -34,7 +34,7 @@ export const toRepeatMarked = () => {
  export const toQuestions = () => {
   //console.log(testNumber);
   //Actions.quest({ Testnumber: testNumber });
-  Actions.quest();
+  Actions.doExam();
 };
 
 export const toLearnBasicQuestions = () => {

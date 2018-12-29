@@ -41,18 +41,26 @@ class ButtonWithImage extends Component {
   }
 
   render() {
+    console.log(this.props);
     const {
-      onPress,
       buttonStyle,
       imageStyle,
       imgLeft,
       imgRight,
       buttonText,
-      textStyle
+      textStyle,
+      disabled
     } = this.props;
 
+    if (disabled === true && disabled !== undefined) {
+      this.props.onPress = null;
+      styles.actButtonStyle = styles.disabledButtonStyle;
+    } else {
+      styles.actButtonStyle = styles.buttonStyle;
+    }
+
     return (
-      <TouchableOpacity onPress={onPress} style={[styles.buttonStyle, buttonStyle]}>
+      <TouchableOpacity onPress={this.props.onPress} style={[styles.actButtonStyle, buttonStyle]}>
         <View style={styles.containerStyle}>
           {this.renderLeftImg(imgLeft, imageStyle)}
           {this.renderText(buttonText, textStyle)}
@@ -92,6 +100,22 @@ const styles = {
     marginTop: 10,
     elevation: 1,
   },
+  disabledButtonStyle: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    //justifyContent: 'space-around',
+    //flex: 0,
+    //alignSelf: 'stretch',
+    backgroundColor: 'rgba(143,143,143,0.75)',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#007aff',
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 10,
+    elevation: 1,
+  },
+  actButtonStyle: {},
   textStyle: {
     justifyContent: 'flex-start',
     color: '#007aff',

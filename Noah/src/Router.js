@@ -106,14 +106,21 @@ class RouterComponent extends Component {
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
                     />
+                </Scene>
+                
+                <Scene key="doExam">
                     <Scene
                         key="quest"
                         title="Prüfung"
-                        onLeft={toMain} 
-                        leftTitle='Abbrechen' 
-                        component={QuestionPage}                     
+                        renderBackButton={() => (null)}
+                        onRight={toMain} 
+                        rightTitle='Abbrechen' 
+                        component={QuestionPage}  
+                        rightButtonTextStyle={{ color: 'white', fontSize: 14 }}  
+                        initial                 
                     />
                 </Scene>
+                
                 <Scene key="resultPages">
                     <Scene
                         key="result"

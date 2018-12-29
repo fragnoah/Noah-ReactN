@@ -29,7 +29,6 @@ const styles = {
     //borderColor: '#007aff',
     //elevation: 1,
     justifyContent: 'space-around',
-    elevation: 1,
   }
 };
 

@@ -66,16 +66,26 @@ class ImageCardSection extends Component {
     } 
   }
 
+  renderText(text) {
+    if (text !== '' && text !== undefined) {
+      console.log('renderText_Frage: ', text);
+      return (
+        <Text style={styles.questionTextStyle} >
+            {text}
+        </Text>
+      );
+    }
+  }
+
   render() {
+    console.log('Frage: ', this.props);
     const { image, text, id, buchRef } = this.props;
     //getQuestion(text, id);
     return (
       <CardSection style={[this.props.style]}>
         <View style={styles.containerStyle}>
           {this.renderID(id)}
-          <Text style={[styles.questionTextStyle, this.props.textStyle]} >
-            {text}
-          </Text>
+          {this.renderText(text)}
         </View>
         {this.renderImage(image)}
         {this.renderBuchRef(buchRef)}
