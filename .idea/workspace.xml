@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="626" />
     <option name="width" value="1249" />
     <option name="height" value="1047" />
@@ -30,7 +30,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,7 +117,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,12 +210,12 @@
     <frame x="626" y="0" width="1249" height="1047" extended-state="1" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4768713" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4760303" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5231287" side_tool="true" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5239697" side_tool="true" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49876136" weight="0.32896176" />
