@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import LearnQuestionItem from './LearnQuestionItem';
 
@@ -45,7 +45,7 @@ class LearnQuestionList extends Component {
     return <LearnQuestionItem question={question.item} />;
   }
 
-  render() {
+  renderContent() {
     this.generateActualPool();
     return (
       <FlatList
@@ -55,7 +55,31 @@ class LearnQuestionList extends Component {
       />
     );
   }
+
+  render() {
+      if (Platform.OS === 'ios') {
+          return (
+              <ImageBackground
+                  source={iosFix.path}
+                  style={iosFix.style}
+              >
+                  {this.renderContent()}
+              </ImageBackground>
+          );
+      }
+      return (
+          this.renderContent()
+      );
+  }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
 
 const mapStateToProps = state => {
   return { pool: state.pool };

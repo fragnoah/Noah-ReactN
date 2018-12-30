@@ -6,12 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/MainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/MainMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noah/src/components/Result.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/Result.js" afterDir="false" />
-    </list>
+    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +207,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="626" y="0" width="1249" height="1047" extended-state="0" />
+    <frame x="626" y="0" width="1249" height="1047" extended-state="1" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.47771236" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
@@ -253,6 +248,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Noah/android/app/src/main/java/com/noah/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noah/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-202" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noah/android/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1122" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Noah/android/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state />
       </provider>
