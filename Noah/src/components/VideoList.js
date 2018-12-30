@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import VideoDetail from './VideoDetail';
 
@@ -11,7 +11,7 @@ class VideoList extends Component {
     );
   }
 
-  render() {
+  renderContent() {
     console.log('Videolist_state', this.props.videoindex);
 
     return (
@@ -20,7 +20,32 @@ class VideoList extends Component {
       </ScrollView>
     );
   }
+
+
+  render() {
+      if (Platform.OS === 'ios') {
+          return (
+              <ImageBackground
+                  source={iosFix.path}
+                  style={iosFix.style}
+              >
+                  {this.renderContent()}
+              </ImageBackground>
+          );
+      }
+      return (
+          this.renderContent()
+      );
+  }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
 
 const mapStateToProps = state => {
   console.log(state);

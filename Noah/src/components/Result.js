@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import { ProgressCircle, BarChart, Grid, XAxis } from 'react-native-svg-charts';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
@@ -47,7 +47,8 @@ class Result extends Component {
         this.props.resetMarked();
         actions.toRepeatAll();
     }
-    render() {
+
+    renderContent() {
         const { 
             cardStyle,
             cardTitle,             
@@ -164,7 +165,31 @@ class Result extends Component {
             </View>
         );
     }
+
+    render() {
+        if (Platform.OS === 'ios') {
+            return (
+                <ImageBackground
+                    source={iosFix.path}
+                    style={iosFix.style}
+                >
+                    {this.renderContent()}
+                </ImageBackground>
+            );
+        }
+        return (
+            this.renderContent()
+        );
+    }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
 
 const styles = {
     cardStyle: {

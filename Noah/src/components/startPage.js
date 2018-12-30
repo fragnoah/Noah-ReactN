@@ -84,8 +84,8 @@ class startPage extends Component {
         if (Platform.OS === 'ios') {
             return (
                 <ImageBackground
-                    source={require('../assets/img/NOAH_Wallpaper.png')}
-                    style={styles.backgroundImage}
+                    source={iosFix.path}
+                    style={iosFix.style}
                 >
                     {this.renderContent()}
                 </ImageBackground>
@@ -96,6 +96,14 @@ class startPage extends Component {
         );
     }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
 
 const styles = {
     cardStyle: {
@@ -128,11 +136,7 @@ const styles = {
     noImageStyle: {
         height: 0,
         width: 50
-    },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
+    }
 };
 
 const mapStateToProbs = state => {
