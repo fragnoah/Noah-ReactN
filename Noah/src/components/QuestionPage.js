@@ -7,7 +7,6 @@ import {
     Platform,
     ImageBackground
     } from 'react-native';
-
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
@@ -144,15 +143,35 @@ class QuestionPage extends Component {
                 init = -1;
         }
 
-        
+        const radioStyle = {
+            labelStyle: {
+                paddingTop: 5,
+                paddingBottom: 5,
+                justifyContent: 'flex-start',
+                borderWidth: 1,                
+                width: '96.4%',     // entspricht 100% 
+            },
+            radioFormStyle: {
+                width: '100%',
+                flex: 0,
+                justifyContent: 'space-around',
+                alignItems: 'flex-start',
+                borderWidth: 1
+            }
+
+        };
+
         return (
-            <RadioForm
-                key={this.props.quiz.qno}
-                radio_props={radioProps}
-                initial={init}
-                onPress={(value) => { this.answer(value); }}
-            />  
-        );        
+                <RadioForm
+                    style={{ borderWidth: 1 }}
+                    key={this.props.quiz.qno}
+                    radio_props={radioProps}
+                    initial={init}
+                    onPress={(value) => { this.answer(value); }}
+                    labelStyle={radioStyle.labelStyle}
+                    
+                />  
+        );      
     }
 
     renderContent() {
@@ -265,8 +284,7 @@ const styles = StyleSheet.create({
     flashMessage: {
         zIndex: 7
     },
-    navButtonImageStyle: {
-        
+    navButtonImageStyle: {        
         height: 20,
         width: 20,
     },
