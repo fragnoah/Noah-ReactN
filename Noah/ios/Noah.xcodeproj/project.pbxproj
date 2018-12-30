@@ -374,6 +374,20 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		DAD48D5421D8C52A00B15E9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CEAC01325A040FE960DF871 /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = RNSVG;
+		};
+		DAD48D5621D8C52A00B15E9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CEAC01325A040FE960DF871 /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 94DDAC5C1F3D024300EED511;
+			remoteInfo = "RNSVG-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -738,6 +752,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DAD48D2521D8C52900B15E9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAD48D5521D8C52A00B15E9B /* libRNSVG.a */,
+				DAD48D5721D8C52A00B15E9B /* libRNSVG-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -908,6 +931,10 @@
 				{
 					ProductGroup = 5449E1BE21D25B90000665EC /* Products */;
 					ProjectRef = 01073CABB5F44DA095B01F39 /* RNFS.xcodeproj */;
+				},
+				{
+					ProductGroup = DAD48D2521D8C52900B15E9B /* Products */;
+					ProjectRef = 9CEAC01325A040FE960DF871 /* RNSVG.xcodeproj */;
 				},
 				{
 					ProductGroup = 5449E1BC21D25B90000665EC /* Products */;
@@ -1242,6 +1269,20 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAD48D5521D8C52A00B15E9B /* libRNSVG.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSVG.a;
+			remoteRef = DAD48D5421D8C52A00B15E9B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAD48D5721D8C52A00B15E9B /* libRNSVG-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNSVG-tvOS.a";
+			remoteRef = DAD48D5621D8C52A00B15E9B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
