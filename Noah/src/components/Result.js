@@ -20,6 +20,7 @@ class Result extends Component {
     }
     wrongRepeate() {
         if (this.props.quiz.wrongAns.length > 0) {
+        this.props.resetWrongAnswer();
         actions.toRepeatWrong();
         } else {
             showMessage({
