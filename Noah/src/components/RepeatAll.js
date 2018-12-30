@@ -4,7 +4,8 @@ import {
     Text,
     ScrollView,
     StyleSheet,
-    //Button
+    Platform,
+    ImageBackground
     } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -96,7 +97,7 @@ class RepeatAll extends Component {
         );         
     }
 
-     render() {
+    renderContent() {
         const radioProps = [
             { label: this.arrnew[this.state.qno].options.option1,
                 value: 'option1' },
@@ -208,7 +209,32 @@ class RepeatAll extends Component {
              
         );
     }
+
+    render() {
+        if (Platform.OS === 'ios') {
+            return (
+                <ImageBackground
+                    source={iosFix.path}
+                    style={iosFix.style}
+                >
+                    {this.renderContent()}
+                </ImageBackground>
+            );
+        }
+        return (
+            this.renderContent()
+        );
+    }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
+
 const styles = StyleSheet.create({
  
     flashMessage: {
