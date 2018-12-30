@@ -45,6 +45,16 @@ class ImageCardSection extends Component {
     } 
   } 
 
+  renderProgress(progress) {
+    if (progress !== '' && progress !== undefined) {
+      return (
+        <Text style={styles.progressText}>
+          ( {progress} )
+        </Text>
+      );
+    }
+  }
+
   renderBuchRef(buchRef) {
     if (buchRef !== '' && buchRef !== undefined) {
       return (
@@ -66,16 +76,27 @@ class ImageCardSection extends Component {
     } 
   }
 
+  renderText(text) {
+    if (text !== '' && text !== undefined) {
+      return (
+        <Text style={styles.questionTextStyle} >
+            {text}
+        </Text>
+      );
+    }
+  }
+
   render() {
-    const { image, text, id, buchRef } = this.props;
+    const { image, text, id, buchRef, progress } = this.props;
     //getQuestion(text, id);
     return (
       <CardSection style={[this.props.style]}>
         <View style={styles.containerStyle}>
-          {this.renderID(id)}
-          <Text style={[styles.questionTextStyle, this.props.textStyle]} >
-            {text}
-          </Text>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            {this.renderID(id)}  
+            {this.renderProgress(progress)}
+          </View>
+          {this.renderText(text)}
         </View>
         {this.renderImage(image)}
         {this.renderBuchRef(buchRef)}
@@ -89,8 +110,8 @@ const styles = {
   containerStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around',
-
   },
+
   idTextStyle: {
     fontSize: 12,
     color: '#8f8f8f'
@@ -118,6 +139,10 @@ const styles = {
     paddingLeft: 15,
     paddingRight: 5,
     flex: 1
+  },
+  progressText: {
+    color: 'white',
+    fontWeight: 'bold'
   }
 };
 

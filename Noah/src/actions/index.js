@@ -59,7 +59,7 @@ export const selectWrongAnswer = (antwort) => {
 
 export const updateWrongAnswer = (antwort, qno) => {
   return {
-    type: 'update_answer',
+    type: 'update_WrongAnswer',
     payload: antwort,
     index: qno
   };

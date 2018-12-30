@@ -4,16 +4,17 @@ import {
     Text,
     ScrollView,
     StyleSheet,
-    Button
+    //Button
     } from 'react-native';
 
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
-import jsondata from '../assets/datasrc/FB1_2.json';
-import { Card, CardSection, ImageCardSection } from './common';
-import * as actions from '../actions';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
-import { toLearnSegelQuestions } from '../actions';
+
+import jsondata from '../assets/datasrc/FB1_2.json';
+import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
+import * as actions from '../actions';
+
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class QuestionPage extends Component {
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);   
     }
+
     prev() {
         if (this.props.quiz.qno >= 1) {
             if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
@@ -31,6 +33,7 @@ class QuestionPage extends Component {
             this.props.decrement();
         }
     }
+
     next() {
             if (this.props.quiz.qno < this.arrnew.length - 1) {
                 if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
@@ -63,6 +66,7 @@ class QuestionPage extends Component {
             actions.toResult();
         }
     }
+
     answer(ans) {
         if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
             this.props.selectAnswer(ans);
@@ -70,7 +74,8 @@ class QuestionPage extends Component {
         if (this.props.quiz.arr[this.props.quiz.qno] !== ans) {
             this.props.updateAnswer(ans, this.props.quiz.qno);
             }
-        }
+    }
+
     markQuestion() {
         if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
             this.props.unmark(this.props.quiz.qno);
@@ -90,7 +95,29 @@ class QuestionPage extends Component {
             });
         }
     }
-     render() {
+
+    renderMarkButton() {
+        if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
+            return (
+                <ImageButton
+                    onPress={() => this.markQuestion()}
+                    img={require('../assets/img/flaged.png')}
+                    buttonStyle={styles.markButtonStyle} 
+                    imageStyle={styles.markButtonImageStyle}
+                />
+            );            
+        } 
+        return (
+            <ImageButton
+                onPress={() => this.markQuestion()}
+                img={require('../assets/img/flag.png')}
+                buttonStyle={styles.markButtonStyle} 
+                imageStyle={styles.markButtonImageStyle}
+            />  
+        );         
+    }
+
+    render() {
         const radioProps = [
             { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
             { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
@@ -115,75 +142,88 @@ class QuestionPage extends Component {
             default:
                 init = -1;
         }
+
         return (
-            <ScrollView
-            style={{ 
-                backgroundColor: '#F5FCFF',
-                paddingTop: 5,
-                marginLeft: 2,
-                marginRight: 2 
-            }}
-            >
-                <Card>
-                
-                    <ImageCardSection 
-                        style={{ backgroundColor: '#8CD6FC' }} 
-                        id={this.arrnew[this.props.quiz.qno].id} 
-                        text={this.arrnew[this.props.quiz.qno].frageText} 
-                        image={this.arrnew[this.props.quiz.qno].image}
-                    />
+            <View style={{ flex: 1 }}>
+                <ScrollView
+                        style={{ 
+                            backgroundColor: 'transparent',
+                            /*
+                            paddingTop: 2,
+                            marginLeft: 2,
+                            marginRight: 2
+                            */
+                        }}
+                >  
+                    <Card cardStyle={styles.cardStyle}>
+                        <ImageCardSection 
+                            style={{ backgroundColor: '#8CD6FC' }} 
+                            id={this.arrnew[this.props.quiz.qno].id} 
+                            text={this.arrnew[this.props.quiz.qno].frageText} 
+                            image={this.arrnew[this.props.quiz.qno].image}
+                            progress={[this.props.quiz.qno + 1, ' / 30']}
+                        />                
                     
-                    <CardSection>                  
-                        <RadioForm
-                            key={this.props.quiz.qno}
-                            radio_props={radioProps}
-                            initial={init}
-                            onPress={(value) => { this.answer(value); }}
-                        />        
-                    </CardSection>  
-                </Card> 
-                <View style={{ flexDirection: 'row', flex: 1 }}>
-                    <Button
-                    onPress={() => this.prev()}
-                    title="Zurück"
-                    color="#0000ff"
-                    disabled={this.props.quiz.qno === 0}
+                        <CardSection>                  
+                            <RadioForm
+                                key={this.props.quiz.qno}
+                                radio_props={radioProps}
+                                initial={init}
+                                onPress={(value) => { this.answer(value); }}
+                            />        
+                        </CardSection>  
+                    </Card>
+                </ScrollView>    
+
+                <View style={{ flexDirection: 'row', flex: 0, justifyContent: 'space-between' }}>
+                    <ButtonWithImage
+                        onPress={() => this.prev()}
+                        buttonText="Zurück"
+                        disabled={this.props.quiz.qno === 0}
+                        imgLeft={require('../assets/img/arrowLeft.png')}
+                        imageStyle={styles.navButtonImageStyle}
+                        buttonStyle={styles.navButtonStyle}
+                        textStyle={styles.navTextStyle}
+                        removeEmptyImage
                     />
 
-                <View style={{ margin: 15 }} />                 
-                    <Button
-                    onPress={() => this.next()}
-                    title={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
-                    color={this.props.quiz.qno !== 29 ? '#0000ff' : '#008000'}
+                    {this.renderMarkButton()}
+                    
+                    <ButtonWithImage
+                        onPress={() => this.next()}
+                        buttonText={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
+                        imgRight={require('../assets/img/arrowRight.png')}
+                        imageStyle={styles.navButtonImageStyle}
+                        buttonStyle={styles.navButtonStyle}
+                        textStyle={styles.navTextStyle2}
+                        removeEmptyImage
                     />
                 </View>
 
                 <View style={{ flexDirection: 'column' }}>
-                    <Button
-                    onPress={() => this.markQuestion()}
-                    title="Frage makieren"
-                    color="#841584"
-                    />
                     <Text>
-                    Kategorie: {this.arrnew[this.props.quiz.qno].category}
+                        Kategorie: {this.arrnew[this.props.quiz.qno].category}
                     </Text>
                     <Text>
-                    Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
+                        Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
                     </Text>
                     <Text>
-                     {console.log(this.props)}
-                     Fragebogen: {this.props.quiz.fragebogen}
+                        {console.log(this.props)}
+                        Fragebogen: {this.props.quiz.fragebogen}
                     </Text>
                     <Text>
                         Qno: {this.props.quiz.qno}
                     </Text>
                 </View>
-            <FlashMessage 
-                style={styles.flashMessage} 
-                ref="myLocalFlashMessage" 
-                position="bottom" 
-            />       
-        </ScrollView> 
+                          
+                <FlashMessage 
+                    style={styles.flashMessage} 
+                    ref="myLocalFlashMessage" 
+                    position="bottom" 
+                /> 
+                
+            </View>
+             
         );
     }
 }
@@ -191,7 +231,84 @@ const styles = StyleSheet.create({
  
     flashMessage: {
         zIndex: 7
-    }
+    },
+    navButtonImageStyle: {
+        
+        height: 20,
+        width: 20,
+    },
+    markButtonStyle: {
+        //height: 50,
+        width: 50,
+        flex: 1,
+        resizeMode: 'cover',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        //justifyContent: 'space-around',
+        //flex: 0,
+        alignSelf: 'center',
+        backgroundColor: 'rgba(255,255,255,0.75)',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#007aff',
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 0,
+        elevation: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    markButtonImageStyle: {
+        alignSelf: 'center',
+        height: 30,
+        flex: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    navButtonStyle: {
+        flex: 1,
+        width: 100,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 0,
+    },
+    navBar: {
+        flexDirection: 'row', 
+        flex: 0
+    },
+    navTextStyle: {
+        justifyContent: 'flex-start',
+        color: '#007aff',
+        fontSize: 16,
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontWeight: '600',
+      },
+      navTextStyle2: {
+        justifyContent: 'flex-end',
+        alignSelf: 'flex-end',
+        color: '#007aff',
+        fontSize: 16,
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontWeight: '600',
+      },
+    cardStyle: {
+        backgroundColor: 'rgba(255,255,255, 0.3)',
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 2,
+        marginRight: 2,
+        marginTop: 2,
+        flex: 1
+    },
   });
 
 const mapStateToProbs = state => {

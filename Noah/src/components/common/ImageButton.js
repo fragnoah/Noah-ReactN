@@ -19,8 +19,6 @@ const styles = {
     width: 50,
     justifyContent: 'space-around',
     resizeMode: 'contain',
-
-    //
   },
   buttonStyle: {
     flex: 0,

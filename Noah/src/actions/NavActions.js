@@ -1,28 +1,40 @@
 import { Actions } from 'react-native-router-flux';
 
 export const toMain = () => {
-  Actions.menu(); 
+  Actions.main(); 
 };
 
 export const toTests = () => {
  // resetFb();
-        Actions.test(); 
+        Actions.exam(); 
 };
 
 export const toLearn = () => {
-  Actions.learn(); 
+  Actions.prepare(); 
 };
 
 export const toResult = () => {
   // ToDo: Prüflogik bisherige Fragen
-  Actions.result();
+  Actions.resultPages();
+};
+
+export const toRepeatAll = () => {
+  Actions.repeatAll();
+};
+
+export const toRepeatWrong = () => {
+  Actions.repeatWrong();
+};
+
+export const toRepeatMarked = () => {
+  Actions.marked();
 };
 
 //export const toQuestions = ({ testNumber }) => {
  export const toQuestions = () => {
   //console.log(testNumber);
   //Actions.quest({ Testnumber: testNumber });
-  Actions.quest();
+  Actions.doExam();
 };
 
 export const toLearnBasicQuestions = () => {
