@@ -11,10 +11,11 @@ import {
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
+import { Actions } from 'react-native-router-flux';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
-import { Actions } from 'react-native-router-flux';
+
 
 class markedQuestion extends Component {
     constructor(props) {
