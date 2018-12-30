@@ -9,9 +9,11 @@ import {
 
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
+import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/FB1_2.json';
-import { Card, CardSection, ImageCardSection, ButtonWithImage } from './common';
+import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
+import { Actions } from 'react-native-router-flux';
 
 class markedQuestion extends Component {
     constructor(props) {
@@ -53,6 +55,51 @@ class markedQuestion extends Component {
         if (this.props.quiz.arr[this.props.quiz.marked[this.state.qno]] !== ans) {
             this.props.updateAnswer(ans, this.state.qno); 
         }
+    }
+    markQuestion() {
+         if (this.props.quiz.marked.includes(
+                this.props.quiz.marked[this.state.qno]) === true) {
+            if (this.props.quiz.marked.length === 1) {
+                Actions.toResult();
+            } else {
+                this.props.unmark(this.props.quiz.marked[this.state.qno]);
+                showMessage({
+                    message: 'Hinweis',
+                    description: 'Frage nicht mehr makiert',
+                    type: 'success',
+                    icon: 'success'
+                });
+            }
+        } else {
+            this.props.mark(this.props.quiz.marked[this.state.qno]);
+            showMessage({
+                message: 'Hinweis',
+                description: 'Frage wurde makiert',
+                type: 'success',
+                icon: 'success'
+            });
+        }
+    }
+
+    renderMarkButton() {
+        if (this.props.quiz.marked.includes(this.props.quiz.marked[this.state.qno])) {
+            return (
+                <ImageButton
+                    onPress={() => this.markQuestion()}
+                    img={require('../assets/img/flaged.png')}
+                    buttonStyle={styles.markButtonStyle} 
+                    imageStyle={styles.markButtonImageStyle}
+                />
+            );            
+        } 
+        return (
+            <ImageButton
+                onPress={() => this.markQuestion()}
+                img={require('../assets/img/flag.png')}
+                buttonStyle={styles.markButtonStyle} 
+                imageStyle={styles.markButtonImageStyle}
+            />  
+        );         
     }
      render() {
         const radioProps = [
@@ -120,16 +167,19 @@ class markedQuestion extends Component {
                     <ButtonWithImage
                         onPress={() => this.prev()}
                         buttonText="Zurück"
-                        disabled={this.props.quiz.qno === 0}
+                        disabled={this.state.qno === 0}
                         imgLeft={require('../assets/img/arrowLeft.png')}
                         imageStyle={styles.navButtonImageStyle}
                         buttonStyle={styles.navButtonStyle}
                         textStyle={styles.navTextStyle}
                         removeEmptyImage
-                    />         
+                    />
+
+                    {this.renderMarkButton()}
+
                     <ButtonWithImage
                         onPress={() => this.next()}
-                        buttonText={this.props.quiz.qno === this.props.quiz.marked.length - 1 ? 'Ergebnis' : 'Nächste'}
+                        buttonText={this.state.qno === this.props.quiz.marked.length - 1 ? 'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
                         imageStyle={styles.navButtonImageStyle}
                         buttonStyle={styles.navButtonStyle}
@@ -153,7 +203,11 @@ class markedQuestion extends Component {
                         Qno: {this.state.qno}
                     </Text>
                 </View>
-                
+                <FlashMessage 
+                    style={styles.flashMessage} 
+                    ref="myLocalFlashMessage" 
+                    position="bottom" 
+                /> 
             </View>
              
         );
@@ -161,10 +215,48 @@ class markedQuestion extends Component {
 }
 const styles = StyleSheet.create({
  
+    flashMessage: {
+        zIndex: 7
+    },
     navButtonImageStyle: {
         
         height: 20,
         width: 20,
+    },
+    markButtonStyle: {
+        //height: 50,
+        width: 50,
+        flex: 1,
+        resizeMode: 'cover',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        //justifyContent: 'space-around',
+        //flex: 0,
+        alignSelf: 'center',
+        backgroundColor: 'rgba(255,255,255,0.75)',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#007aff',
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 0,
+        elevation: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    markButtonImageStyle: {
+        alignSelf: 'center',
+        height: 30,
+        flex: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    navButtonStyle: {
+        flex: 1,
+        width: 100,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 0,
     },
     navBar: {
         flexDirection: 'row', 
