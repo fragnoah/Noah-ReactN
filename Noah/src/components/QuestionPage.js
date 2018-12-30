@@ -153,11 +153,10 @@ class QuestionPage extends Component {
                 marginLeft: -5,   
                 zIndex: 10,             
                 width: '100%', 
-                borderRadius: 5,
-                backgroundColor: 'rgba(255,255,255, 0.75)',
+                borderRadius: 5,                
                 borderWidth: 1,
                 borderColor: '#007aff',
-                elevation: 1,
+                //elevation: 1,
             },
             radioFormStyle: {
                 backgroundColor: 'transparent',
@@ -165,10 +164,14 @@ class QuestionPage extends Component {
                 justifyContent: 'space-around',
                 alignItems: 'flex-start',
             },
-            radioButtonStyle: {
-
+            labelBackground: {
+                backgroundColor: 'rgba(255,255,255, 0.75)',
             }
         };
+
+        if (Platform.OS === 'ios') {
+            radioStyle.labelBackground = { backgroundColor: 'white' };
+        }
 
         return (
                 <RadioForm
@@ -177,7 +180,7 @@ class QuestionPage extends Component {
                     radio_props={radioProps}
                     initial={init}
                     onPress={(value) => { this.answer(value); }}
-                    labelStyle={radioStyle.labelStyle}
+                    labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
                     selectedLabelColor={'green'}
                     selectedLabelStyle={{ color: 'green', fontWeight: 'bold' }} 
                     buttonSize={2}
