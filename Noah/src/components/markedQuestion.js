@@ -198,7 +198,7 @@ class markedQuestion extends Component {
                             id={this.arrnew[this.props.quiz.marked[this.state.qno]].id} 
                             text={this.arrnew[this.props.quiz.marked[this.state.qno]].frageText} 
                             image={this.arrnew[this.props.quiz.marked[this.state.qno]].image}
-                            progress={[this.state.qno + 1, ' /',
+                            progress={[this.state.qno + 1, ' / ',
                                 this.props.quiz.marked.length]}
                         />                
                     

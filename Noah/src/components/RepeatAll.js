@@ -195,7 +195,7 @@ class RepeatAll extends Component {
                             id={this.arrnew[this.state.qno].id} 
                             text={this.arrnew[this.state.qno].frageText} 
                             image={this.arrnew[this.state.qno].image}
-                            progress={[this.state.qno + 1, ' /',
+                            progress={[this.state.qno + 1, ' / ',
                                 this.arrnew.length]}
                         />                
                     

@@ -209,7 +209,7 @@ class RepeatPage extends Component {
                             id={this.arrnew[this.antworten[this.state.qno]].id} 
                             text={this.arrnew[this.antworten[this.state.qno]].frageText} 
                             image={this.arrnew[this.antworten[this.state.qno]].image}
-                            progress={[this.state.qno + 1, ' /',
+                            progress={[this.state.qno + 1, ' / ',
                                 this.antworten.length]}
                         />                
                     
