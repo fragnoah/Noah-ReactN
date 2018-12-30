@@ -128,7 +128,11 @@ const styles = {
     noImageStyle: {
         height: 0,
         width: 50
-    }
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
 };
 
 const mapStateToProbs = state => {
