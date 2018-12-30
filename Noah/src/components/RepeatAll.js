@@ -24,6 +24,7 @@ class RepeatAll extends Component {
             qno: 0,
         };
     }
+
     prev() {
         console.log('vorherige');
         if (this.state.qno >= 1) {
@@ -35,6 +36,7 @@ class RepeatAll extends Component {
             });
         }
     }
+
     next() {
         console.log('nächste');
         if (this.state.qno < this.arrnew.length - 1) {
@@ -47,7 +49,8 @@ class RepeatAll extends Component {
             } else {
                 actions.toResult();
             }
-        }
+    }
+
     answer(ans) {
         if (this.props.quiz.arr[this.state.qno] === undefined) {
             this.props.selectAnswer(ans);
@@ -56,6 +59,7 @@ class RepeatAll extends Component {
             this.props.updateAnswer(ans, this.state.qno); 
         }
     }
+
     markQuestion() {
         if (this.props.quiz.marked.includes(this.state.qno) === true) {
             this.props.unmark(this.state.qno);
@@ -97,20 +101,16 @@ class RepeatAll extends Component {
         );         
     }
 
-    renderContent() {
+    renderRadioButtons() {
         const radioProps = [
-            { label: this.arrnew[this.state.qno].options.option1,
-                value: 'option1' },
-            { label: this.arrnew[this.state.qno].options.option2,
-                value: 'option2' },
-            { label: this.arrnew[this.state.qno].options.option3,
-                value: 'option3' },
-            { label: this.arrnew[this.state.qno].options.option4,
-                value: 'option4' },
+            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
+            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
+            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
+            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
         ];
-        
+
         let init = null;
-        switch (this.props.quiz.arr[this.state.qno]) {
+        switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':
                 init = 0;
             break;
@@ -126,6 +126,57 @@ class RepeatAll extends Component {
             default:
                 init = -1;
         }
+
+        const radioStyle = {
+            labelStyle: {
+                paddingTop: 15,
+                paddingBottom: 15,
+                paddingLeft: 5,
+                paddingRight: 5,
+                justifyContent: 'flex-start',
+                marginLeft: -5,   
+                zIndex: 10,             
+                width: '100%', 
+                borderRadius: 5,                
+                borderWidth: 1,
+                borderColor: '#007aff',
+                elevation: 1,
+            },
+            radioFormStyle: {
+                backgroundColor: 'transparent',
+                flex: 0,
+                justifyContent: 'space-around',
+                alignItems: 'flex-start',
+            },
+            labelBackground: {
+                backgroundColor: 'rgba(255,255,255, 0.75)',
+            }
+        };
+
+        if (Platform.OS === 'ios') {
+            radioStyle.labelBackground = { backgroundColor: 'white' };
+        }
+
+        return (
+                <RadioForm
+                    style={radioStyle.radioFormStyle}
+                    key={this.props.quiz.qno}
+                    radio_props={radioProps}
+                    initial={init}
+                    onPress={(value) => { this.answer(value); }}
+                    labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
+                    selectedLabelColor={'green'}
+                    buttonSize={2}
+                    buttonBorderWidth={0}
+                    buttonOuterSize={-1}
+                    buttonColor={'rgba(255,255,255, 0.3)'}                    
+                    selectedButtonColor={'green'}
+                    buttonStyle={{ zIndex: -2 }}
+                />  
+        );      
+    }
+
+    renderContent() {
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -148,14 +199,9 @@ class RepeatAll extends Component {
                                 this.arrnew.length]}
                         />                
                     
-                        <CardSection>                  
-                            <RadioForm
-                                key={this.state.qno}
-                                radio_props={radioProps}
-                                initial={init}
-                                onPress={(value) => { this.answer(value); }}
-                            />        
-                        </CardSection>  
+                        <CardSection style={{ backgroundColor: 'transparent' }}>                  
+                            {this.renderRadioButtons()}
+                        </CardSection>   
                     </Card>
                 </ScrollView>    
 
@@ -175,7 +221,8 @@ class RepeatAll extends Component {
 
                     <ButtonWithImage
                         onPress={() => this.next()}
-                        buttonText={this.state.qno === this.arrnew.length - 1 ? 'Ergebnis' : 'Nächste'}
+                        buttonText={
+                            this.state.qno === this.arrnew.length - 1 ? 'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
                         imageStyle={styles.navButtonImageStyle}
                         buttonStyle={styles.navButtonStyle}

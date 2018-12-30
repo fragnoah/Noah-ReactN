@@ -25,6 +25,7 @@ class RepeatPage extends Component {
         };
         this.antworten = this.props.quiz.wrongAns;
     }
+
     prev() {
         console.log('vorherige');
         if (this.state.qno >= 1) {
@@ -36,6 +37,7 @@ class RepeatPage extends Component {
             });
         }
     }
+
     next() {
         console.log('nächste');
         if (this.state.qno < this.props.quiz.wrongAns.length - 1) {
@@ -60,7 +62,8 @@ class RepeatPage extends Component {
                 console.log('nach reset');
                 actions.toResult();
             }
-        }
+    }
+
     answer(ans) {
         if (this.props.quiz.wrongArr[this.state.qno] === undefined) {
             this.props.selectWrongAnswer(ans);
@@ -69,6 +72,7 @@ class RepeatPage extends Component {
             this.props.updateWrongAnswer(ans, this.state.qno); 
         }
     }
+
     markQuestion() {
         if (this.props.quiz.marked.includes(
                 this.props.quiz.wrongAns[this.state.qno]) === true) {
@@ -111,20 +115,16 @@ class RepeatPage extends Component {
         );         
     }
 
-    renderContent() {
+    renderRadioButtons() {
         const radioProps = [
-            { label: this.arrnew[this.antworten[this.state.qno]].options.option1,
-                value: 'option1' },
-            { label: this.arrnew[this.antworten[this.state.qno]].options.option2,
-                value: 'option2' },
-            { label: this.arrnew[this.antworten[this.state.qno]].options.option3,
-                value: 'option3' },
-            { label: this.arrnew[this.antworten[this.state.qno]].options.option4,
-                value: 'option4' },
+            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
+            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
+            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
+            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
         ];
-        
+
         let init = null;
-        switch (this.props.quiz.wrongArr[this.state.qno]) {
+        switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':
                 init = 0;
             break;
@@ -140,6 +140,57 @@ class RepeatPage extends Component {
             default:
                 init = -1;
         }
+
+        const radioStyle = {
+            labelStyle: {
+                paddingTop: 15,
+                paddingBottom: 15,
+                paddingLeft: 5,
+                paddingRight: 5,
+                justifyContent: 'flex-start',
+                marginLeft: -5,   
+                zIndex: 10,             
+                width: '100%', 
+                borderRadius: 5,                
+                borderWidth: 1,
+                borderColor: '#007aff',
+                elevation: 1,
+            },
+            radioFormStyle: {
+                backgroundColor: 'transparent',
+                flex: 0,
+                justifyContent: 'space-around',
+                alignItems: 'flex-start',
+            },
+            labelBackground: {
+                backgroundColor: 'rgba(255,255,255, 0.75)',
+            }
+        };
+
+        if (Platform.OS === 'ios') {
+            radioStyle.labelBackground = { backgroundColor: 'white' };
+        }
+
+        return (
+                <RadioForm
+                    style={radioStyle.radioFormStyle}
+                    key={this.props.quiz.qno}
+                    radio_props={radioProps}
+                    initial={init}
+                    onPress={(value) => { this.answer(value); }}
+                    labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
+                    selectedLabelColor={'green'}
+                    buttonSize={2}
+                    buttonBorderWidth={0}
+                    buttonOuterSize={-1}
+                    buttonColor={'rgba(255,255,255, 0.3)'}                    
+                    selectedButtonColor={'green'}
+                    buttonStyle={{ zIndex: -2 }}
+                />  
+        );      
+    }
+
+    renderContent() {
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -162,13 +213,8 @@ class RepeatPage extends Component {
                                 this.antworten.length]}
                         />                
                     
-                        <CardSection>                  
-                            <RadioForm
-                                key={this.state.qno}
-                                radio_props={radioProps}
-                                initial={init}
-                                onPress={(value) => { this.answer(value); }}
-                            />        
+                        <CardSection style={{ backgroundColor: 'transparent' }}>                  
+                            {this.renderRadioButtons()}
                         </CardSection>  
                     </Card>
                 </ScrollView>    
@@ -189,7 +235,8 @@ class RepeatPage extends Component {
 
                     <ButtonWithImage
                         onPress={() => this.next()}
-                        buttonText={this.state.qno === this.antworten.length - 1 ? 'Ergebnis' : 'Nächste'}
+                        buttonText={
+                            this.state.qno === this.antworten.length - 1 ? 'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
                         imageStyle={styles.navButtonImageStyle}
                         buttonStyle={styles.navButtonStyle}

@@ -156,7 +156,7 @@ class QuestionPage extends Component {
                 borderRadius: 5,                
                 borderWidth: 1,
                 borderColor: '#007aff',
-                //elevation: 1,
+                elevation: 1,
             },
             radioFormStyle: {
                 backgroundColor: 'transparent',
@@ -182,7 +182,6 @@ class QuestionPage extends Component {
                     onPress={(value) => { this.answer(value); }}
                     labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
                     selectedLabelColor={'green'}
-                    selectedLabelStyle={{ color: 'green', fontWeight: 'bold' }} 
                     buttonSize={2}
                     buttonBorderWidth={0}
                     buttonOuterSize={-1}
