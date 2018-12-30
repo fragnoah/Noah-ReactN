@@ -6,7 +6,7 @@ import {
     //View,
     Platform
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+// import LinearGradient from 'react-native-linear-gradient';
 
 import MainMenu from './components/MainMenu';
 import LearnMenu from './components/LearnMenu';

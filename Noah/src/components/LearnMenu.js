@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView, Text, Platform, ImageBackground } from 'react-native';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
 
 class LearnMenu extends Component {
 
     
-    render() {
+    renderContent() {
         const { 
             cardStyle,
             cardTitle, 
@@ -64,7 +64,31 @@ class LearnMenu extends Component {
             </ScrollView>
         );
     }
+
+    render() {
+        if (Platform.OS === 'ios') {
+            return (
+                <ImageBackground
+                    source={iosFix.path}
+                    style={iosFix.style}
+                >
+                    {this.renderContent()}
+                </ImageBackground>
+            );
+        }
+        return (
+            this.renderContent()
+        );
+    }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
 
 const styles = {
     cardStyle: {

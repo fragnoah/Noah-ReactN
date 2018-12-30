@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, Alert } from 'react-native';
+import { ScrollView, Text, Alert, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Card, ButtonWithImage } from './common';
@@ -28,7 +28,7 @@ class startPage extends Component {
         actions.toQuestions();
     }
 
-    render() {
+    renderContent() {
         const { 
             cardStyle,
             cardTitle,             
@@ -79,7 +79,31 @@ class startPage extends Component {
             </ScrollView>
         );
     }
+
+    render() {
+        if (Platform.OS === 'ios') {
+            return (
+                <ImageBackground
+                    source={iosFix.path}
+                    style={iosFix.style}
+                >
+                    {this.renderContent()}
+                </ImageBackground>
+            );
+        }
+        return (
+            this.renderContent()
+        );
+    }
 }
+
+const iosFix = {
+    style: {
+        flex: 1,
+        resizeMode: 'cover',
+    },
+    path: require('../assets/img/NOAH_Wallpaper.png'),
+};
 
 const styles = {
     cardStyle: {
