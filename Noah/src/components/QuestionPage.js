@@ -126,21 +126,21 @@ class QuestionPage extends Component {
             >
                 <Card>
                 
-                <ImageCardSection 
-                    style={{ backgroundColor: '#8CD6FC' }} 
-                    id={this.arrnew[this.props.quiz.qno].id} 
-                    text={this.arrnew[this.props.quiz.qno].frageText} 
-                    image={this.arrnew[this.props.quiz.qno].image}
-                />
-                
-                <CardSection>                  
-                    <RadioForm
-                        key={this.props.quiz.qno}
-                        radio_props={radioProps}
-                        initial={init}
-                        onPress={(value) => { this.answer(value); }}
-                    />        
-                </CardSection>  
+                    <ImageCardSection 
+                        style={{ backgroundColor: '#8CD6FC' }} 
+                        id={this.arrnew[this.props.quiz.qno].id} 
+                        text={this.arrnew[this.props.quiz.qno].frageText} 
+                        image={this.arrnew[this.props.quiz.qno].image}
+                    />
+                    
+                    <CardSection>                  
+                        <RadioForm
+                            key={this.props.quiz.qno}
+                            radio_props={radioProps}
+                            initial={init}
+                            onPress={(value) => { this.answer(value); }}
+                        />        
+                    </CardSection>  
                 </Card> 
                 <View style={{ flexDirection: 'row', flex: 1 }}>
                     <Button
