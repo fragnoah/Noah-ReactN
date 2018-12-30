@@ -12,10 +12,10 @@
     "buchRef": "S. 1234",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["muss bestimmt werden."],
     "video": "",
     "category": "Basis",
-    "solve": "Lösungshinweis ..."
+    "solve": "Schiffsführer bestimmen"
   },
   {
     "id": 2,
@@ -30,10 +30,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["0,5 ‰"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Merke dir 0.5%"
   },
   {
     "id": 3,
@@ -48,10 +48,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["option1"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Anker-Land-über Grund"
   },
   {
     "id": 4,
@@ -66,10 +66,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["option4"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Merke dir 1sec"
   },
   {
     "id": 5,
@@ -84,10 +84,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["option1"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Merke dir 4sec"
   },
   {
     "id": 6,
@@ -102,10 +102,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["option1"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Gleichzeitige Fahrt unter Maschinenkraft"
   },
   {
     "id": 7,
@@ -120,10 +120,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["option1"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Kegel nach unten"
   },
   {
     "id": 8,
@@ -138,10 +138,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["zugekehrte"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Luv-tiger Wind"
   },
   {
     "id": 9,
@@ -156,10 +156,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["abgewandte"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Wind ade"
   },
   {
     "id": 10,
@@ -174,10 +174,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["Sonnenuntergang"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Man orientiert sich an der Sonne"
   },
   {
     "id": 11,
@@ -192,10 +192,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["Lage"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Merke dir Lage und Fahrtrichtung"
   },
   {
     "id": 12,
@@ -210,10 +210,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["option2"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "3 Farben, top"
   },
   {
     "id": 13,
@@ -228,10 +228,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["Maschinenfahrzeug"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Stichwort: Maschine"
   },
   {
     "id": 14,
@@ -246,10 +246,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["Steuerbord"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "auf die rechte Seite ändern"
   },
   {
     "id": 15,
@@ -264,10 +264,10 @@
     "buchRef": "",
     "image": "",
     "lernhilfen": "",
-    "highlightWords": [],
+    "highlightWords": ["Steuerbordseite"],
     "video": "",
     "category": "Basis",
-    "solve": ""
+    "solve": "Die rechte Seite"
   },
   {
     "id": 16,
