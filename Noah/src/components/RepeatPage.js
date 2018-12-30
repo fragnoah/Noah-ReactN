@@ -4,13 +4,13 @@ import {
     Text,
     ScrollView,
     StyleSheet,
-    Button
+    //Button
     } from 'react-native';
 
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import jsondata from '../assets/datasrc/FB1_2.json';
-import { Card, CardSection, ImageCardSection } from './common';
+import { Card, CardSection, ImageCardSection, ButtonWithImage } from './common';
 import * as actions from '../actions';
 
 class RepeatPage extends Component {
@@ -19,8 +19,9 @@ class RepeatPage extends Component {
         const jdata = jsondata[this.props.quiz.fragebogen];
         this.arrnew = Object.keys(jdata).map(k => jdata[k]);
         this.state = {
-            qno: 0
+            qno: 0,
         };
+        this.antworten = this.props.quiz.wrongAns;
     }
     prev() {
         console.log('vorherige');
@@ -44,13 +45,12 @@ class RepeatPage extends Component {
             });
             } else {
                 console.log('ende?');
-                const antworten = this.props.quiz.wrongAns;
                 this.props.resetWrong();
                 console.log('vor loop schleife');
                 for (let i = 0, l = this.props.quiz.wrongArr.length; i < l; i++) {
                     if (this.props.quiz.wrongArr[i] !== 
-                        this.arrnew[antworten[i]].correctAnswer) { 
-                            this.props.wrong(antworten[i]);
+                        this.arrnew[this.antworten[i]].correctAnswer) { 
+                            this.props.wrong(this.antworten[i]);
                     }
                 }
                 console.log('nach loop schleife');
@@ -63,19 +63,19 @@ class RepeatPage extends Component {
         if (this.props.quiz.wrongArr[this.state.qno] === undefined) {
             this.props.selectWrongAnswer(ans);
         } 
-        if (this.props.quiz.wrongArr[this.props.quiz.qno] !== ans) {
+        if (this.props.quiz.wrongArr[this.state.qno] !== ans) {
             this.props.updateWrongAnswer(ans, this.state.qno); 
         }
     }
      render() {
         const radioProps = [
-            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option1,
+            { label: this.arrnew[this.antworten[this.state.qno]].options.option1,
                 value: 'option1' },
-            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option2,
+            { label: this.arrnew[this.antworten[this.state.qno]].options.option2,
                 value: 'option2' },
-            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option3,
+            { label: this.arrnew[this.antworten[this.state.qno]].options.option3,
                 value: 'option3' },
-            { label: this.arrnew[this.props.quiz.wrongAns[this.state.qno]].options.option4,
+            { label: this.arrnew[this.antworten[this.state.qno]].options.option4,
                 value: 'option4' },
         ];
         
@@ -97,90 +97,124 @@ class RepeatPage extends Component {
                 init = -1;
         }
         return (
-            <ScrollView
-            style={{ 
-                backgroundColor: '#F5FCFF',
-                paddingTop: 5,
-                marginLeft: 2,
-                marginRight: 2 
-            }}
-            >
-                <Card>
-                
-                <ImageCardSection 
-                    style={{ backgroundColor: '#8CD6FC' }} 
-                    id={this.arrnew[this.props.quiz.wrongAns[this.state.qno]].id} 
-                    text={this.arrnew[this.props.quiz.wrongAns[this.state.qno]].frageText} 
-                    image={this.arrnew[this.props.quiz.wrongAns[this.state.qno]].image}
-                />
-                
-                <CardSection>                  
-                    <RadioForm
-                        key={this.state.qno}
-                        radio_props={radioProps}
-                        initial={init}
-                        onPress={(value) => { this.answer(value); }}
-                    />              
-                </CardSection>  
-                </Card> 
-                <View style={{ flexDirection: 'row', flex: 1 }}>
-                <Button
-                    onPress={() => this.prev()}
-                    title="Zurück"
-                    color="#0000ff"
-                    disabled={this.state.qno === 0}
-                />
+            <View style={{ flex: 1 }}>
+                <ScrollView
+                        style={{ 
+                            backgroundColor: 'transparent',
+                            /*
+                            paddingTop: 2,
+                            marginLeft: 2,
+                            marginRight: 2
+                            */
+                        }}
+                >  
+                    <Card cardStyle={styles.cardStyle}>
+                        <ImageCardSection 
+                            style={{ backgroundColor: '#8CD6FC' }} 
+                            id={this.arrnew[this.antworten[this.state.qno]].id} 
+                            text={this.arrnew[this.antworten[this.state.qno]].frageText} 
+                            image={this.arrnew[this.antworten[this.state.qno]].image}
+                            progress={[this.state.qno + 1, ' /',
+                                this.antworten.length]}
+                        />                
+                    
+                        <CardSection>                  
+                            <RadioForm
+                                key={this.state.qno}
+                                radio_props={radioProps}
+                                initial={init}
+                                onPress={(value) => { this.answer(value); }}
+                            />        
+                        </CardSection>  
+                    </Card>
+                </ScrollView>    
 
-                <View style={{ margin: 15 }} />                 
-                <Button
-                    onPress={() => this.next()}
-                    title={this.state.qno === this.props.quiz.wrongAns.length - 1 ?
-                        'Ergebnis' : 'Nächste'}
-                    color={this.state.qno !== this.props.quiz.wrongAns.length - 1 ? 
-                        '#0000ff' : '#008000'}
-                />
+                <View style={{ flexDirection: 'row', flex: 0, justifyContent: 'space-between' }}>
+                    <ButtonWithImage
+                        onPress={() => this.prev()}
+                        buttonText="Zurück"
+                        disabled={this.props.quiz.qno === 0}
+                        imgLeft={require('../assets/img/arrowLeft.png')}
+                        imageStyle={styles.navButtonImageStyle}
+                        buttonStyle={styles.navButtonStyle}
+                        textStyle={styles.navTextStyle}
+                        removeEmptyImage
+                    />         
+                    <ButtonWithImage
+                        onPress={() => this.next()}
+                        buttonText={this.props.quiz.qno === this.antworten.length - 1 ? 'Ergebnis' : 'Nächste'}
+                        imgRight={require('../assets/img/arrowRight.png')}
+                        imageStyle={styles.navButtonImageStyle}
+                        buttonStyle={styles.navButtonStyle}
+                        textStyle={styles.navTextStyle2}
+                        removeEmptyImage
+                    />
                 </View>
 
                 <View style={{ flexDirection: 'column' }}>
                     <Text>
-                    Kategorie: { this.arrnew[this.props.quiz.wrongAns[this.state.qno]].category}
+                        Kategorie: {this.arrnew[this.antworten[this.state.qno]].category}
                     </Text>
                     <Text>
-                    Korrekteantwort: {this.arrnew[this.props.quiz.wrongAns[this.state.qno]].correctAnswer}
+                        Korrekteantwort: {this.arrnew[this.antworten[this.state.qno]].correctAnswer}
                     </Text>
                     <Text>
-                     {console.log(this.props)}
-                     Fragebogen: {this.props.quiz.fragebogen}
+                        {console.log(this.props)}
+                        Fragebogen: {this.props.quiz.fragebogen}
                     </Text>
                     <Text>
                         Qno: {this.state.qno}
                     </Text>
                 </View>
-            
-        </ScrollView> 
+                
+            </View>
+             
         );
     }
 }
 const styles = StyleSheet.create({
  
-    oval: {
-    width: 350,
-    borderRadius: 20,
-    backgroundColor: 'green'
+    navButtonImageStyle: {
+        
+        height: 20,
+        width: 20,
     },
-    container: {
-      flex: 1,
-      alignItems: 'center'
+    navBar: {
+        flexDirection: 'row', 
+        flex: 0
     },
-    welcome: {
-      fontSize: 20,
-      margin: 15,
-      color: 'white'
-    },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
+    navTextStyle: {
+        justifyContent: 'flex-start',
+        color: '#007aff',
+        fontSize: 16,
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontWeight: '600',
+      },
+      navTextStyle2: {
+        justifyContent: 'flex-end',
+        alignSelf: 'flex-end',
+        color: '#007aff',
+        fontSize: 16,
+        paddingTop: 10,
+        paddingBottom: 10,
+        fontWeight: '600',
+      },
+    cardStyle: {
+        backgroundColor: 'rgba(255,255,255, 0.3)',
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 2,
+        marginRight: 2,
+        marginTop: 2,
+        flex: 1
     },
   });
 
