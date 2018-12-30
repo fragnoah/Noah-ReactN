@@ -118,7 +118,7 @@ class QuestionPage extends Component {
         );         
     }
 
-    renderContent() {
+    renderRadioButtons() {
         const radioProps = [
             { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
             { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
@@ -144,6 +144,18 @@ class QuestionPage extends Component {
                 init = -1;
         }
 
+        
+        return (
+            <RadioForm
+                key={this.props.quiz.qno}
+                radio_props={radioProps}
+                initial={init}
+                onPress={(value) => { this.answer(value); }}
+            />  
+        );        
+    }
+
+    renderContent() {
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -166,12 +178,7 @@ class QuestionPage extends Component {
                         />                
                     
                         <CardSection>                  
-                            <RadioForm
-                                key={this.props.quiz.qno}
-                                radio_props={radioProps}
-                                initial={init}
-                                onPress={(value) => { this.answer(value); }}
-                            />        
+                            {this.renderRadioButtons()}
                         </CardSection>  
                     </Card>
                 </ScrollView>    
