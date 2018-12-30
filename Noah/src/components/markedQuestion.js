@@ -104,32 +104,7 @@ class markedQuestion extends Component {
         );         
     }
 
-    renderRadioButtons() {
-        const radioProps = [
-            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
-            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
-            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
-            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
-        ];
-
-        let init = null;
-        switch (this.props.quiz.arr[this.props.quiz.qno]) {
-            case 'option1':
-                init = 0;
-            break;
-            case 'option2':
-                init = 1;
-            break;
-            case 'option3':
-                init = 2;
-            break;
-            case 'option4':
-                init = 3;
-            break;
-            default:
-                init = -1;
-        }
-
+    renderRadioButtons(radioProps, init) {
         const radioStyle = {
             labelStyle: {
                 paddingTop: 15,
@@ -180,6 +155,30 @@ class markedQuestion extends Component {
     }
 
     renderContent() {
+        const radioProps = [
+            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
+            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
+            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
+            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
+        ];
+
+        let init = null;
+        switch (this.props.quiz.arr[this.props.quiz.qno]) {
+            case 'option1':
+                init = 0;
+            break;
+            case 'option2':
+                init = 1;
+            break;
+            case 'option3':
+                init = 2;
+            break;
+            case 'option4':
+                init = 3;
+            break;
+            default:
+                init = -1;
+        }
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -203,7 +202,7 @@ class markedQuestion extends Component {
                         />                
                     
                         <CardSection style={{ backgroundColor: 'transparent' }}>                  
-                            {this.renderRadioButtons()}
+                            {this.renderRadioButtons(radioProps, init)}
                         </CardSection> 
                     </Card>
                 </ScrollView>    
