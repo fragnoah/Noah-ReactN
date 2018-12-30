@@ -190,7 +190,7 @@ class RepeatPage extends Component {
             default:
                 init = -1;
         }
-        
+       
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
