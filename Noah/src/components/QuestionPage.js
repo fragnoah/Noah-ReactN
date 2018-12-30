@@ -145,31 +145,47 @@ class QuestionPage extends Component {
 
         const radioStyle = {
             labelStyle: {
-                paddingTop: 5,
-                paddingBottom: 5,
+                paddingTop: 15,
+                paddingBottom: 15,
+                paddingLeft: 5,
+                paddingRight: 5,
                 justifyContent: 'flex-start',
-                borderWidth: 1,                
-                width: '96.4%',     // entspricht 100% 
+                marginLeft: -5,   
+                zIndex: 10,             
+                width: '100%', 
+                borderRadius: 5,
+                backgroundColor: 'rgba(255,255,255, 0.75)',
+                borderWidth: 1,
+                borderColor: '#007aff',
+                elevation: 1,
             },
             radioFormStyle: {
-                width: '100%',
+                backgroundColor: 'transparent',
                 flex: 0,
                 justifyContent: 'space-around',
                 alignItems: 'flex-start',
-                borderWidth: 1
-            }
+            },
+            radioButtonStyle: {
 
+            }
         };
 
         return (
                 <RadioForm
-                    style={{ borderWidth: 1 }}
+                    style={radioStyle.radioFormStyle}
                     key={this.props.quiz.qno}
                     radio_props={radioProps}
                     initial={init}
                     onPress={(value) => { this.answer(value); }}
                     labelStyle={radioStyle.labelStyle}
-                    
+                    selectedLabelColor={'green'}
+                    selectedLabelStyle={{ color: 'green', fontWeight: 'bold' }} 
+                    buttonSize={2}
+                    buttonBorderWidth={0}
+                    buttonOuterSize={-1}
+                    buttonColor={'rgba(255,255,255, 0.3)'}                    
+                    selectedButtonColor={'green'}
+                    buttonStyle={{ zIndex: -2 }}
                 />  
         );      
     }
@@ -196,7 +212,7 @@ class QuestionPage extends Component {
                             progress={[this.props.quiz.qno + 1, ' / 30']}
                         />                
                     
-                        <CardSection>                  
+                        <CardSection style={{ backgroundColor: 'transparent' }}>                  
                             {this.renderRadioButtons()}
                         </CardSection>  
                     </Card>
