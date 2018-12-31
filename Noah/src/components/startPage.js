@@ -3,6 +3,8 @@ import { ScrollView, Text, Alert, Platform, ImageBackground } from 'react-native
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Card, ButtonWithImage } from './common';
+import { iosFix } from '../utils';
+import { menuStyle } from './styleSheets';
 
 class startPage extends Component {
     componentWillMount() {
@@ -36,7 +38,7 @@ class startPage extends Component {
             bigButtonStyle,
             imageStyle,
             noImageStyle
-        } = styles;
+        } = menuStyle;
 
         return (
             <ScrollView>
@@ -96,48 +98,6 @@ class startPage extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
-const styles = {
-    cardStyle: {
-        paddingLeft: 5,
-        paddingTop: 5,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-    },
-    cardTitle: {
-        fontSize: 20,
-        opacity: 1
-    },
-    smallButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-        marginTop: 5
-    },
-    bigButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-    },
-    imageStyle: {
-        height: 50,
-        width: 50
-    },
-    noImageStyle: {
-        height: 0,
-        width: 50
-    }
-};
 
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { ScrollView, Text, Platform, ImageBackground } from 'react-native';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
+import { iosFix } from '../utils';
+import { menuStyle } from './styleSheets';
 
 class LearnMenu extends Component {
 
@@ -13,7 +15,7 @@ class LearnMenu extends Component {
             bigButtonStyle,
             smallButtonStyle,
             imageStyle
-        } = styles;
+        } = menuStyle;
 
         return (
             <ScrollView>
@@ -81,43 +83,5 @@ class LearnMenu extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
-const styles = {
-    cardStyle: {
-        paddingLeft: 5,
-        paddingTop: 5,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-    },
-    cardTitle: {
-        fontSize: 20,
-        opacity: 1
-    },
-    bigButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1
-    },
-    smallButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-        marginTop: 5
-    },
-    imageStyle: {
-        height: 50,
-        width: 50
-    }
-};
 
 export default LearnMenu;

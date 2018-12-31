@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Platform, ImageBackground } from 'react-native';
 import { ButtonWithImage } from './common';
 import { toTests, toLearn } from '../actions';
-
+import { iosFix } from '../utils';
 
 class MainMenu extends Component {
     renderContent() {
@@ -41,13 +41,5 @@ class MainMenu extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
 
 export default MainMenu;
