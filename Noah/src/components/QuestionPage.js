@@ -7,14 +7,18 @@ import {
     Platform,
     ImageBackground
     } from 'react-native';
-
 import { connect } from 'react-redux';
-import RadioForm from 'react-native-simple-radio-button';
+import RadioForm, { 
+    RadioButtonLabel, 
+    RadioButtonInput, 
+    RadioButton 
+} from 'react-native-simple-radio-button';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
+import { radioButtonStyle } from './styleSheets';
 
 
 class QuestionPage extends Component {
@@ -69,6 +73,28 @@ class QuestionPage extends Component {
     }
 
     answer(ans) {
+        /*
+        let actAns = null;
+        switch (ans) {
+            case 0: actAns = 'option1';
+            break;
+            case 1: actAns = 'option2';            
+            break;
+            case 2: actAns = 'option3';
+            break;
+            case 3: actAns = 'option4';            
+            break;
+            default: actAns = '';
+        }
+        
+        if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
+            this.props.selectAnswer(actAns);
+        }
+        if (this.props.quiz.arr[this.props.quiz.qno] !== actAns) {
+            this.props.updateAnswer(actAns, this.props.quiz.qno);
+            }
+        */
+
         if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
             this.props.selectAnswer(ans);
         }
@@ -119,52 +145,62 @@ class QuestionPage extends Component {
     }
 
     renderRadioButtons(radioProps, init) {
-        const radioStyle = {
-            labelStyle: {
-                paddingTop: 15,
-                paddingBottom: 15,
-                paddingLeft: 5,
-                paddingRight: 5,
-                justifyContent: 'flex-start',
-                marginLeft: -5,   
-                zIndex: 10,             
-                width: '100%', 
-                borderRadius: 5,                
-                borderWidth: 1,
-                borderColor: '#007aff',
-                elevation: 1,
-            },
-            radioFormStyle: {
-                backgroundColor: 'transparent',
-                flex: 0,
-                justifyContent: 'space-around',
-                alignItems: 'flex-start',
-            },
-            labelBackground: {
-                backgroundColor: 'rgba(255,255,255, 0.75)',
-            }
-        };
-
         if (Platform.OS === 'ios') {
-            radioStyle.labelBackground = { backgroundColor: 'white' };
+            radioButtonStyle.labelBackground = { backgroundColor: 'white' };
         }
 
         return (
-                <RadioForm
-                    style={radioStyle.radioFormStyle}
-                    key={this.props.quiz.qno}
-                    radio_props={radioProps}
-                    initial={init}
-                    onPress={(value) => { this.answer(value); }}
-                    labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
-                    selectedLabelColor={'green'}
-                    buttonSize={2}
-                    buttonBorderWidth={0}
-                    buttonOuterSize={-1}
-                    buttonColor={'rgba(255,255,255, 0.3)'}                    
-                    selectedButtonColor={'green'}
-                    buttonStyle={{ zIndex: -2 }}
-                />  
+            /*
+            <RadioForm formHorizontal={true} animation={true} >
+              {radioProps.map((obj, i) => {
+                let onPress = (value) => { this.answer(value); };
+                console.log(onPress);
+                return (
+                  <RadioButton labelHorizontal={true} key={i} >
+                    
+                    <RadioButtonInput
+                      obj={obj}
+                      index={i}
+                      //isSelected={this.state.value3Index === i}
+                      onPress={onPress}
+                      buttonInnerColor={'#f39c12'}
+                      //buttonOuterColor={this.state.value3Index === i ? '#2196f3' : '#000'}
+                      buttonSize={30}
+                      buttonStyle={{}}
+                      buttonWrapStyle={{ marginLeft: 10 }}
+                    />
+                    <RadioButtonLabel
+                      obj={obj}
+                      index={i}
+                      onPress={onPress}
+                      labelStyle={{ fontWeight: 'bold', color: '#2ecc71' }}
+                      labelWrapStyle={{}}
+                    />
+                  </RadioButton>
+                );
+              })}
+            </RadioForm>
+            */  
+            <RadioForm
+                style={radioButtonStyle.radioFormStyle}
+                key={this.props.quiz.qno}
+                radio_props={radioProps}
+                initial={init}
+                onPress={(value) => { this.answer(value); }}
+                labelStyle={[radioButtonStyle.labelStyle, radioButtonStyle.labelBackground]}
+                
+                buttonSize={3}
+                buttonBorderWidth={0}
+                buttonOuterSize={-1}
+                                   
+                buttonStyle={{ zIndex: -2 }}
+
+                buttonColor={radioButtonStyle.buttonColor.color}                 
+                selectedButtonColor={radioButtonStyle.selectedButtonColor.color}
+
+                labelColor={radioButtonStyle.labelColor.color}
+                selectedLabelColor={radioButtonStyle.selectedLabelColor.color}
+            />  
         );      
     }
 
@@ -194,6 +230,14 @@ class QuestionPage extends Component {
                 init = -1;
         }
 
+        /*
+       const radioProps = [
+            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 0 },
+            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 1 },
+            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 2 },
+            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 3 },
+        ]; */
+
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -215,7 +259,7 @@ class QuestionPage extends Component {
                             progress={[this.props.quiz.qno + 1, ' / 30']}
                         />                
                     
-                        <CardSection>                  
+                        <CardSection style={{ backgroundColor: 'transparent' }}>                  
                             {this.renderRadioButtons(radioProps, init)}
                         </CardSection>  
                     </Card>
