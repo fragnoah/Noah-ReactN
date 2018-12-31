@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, ImageBackground } from 'react-native';
 import LearnQuestionList from './LearnQuestionList';
+import { iosFix } from '../utils';
 
 class LearnBasic extends Component {
 //const Quest = (props) => {
@@ -27,13 +28,5 @@ class LearnBasic extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
 
 export default LearnBasic;

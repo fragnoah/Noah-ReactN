@@ -3,7 +3,6 @@ import {
     View,
     Text,
     ScrollView,
-    StyleSheet,
     Platform,
     ImageBackground
     } from 'react-native';
@@ -18,8 +17,13 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
-import { radioButtonStyle, questionButtonStyle } from './styleSheets';
-import { iosFix } from '../utils';
+import { 
+    radioButtonStyle, 
+    questionButtonStyle, 
+    questionCardStyle, 
+    userMessage 
+} from './styleSheets';
+import { iosFix, debug } from '../utils';
 
 
 class QuestionPage extends Component {
@@ -125,13 +129,14 @@ class QuestionPage extends Component {
     }
 
     renderMarkButton() {
+        const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
         if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
             return (
                 <ImageButton
                     onPress={() => this.markQuestion()}
                     img={require('../assets/img/flaged.png')}
-                    buttonStyle={questionButtonStyle.markButtonStyle} 
-                    imageStyle={questionButtonStyle.markButtonImageStyle}
+                    buttonStyle={markButtonStyle} 
+                    imageStyle={markButtonImageStyle}
                 />
             );            
         } 
@@ -139,52 +144,21 @@ class QuestionPage extends Component {
             <ImageButton
                 onPress={() => this.markQuestion()}
                 img={require('../assets/img/flag.png')}
-                buttonStyle={questionButtonStyle.markButtonStyle} 
-                imageStyle={questionButtonStyle.markButtonImageStyle}
+                buttonStyle={markButtonStyle} 
+                imageStyle={markButtonImageStyle}
             />  
         );         
     }
 
-    renderRadioButtons(radioProps, init) {
+    renderRadioButtons(radioProps, init, key) {
         if (Platform.OS === 'ios') {
             radioButtonStyle.labelBackground = { backgroundColor: 'white' };
         }
 
         return (
-            /*
-            <RadioForm formHorizontal={true} animation={true} >
-              {radioProps.map((obj, i) => {
-                let onPress = (value) => { this.answer(value); };
-                console.log(onPress);
-                return (
-                  <RadioButton labelHorizontal={true} key={i} >
-                    
-                    <RadioButtonInput
-                      obj={obj}
-                      index={i}
-                      //isSelected={this.state.value3Index === i}
-                      onPress={onPress}
-                      buttonInnerColor={'#f39c12'}
-                      //buttonOuterColor={this.state.value3Index === i ? '#2196f3' : '#000'}
-                      buttonSize={30}
-                      buttonStyle={{}}
-                      buttonWrapStyle={{ marginLeft: 10 }}
-                    />
-                    <RadioButtonLabel
-                      obj={obj}
-                      index={i}
-                      onPress={onPress}
-                      labelStyle={{ fontWeight: 'bold', color: '#2ecc71' }}
-                      labelWrapStyle={{}}
-                    />
-                  </RadioButton>
-                );
-              })}
-            </RadioForm>
-            */  
             <RadioForm
                 style={radioButtonStyle.radioFormStyle}
-                key={this.props.quiz.qno}
+                key={key}
                 radio_props={radioProps}
                 initial={init}
                 onPress={(value) => { this.answer(value); }}
@@ -192,8 +166,7 @@ class QuestionPage extends Component {
                 
                 buttonSize={3}
                 buttonBorderWidth={0}
-                buttonOuterSize={-1}
-                                   
+                buttonOuterSize={-1}                                   
                 buttonStyle={{ zIndex: -2 }}
 
                 buttonColor={radioButtonStyle.buttonColor.color}                 
@@ -203,6 +176,28 @@ class QuestionPage extends Component {
                 selectedLabelColor={radioButtonStyle.selectedLabelColor.color}
             />  
         );      
+    }
+
+    renderDebug() {
+        if (debug === true) {
+            return (
+                <View style={{ flexDirection: 'column' }}>
+                <Text>
+                    Kategorie: {this.arrnew[this.props.quiz.qno].category}
+                </Text>
+                <Text>
+                    Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
+                </Text>
+                <Text>
+                    {console.log(this.props)}
+                    Fragebogen: {this.props.quiz.fragebogen}
+                </Text>
+                <Text>
+                    Qno: {this.props.quiz.qno}
+                </Text>
+            </View>
+            );
+        }
     }
 
     renderContent() {
@@ -239,6 +234,13 @@ class QuestionPage extends Component {
             { label: this.arrnew[this.props.quiz.qno].options.option4, value: 3 },
         ]; */
 
+        const { 
+            navButtonImageStyle, 
+            navButtonStyle, 
+            navTextStyle, 
+            navTextStyle2 
+        } = questionButtonStyle;
+
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -251,7 +253,7 @@ class QuestionPage extends Component {
                             */
                         }}
                 >  
-                    <Card cardStyle={styles.cardStyle}>
+                    <Card cardStyle={questionCardStyle.cardStyle}>
                         <ImageCardSection 
                             style={{ backgroundColor: '#8CD6FC' }} 
                             id={this.arrnew[this.props.quiz.qno].id} 
@@ -261,20 +263,20 @@ class QuestionPage extends Component {
                         />                
                     
                         <CardSection style={{ backgroundColor: 'transparent' }}>                  
-                            {this.renderRadioButtons(radioProps, init)}
+                            {this.renderRadioButtons(radioProps, init, this.props.quiz.qno)}
                         </CardSection>  
                     </Card>
                 </ScrollView>    
 
-                <View style={{ flexDirection: 'row', flex: 0, justifyContent: 'space-between' }}>
+                <Card cardStyle={questionCardStyle.navCardStyle}>
                     <ButtonWithImage
                         onPress={() => this.prev()}
                         buttonText="Zurück"
                         disabled={this.props.quiz.qno === 0}
                         imgLeft={require('../assets/img/arrowLeft.png')}
-                        imageStyle={questionButtonStyle.navButtonImageStyle}
-                        buttonStyle={questionButtonStyle.navButtonStyle}
-                        textStyle={questionButtonStyle.navTextStyle}
+                        imageStyle={navButtonImageStyle}
+                        buttonStyle={navButtonStyle}
+                        textStyle={navTextStyle}
                         removeEmptyImage
                     />
 
@@ -284,31 +286,17 @@ class QuestionPage extends Component {
                         onPress={() => this.next()}
                         buttonText={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
-                        imageStyle={questionButtonStyle.navButtonImageStyle}
-                        buttonStyle={questionButtonStyle.navButtonStyle}
-                        textStyle={questionButtonStyle.navTextStyle2}
+                        imageStyle={navButtonImageStyle}
+                        buttonStyle={navButtonStyle}
+                        textStyle={navTextStyle2}
                         removeEmptyImage
                     />
-                </View>
+                </Card>
 
-                <View style={{ flexDirection: 'column' }}>
-                    <Text>
-                        Kategorie: {this.arrnew[this.props.quiz.qno].category}
-                    </Text>
-                    <Text>
-                        Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
-                    </Text>
-                    <Text>
-                        {console.log(this.props)}
-                        Fragebogen: {this.props.quiz.fragebogen}
-                    </Text>
-                    <Text>
-                        Qno: {this.props.quiz.qno}
-                    </Text>
-                </View>
+                {this.renderDebug()}
                           
                 <FlashMessage 
-                    style={styles.flashMessage} 
+                    style={userMessage.flashMessage} 
                     ref="myLocalFlashMessage" 
                     position="bottom" 
                 /> 
@@ -334,30 +322,6 @@ class QuestionPage extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
- 
-    flashMessage: {
-        zIndex: 7
-    },
-
-    cardStyle: {
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-        borderWidth: 1,
-        borderRadius: 2,
-        borderColor: '#ddd',
-        borderBottomWidth: 0,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 2,
-        elevation: 1,
-        marginLeft: 2,
-        marginRight: 2,
-        marginTop: 2,
-        flex: 1
-    },
-  });
 
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };

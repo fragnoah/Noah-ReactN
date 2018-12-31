@@ -6,6 +6,8 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import * as scale from 'd3-scale';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
+import { iosFix } from '../utils';
+import { menuStyle } from './styleSheets';
 
 
 class Result extends Component {
@@ -18,6 +20,7 @@ class Result extends Component {
             }
         }
     }
+
     wrongRepeate() {
         if (this.props.quiz.wrongAns.length > 0) {
         this.props.resetWrongAnswer();
@@ -31,6 +34,7 @@ class Result extends Component {
             });
         }
     }
+
     marked() {
         this.props.resetMarked();
         if (this.props.quiz.marked.length > 0) {
@@ -43,7 +47,8 @@ class Result extends Component {
                     icon: 'info'
                 });
             }
-        }
+    }
+
     all() {
         this.props.resetMarked();
         actions.toRepeatAll();
@@ -57,7 +62,7 @@ class Result extends Component {
             bigButtonStyle,
             imageStyle,
            // noImageStyle
-        } = styles;
+        } = menuStyle;
         const progess = this.props.quiz.passedFb.length / 15;
         const rest = 15 - this.props.quiz.passedFb.length;
         const data = [
@@ -183,48 +188,6 @@ class Result extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
-const styles = {
-    cardStyle: {
-        paddingLeft: 5,
-        paddingTop: 5,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-    },
-    cardTitle: {
-        fontSize: 20,
-        opacity: 1
-    },
-    smallButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-        marginTop: 5
-    },
-    bigButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-    },
-    imageStyle: {
-        height: 40,
-        width: 40
-    },
-    noImageStyle: {
-        height: 0,
-        width: 40
-    }
-};
 
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };

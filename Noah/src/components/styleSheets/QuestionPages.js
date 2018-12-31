@@ -36,18 +36,13 @@ export const questionButtonStyle = {
         elevation: 1,
         paddingTop: 5,
         paddingBottom: 5,
+        paddingLeft: 10,
+        paddingRight: 10
     },
     markButtonImageStyle: {
         alignSelf: 'center',
         height: 30,
         flex: 1,
-        paddingTop: 5,
-        paddingBottom: 5,
-    },
-
-    navBar: {
-        flexDirection: 'row', 
-        flex: 0
     },
     navTextStyle: {
         justifyContent: 'flex-start',
@@ -82,4 +77,38 @@ export const questionButtonStyle = {
         marginTop: 2,
         flex: 1
     },
+};
+
+export const questionCardStyle = {
+    navCardStyle: {
+        paddingLeft: 5,
+        paddingTop: 5,
+        paddingBottom: 5,
+        backgroundColor: 'rgba(255,255,255, 0.3)',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        flex: 0,
+    },
+    cardStyle: {
+        backgroundColor: 'rgba(255,255,255, 0.3)',
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 2,
+        marginRight: 2,
+        marginTop: 2,
+        flex: 1
+    }
+};
+
+export const userMessage = {
+    flashMessage: {
+        zIndex: 7
+    }
 };

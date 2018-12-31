@@ -3,7 +3,6 @@ import {
     View,
     Text,
     ScrollView,
-    StyleSheet,
     Platform,
     ImageBackground
     } from 'react-native';
@@ -14,7 +13,13 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
-import { radioButtonStyle } from './styleSheets';
+import { 
+    radioButtonStyle, 
+    questionButtonStyle, 
+    questionCardStyle, 
+    userMessage 
+} from './styleSheets';
+import { iosFix, debug } from '../utils';
 
 class RepeatAll extends Component {
     constructor(props) {
@@ -78,13 +83,14 @@ class RepeatAll extends Component {
     }
 
     renderMarkButton() {
+        const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
         if (this.props.quiz.marked.includes(this.state.qno)) {
             return (
                 <ImageButton
                     onPress={() => this.markQuestion()}
                     img={require('../assets/img/flaged.png')}
-                    buttonStyle={styles.markButtonStyle} 
-                    imageStyle={styles.markButtonImageStyle}
+                    buttonStyle={markButtonStyle} 
+                    imageStyle={markButtonImageStyle}
                 />
             );            
         } 
@@ -92,13 +98,13 @@ class RepeatAll extends Component {
             <ImageButton
                 onPress={() => this.markQuestion()}
                 img={require('../assets/img/flag.png')}
-                buttonStyle={styles.markButtonStyle} 
-                imageStyle={styles.markButtonImageStyle}
+                buttonStyle={markButtonStyle} 
+                imageStyle={markButtonImageStyle}
             />  
         );         
     }
 
-    renderRadioButtons(radioProps, init) {
+    renderRadioButtons(radioProps, init, key) {
         if (Platform.OS === 'ios') {
             radioButtonStyle.labelBackground = { backgroundColor: 'white' };
         }
@@ -106,7 +112,7 @@ class RepeatAll extends Component {
         return (
             <RadioForm
                 style={radioButtonStyle.radioFormStyle}
-                key={this.props.quiz.qno}
+                key={key}
                 radio_props={radioProps}
                 initial={init}
                 onPress={(value) => { this.answer(value); }}
@@ -155,6 +161,14 @@ class RepeatAll extends Component {
             default:
                 init = -1;
         }
+
+        const { 
+            navButtonImageStyle, 
+            navButtonStyle, 
+            navTextStyle, 
+            navTextStyle2 
+        } = questionButtonStyle;
+
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -167,7 +181,7 @@ class RepeatAll extends Component {
                             */
                         }}
                 >  
-                    <Card cardStyle={styles.cardStyle}>
+                    <Card cardStyle={questionCardStyle.cardStyle}>
                         <ImageCardSection 
                             style={{ backgroundColor: '#8CD6FC' }} 
                             id={this.arrnew[this.state.qno].id} 
@@ -178,20 +192,20 @@ class RepeatAll extends Component {
                         />                
                     
                         <CardSection style={{ backgroundColor: 'transparent' }}>                  
-                            {this.renderRadioButtons(radioProps, init)}
+                            {this.renderRadioButtons(radioProps, init, this.state.qno)}
                         </CardSection>  
                     </Card>
                 </ScrollView>    
 
-                <View style={{ flexDirection: 'row', flex: 0, justifyContent: 'space-between' }}>
+                <Card cardStyle={questionCardStyle.navCardStyle}>
                     <ButtonWithImage
                         onPress={() => this.prev()}
                         buttonText="Zurück"
                         disabled={this.state.qno === 0}
                         imgLeft={require('../assets/img/arrowLeft.png')}
-                        imageStyle={styles.navButtonImageStyle}
-                        buttonStyle={styles.navButtonStyle}
-                        textStyle={styles.navTextStyle}
+                        imageStyle={navButtonImageStyle}
+                        buttonStyle={navButtonStyle}
+                        textStyle={navTextStyle}
                         removeEmptyImage
                     />
 
@@ -202,30 +216,17 @@ class RepeatAll extends Component {
                         buttonText={
                             this.state.qno === this.arrnew.length - 1 ? 'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
-                        imageStyle={styles.navButtonImageStyle}
-                        buttonStyle={styles.navButtonStyle}
-                        textStyle={styles.navTextStyle2}
+                        imageStyle={navButtonImageStyle}
+                        buttonStyle={navButtonStyle}
+                        textStyle={navTextStyle2}
                         removeEmptyImage
                     />
-                </View>
+                </Card>
 
-                <View style={{ flexDirection: 'column' }}>
-                    <Text>
-                        Kategorie: {this.arrnew[this.state.qno].category}
-                    </Text>
-                    <Text>
-                        Korrekteantwort: {this.arrnew[this.state.qno].correctAnswer}
-                    </Text>
-                    <Text>
-                        {console.log(this.props)}
-                        Fragebogen: {this.props.quiz.fragebogen}
-                    </Text>
-                    <Text>
-                        Qno: {this.state.qno}
-                    </Text>
-                </View>
+                {this.renderDebug()}
+
                 <FlashMessage 
-                    style={styles.flashMessage} 
+                    style={userMessage.flashMessage}
                     ref="myLocalFlashMessage" 
                     position="bottom" 
                 /> 
@@ -233,6 +234,28 @@ class RepeatAll extends Component {
             </View>
              
         );
+    }
+
+    renderDebug() {
+        if (debug === true) {
+            return (
+                <View style={{ flexDirection: 'column' }}>
+                <Text>
+                    Kategorie: {this.arrnew[this.props.quiz.qno].category}
+                </Text>
+                <Text>
+                    Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
+                </Text>
+                <Text>
+                    {console.log(this.props)}
+                    Fragebogen: {this.props.quiz.fragebogen}
+                </Text>
+                <Text>
+                    Qno: {this.props.quiz.qno}
+                </Text>
+            </View>
+            );
+        }
     }
 
     render() {
@@ -252,97 +275,6 @@ class RepeatAll extends Component {
     }
 }
 
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
-const styles = StyleSheet.create({
- 
-    flashMessage: {
-        zIndex: 7
-    },
-    navButtonImageStyle: {
-        
-        height: 20,
-        width: 20,
-    },
-    markButtonStyle: {
-        //height: 50,
-        width: 50,
-        flex: 1,
-        resizeMode: 'cover',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        //justifyContent: 'space-around',
-        //flex: 0,
-        alignSelf: 'center',
-        backgroundColor: 'rgba(255,255,255,0.75)',
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: '#007aff',
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 0,
-        elevation: 1,
-        paddingTop: 5,
-        paddingBottom: 5,
-    },
-    markButtonImageStyle: {
-        alignSelf: 'center',
-        height: 30,
-        flex: 1,
-        paddingTop: 5,
-        paddingBottom: 5,
-    },
-    navButtonStyle: {
-        flex: 1,
-        width: 100,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 0,
-    },
-    navBar: {
-        flexDirection: 'row', 
-        flex: 0
-    },
-    navTextStyle: {
-        justifyContent: 'flex-start',
-        color: '#007aff',
-        fontSize: 16,
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontWeight: '600',
-      },
-      navTextStyle2: {
-        justifyContent: 'flex-end',
-        alignSelf: 'flex-end',
-        color: '#007aff',
-        fontSize: 16,
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontWeight: '600',
-      },
-    cardStyle: {
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-        borderWidth: 1,
-        borderRadius: 2,
-        borderColor: '#ddd',
-        borderBottomWidth: 0,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 2,
-        elevation: 1,
-        marginLeft: 2,
-        marginRight: 2,
-        marginTop: 2,
-        flex: 1
-    },
-  });
 
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };

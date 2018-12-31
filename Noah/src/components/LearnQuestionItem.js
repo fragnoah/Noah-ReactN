@@ -8,6 +8,7 @@ import {
 import { connect } from 'react-redux';
 import { CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
+import { learnItemStyles } from './styleSheets';
 // import CacheImage from './CacheImage';
 
 class LearnQuestionItem extends Component {
@@ -35,7 +36,7 @@ class LearnQuestionItem extends Component {
   renderBuchRef(buchRef) {
     if (buchRef !== '') {
       return (
-        <Text style={styles.kursivText}>Buchreferenz: {buchRef} </Text>
+        <Text style={learnItemStyles.kursivText}>Buchreferenz: {buchRef} </Text>
       );
     }
   }
@@ -44,7 +45,7 @@ class LearnQuestionItem extends Component {
     if (solve !== '') {
       return (
         <View>
-          <Text style={styles.boldText}>Begründung: </Text>
+          <Text style={learnItemStyles.boldText}>Begründung: </Text>
           <Text > {solve} </Text>  
         </View>
       );
@@ -57,8 +58,8 @@ class LearnQuestionItem extends Component {
 
     if (expanded) {
       return (        
-        <CardSection style={styles.descriptionStyle}>
-          <Text style={styles.boldText}>Antwort: </Text>
+        <CardSection style={learnItemStyles.descriptionStyle}>
+          <Text style={learnItemStyles.boldText}>Antwort: </Text>
           <Text >{this.getRightAnswer()} </Text>
           {this.renderSolve(solve)}  
           {this.renderBuchRef(buchRef)}     
@@ -86,21 +87,6 @@ class LearnQuestionItem extends Component {
     );
   }
 }
-
-const styles = {
-  descriptionStyle: {
-    paddingLeft: 15,
-    paddingRight: 5,
-    flex: 1
-  }, 
-  boldText: {
-    fontWeight: 'bold'
-  },
-  kursivText: {
-    fontStyle: 'italic',
-    paddingTop: 5
-  }
-};
 
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.solveSelectedQuestionID === ownProps.question.id;
