@@ -14,7 +14,6 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
-import { Actions } from 'react-native-router-flux';
 
 class markedQuestion extends Component {
     constructor(props) {
@@ -61,7 +60,7 @@ class markedQuestion extends Component {
          if (this.props.quiz.marked.includes(
                 this.props.quiz.marked[this.state.qno]) === true) {
             if (this.props.quiz.marked.length === 1) {
-                Actions.toResult();
+                actions.toResult();
             } else {
                 this.props.unmark(this.props.quiz.marked[this.state.qno]);
                 showMessage({
@@ -101,6 +100,56 @@ class markedQuestion extends Component {
                 imageStyle={styles.markButtonImageStyle}
             />  
         );         
+    }
+
+    renderRadioButtons(radioProps, init) {
+        const radioStyle = {
+            labelStyle: {
+                paddingTop: 15,
+                paddingBottom: 15,
+                paddingLeft: 5,
+                paddingRight: 5,
+                justifyContent: 'flex-start',
+                marginLeft: -5,   
+                zIndex: 10,             
+                width: '100%', 
+                borderRadius: 5,                
+                borderWidth: 1,
+                borderColor: '#007aff',
+                elevation: 1,
+            },
+            radioFormStyle: {
+                backgroundColor: 'transparent',
+                flex: 0,
+                justifyContent: 'space-around',
+                alignItems: 'flex-start',
+            },
+            labelBackground: {
+                backgroundColor: 'rgba(255,255,255, 0.75)',
+            }
+        };
+
+        if (Platform.OS === 'ios') {
+            radioStyle.labelBackground = { backgroundColor: 'white' };
+        }
+
+        return (
+                <RadioForm
+                    style={radioStyle.radioFormStyle}
+                    key={this.props.quiz.qno}
+                    radio_props={radioProps}
+                    initial={init}
+                    onPress={(value) => { this.answer(value); }}
+                    labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
+                    selectedLabelColor={'green'}
+                    buttonSize={2}
+                    buttonBorderWidth={0}
+                    buttonOuterSize={-1}
+                    buttonColor={'rgba(255,255,255, 0.3)'}                    
+                    selectedButtonColor={'green'}
+                    buttonStyle={{ zIndex: -2 }}
+                />  
+        );      
     }
 
     renderContent() {
@@ -155,12 +204,7 @@ class markedQuestion extends Component {
                         />                
                     
                         <CardSection>                  
-                            <RadioForm
-                                key={this.state.qno}
-                                radio_props={radioProps}
-                                initial={init}
-                                onPress={(value) => { this.answer(value); }}
-                            />        
+                            {this.renderRadioButtons(radioProps, init)}      
                         </CardSection>  
                     </Card>
                 </ScrollView>    
@@ -181,7 +225,9 @@ class markedQuestion extends Component {
 
                     <ButtonWithImage
                         onPress={() => this.next()}
-                        buttonText={this.state.qno === this.props.quiz.marked.length - 1 ? 'Ergebnis' : 'Nächste'}
+                        buttonText={
+                            this.state.qno === this.props.quiz.marked.length - 1 ? 
+                            'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
                         imageStyle={styles.navButtonImageStyle}
                         buttonStyle={styles.navButtonStyle}
@@ -195,7 +241,8 @@ class markedQuestion extends Component {
                         Kategorie: {this.arrnew[this.props.quiz.marked[this.state.qno]].category}
                     </Text>
                     <Text>
-                        Korrekteantwort: {this.arrnew[this.props.quiz.marked[this.state.qno]].correctAnswer}
+                        Korrekteantwort: {
+                            this.arrnew[this.props.quiz.marked[this.state.qno]].correctAnswer}
                     </Text>
                     <Text>
                         {console.log(this.props)}

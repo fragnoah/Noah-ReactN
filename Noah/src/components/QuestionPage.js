@@ -118,6 +118,56 @@ class QuestionPage extends Component {
         );         
     }
 
+    renderRadioButtons(radioProps, init) {
+        const radioStyle = {
+            labelStyle: {
+                paddingTop: 15,
+                paddingBottom: 15,
+                paddingLeft: 5,
+                paddingRight: 5,
+                justifyContent: 'flex-start',
+                marginLeft: -5,   
+                zIndex: 10,             
+                width: '100%', 
+                borderRadius: 5,                
+                borderWidth: 1,
+                borderColor: '#007aff',
+                elevation: 1,
+            },
+            radioFormStyle: {
+                backgroundColor: 'transparent',
+                flex: 0,
+                justifyContent: 'space-around',
+                alignItems: 'flex-start',
+            },
+            labelBackground: {
+                backgroundColor: 'rgba(255,255,255, 0.75)',
+            }
+        };
+
+        if (Platform.OS === 'ios') {
+            radioStyle.labelBackground = { backgroundColor: 'white' };
+        }
+
+        return (
+                <RadioForm
+                    style={radioStyle.radioFormStyle}
+                    key={this.props.quiz.qno}
+                    radio_props={radioProps}
+                    initial={init}
+                    onPress={(value) => { this.answer(value); }}
+                    labelStyle={[radioStyle.labelStyle, radioStyle.labelBackground]}
+                    selectedLabelColor={'green'}
+                    buttonSize={2}
+                    buttonBorderWidth={0}
+                    buttonOuterSize={-1}
+                    buttonColor={'rgba(255,255,255, 0.3)'}                    
+                    selectedButtonColor={'green'}
+                    buttonStyle={{ zIndex: -2 }}
+                />  
+        );      
+    }
+
     renderContent() {
         const radioProps = [
             { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
@@ -166,12 +216,7 @@ class QuestionPage extends Component {
                         />                
                     
                         <CardSection>                  
-                            <RadioForm
-                                key={this.props.quiz.qno}
-                                radio_props={radioProps}
-                                initial={init}
-                                onPress={(value) => { this.answer(value); }}
-                            />        
+                            {this.renderRadioButtons(radioProps, init)}
                         </CardSection>  
                     </Card>
                 </ScrollView>    
