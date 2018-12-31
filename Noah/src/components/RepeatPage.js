@@ -149,7 +149,7 @@ class RepeatPage extends Component {
         return (
                 <RadioForm
                     style={radioStyle.radioFormStyle}
-                    key={this.props.quiz.qno}
+                    key={this.state.qno}
                     radio_props={radioProps}
                     initial={init}
                     onPress={(value) => { this.answer(value); }}
