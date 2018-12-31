@@ -9,16 +9,17 @@ import {
     } from 'react-native';
 import { connect } from 'react-redux';
 import RadioForm, { 
-    RadioButtonLabel, 
+   /* RadioButtonLabel, 
     RadioButtonInput, 
-    RadioButton 
+    RadioButton */
 } from 'react-native-simple-radio-button';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 
 import jsondata from '../assets/datasrc/FB1_2.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
-import { radioButtonStyle } from './styleSheets';
+import { radioButtonStyle, questionButtonStyle } from './styleSheets';
+import { iosFix } from '../utils';
 
 
 class QuestionPage extends Component {
@@ -129,8 +130,8 @@ class QuestionPage extends Component {
                 <ImageButton
                     onPress={() => this.markQuestion()}
                     img={require('../assets/img/flaged.png')}
-                    buttonStyle={styles.markButtonStyle} 
-                    imageStyle={styles.markButtonImageStyle}
+                    buttonStyle={questionButtonStyle.markButtonStyle} 
+                    imageStyle={questionButtonStyle.markButtonImageStyle}
                 />
             );            
         } 
@@ -138,8 +139,8 @@ class QuestionPage extends Component {
             <ImageButton
                 onPress={() => this.markQuestion()}
                 img={require('../assets/img/flag.png')}
-                buttonStyle={styles.markButtonStyle} 
-                imageStyle={styles.markButtonImageStyle}
+                buttonStyle={questionButtonStyle.markButtonStyle} 
+                imageStyle={questionButtonStyle.markButtonImageStyle}
             />  
         );         
     }
@@ -271,9 +272,9 @@ class QuestionPage extends Component {
                         buttonText="Zurück"
                         disabled={this.props.quiz.qno === 0}
                         imgLeft={require('../assets/img/arrowLeft.png')}
-                        imageStyle={styles.navButtonImageStyle}
-                        buttonStyle={styles.navButtonStyle}
-                        textStyle={styles.navTextStyle}
+                        imageStyle={questionButtonStyle.navButtonImageStyle}
+                        buttonStyle={questionButtonStyle.navButtonStyle}
+                        textStyle={questionButtonStyle.navTextStyle}
                         removeEmptyImage
                     />
 
@@ -283,9 +284,9 @@ class QuestionPage extends Component {
                         onPress={() => this.next()}
                         buttonText={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
-                        imageStyle={styles.navButtonImageStyle}
-                        buttonStyle={styles.navButtonStyle}
-                        textStyle={styles.navTextStyle2}
+                        imageStyle={questionButtonStyle.navButtonImageStyle}
+                        buttonStyle={questionButtonStyle.navButtonStyle}
+                        textStyle={questionButtonStyle.navTextStyle2}
                         removeEmptyImage
                     />
                 </View>
@@ -334,80 +335,12 @@ class QuestionPage extends Component {
     }
 }
 
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
 const styles = StyleSheet.create({
  
     flashMessage: {
         zIndex: 7
     },
-    navButtonImageStyle: {
-        
-        height: 20,
-        width: 20,
-    },
-    markButtonStyle: {
-        //height: 50,
-        width: 50,
-        flex: 1,
-        resizeMode: 'cover',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        //justifyContent: 'space-around',
-        //flex: 0,
-        alignSelf: 'center',
-        backgroundColor: 'rgba(255,255,255,0.75)',
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: '#007aff',
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 0,
-        elevation: 1,
-        paddingTop: 5,
-        paddingBottom: 5,
-    },
-    markButtonImageStyle: {
-        alignSelf: 'center',
-        height: 30,
-        flex: 1,
-        paddingTop: 5,
-        paddingBottom: 5,
-    },
-    navButtonStyle: {
-        flex: 1,
-        width: 100,
-        marginLeft: 5,
-        marginRight: 5,
-        marginTop: 0,
-    },
-    navBar: {
-        flexDirection: 'row', 
-        flex: 0
-    },
-    navTextStyle: {
-        justifyContent: 'flex-start',
-        color: '#007aff',
-        fontSize: 16,
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontWeight: '600',
-      },
-      navTextStyle2: {
-        justifyContent: 'flex-end',
-        alignSelf: 'flex-end',
-        color: '#007aff',
-        fontSize: 16,
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontWeight: '600',
-      },
+
     cardStyle: {
         backgroundColor: 'rgba(255,255,255, 0.3)',
         borderWidth: 1,

@@ -6,7 +6,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="" />
+    <list default="true" id="7b0074ac-7199-4f83-93da-b336e371ef8d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Noah/src/components/QuestionPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/QuestionPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noah/src/components/styleSheets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Noah/src/components/styleSheets/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +33,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,7 +120,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,12 +213,12 @@
     <frame x="626" y="0" width="1249" height="1047" extended-state="1" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4760303" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.47518924" visible="true" weight="0.32896176" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5239697" side_tool="true" visible="true" weight="0.32896176" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5248108" side_tool="true" visible="true" weight="0.32896176" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49876136" weight="0.32896176" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49876136" weight="0.32896176" />
