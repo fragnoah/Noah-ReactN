@@ -44,7 +44,8 @@ export default (state = initalstate, action) => {
                 marked: [],
                 wrongAns: [],
                 wrongArr: [],
-                qno: 0
+                qno: 0,
+                auswahl: []
             };
         }
         case 'inc': {

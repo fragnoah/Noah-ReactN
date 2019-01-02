@@ -42,27 +42,31 @@ class QuestionPage extends Component {
             this.props.safeAuswahl(auswahl);
             }
         if (this.props.quiz.fragebogen === 'random') {
-            const basis = [];
-            while (basis.length < 7) {
-                const r = Math.floor(Math.random() * 72) + 1;
-                if (basis.indexOf(r) === -1) basis.push(r);
+            if (this.props.quiz.auswahl.length === 0) {
+                const basis = [];
+                while (basis.length < 7) {
+                    const r = Math.floor(Math.random() * 72) + 1;
+                    if (basis.indexOf(r) === -1) basis.push(r);
+                }
+                console.log(basis);
+                const binnen = [];
+                while (binnen.length < 21) {
+                    const r = Math.floor(Math.random() * 181) + 73;
+                    if (binnen.indexOf(r) === -1) binnen.push(r);
+                }
+                console.log(binnen);
+                const segeln = [];
+                while (segeln.length < 2) {
+                    const r = Math.floor(Math.random() * 47) + 254;
+                    if (segeln.indexOf(r) === -1) segeln.push(r);
+                }
+                console.log(segeln);
+                auswahl = [...basis, ...binnen, ...segeln];
+                console.log(auswahl);
+                this.props.safeAuswahl(auswahl);
+            } else {
+                auswahl = this.props.quiz.auswahl;
             }
-            console.log(basis);
-            const binnen = [];
-            while (binnen.length < 21) {
-                const r = Math.floor(Math.random() * 181) + 73;
-                if (binnen.indexOf(r) === -1) binnen.push(r);
-            }
-            console.log(binnen);
-            const segeln = [];
-            while (segeln.length < 2) {
-                const r = Math.floor(Math.random() * 47) + 254;
-                if (segeln.indexOf(r) === -1) segeln.push(r);
-            }
-            console.log(segeln);
-            auswahl = [...basis, ...binnen, ...segeln];
-            console.log(auswahl);
-            this.props.safeAuswahl(auswahl);
         }
         this.arrnew = jsondata.filter(val => {
             return auswahl.includes(val.id);
