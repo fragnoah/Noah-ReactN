@@ -97,7 +97,7 @@ class markedQuestion extends Component {
             return (
                 <ImageButton
                     onPress={() => this.markQuestion()}
-                    img={require('../assets/img/flaged.png')}
+                    img={questionButtonStyle.markButtonSrc.pathMarked}
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
                 />
@@ -106,7 +106,7 @@ class markedQuestion extends Component {
         return (
             <ImageButton
                 onPress={() => this.markQuestion()}
-                img={require('../assets/img/flag.png')}
+                img={questionButtonStyle.markButtonSrc.path}
                 buttonStyle={markButtonStyle} 
                 imageStyle={markButtonImageStyle}
             />  
@@ -175,7 +175,7 @@ class markedQuestion extends Component {
             navButtonImageStyle, 
             navButtonStyle, 
             navTextStyle, 
-            navTextStyle2 
+            navTextStyle2,
         } = questionButtonStyle;
 
         return (

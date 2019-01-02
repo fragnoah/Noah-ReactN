@@ -44,6 +44,10 @@ export const questionButtonStyle = {
         height: 30,
         flex: 1,
     },
+    markButtonSrc: {
+        path: require('../../assets/img/star.png'),
+        pathMarked: require('../../assets/img/stared.png')
+    },
     navTextStyle: {
         justifyContent: 'flex-start',
         color: '#007aff',

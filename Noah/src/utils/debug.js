@@ -1,4 +1,4 @@
 /*
     Enable Lösung in Questionpages
 */
-export const debug = true;
+export const debug = false;

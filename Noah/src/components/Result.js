@@ -7,14 +7,14 @@ import * as scale from 'd3-scale';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
 import { iosFix } from '../utils';
-import { menuStyle } from './styleSheets';
+import { menuStyle, questionButtonStyle } from './styleSheets';
 
 
 class Result extends Component {
     checkScore() {
-         this.Ergebnis = 'leider nicht bestanden';
+         this.Ergebnis = 'Leider nicht bestanden';
         if (this.props.quiz.basisScore >= 5 && this.props.quiz.spezScore >= 18) {
-            this.Ergebnis = 'Glückwünsch,bestanden';
+            this.Ergebnis = 'Glückwünsch, bestanden';
             if (this.props.quiz.passedFb.includes(this.props.quiz.fragebogen) === false) {
                 this.props.passFb(this.props.quiz.fragebogen);
             }
@@ -63,6 +63,7 @@ class Result extends Component {
             imageStyle,
            // noImageStyle
         } = menuStyle;
+
         const progess = this.props.quiz.passedFb.length / 15;
         const rest = 15 - this.props.quiz.passedFb.length;
         const data = [
@@ -87,10 +88,9 @@ class Result extends Component {
             <View style={{ flex: 1 }}>
                 <ScrollView>
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Ergebnis </Text>
+                        <Text style={cardTitle}>{this.Ergebnis}</Text>
                         <Text>Basispunkte: {this.props.quiz.basisScore} von 7 </Text>
-                        <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>
-                        <Text>{this.Ergebnis}</Text>
+                        <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>                        
                     </Card>
 
                     <Card cardStyle={cardStyle}>
@@ -120,7 +120,7 @@ class Result extends Component {
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Test analysieren</Text>
+                        <Text style={cardTitle}>Auswertung</Text>
                         <ButtonWithImage
                             buttonText="Falsche Fragen" 
                             onPress={() => this.wrongRepeate()}
@@ -129,14 +129,14 @@ class Result extends Component {
                             imgLeft={require('../assets/img/wrong.png')}
                         />
                         <ButtonWithImage
-                            buttonText="Makierte Fragen" 
+                            buttonText="Markierte Fragen" 
                             onPress={() => this.marked()} 
                             buttonStyle={smallButtonStyle} 
                             imageStyle={imageStyle}
-                            imgLeft={require('../assets/img/flag.png')}
+                            imgLeft={questionButtonStyle.markButtonSrc.path}
                         />
                         <ButtonWithImage
-                        buttonText="alle Fragen" 
+                        buttonText="Alle Fragen" 
                         onPress={() => this.all()} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={imageStyle}
@@ -148,16 +148,16 @@ class Result extends Component {
                 
                 <View>
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>weiter </Text>
+                        <Text style={cardTitle}>Navigation </Text>
                         <ButtonWithImage
-                            buttonText="zu den Fragebögen" 
+                            buttonText="Fragebögen" 
                             onPress={actions.toTests}
                             buttonStyle={bigButtonStyle} 
                             imageStyle={imageStyle}
                             imgLeft={require('../assets/img/test.png')}
                         />
                         <ButtonWithImage
-                            buttonText="zum Hauptmenü" 
+                            buttonText="Hauptmenü" 
                             onPress={actions.toMain} 
                             buttonStyle={smallButtonStyle} 
                             imageStyle={imageStyle}
