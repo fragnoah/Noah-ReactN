@@ -7,7 +7,8 @@ import * as scale from 'd3-scale';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
 import { iosFix } from '../utils';
-import { menuStyle, questionButtonStyle } from './styleSheets';
+import { menuStyle } from './styleSheets';
+import * as img from '../assets/img';
 
 
 class Result extends Component {
@@ -133,7 +134,7 @@ class Result extends Component {
                             onPress={() => this.marked()} 
                             buttonStyle={smallButtonStyle} 
                             imageStyle={imageStyle}
-                            imgLeft={questionButtonStyle.markButtonSrc.path}
+                            imgLeft={img.mark}
                         />
                         <ButtonWithImage
                         buttonText="Alle Fragen" 

@@ -36,17 +36,13 @@ export const questionButtonStyle = {
         elevation: 1,
         paddingTop: 5,
         paddingBottom: 5,
-        paddingLeft: 10,
-        paddingRight: 10
+        paddingLeft: 5,
+        paddingRight: 5
     },
     markButtonImageStyle: {
         alignSelf: 'center',
         height: 30,
         flex: 1,
-    },
-    markButtonSrc: {
-        path: require('../../assets/img/star.png'),
-        pathMarked: require('../../assets/img/stared.png')
     },
     navTextStyle: {
         justifyContent: 'flex-start',
@@ -85,7 +81,7 @@ export const questionButtonStyle = {
 
 export const questionCardStyle = {
     navCardStyle: {
-        paddingLeft: 5,
+        //paddingLeft: 5,
         paddingTop: 5,
         paddingBottom: 5,
         backgroundColor: 'rgba(255,255,255, 0.3)',
