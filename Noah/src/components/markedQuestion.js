@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
-import jsondata from '../assets/datasrc/FB1_2.json';
+import jsondata from '../assets/datasrc/Fragenpool.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
 import { 
@@ -24,8 +24,9 @@ import { iosFix, debug } from '../utils';
 class markedQuestion extends Component {
     constructor(props) {
         super(props);
-        const jdata = jsondata[this.props.quiz.fragebogen];
-        this.arrnew = Object.keys(jdata).map(k => jdata[k]);
+        this.arrnew = jsondata.filter(val => {
+            return this.props.quiz.auswahl.includes(val.id);
+        });
         this.state = {
             qno: 0,
         };
