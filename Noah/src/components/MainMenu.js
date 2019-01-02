@@ -5,6 +5,7 @@ import { toTests, toLearn } from '../actions';
 
 
 class MainMenu extends Component {
+
     render() {
         return (
             <View>

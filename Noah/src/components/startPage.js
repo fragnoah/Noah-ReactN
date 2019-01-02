@@ -59,8 +59,8 @@ class startPage extends Component {
                 <Card cardStyle={cardStyle}>
                     <Text style={cardTitle}>Test generieren</Text>
                     <ButtonWithImage 
-                        buttonText="noch zu entwerfen" 
-                        onPress={actions.toGlossar} 
+                        buttonText="Zufallsfragen" 
+                        onPress={() => this.getFb('random')}
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
