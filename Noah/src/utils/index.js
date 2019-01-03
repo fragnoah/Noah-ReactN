@@ -1,2 +1,2 @@
 export * from './iOSFix';
-export * from './debug';
+export * from './config';
