@@ -6,6 +6,7 @@ import { iosFix } from '../utils';
 
 class MainMenu extends Component {
     renderContent() {
+        console.log(this.props);
         return (
             <View>
                 <ButtonWithImage

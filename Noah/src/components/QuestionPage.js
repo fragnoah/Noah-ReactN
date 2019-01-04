@@ -13,8 +13,7 @@ import RadioForm, {
     RadioButton */
 } from 'react-native-simple-radio-button';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
-
-import jsondata from '../assets/datasrc/FB1_2.json';
+import jsondata from '../assets/datasrc/Fragenpool.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
 import { 
@@ -33,8 +32,47 @@ class QuestionPage extends Component {
         super(props);
         this.basisScore = 0;
         this.spezScore = 0;
-        const jdata = jsondata[this.props.quiz.fragebogen];
-        this.arrnew = Object.keys(jdata).map(k => jdata[k]);   
+        let auswahl = [];
+        if (this.props.quiz.fragebogen === 'fb1') { 
+            auswahl = [8, 16, 17, 32, 47, 60, 63, 79, 88, 92, 106, 124, 132, 140, 147,
+                150, 158, 159, 171, 176, 182, 194, 202, 209, 216, 224, 235, 253, 265, 271];
+            this.props.safeAuswahl(auswahl);
+            }
+        if (this.props.quiz.fragebogen === 'fb2') { 
+            auswahl = [7, 15, 27, 39, 48, 67, 71, 78, 89, 93, 100, 118, 122, 134, 139,
+                152, 157, 166, 167, 177, 181, 187, 197, 207, 214, 218, 232, 243, 252, 279];
+            this.props.safeAuswahl(auswahl);
+            }
+        if (this.props.quiz.fragebogen === 'random') {
+            if (this.props.quiz.auswahl.length === 0) {
+                const basis = [];
+                while (basis.length < 7) {
+                    const r = Math.floor(Math.random() * 72) + 1;
+                    if (basis.indexOf(r) === -1) basis.push(r);
+                }
+                console.log(basis);
+                const binnen = [];
+                while (binnen.length < 21) {
+                    const r = Math.floor(Math.random() * 181) + 73;
+                    if (binnen.indexOf(r) === -1) binnen.push(r);
+                }
+                console.log(binnen);
+                const segeln = [];
+                while (segeln.length < 2) {
+                    const r = Math.floor(Math.random() * 47) + 254;
+                    if (segeln.indexOf(r) === -1) segeln.push(r);
+                }
+                console.log(segeln);
+                auswahl = [...basis, ...binnen, ...segeln];
+                console.log(auswahl);
+                this.props.safeAuswahl(auswahl);
+            } else {
+                auswahl = this.props.quiz.auswahl;
+            }
+        }
+        this.arrnew = jsondata.filter(val => {
+            return auswahl.includes(val.id);
+        });
     }
 
     prev() {
@@ -253,7 +291,7 @@ class QuestionPage extends Component {
             { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
             { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
         ];
-
+        console.log(this.jdata2);
         let init = null;
         switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':

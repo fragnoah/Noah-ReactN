@@ -3,7 +3,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { Platform } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { PersistGate } from 'redux-persist/lib/integration/react';
+import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 //import Thunk from 'redux-thunk';
@@ -13,6 +13,7 @@ import reducers from './reducers';
 const persistConfig = {
     key: 'root',
     storage,
+    whitelist: ['selectedFb']
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
@@ -43,13 +44,13 @@ class App extends Component {
             SplashScreen.hide();
         }
     }
-
+    //   <PersistGate loading={<SplashScreen />} persistor={persistor}> müsste eig. gehen...
     render() {
         const store = createStore(persistedReducer);
         const persistor = persistStore(store);
         return (
             <Provider store={store}>
-                <PersistGate persistor={persistor}>
+                <PersistGate loading={null} persistor={persistor}>
                     <Router />
                 </PersistGate>
             </Provider>

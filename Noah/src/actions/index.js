@@ -112,4 +112,9 @@ export const decrement = () => {
     type: 'dec'
   };
 };
-
+export const safeAuswahl = (auswahl) => {
+  return {
+    type: 'safe_auswahl',
+    payload: auswahl
+  };
+};

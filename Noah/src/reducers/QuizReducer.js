@@ -9,7 +9,8 @@ const initalstate = {
     marked: [],
     wrongArr: [],
     passedFb: [],
-    qno: 0
+    qno: 0,
+    auswahl: []
 };
 
 export default (state = initalstate, action) => {
@@ -17,6 +18,8 @@ export default (state = initalstate, action) => {
 
         case 'select_fb':
            return { ...state, fragebogen: action.payload };
+        case 'safe_auswahl':
+           return { ...state, auswahl: action.payload };
         case 'select_answer': {
             const newItem = action.payload;
             return { 
@@ -41,7 +44,8 @@ export default (state = initalstate, action) => {
                 marked: [],
                 wrongAns: [],
                 wrongArr: [],
-                qno: 0
+                qno: 0,
+                auswahl: []
             };
         }
         case 'inc': {
