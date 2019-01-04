@@ -31,6 +31,8 @@ class QuestionPage extends Component {
         this.basisScore = 0;
         this.spezScore = 0;
         let auswahl = [];
+
+        /** etwas unschön - besser aus JSON, aber nice to Have */ 
         if (this.props.quiz.fragebogen === 'fb1') { 
             auswahl = [8, 16, 17, 32, 47, 60, 63, 79, 88, 92, 106, 124, 132, 140, 147,
                 150, 158, 159, 171, 176, 182, 194, 202, 209, 216, 224, 235, 253, 265, 271];
@@ -41,6 +43,8 @@ class QuestionPage extends Component {
                 152, 157, 166, 167, 177, 181, 187, 197, 207, 214, 218, 232, 243, 252, 279];
             this.props.safeAuswahl(auswahl);
             }
+
+        //    
         if (this.props.quiz.fragebogen === 'random') {
             if (this.props.quiz.auswahl.length === 0) {
                 const basis = [];
