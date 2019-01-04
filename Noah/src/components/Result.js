@@ -63,12 +63,12 @@ class Result extends Component {
             imageStyle,
            // noImageStyle
         } = menuStyle;
-
-        const progess = this.props.quiz.passedFb.length / 15;
-        const rest = 15 - this.props.quiz.passedFb.length;
+        //muss ausgetausch werden mit this.props.quiz.passedFb.length
+        const progess = 2 / 15;
+        const rest = 15 - 2;
         const data = [
             {
-                value: this.props.quiz.passedFb.length,
+                value: 2,
                 label: 'Bestandene Fragebögen',
                 svg: {
                     fill: 'rgb(50,205,50)',

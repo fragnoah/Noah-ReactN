@@ -71,12 +71,13 @@ class markedQuestion extends Component {
          if (this.props.quiz.marked.includes(
                 this.props.quiz.marked[this.state.qno]) === true) {
             if (this.props.quiz.marked.length === 1) {
+                this.props.unmark(this.props.quiz.marked[this.state.qno]);
                 actions.toResult();
             } else {
                 this.props.unmark(this.props.quiz.marked[this.state.qno]);
                 showMessage({
                     message: 'Hinweis',
-                    description: 'Frage nicht mehr makiert',
+                    description: 'Frage nicht mehr markiert',
                     type: 'success',
                     icon: 'success'
                 });
@@ -85,7 +86,7 @@ class markedQuestion extends Component {
             this.props.mark(this.props.quiz.marked[this.state.qno]);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage wurde makiert',
+                description: 'Frage wurde markiert',
                 type: 'success',
                 icon: 'success'
             });
@@ -143,6 +144,7 @@ class markedQuestion extends Component {
     }
 
     renderContent() {
+    if (this.props.quiz.marked.length > 0) {
         const radioProps = [
             { label: this.arrnew[this.props.quiz.marked[this.state.qno]].options.option1,
                 value: 'option1' },
@@ -243,9 +245,12 @@ class markedQuestion extends Component {
                 /> 
             </View>
              
+            );
+        }
+        return (
+            <View style={{ flex: 1 }} />
         );
     }
-
     renderDebug() {
         if (debug === true) {
             return (
