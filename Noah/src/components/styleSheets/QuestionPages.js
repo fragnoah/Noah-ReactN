@@ -109,6 +109,6 @@ export const questionCardStyle = {
 
 export const userMessage = {
     flashMessage: {
-        zIndex: 7
+        zIndex: 100
     }
 };

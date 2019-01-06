@@ -230,7 +230,7 @@ class RepeatAll extends Component {
                 <FlashMessage 
                     style={userMessage.flashMessage}
                     ref="myLocalFlashMessage" 
-                    position="bottom" 
+                    position="top" 
                 /> 
 
             </View>
