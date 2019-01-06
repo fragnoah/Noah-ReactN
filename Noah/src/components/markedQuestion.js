@@ -74,6 +74,12 @@ class markedQuestion extends Component {
             if (this.props.quiz.marked.length === 1) {
                 this.props.unmark(this.props.quiz.marked[this.state.qno]);
                 actions.toResult();
+            } else if (this.state.qno === this.props.quiz.marked.length - 1) {
+                const old = this.state.qno;
+                this.setState({
+                    qno: this.state.qno - 1
+                });
+                this.props.unmark(this.props.quiz.marked[old]);
             } else {
                 this.props.unmark(this.props.quiz.marked[this.state.qno]);
                 showMessage({
@@ -242,7 +248,7 @@ class markedQuestion extends Component {
                 <FlashMessage 
                     style={userMessage.flashMessage} 
                     ref="myLocalFlashMessage" 
-                    position="bottom" 
+                    position="top" 
                 /> 
             </View>
              
