@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, Platform, ImageBackground } from 'react-native';
 import { ButtonWithImage } from './common';
-import { toTests, toLearn } from '../actions';
 import { iosFix } from '../utils';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class MainMenu extends Component {
     renderContent() {
@@ -10,14 +11,14 @@ class MainMenu extends Component {
         return (
             <View>
                 <ButtonWithImage
-                    onPress={toTests}
+                    onPress={actions.toTests}
                     buttonText="Prüfungsmodus"
                     imgLeft={require('../assets/img/test.png')}
                     buttonStyle={{ padding: 5 }}
                 />
                 
                 <ButtonWithImage
-                    onPress={toLearn} 
+                    onPress={actions.toLearn} 
                     buttonText="Lernmodus" 
                     imgLeft={require('../assets/img/book.png')}
                     buttonStyle={{ padding: 5 }}
@@ -43,4 +44,9 @@ class MainMenu extends Component {
     }
 }
 
-export default MainMenu;
+const mapStateToProbs = state => {
+    return { quiz: state.selectedFb };
+};
+
+export default connect(mapStateToProbs, actions)(MainMenu);
+

@@ -45,7 +45,7 @@ export default (state = initalstate, action) => {
                 wrongAns: [],
                 wrongArr: [],
                 qno: 0,
-                auswahl: []
+                auswahl: [],
             };
         }
         case 'inc': {
@@ -99,8 +99,12 @@ export default (state = initalstate, action) => {
                 marked: state.marked.filter(item => item !== action.payload)
             };
         }
-        case 'reset_marked': {
-            return { ...state, arr: [] };
+        case 'pass_Fb': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                passedFb: [...state.passedFb, newItem]
+            };
         }
         case 'reset_default': {
             return { ...state, 
@@ -110,12 +114,8 @@ export default (state = initalstate, action) => {
                 wrongArr: [],
             };
         }
-        case 'pass_Fb': {
-            const newItem = action.payload;
-            return { 
-                ...state,
-                passedFb: [...state.passedFb, newItem]
-            };
+        case 'reset_marked': {
+            return { ...state, arr: [] };
         }
         default:
             return state;

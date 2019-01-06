@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Platform, ImageBackground } from 'react-native';
+import { View, ScrollView, Text, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import { ProgressCircle, BarChart, Grid, XAxis } from 'react-native-svg-charts';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
-import * as scale from 'd3-scale';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
 import { iosFix } from '../utils';
 import { menuStyle, questionButtonStyle } from './styleSheets';
+import PureChart from 'react-native-pure-chart';
 
 
 class Result extends Component {
@@ -15,8 +14,9 @@ class Result extends Component {
          this.Ergebnis = 'Leider nicht bestanden';
         if (this.props.quiz.basisScore >= 5 && this.props.quiz.spezScore >= 18) {
             this.Ergebnis = 'Glückwünsch, bestanden';
-            if (this.props.quiz.passedFb.includes(this.props.quiz.fragebogen) === false) {
-                this.props.passFb(this.props.quiz.fragebogen);
+            if (this.props.quiz.passedFb.includes(this.props.quiz.fragebogen) === false 
+                && this.props.quiz.fragebogen !== 'random') {
+                    this.props.passFb(this.props.quiz.fragebogen);
             }
         }
     }
@@ -63,26 +63,20 @@ class Result extends Component {
             imageStyle,
            // noImageStyle
         } = menuStyle;
-        //muss ausgetausch werden mit this.props.quiz.passedFb.length
-        const progess = 2 / 15;
-        const rest = 15 - 2;
-        const data = [
+
+        const passed = this.props.quiz.passedFb;
+        const rest = 15 - passed; 
+        const sampleData = [
             {
-                value: 2,
-                label: 'Bestandene Fragebögen',
-                svg: {
-                    fill: 'rgb(50,205,50)',
-                },
-            },
-            {
-                value: rest,
-                label: 'Noch zu bestehen',
-                svg: {
-                    fill: 'rgb(255,0,0)',
-                },
+            value: rest,
+            label: 'Zu bestehen',
+            color: 'red',
+            }, {
+            value: passed,
+            label: 'Bestanden',
+            color: 'green'
             },
         ];
-        
         this.checkScore();
         return (
             <View style={{ flex: 1 }}>
@@ -90,33 +84,12 @@ class Result extends Component {
                     <Card cardStyle={cardStyle}>
                         <Text style={cardTitle}>{this.Ergebnis}</Text>
                         <Text>Basispunkte: {this.props.quiz.basisScore} von 7 </Text>
-                        <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>                        
+                        <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>           
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Statistik</Text>
-                        <View style={{ height: 200 }}>
-                            <BarChart
-                                style={{ flex: 1 }}
-                                data={data}
-                                yAccessor={({ item }) => item.value}
-                                gridMin={0}
-                                svg={{ fill: 'rgb(134, 65, 244)' }}
-                            />
-                            <XAxis
-                                style={{ marginTop: 10 }}
-                                data={data}
-                                scale={scale.scaleBand}
-                                formatLabel={(_, index) => data[index].label}
-                            />
-                        </View>
-                        <ProgressCircle
-                            style={{ height: 100, backgroundColor: 'transparent' }}
-                            progress={progess}
-                            progressColor={'rgb(50,205,50)'}
-                            startAngle={-Math.PI * 0.8}
-                            endAngle={Math.PI * 0.8}
-                        />
+                    <Text style={cardTitle}>Übersicht deiner bestandenen Fragebögen</Text>
+                    <PureChart data={sampleData} type='pie' />
                     </Card>
 
                     <Card cardStyle={cardStyle}>
