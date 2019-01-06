@@ -6,7 +6,7 @@ import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
 import { iosFix } from '../utils';
 import PureChart from 'react-native-pure-chart';
-import { menuStyle } from './styleSheets';
+import { menuStyle, userMessage } from './styleSheets';
 import * as img from '../assets/img';
 
 
@@ -141,7 +141,12 @@ class Result extends Component {
                 </View>
 
                 </ScrollView>
-                <FlashMessage ref="myLocalFlashMessage" />
+                         
+                <FlashMessage 
+                    style={userMessage.flashMessage} 
+                    ref="myLocalFlashMessage" 
+                    position="top" 
+                /> 
             </View>
         );
     }
