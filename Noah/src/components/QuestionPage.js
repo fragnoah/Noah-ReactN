@@ -22,8 +22,10 @@ import {
     questionCardStyle, 
     userMessage 
 } from './styleSheets';
-import { iosFix, debug } from '../utils';
+import { iosFix, debug, canHighlight } from '../utils';
+import * as img from '../assets/img';
 
+let lighted = false;
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -170,13 +172,57 @@ class QuestionPage extends Component {
         }
     }
 
+    doHighlight() {
+        /* 
+            not implemented yet!
+            Higlightwords aktivieren
+            Keine weitere Speicherung, ob gesetzt oder nicht
+        */
+
+        lighted = true;
+    }
+
+    undoHighlight() {
+        /* 
+            not implemented yet!
+            Higlightwords deaktivieren
+            Keine weitere Speicherung, ob gesetzt oder nicht
+        */
+       lighted = false;
+    }
+
+    renderHighlightButton() {
+        const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
+
+        if (canHighlight) {
+            if (lighted) {
+                return (
+                    <ImageButton
+                        onPress={() => this.undoHighlight()}
+                        img={img.highlighted}
+                        buttonStyle={markButtonStyle} 
+                        imageStyle={markButtonImageStyle}
+                    />
+                );            
+            } 
+            return (
+                <ImageButton
+                    onPress={() => this.doHighlight()}
+                    img={img.highlight}
+                    buttonStyle={markButtonStyle} 
+                    imageStyle={markButtonImageStyle}
+                />  
+            );
+        }         
+    }
+
     renderMarkButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
         if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
             return (
                 <ImageButton
-                    onPress={() => this.markQuestion()}
-                    img={questionButtonStyle.markButtonSrc.pathMarked}
+                    onPress={() => this.markQuestion()}                    
+                    img={img.marked}
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
                 />
@@ -184,8 +230,8 @@ class QuestionPage extends Component {
         } 
         return (
             <ImageButton
-                onPress={() => this.markQuestion()}
-                img={questionButtonStyle.markButtonSrc.path}
+                onPress={() => this.markQuestion()} 
+                img={img.mark}
                 buttonStyle={markButtonStyle} 
                 imageStyle={markButtonImageStyle}
             />  
@@ -268,6 +314,7 @@ class QuestionPage extends Component {
                 init = -1;
         }
 
+        
         /*
        const radioProps = [
             { label: this.arrnew[this.props.quiz.qno].options.option1, value: 0 },
@@ -323,6 +370,7 @@ class QuestionPage extends Component {
                     />
 
                     {this.renderMarkButton()}
+                    {this.renderHighlightButton()}
                     
                     <ButtonWithImage
                         onPress={() => this.next()}

@@ -5,8 +5,8 @@
 
 export const questionButtonStyle = {
     navButtonImageStyle: {    
-        height: 20,
-        width: 20,
+        height: 18,
+        width: 18,
     },
     navButtonStyle: {
         flex: 1,
@@ -36,34 +36,30 @@ export const questionButtonStyle = {
         elevation: 1,
         paddingTop: 5,
         paddingBottom: 5,
-        paddingLeft: 10,
-        paddingRight: 10
+        paddingLeft: 5,
+        paddingRight: 5
     },
     markButtonImageStyle: {
         alignSelf: 'center',
-        height: 30,
+        height: 25,
         flex: 1,
-    },
-    markButtonSrc: {
-        path: require('../../assets/img/star.png'),
-        pathMarked: require('../../assets/img/stared.png')
     },
     navTextStyle: {
         justifyContent: 'flex-start',
         color: '#007aff',
-        fontSize: 16,
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontWeight: '600',
+        fontSize: 15,
+        paddingTop: 5,
+        paddingBottom: 5,
+        fontWeight: '400',
     },
     navTextStyle2: {
         justifyContent: 'flex-end',
         alignSelf: 'flex-end',
         color: '#007aff',
-        fontSize: 16,
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontWeight: '600',
+        fontSize: 15,
+        paddingTop: 5,
+        paddingBottom: 5,
+        fontWeight: '400',
     },
     cardStyle: {
         backgroundColor: 'rgba(255,255,255, 0.3)',
@@ -85,7 +81,7 @@ export const questionButtonStyle = {
 
 export const questionCardStyle = {
     navCardStyle: {
-        paddingLeft: 5,
+        //paddingLeft: 5,
         paddingTop: 5,
         paddingBottom: 5,
         backgroundColor: 'rgba(255,255,255, 0.3)',

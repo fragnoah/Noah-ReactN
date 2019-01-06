@@ -20,6 +20,7 @@ import {
     userMessage 
 } from './styleSheets';
 import { iosFix, debug } from '../utils';
+import * as img from '../assets/img';
 
 class RepeatAll extends Component {
     constructor(props) {
@@ -89,7 +90,7 @@ class RepeatAll extends Component {
             return (
                 <ImageButton
                     onPress={() => this.markQuestion()}
-                    img={questionButtonStyle.markButtonSrc.pathMarked}
+                    img={img.marked}
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
                 />
@@ -98,7 +99,7 @@ class RepeatAll extends Component {
         return (
             <ImageButton
                 onPress={() => this.markQuestion()}
-                img={questionButtonStyle.markButtonSrc.path}
+                img={img.mark}
                 buttonStyle={markButtonStyle} 
                 imageStyle={markButtonImageStyle}
             />  
