@@ -250,7 +250,7 @@ class RepeatPage extends Component {
                 <FlashMessage 
                     style={userMessage.flashMessage} 
                     ref="myLocalFlashMessage" 
-                    position="bottom" 
+                    position="top" 
                 /> 
             </View>
              

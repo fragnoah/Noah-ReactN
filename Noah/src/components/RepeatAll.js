@@ -32,6 +32,7 @@ class RepeatAll extends Component {
             qno: 0,
         };
     }
+    
     prev() {
         console.log('vorherige');
         if (this.state.qno >= 1) {
@@ -43,6 +44,7 @@ class RepeatAll extends Component {
             });
         }
     }
+
     next() {
         console.log('nächste');
         if (this.state.qno < this.arrnew.length - 1) {
@@ -56,6 +58,7 @@ class RepeatAll extends Component {
                 actions.toResult();
             }
         }
+
     answer(ans) {
         if (this.props.quiz.arr[this.state.qno] === undefined) {
             this.props.selectAnswer(ans);
@@ -64,6 +67,7 @@ class RepeatAll extends Component {
             this.props.updateAnswer(ans, this.state.qno); 
         }
     }
+
     markQuestion() {
         if (this.props.quiz.marked.includes(this.state.qno) === true) {
             this.props.unmark(this.state.qno);
@@ -230,7 +234,7 @@ class RepeatAll extends Component {
                 <FlashMessage 
                     style={userMessage.flashMessage}
                     ref="myLocalFlashMessage" 
-                    position="bottom" 
+                    position="top" 
                 /> 
 
             </View>

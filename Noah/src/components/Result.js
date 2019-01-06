@@ -89,8 +89,8 @@ class Result extends Component {
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Übersicht deiner bestandenen Fragebögen</Text>
-                    <PureChart data={sampleData} type='pie' />
+                        <Text style={cardTitle}>bestandene Fragebögen</Text>
+                        <PureChart data={sampleData} type='pie' style='alignSelf: "center"' />
                     </Card>
 
                     <Card cardStyle={cardStyle}>
