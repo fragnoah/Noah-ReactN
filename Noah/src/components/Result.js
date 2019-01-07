@@ -64,9 +64,10 @@ class Result extends Component {
             imageStyle,
            // noImageStyle
         } = menuStyle;
-
-        const passed = this.props.quiz.passedFb;
+       
+        const passed = this.props.quiz.passedFb.length;
         const rest = 15 - passed; 
+        /*
         const sampleData = [
             {
             value: rest,
@@ -78,6 +79,22 @@ class Result extends Component {
             color: 'green'
             },
         ];
+        
+        const sampleData = [
+            { x: 'Bestanden', y: passed, color: '#297AB1' },
+            { x: 'zu bestehen', y: rest, color: 'blue' },
+        ];
+        */
+       const sampleData = [
+        {
+          seriesName: 'Anzahl Fragebögen',
+          data: [
+            { x: 'bestanden', y: passed },
+            { x: 'zu bestehen', y: rest },
+          ],
+          color: '#297AB1'
+        },
+    ]
         this.checkScore();
         return (
             <View style={{ flex: 1 }}>
@@ -90,7 +107,7 @@ class Result extends Component {
 
                     <Card cardStyle={cardStyle}>
                     <Text style={cardTitle}>Übersicht deiner bestandenen Fragebögen</Text>
-                    <PureChart data={sampleData} type='pie' />
+                    <PureChart data={sampleData} type='bar' />
                     </Card>
 
                     <Card cardStyle={cardStyle}>
