@@ -31,7 +31,8 @@ class RepeatPage extends Component {
             return this.props.quiz.auswahl.includes(val.id);
         });
         this.state = {
-            qno: 0,
+            qno: 0,            
+            lighted: false            
         };
         this.antworten = this.props.quiz.wrongAns;
     }
@@ -45,6 +46,9 @@ class RepeatPage extends Component {
             this.setState({
                 qno: this.state.qno - 1
             });
+            this.setState({
+                lighted: false
+            });
         }
     }
 
@@ -56,6 +60,9 @@ class RepeatPage extends Component {
             }
             this.setState({
                 qno: this.state.qno + 1
+            });
+            this.setState({
+                lighted: false
             });
             } else {
                 console.log('ende?');

@@ -103,6 +103,9 @@ class QuestionPage extends Component {
                 this.setState({
                     lighted: false
                 });
+                this.setState({
+                    lighted: false
+                });
             } else {
                 for (let i = 0, l = this.arrnew.length; i < l; i++) {
                     console.log(i);
@@ -322,7 +325,7 @@ class QuestionPage extends Component {
                 /> : this.arrnew[this.props.quiz.qno].options.option4),
                     value: 'option4' },
         ];
-        
+
         let init = null;
         switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':

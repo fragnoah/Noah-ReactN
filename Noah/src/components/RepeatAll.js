@@ -31,7 +31,8 @@ class RepeatAll extends Component {
             return this.props.quiz.auswahl.includes(val.id);
         });
         this.state = {
-            qno: 0,
+            qno: 0,            
+            lighted: false            
         };
     }
     
@@ -44,6 +45,9 @@ class RepeatAll extends Component {
             this.setState({
                 qno: this.state.qno - 1
             });
+            this.setState({
+                lighted: false
+            });
         }
     }
 
@@ -55,6 +59,9 @@ class RepeatAll extends Component {
             }
             this.setState({
                 qno: this.state.qno + 1
+            });
+            this.setState({
+                lighted: false
             });
             } else {
                 actions.toResult();
