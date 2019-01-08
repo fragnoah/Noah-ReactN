@@ -12,6 +12,7 @@ import RadioForm, {
     RadioButtonInput, 
     RadioButton */
 } from 'react-native-simple-radio-button';
+import Highlighter from 'react-native-highlight-words';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/Fragenpool.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
@@ -20,11 +21,11 @@ import {
     radioButtonStyle, 
     questionButtonStyle, 
     questionCardStyle, 
-    userMessage 
+    userMessage,
+    highlighter
 } from './styleSheets';
 import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
-import Highlighter from 'react-native-highlight-words';
 
 
 class QuestionPage extends Component {
@@ -269,31 +270,33 @@ class QuestionPage extends Component {
     }
 
     renderContent() {
+
+
         const radioProps = [ 
             { label: (this.state.lighted === true ? 
                 <Highlighter
-                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    highlightStyle={highlighter.lighted}
                     searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
                     textToHighlight={this.arrnew[this.props.quiz.qno].options.option1}
                 /> : this.arrnew[this.props.quiz.qno].options.option1),
                 value: 'option1' },
             { label: (this.state.lighted === true ? 
                 <Highlighter
-                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    highlightStyle={highlighter.lighted}
                     searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
                     textToHighlight={this.arrnew[this.props.quiz.qno].options.option2}
                 /> : this.arrnew[this.props.quiz.qno].options.option2),
                 value: 'option2' },
             { label: (this.state.lighted === true ? 
                 <Highlighter
-                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    highlightStyle={highlighter.lighted}
                     searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
                     textToHighlight={this.arrnew[this.props.quiz.qno].options.option3}
                 /> : this.arrnew[this.props.quiz.qno].options.option3),
                  value: 'option3' },
             { label: (this.state.lighted === true ? 
                 <Highlighter
-                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    highlightStyle={highlighter.lighted}
                     searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
                     textToHighlight={this.arrnew[this.props.quiz.qno].options.option4}
                 /> : this.arrnew[this.props.quiz.qno].options.option4),

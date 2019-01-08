@@ -11,14 +11,14 @@ export const questionButtonStyle = {
     navButtonStyle: {
         flex: 1,
         width: '40%',
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 3,
+        marginRight: 3,
         marginTop: 0,
         flexDirection: 'column',
     },
     markButtonStyle: {
         //height: 50,
-        //width: '15%',
+        width: '10%',
         flex: 0,
         resizeMode: 'cover',
         flexDirection: 'column',
@@ -30,8 +30,8 @@ export const questionButtonStyle = {
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#007aff',
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 2,
+        marginRight: 2,
         marginTop: 0,
         elevation: 1,
         paddingTop: 5,
@@ -41,8 +41,10 @@ export const questionButtonStyle = {
     },
     markButtonImageStyle: {
         alignSelf: 'center',
-        height: 25,
+        //height: null,
+        //width: 25,
         flex: 1,
+        resizeMode: 'contain'
     },
     navTextStyle: {
         justifyContent: 'flex-start',
@@ -50,7 +52,7 @@ export const questionButtonStyle = {
         fontSize: 15,
         paddingTop: 5,
         paddingBottom: 5,
-        fontWeight: '400',
+        fontWeight: '300',
     },
     navTextStyle2: {
         justifyContent: 'flex-end',
@@ -59,7 +61,7 @@ export const questionButtonStyle = {
         fontSize: 15,
         paddingTop: 5,
         paddingBottom: 5,
-        fontWeight: '400',
+        fontWeight: '300',
     },
     cardStyle: {
         backgroundColor: 'rgba(255,255,255, 0.3)',
@@ -105,6 +107,12 @@ export const questionCardStyle = {
         marginTop: 2,
         flex: 1
     }
+};
+
+export const highlighter = {
+    lighted: {
+        backgroundColor: 'yellow',
+    },
 };
 
 export const userMessage = {
