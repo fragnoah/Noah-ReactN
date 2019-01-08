@@ -191,32 +191,54 @@ class RepeatAll extends Component {
                 value: 'option4' },
         ];
         */
-        const radioProps = [ 
-            { label: (this.state.lighted === true ? 
+       let highlight = ['abc'];
+       switch (this.arrnew[this.state.qno].highlightWords[0]) {
+           case 'option1':
+               highlight[0] = this.arrnew[this.state.qno].options.option1;
+               break;
+           case 'option2':
+               highlight[0] = this.arrnew[this.state.qno].options.option2;
+               break;
+           case 'option3':
+               highlight[0] = this.arrnew[this.state.qno].options.option3;
+               break;
+           case 'option4':
+               highlight[0] = this.arrnew[this.state.qno].options.option4;
+               break;
+           default:
+               highlight = this.arrnew[this.state.qno].highlightWords;
+        } 
+
+        const radioProps = [
+            { label: (this.state.lighted === true &&
+                this.arrnew[this.state.qno].options.option1.includes(highlight) ? 
                 <Highlighter
                     highlightStyle={highlighter.lighted}
-                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    searchWords={[highlight.toString()]}
                     textToHighlight={this.arrnew[this.state.qno].options.option1}
                 /> : this.arrnew[this.state.qno].options.option1),
                 value: 'option1' },
-            { label: (this.state.lighted === true ? 
+            { label: (this.state.lighted === true &&
+                this.arrnew[this.state.qno].options.option2.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
-                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    searchWords={[highlight.toString()]}
                     textToHighlight={this.arrnew[this.state.qno].options.option2}
                 /> : this.arrnew[this.state.qno].options.option2),
                 value: 'option2' },
-            { label: (this.state.lighted === true ? 
+            { label: (this.state.lighted === true &&
+                this.arrnew[this.state.qno].options.option3.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
-                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    searchWords={[highlight.toString()]}
                     textToHighlight={this.arrnew[this.state.qno].options.option3}
                 /> : this.arrnew[this.state.qno].options.option3),
-                 value: 'option3' },
-            { label: (this.state.lighted === true ? 
+                value: 'option3' },
+            { label: (this.state.lighted === true &&
+                this.arrnew[this.state.qno].options.option4.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
-                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    searchWords={[highlight.toString()]}
                     textToHighlight={this.arrnew[this.state.qno].options.option4}
                 /> : this.arrnew[this.state.qno].options.option4),
                     value: 'option4' },

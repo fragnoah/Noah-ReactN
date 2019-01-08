@@ -322,6 +322,7 @@ class QuestionPage extends Component {
                 /> : this.arrnew[this.props.quiz.qno].options.option4),
                     value: 'option4' },
         ];
+        
         let init = null;
         switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':
