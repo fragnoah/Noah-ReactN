@@ -9,6 +9,7 @@ import {
 
 import { connect } from 'react-redux';
 import RadioForm from 'react-native-simple-radio-button';
+import Highlighter from 'react-native-highlight-words';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/Fragenpool.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
@@ -17,9 +18,10 @@ import {
     radioButtonStyle, 
     questionButtonStyle, 
     questionCardStyle, 
-    userMessage 
+    userMessage,
+    highlighter 
 } from './styleSheets';
-import { iosFix, debug } from '../utils';
+import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
 
 class RepeatAll extends Component {
@@ -88,6 +90,44 @@ class RepeatAll extends Component {
         }
     }
 
+    doHighlight() {
+        this.setState({
+            lighted: true
+        });
+    }
+
+    undoHighlight() {
+        this.setState({
+            lighted: false
+        });
+    }
+
+    renderHighlightButton() {
+        const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
+
+        if (canHighlight) {
+            if (this.state.lighted) {
+                return (
+                    <ImageButton
+                        onPress={() => this.undoHighlight()}
+                        img={img.highlighted}
+                        buttonStyle={markButtonStyle} 
+                        imageStyle={markButtonImageStyle}
+                    />
+                );            
+            } 
+            return (
+                <ImageButton
+                    onPress={() => this.doHighlight()}
+                    img={img.highlight}
+                    buttonStyle={markButtonStyle} 
+                    imageStyle={markButtonImageStyle}
+                    disabled={this.arrnew[this.props.quiz.qno].highlightWords.length === 0}
+                />  
+            );
+        }         
+    }
+
     renderMarkButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
         if (this.props.quiz.marked.includes(this.state.qno)) {
@@ -139,6 +179,7 @@ class RepeatAll extends Component {
     }
 
     renderContent() {
+        /*
         const radioProps = [
             { label: this.arrnew[this.state.qno].options.option1,
                 value: 'option1' },
@@ -148,6 +189,37 @@ class RepeatAll extends Component {
                 value: 'option3' },
             { label: this.arrnew[this.state.qno].options.option4,
                 value: 'option4' },
+        ];
+        */
+        const radioProps = [ 
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={highlighter.lighted}
+                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.state.qno].options.option1}
+                /> : this.arrnew[this.state.qno].options.option1),
+                value: 'option1' },
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={highlighter.lighted}
+                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.state.qno].options.option2}
+                /> : this.arrnew[this.state.qno].options.option2),
+                value: 'option2' },
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={highlighter.lighted}
+                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.state.qno].options.option3}
+                /> : this.arrnew[this.state.qno].options.option3),
+                 value: 'option3' },
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={highlighter.lighted}
+                    searchWords={[this.arrnew[this.state.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.state.qno].options.option4}
+                /> : this.arrnew[this.state.qno].options.option4),
+                    value: 'option4' },
         ];
         
         let init = null;
@@ -216,6 +288,7 @@ class RepeatAll extends Component {
                     />
 
                       {this.renderMarkButton()}
+                      {this.renderHighlightButton()}
 
                     <ButtonWithImage
                         onPress={() => this.next()}

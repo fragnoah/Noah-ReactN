@@ -270,8 +270,6 @@ class QuestionPage extends Component {
     }
 
     renderContent() {
-
-
         const radioProps = [ 
             { label: (this.state.lighted === true ? 
                 <Highlighter
