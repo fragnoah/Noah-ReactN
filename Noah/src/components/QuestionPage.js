@@ -24,8 +24,8 @@ import {
 } from './styleSheets';
 import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
+import Highlighter from 'react-native-highlight-words';
 
-let lighted = false;
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -33,7 +33,9 @@ class QuestionPage extends Component {
         this.basisScore = 0;
         this.spezScore = 0;
         let auswahl = [];
-
+        this.state = {
+            lighted: false,
+        };
         /** etwas unschön - besser aus JSON, aber nice to Have */ 
         if (this.props.quiz.fragebogen === 'fb1') { 
             auswahl = [8, 16, 17, 32, 47, 60, 63, 79, 88, 92, 106, 124, 132, 140, 147,
@@ -85,6 +87,9 @@ class QuestionPage extends Component {
                 this.props.selectAnswer('-1');
             }
             this.props.decrement();
+            this.setState({
+                lighted: false
+            });
         }
     }
 
@@ -94,6 +99,9 @@ class QuestionPage extends Component {
                     this.props.selectAnswer('-1');
                 }
                 this.props.increment();
+                this.setState({
+                    lighted: false
+                });
             } else {
                 for (let i = 0, l = this.arrnew.length; i < l; i++) {
                     console.log(i);
@@ -122,28 +130,6 @@ class QuestionPage extends Component {
     }
 
     answer(ans) {
-        /*
-        let actAns = null;
-        switch (ans) {
-            case 0: actAns = 'option1';
-            break;
-            case 1: actAns = 'option2';            
-            break;
-            case 2: actAns = 'option3';
-            break;
-            case 3: actAns = 'option4';            
-            break;
-            default: actAns = '';
-        }
-        
-        if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-            this.props.selectAnswer(actAns);
-        }
-        if (this.props.quiz.arr[this.props.quiz.qno] !== actAns) {
-            this.props.updateAnswer(actAns, this.props.quiz.qno);
-            }
-        */
-
         if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
             this.props.selectAnswer(ans);
         }
@@ -173,29 +159,22 @@ class QuestionPage extends Component {
     }
 
     doHighlight() {
-        /* 
-            not implemented yet!
-            Higlightwords aktivieren
-            Keine weitere Speicherung, ob gesetzt oder nicht
-        */
-
-        lighted = true;
+        this.setState({
+            lighted: true
+        });
     }
 
     undoHighlight() {
-        /* 
-            not implemented yet!
-            Higlightwords deaktivieren
-            Keine weitere Speicherung, ob gesetzt oder nicht
-        */
-       lighted = false;
+        this.setState({
+            lighted: false
+        });
     }
 
     renderHighlightButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
 
         if (canHighlight) {
-            if (lighted) {
+            if (this.state.lighted) {
                 return (
                     <ImageButton
                         onPress={() => this.undoHighlight()}
@@ -211,6 +190,7 @@ class QuestionPage extends Component {
                     img={img.highlight}
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
+                    disabled={this.arrnew[this.props.quiz.qno].highlightWords.length === 0}
                 />  
             );
         }         
@@ -289,13 +269,36 @@ class QuestionPage extends Component {
     }
 
     renderContent() {
-        const radioProps = [
-            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 'option1' },
-            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 'option2' },
-            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 'option3' },
-            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 'option4' },
+        const radioProps = [ 
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option1}
+                /> : this.arrnew[this.props.quiz.qno].options.option1),
+                value: 'option1' },
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option2}
+                /> : this.arrnew[this.props.quiz.qno].options.option2),
+                value: 'option2' },
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option3}
+                /> : this.arrnew[this.props.quiz.qno].options.option3),
+                 value: 'option3' },
+            { label: (this.state.lighted === true ? 
+                <Highlighter
+                    highlightStyle={{ backgroundColor: 'yellow' }}
+                    searchWords={[this.arrnew[this.props.quiz.qno].highlightWords]}
+                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option4}
+                /> : this.arrnew[this.props.quiz.qno].options.option4),
+                    value: 'option4' },
         ];
-        console.log(this.jdata2);
         let init = null;
         switch (this.props.quiz.arr[this.props.quiz.qno]) {
             case 'option1':
@@ -313,15 +316,6 @@ class QuestionPage extends Component {
             default:
                 init = -1;
         }
-
-        
-        /*
-       const radioProps = [
-            { label: this.arrnew[this.props.quiz.qno].options.option1, value: 0 },
-            { label: this.arrnew[this.props.quiz.qno].options.option2, value: 1 },
-            { label: this.arrnew[this.props.quiz.qno].options.option3, value: 2 },
-            { label: this.arrnew[this.props.quiz.qno].options.option4, value: 3 },
-        ]; */
 
         const { 
             navButtonImageStyle, 
