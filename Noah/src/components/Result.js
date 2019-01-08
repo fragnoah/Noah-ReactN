@@ -106,8 +106,10 @@ class Result extends Component {
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Übersicht deiner bestandenen Fragebögen</Text>
-                    <PureChart data={sampleData} type='bar' />
+                        <Text style={cardTitle}>Übersicht deiner bestandenen Fragebögen</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            <PureChart data={sampleData} type='bar' />
+                        </View>
                     </Card>
 
                     <Card cardStyle={cardStyle}>
