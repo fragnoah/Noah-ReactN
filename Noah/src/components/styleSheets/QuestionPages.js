@@ -117,6 +117,6 @@ export const highlighter = {
 
 export const userMessage = {
     flashMessage: {
-        zIndex: 100
+        zIndex: 1000,
     }
 };

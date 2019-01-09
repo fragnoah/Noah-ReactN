@@ -67,7 +67,7 @@ class startPage extends Component {
                         imageStyle={noImageStyle}
                     />
                 </Card>  
-
+                {/*
                 <Card cardStyle={cardStyle}>
                     <Text style={cardTitle}>Statistik</Text>
                     <ButtonWithImage 
@@ -78,6 +78,7 @@ class startPage extends Component {
                         imgLeft={require('../assets/img/statistics.png')}
                     />
                 </Card>
+                */}
             </ScrollView>
         );
     }

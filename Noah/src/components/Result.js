@@ -67,24 +67,7 @@ class Result extends Component {
        
         const passed = this.props.quiz.passedFb.length;
         const rest = 15 - passed; 
-        /*
-        const sampleData = [
-            {
-            value: rest,
-            label: 'Zu bestehen',
-            color: 'red',
-            }, {
-            value: passed,
-            label: 'Bestanden',
-            color: 'green'
-            },
-        ];
         
-        const sampleData = [
-            { x: 'Bestanden', y: passed, color: '#297AB1' },
-            { x: 'zu bestehen', y: rest, color: 'blue' },
-        ];
-        */
        const sampleData = [
         {
           seriesName: 'Anzahl Fragebögen',
@@ -120,6 +103,7 @@ class Result extends Component {
                             buttonStyle={bigButtonStyle} 
                             imageStyle={imageStyle}
                             imgLeft={require('../assets/img/wrong.png')}
+                            disabled={this.props.quiz.wrongAns.length === 0}
                         />
                         <ButtonWithImage
                             buttonText="Markierte Fragen" 
@@ -127,6 +111,7 @@ class Result extends Component {
                             buttonStyle={smallButtonStyle} 
                             imageStyle={imageStyle}
                             imgLeft={img.mark}
+                            disabled={this.props.quiz.marked.length === 0}
                         />
                         <ButtonWithImage
                         buttonText="Alle Fragen" 
@@ -160,11 +145,10 @@ class Result extends Component {
                 </View>
 
                 </ScrollView>
-                         
                 <FlashMessage 
                     style={userMessage.flashMessage} 
                     ref="myLocalFlashMessage" 
-                    position="top" 
+                    position="top"
                 /> 
             </View>
         );

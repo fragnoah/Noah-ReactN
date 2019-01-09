@@ -17,25 +17,9 @@ const persistConfig = {
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-//const store = compose(persistedReducer, {}, applyMiddleware(Thunk));
 
 class App extends Component {
-    /*
-    constructor() {
-        super();
-        console.log('OS: ', Platform.OS, ' (', Platform.Version, ')');
-        if (Platform.OS === 'android') {
-            console.log('Trying to show');
-            //SplashScreen.show();
-        }
-    }
-    */
-
-    componentWillMount() {
-        // https://github.com/crazycodeboy/react-native-splash-screen
-        //if (Platform.OS === 'android') SplashScreen.show();
-    }
-
+    
     componentDidMount() {
         // https://github.com/crazycodeboy/react-native-splash-screen
         // do stuff while splash screen is shownc
@@ -44,7 +28,7 @@ class App extends Component {
             SplashScreen.hide();
         }
     }
-    //   <PersistGate loading={<SplashScreen />} persistor={persistor}> müsste eig. gehen...
+
     render() {
         const store = createStore(persistedReducer);
         const persistor = persistStore(store);
