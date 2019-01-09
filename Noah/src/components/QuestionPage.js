@@ -399,13 +399,14 @@ class QuestionPage extends Component {
                 </Card>
 
                 {this.renderDebug()}
-                          
-                <FlashMessage 
-                    style={userMessage.flashMessage} 
-                    ref="myLocalFlashMessage" 
-                    position="top" 
-                /> 
-                
+
+                    <FlashMessage 
+                        style={userMessage.flashMessage} 
+                        ref="myLocalFlashMessage" 
+                        position="top"
+                        floating={true} 
+                    />
+        
             </View>
              
         );
