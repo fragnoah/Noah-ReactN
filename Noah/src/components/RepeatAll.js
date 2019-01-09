@@ -186,18 +186,6 @@ class RepeatAll extends Component {
     }
 
     renderContent() {
-        /*
-        const radioProps = [
-            { label: this.arrnew[this.state.qno].options.option1,
-                value: 'option1' },
-            { label: this.arrnew[this.state.qno].options.option2,
-                value: 'option2' },
-            { label: this.arrnew[this.state.qno].options.option3,
-                value: 'option3' },
-            { label: this.arrnew[this.state.qno].options.option4,
-                value: 'option4' },
-        ];
-        */
        let highlight = ['abc'];
        switch (this.arrnew[this.state.qno].highlightWords[0]) {
            case 'option1':
