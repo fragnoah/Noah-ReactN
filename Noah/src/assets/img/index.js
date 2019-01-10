@@ -6,5 +6,9 @@ export const marked = require('./pinned.png');
 export const highlight = require('./highlight.png');
 export const highlighted = require('./highlighted.png');
 
+export const infoButton = require('./inf2.png');
 
+export const wallPaper = require('./NOAH_Wallpaper.png');
 
+export const backButton = require('./arrowLeft3.png');
+export const leftButton = require('./arrowLeft3.png');

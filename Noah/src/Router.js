@@ -16,7 +16,12 @@ import startPage from './components/startPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
-import { toMain, toResult } from './actions';
+import { 
+    toMain, 
+    toResult, 
+    startInfo,
+    resultInfo
+ } from './actions';
 import RepeatPage from './components/RepeatPage';
 
 import markedQuestion from './components/markedQuestion';
@@ -24,6 +29,8 @@ import RepeatAll from './components/RepeatAll';
 
 import GlossarList from './components/GlossarList';
 import VideoList from './components/VideoList';
+import * as img from './assets/img';
+import { styles } from './components/styleSheets/Router';
 
 
 class RouterComponent extends Component {
@@ -31,7 +38,7 @@ class RouterComponent extends Component {
     renderIOS() {
         return (
             <ImageBackground
-                source={imagePaths.wallPaper}
+                source={img.wallPaper}
                 style={styles.backgroundImage}
             >
                 <Router
@@ -43,33 +50,14 @@ class RouterComponent extends Component {
                     {this.renderScenes()}
                 </Router>
             </ImageBackground>
-           /* sollte funktionieren ... tut es aber nicht ....
-            <View style={{ flex: 1, backgroundColor: '#8BD5FB' }}>
-                <Router
-                  navigationBarStyle={styles.viewStyle}
-                  //getSceneStyle={() => ({ backgroundColor: 'transparent' })}
-                  //sceneStyle={styles.sceneStyle}
-                >
-                  {this.renderScenes()}
-                </Router>
-                <Image
-                    source={require('./assets/img/NOAH_Wallpaper.png')}
-                    style={{
-                        zIndex: 0,
-                        resizeMode: 'cover',
-                        height: '100%',
-                        width: '100%'
-                    }}
-                />
-            </View>
-            */
+
         );
     }
 
     renderAndroid() {
         return (
             <ImageBackground
-                source={imagePaths.wallPaper}
+                source={img.wallPaper}
                 style={styles.backgroundImage}
             >
                 <Router
@@ -91,6 +79,10 @@ class RouterComponent extends Component {
                         title="Menü"    
                         component={MainMenu} 
                         renderBackButton={() => (null)}
+                        onRight={startInfo}
+                        rightButtonImage={img.infoButton}
+                        rightButtonIconStyle={styles.infImageButton}
+                        rightButtonStyle={styles.infButtonStyle}
                         initial 
                     />
                 </Scene>
@@ -101,7 +93,7 @@ class RouterComponent extends Component {
                         title="Prüfungsmodus"
                         component={startPage}
                         onLeft={toMain}
-                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonImage={img.leftButton}
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
@@ -127,6 +119,10 @@ class RouterComponent extends Component {
                         title="Ergebnis"
                         component={Result}
                         renderBackButton={() => (null)}
+                        onRight={resultInfo}
+                        rightButtonImage={img.infoButton}
+                        rightButtonIconStyle={styles.infImageButton}
+                        rightButtonStyle={styles.infButtonStyle}
                         initial
                     />
                 </Scene>
@@ -137,7 +133,7 @@ class RouterComponent extends Component {
                         component={markedQuestion} 
                         renderBackButton={() => (null)}
                         onLeft={toResult}
-                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonImage={img.leftButton}
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial
@@ -150,7 +146,7 @@ class RouterComponent extends Component {
                         component={RepeatAll}
                         renderBackButton={() => (null)}
                         onLeft={toResult}
-                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonImage={img.leftButton}
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
@@ -163,7 +159,7 @@ class RouterComponent extends Component {
                         component={RepeatPage} 
                         renderBackButton={() => (null)}
                         onLeft={toResult}
-                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonImage={img.leftButton}
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial
@@ -176,7 +172,7 @@ class RouterComponent extends Component {
                         title="Lernen" 
                         component={LearnMenu} 
                         onLeft={toMain}
-                        leftButtonImage={imagePaths.leftButton}
+                        leftButtonImage={img.leftButton}
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
@@ -185,31 +181,31 @@ class RouterComponent extends Component {
                         key="learnbasic" 
                         title="Basisfragen" 
                         component={learnbasic} 
-                        backButtonImage={imagePaths.backButton}
+                        backButtonImage={img.backButton}
                     />
                     <Scene 
                         key="learnbinnen" 
                         title="Binnenfragen" 
                         component={learnbinnen} 
-                        backButtonImage={imagePaths.backButton}
+                        backButtonImage={img.backButton}
                     />
                     <Scene 
                         key="learnsegel" 
                         title="Segelfragen" 
                         component={learnsegel} 
-                        backButtonImage={imagePaths.backButton}
+                        backButtonImage={img.backButton}
                     />
                     <Scene 
                         key="glossar" 
                         title="Glossar" 
                         component={GlossarList} 
-                        backButtonImage={imagePaths.backButton}
+                        backButtonImage={img.backButton}
                     />
                     <Scene 
                         key="videos" 
                         title="Videos" 
                         component={VideoList} 
-                        backButtonImage={imagePaths.backButton}
+                        backButtonImage={img.backButton}
                     />
                 </Scene>
             </Scene>
@@ -229,51 +225,5 @@ class RouterComponent extends Component {
         }
     }
 }
-
-const imagePaths = {
-    wallPaper: require('./assets/img/NOAH_Wallpaper.png'),
-    backButton: require('./assets/img/arrowLeft3.png'),
-    leftButton: require('./assets/img/arrowLeft3.png'),
-}; 
-
-const styles = {
-    viewNavBarStyle: {
-        backgroundColor: 'rgba(21,98,231,0.75)',
-        paddingTop: 15,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        elevation: 2,
-        //marginBottom: 10
-    },
-    titleStyle: {
-        alignSelf: 'center',
-        fontSize: 25,
-        color: '#FFFFFF',
-    },
-    sceneStyle: {
-        backgroundColor: 'transparent',
-        //opacity: 1
-    },
-    sceneStyleIOS: {
-      flex: 1,
-      backgroundColor: 'rgba(145,200,250,1)'
-    },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    leftImageButton: { 
-        //flex: 1,
-        resizeMode: 'contain',
-        height: 18,
-        width: 10,
-        paddingLeft: 15
-    },
-    navImageButtonStyle: {
-        height: 40,
-        width: 120
-    }
-};
 
 export default RouterComponent;

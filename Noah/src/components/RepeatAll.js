@@ -278,7 +278,8 @@ class RepeatAll extends Component {
                 >  
                     <Card cardStyle={questionCardStyle.cardStyle}>
                         <ImageCardSection 
-                            style={{ backgroundColor: '#8CD6FC' }} 
+                            style={questionCardStyle.questionSection}
+                            imgStyle={questionCardStyle.imgStyle} 
                             id={this.arrnew[this.state.qno].id} 
                             text={this.arrnew[this.state.qno].frageText} 
                             image={this.arrnew[this.state.qno].image}

@@ -365,7 +365,8 @@ class QuestionPage extends Component {
                 >  
                     <Card cardStyle={questionCardStyle.cardStyle}>
                         <ImageCardSection 
-                            style={{ backgroundColor: '#8CD6FC' }} 
+                            style={questionCardStyle.questionSection}
+                            imgStyle={questionCardStyle.imgStyle} 
                             id={this.arrnew[this.props.quiz.qno].id} 
                             text={this.arrnew[this.props.quiz.qno].frageText} 
                             image={this.arrnew[this.props.quiz.qno].image}

@@ -68,7 +68,7 @@ class ImageCardSection extends Component {
       return (
         <View style={styles.imgContStyle}>
         <Image 
-          style={styles.imgStyle}              
+          style={[styles.imgStyle, this.props.imgStyle]}              
           source={{ uri: image }}
         />
       </View>
@@ -129,9 +129,9 @@ const styles = {
     marginRight: 10
   },
   imgStyle: {
-    height: 75,
-    width: 75,
-    resizeMode: 'contain'   
+    height: 80,
+    width: '100%',
+    resizeMode: 'contain', 
   },
   BuchRefText: {
     fontStyle: 'italic',

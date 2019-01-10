@@ -81,6 +81,7 @@ export const questionButtonStyle = {
     },
 };
 
+//Halbtransparenter Layer
 export const questionCardStyle = {
     navCardStyle: {
         //paddingLeft: 5,
@@ -106,7 +107,15 @@ export const questionCardStyle = {
         marginRight: 2,
         marginTop: 2,
         flex: 1
-    }
+    },
+    questionSection: { //Fragetext & Elemente
+        backgroundColor: '#8CD6FC',        
+    },
+    imgStyle: {  // Bild in Frage; nur an der Höhe schrauben!
+        height: 80,
+        width: '100%',
+        resizeMode: 'contain', 
+      },
 };
 
 export const highlighter = {
