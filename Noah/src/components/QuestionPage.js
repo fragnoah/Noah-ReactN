@@ -42,7 +42,7 @@ class QuestionPage extends Component {
                 150, 158, 159, 171, 176, 182, 194, 202, 209, 216, 224, 235, 253, 265, 271];
             this.props.safeAuswahl(auswahl);
             }
-        if (this.props.quiz.fragebogen === 'fb2') {
+        if (this.props.quiz.fragebogen === 'fb2') { 
             auswahl = [7, 15, 27, 39, 48, 67, 71, 78, 89, 93, 100, 118, 122, 134, 139,
                 152, 157, 166, 167, 177, 181, 187, 197, 207, 214, 218, 232, 243, 252, 279];
             this.props.safeAuswahl(auswahl);
