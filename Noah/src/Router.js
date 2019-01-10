@@ -129,7 +129,7 @@ class RouterComponent extends Component {
                 <Scene key="marked">
                     <Scene 
                         key="mark" 
-                        title="Makierte Fragen" 
+                        title="markierte Fragen" 
                         component={markedQuestion} 
                         renderBackButton={() => (null)}
                         onLeft={toResult}

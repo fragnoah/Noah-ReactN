@@ -82,7 +82,7 @@ class RepeatAll extends Component {
             this.props.unmark(this.state.qno);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage nicht mehr makiert',
+                description: 'Frage nicht mehr markiert',
                 type: 'success',
                 icon: 'success'
             });
@@ -90,7 +90,7 @@ class RepeatAll extends Component {
             this.props.mark(this.state.qno);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage wurde makiert',
+                description: 'Frage wurde markiert',
                 type: 'success',
                 icon: 'success'
             });

@@ -84,8 +84,8 @@ class Result extends Component {
                 <ScrollView>
                     <Card cardStyle={cardStyle}>
                         <Text style={cardTitle}>{this.Ergebnis}</Text>
-                        <Text>Basispunkte: {this.props.quiz.basisScore} von 7 </Text>
-                        <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>           
+                        <Text>Basisfragen: {this.props.quiz.basisScore} von 7 </Text>
+                        <Text>Spezifische Fragen: {this.props.quiz.spezScore} von 23 </Text>           
                     </Card>
 
                     <Card cardStyle={cardStyle}>

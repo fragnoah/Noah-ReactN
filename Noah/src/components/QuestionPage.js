@@ -26,6 +26,7 @@ import {
 } from './styleSheets';
 import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
+import * as fest from '../assets/datasrc/StandardFB';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -36,19 +37,9 @@ class QuestionPage extends Component {
         this.state = {
             lighted: false,
         };
-        /** etwas unschön - besser aus JSON, aber nice to Have */ 
-        if (this.props.quiz.fragebogen === 'fb1') { 
-            auswahl = [8, 16, 17, 32, 47, 60, 63, 79, 88, 92, 106, 124, 132, 140, 147,
-                150, 158, 159, 171, 176, 182, 194, 202, 209, 216, 224, 235, 253, 265, 271];
-            this.props.safeAuswahl(auswahl);
-            }
-        if (this.props.quiz.fragebogen === 'fb2') { 
-            auswahl = [7, 15, 27, 39, 48, 67, 71, 78, 89, 93, 100, 118, 122, 134, 139,
-                152, 157, 166, 167, 177, 181, 187, 197, 207, 214, 218, 232, 243, 252, 279];
-            this.props.safeAuswahl(auswahl);
-            }
-
-        //    
+        if (this.props.quiz.fragebogen !== 'random') {
+            auswahl = fest[this.props.quiz.fragebogen];
+        }    
         if (this.props.quiz.fragebogen === 'random') {
             if (this.props.quiz.auswahl.length === 0) {
                 const basis = [];
@@ -73,7 +64,7 @@ class QuestionPage extends Component {
                 console.log(auswahl);
                 this.props.safeAuswahl(auswahl);
             } else {
-                auswahl = this.props.quiz.auswahl;
+                auswahl = this.props.quiz.fragebogen;
             }
         }
         this.arrnew = jsondata.filter(val => {
@@ -146,7 +137,7 @@ class QuestionPage extends Component {
             this.props.unmark(this.props.quiz.qno);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage nicht mehr makiert',
+                description: 'Frage nicht mehr markiert',
                 type: 'success',
                 icon: 'success'
             });
@@ -154,7 +145,7 @@ class QuestionPage extends Component {
             this.props.mark(this.props.quiz.qno);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage wurde makiert',
+                description: 'Frage wurde markiert',
                 type: 'success',
                 icon: 'success'
             });
