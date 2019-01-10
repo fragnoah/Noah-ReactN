@@ -3,8 +3,10 @@ import { ScrollView, Text, Alert, Platform, ImageBackground } from 'react-native
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Card, ButtonWithImage } from './common';
-import { iosFix } from '../utils';
+import { iosFix, debug } from '../utils';
 import { menuStyle } from './styleSheets';
+import * as img from '../assets/img';
+
 
 class startPage extends Component {
     componentWillMount() {
@@ -30,13 +32,46 @@ class startPage extends Component {
         actions.toQuestions();
     }
 
+    renderDebug() {
+        if (debug) {
+            const { 
+                cardStyle,
+                cardTitle,      
+                bigButtonStyle,
+                imageStyle,             
+                smallButtonStyle,                
+                noImageStyle
+            } = menuStyle;
+            return (
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>For Debug</Text>
+                    <ButtonWithImage 
+                        buttonText="Statistik Test" 
+                        onPress={actions.toResult} 
+                        buttonStyle={bigButtonStyle} 
+                        imageStyle={imageStyle}
+                        imgLeft={img.statistic}
+                    />
+                    {/*
+                    <ButtonWithImage 
+                        buttonText="Test" 
+                        onPress={() => this.getFb('fb2')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                    */}
+                </Card>
+            
+            );
+        }
+    }
+
     renderContent() {
         const { 
             cardStyle,
             cardTitle,             
             smallButtonStyle,
             bigButtonStyle,
-            imageStyle,
             noImageStyle
         } = menuStyle;
 
@@ -67,18 +102,9 @@ class startPage extends Component {
                         imageStyle={noImageStyle}
                     />
                 </Card>  
-                {/*
-                <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Statistik</Text>
-                    <ButtonWithImage 
-                        buttonText="Statistik Test" 
-                        onPress={actions.toResult} 
-                        buttonStyle={bigButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/statistics.png')}
-                    />
-                </Card>
-                */}
+                
+                {this.renderDebug()}
+
             </ScrollView>
         );
     }

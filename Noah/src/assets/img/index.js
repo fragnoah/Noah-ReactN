@@ -12,3 +12,6 @@ export const wallPaper = require('./NOAH_Wallpaper.png');
 
 export const backButton = require('./arrowLeft3.png');
 export const leftButton = require('./arrowLeft3.png');
+
+/* ButtonIcons */
+export const statistic = require('./statistics.png');
