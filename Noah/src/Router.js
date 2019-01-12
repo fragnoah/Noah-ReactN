@@ -12,7 +12,7 @@ import MainMenu from './components/MainMenu';
 import LearnMenu from './components/LearnMenu';
 import QuestionPage from './components/QuestionPage';
 import Result from './components/Result';
-import startPage from './components/startPage';
+import StartPage from './components/StartPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
@@ -24,7 +24,7 @@ import {
  } from './actions';
 import RepeatPage from './components/RepeatPage';
 
-import markedQuestion from './components/markedQuestion';
+import MarkedQuestion from './components/MarkedQuestion';
 import RepeatAll from './components/RepeatAll';
 
 import GlossarList from './components/GlossarList';
@@ -32,9 +32,15 @@ import VideoList from './components/VideoList';
 import * as img from './assets/img';
 import { styles } from './components/styleSheets/Router';
 
-
+/**
+ * @brief Routing der verschiedenen Pages
+ * @author Matthias Cohn
+ */
 class RouterComponent extends Component {
 
+    /**
+     * @brief Handling des transparenten Background für iOS
+     */
     renderIOS() {
         return (
             <ImageBackground
@@ -70,6 +76,9 @@ class RouterComponent extends Component {
         );
     }
 
+     /**
+     * @brief Pages werden als Scene eingebunden
+     */
     renderScenes() {
         return (
             <Scene key="root" hideNavBar titleStyle={styles.titleStyle}>
@@ -91,7 +100,7 @@ class RouterComponent extends Component {
                     <Scene 
                         key="test" 
                         title="Prüfungsmodus"
-                        component={startPage}
+                        component={StartPage}
                         onLeft={toMain}
                         leftButtonImage={img.leftButton}
                         leftButtonIconStyle={styles.leftImageButton}
@@ -130,7 +139,7 @@ class RouterComponent extends Component {
                     <Scene 
                         key="mark" 
                         title="markierte Fragen" 
-                        component={markedQuestion} 
+                        component={MarkedQuestion} 
                         renderBackButton={() => (null)}
                         onLeft={toResult}
                         leftButtonImage={img.leftButton}

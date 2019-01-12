@@ -28,6 +28,10 @@ import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
 import * as fest from '../assets/datasrc/StandardFB';
 
+/**
+ * Die eigentliche Prüfungsseite
+ * @author Timur Burkholz
+ */
 class QuestionPage extends Component {
     constructor(props) {
         super(props);
@@ -39,6 +43,7 @@ class QuestionPage extends Component {
         };
         if (this.props.quiz.fragebogen !== 'random') {
             auswahl = fest[this.props.quiz.fragebogen];
+            this.props.safeAuswahl(auswahl);
         }    
         if (this.props.quiz.fragebogen === 'random') {
             if (this.props.quiz.auswahl.length === 0) {
@@ -59,19 +64,22 @@ class QuestionPage extends Component {
                     const r = Math.floor(Math.random() * 47) + 254;
                     if (segeln.indexOf(r) === -1) segeln.push(r);
                 }
-                console.log(segeln);
                 auswahl = [...basis, ...binnen, ...segeln];
-                console.log(auswahl);
                 this.props.safeAuswahl(auswahl);
-            } else {
-                auswahl = this.props.quiz.fragebogen;
             }
         }
+        /**
+         * Random oder feste ID-Vorgaben
+         * Aus diesen Ids dann neues Array herausfiltern aus Fragenpool
+         * In dem Array dann alle relevanten Daten vorhanden
+         */
         this.arrnew = jsondata.filter(val => {
             return auswahl.includes(val.id);
         });
     }
-
+    /**
+     * Drücken des Buttons-Zurück
+     */
     prev() {
         if (this.props.quiz.qno >= 1) {
             if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
@@ -83,7 +91,9 @@ class QuestionPage extends Component {
             });
         }
     }
-
+    /**
+     * Drücken des Buttons-Weiter
+     */
     next() {
             if (this.props.quiz.qno < this.arrnew.length - 1) {
                 if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
@@ -97,6 +107,7 @@ class QuestionPage extends Component {
                     lighted: false
                 });
             } else {
+                // wenn das Ende des Arrays erreicht ist
                 for (let i = 0, l = this.arrnew.length; i < l; i++) {
                     console.log(i);
                     if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
@@ -122,7 +133,10 @@ class QuestionPage extends Component {
             actions.toResult();
         }
     }
-
+    /**
+     * Auswahl einer Antwort mit Radiobutton -> Speicherung in Redux-State
+     * @param ans 
+     */
     answer(ans) {
         if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
             this.props.selectAnswer(ans);
@@ -131,7 +145,9 @@ class QuestionPage extends Component {
             this.props.updateAnswer(ans, this.props.quiz.qno);
             }
     }
-
+    /**
+     * markieren einer Frage
+     */
     markQuestion() {
         if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
             this.props.unmark(this.props.quiz.qno);
@@ -151,7 +167,6 @@ class QuestionPage extends Component {
             });
         }
     }
-
     doHighlight() {
         this.setState({
             lighted: true
@@ -280,7 +295,9 @@ class QuestionPage extends Component {
                 highlight = this.arrnew[this.props.quiz.qno].highlightWords;
             } 
 
-            
+        /**
+         * RadioButtons mit Fragentexten
+         */    
         const radioProps = [ 
             { label: (this.state.lighted === true &&
                 this.arrnew[this.props.quiz.qno].options.option1.includes(highlight) ? 

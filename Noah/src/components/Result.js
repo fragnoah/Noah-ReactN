@@ -9,7 +9,10 @@ import PureChart from 'react-native-pure-chart';
 import { menuStyle, userMessage } from './styleSheets';
 import * as img from '../assets/img';
 
-
+/**
+ * Ergebnisseite
+ * @author Timur Burkholz
+ */
 class Result extends Component {
     checkScore() {
          this.Ergebnis = 'Leider nicht bestanden';
@@ -21,7 +24,11 @@ class Result extends Component {
             }
         }
     }
-
+    /**
+     * Hierbei können falsche Fragen wiederholt werde
+     * Bei Buttonklick
+     * Weiterleitung zu RepeatPage.js Pages
+     */
     wrongRepeate() {
         if (this.props.quiz.wrongAns.length > 0) {
         this.props.resetWrongAnswer();
@@ -35,7 +42,11 @@ class Result extends Component {
             });
         }
     }
-
+    /**
+     * Hierbei können markierte Fragen wiederholt werde
+     * Bei Buttonklick
+     * Weiterleitung zu MarkedQuestion.js Pages
+     */
     marked() {
         this.props.resetMarked();
         if (this.props.quiz.marked.length > 0) {
@@ -49,7 +60,11 @@ class Result extends Component {
                 });
             }
     }
-
+    /**
+     * Hierbei können alle Fragen wiederholt werde
+     * Bei Buttonklick
+     * Weiterleitung zu RepeatAll.js Pages
+     */
     all() {
         this.props.resetMarked();
         actions.toRepeatAll();
@@ -65,6 +80,7 @@ class Result extends Component {
            // noImageStyle
         } = menuStyle;
        
+        // Inhalt für Stastik, passedFB= Redux-State mit bestanden FB
         const passed = this.props.quiz.passedFb.length;
         const rest = 15 - passed; 
         
