@@ -96,7 +96,7 @@ class RepeatPage extends Component {
             this.props.unmark(this.props.quiz.wrongAns[this.state.qno]);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage nicht mehr makiert',
+                description: 'Frage nicht mehr markiert',
                 type: 'success',
                 icon: 'success'
             });
@@ -104,7 +104,7 @@ class RepeatPage extends Component {
             this.props.mark(this.props.quiz.wrongAns[this.state.qno]);
             showMessage({
                 message: 'Hinweis',
-                description: 'Frage wurde makiert',
+                description: 'Frage wurde markiert',
                 type: 'success',
                 icon: 'success'
             });

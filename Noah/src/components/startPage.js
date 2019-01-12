@@ -51,15 +51,15 @@ class startPage extends Component {
                         buttonStyle={bigButtonStyle} 
                         imageStyle={imageStyle}
                         imgLeft={img.statistic}
-                    />
-                    {/*
+                    />   
+                                    
                     <ButtonWithImage 
                         buttonText="Test" 
-                        onPress={() => this.getFb('fb2')} 
+                        onPress={() => this.getFb('debug')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
-                    />
-                    */}
+                    /> 
+                                      
                 </Card>
             
             );
