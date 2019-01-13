@@ -1,23 +1,93 @@
-[
+[    
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Achtknoten",
+    "url": "https://www.youtube.com/watch?v=J8Yiht9wJv8&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg&index=2",
+    "thumbnail_image": "https://i.ytimg.com/vi/J8Yiht9wJv8/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLBqplOkMHcVszryZBiVE228xqTtQQ",
+    "duration": "02:01"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Kreuzknoten",
+    "url": "https://www.youtube.com/watch?v=y8SK7hZ6L58&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg&index=3",
+    "thumbnail_image": "https://i.ytimg.com/vi/LbBLVeyXoAI/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLAg96r8AxK3ro_AIEounrbp9nmcIQ",
+    "duration": "02:01"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Schotstek",
+    "url": "https://www.youtube.com/watch?v=QTXDvTxAO28&index=4&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg",
+    "thumbnail_image": "https://i.ytimg.com/vi/QTXDvTxAO28/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCTByNw7Jk_UrGoCd6v3Su-8CoVYA",
+    "duration": "03:46"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Palstek",
+    "url": "https://www.youtube.com/watch?v=gDMfauuvw-8&index=5&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg",
+    "thumbnail_image": "https://i.ytimg.com/vi/gDMfauuvw-8/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLAT6uj7C6D3ftbCVLqNw1ag4qnl3Q",
+    "duration": "04:31"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "1,5 Rundtörn und zwei halbe Schläge",
+    "url": "https://www.youtube.com/watch?v=nk9t3mcx6_4&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg&index=8",
+    "thumbnail_image": "https://i.ytimg.com/vi/nk9t3mcx6_4/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCbaL4PAXnpy1a1BqjfW2lhVsG6_g",
+    "duration": "05:00"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Webleinstek",
+    "url": "https://www.youtube.com/watch?v=wVhNocD3krQ&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg&index=6",
+    "thumbnail_image": "https://i.ytimg.com/vi/wVhNocD3krQ/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLBTDOcDNbXpL22ABvHkB7atFustWQ",
+    "duration": "02:57"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Klampe belegen",
+    "url": "https://www.youtube.com/watch?v=jeHX0KH_L4M&index=9&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg",
+    "thumbnail_image": "https://i.ytimg.com/vi/jeHX0KH_L4M/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLA8PY9OgrmyT26p42Zsel9lPMsq7A",
+    "duration": "03:04"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "",
+    "url": "https://www.youtube.com/watch?v=nk9t3mcx6_4&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg&index=8",
+    "thumbnail_image": "https://i.ytimg.com/vi/nk9t3mcx6_4/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCbaL4PAXnpy1a1BqjfW2lhVsG6_g",
+    "duration": "05:00"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Stopperstek",
+    "url": "https://www.youtube.com/watch?v=fJzhxXM5qVU&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg&index=7",
+    "thumbnail_image": "https://i.ytimg.com/vi/fJzhxXM5qVU/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCIzrQW-wo8m0McmxVWJlXuz9dweQ",
+    "duration": "03:37"
+  },    
+  {
+    "artist": "Kaepten Sailnator",
+    "title": "Fachbegriffe Segeln #1",
+    "url": "https://www.youtube.com/watch?v=0phBFOybw94",
+    "thumbnail_image": "https://i.ytimg.com/vi/0phBFOybw94/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCU64NtDPRHFR4fQfOChjrUYq2xPQ",
+    "duration": "10:12"
+  },
     {
-      "artist": "Ruthe",
-      "title": "Streit",
-      "url": "https://www.youtube.com/watch?v=KHjiCp7f0D4https://www.youtube.com/watch?v=KHjiCp7f0D4",
-      "thumbnail_image": "https://yt3.ggpht.com/a-/AAuE7mDRkqfIvNT__875zUm73Reor0eJhjuc_xYPQg=s48-mo-c-c0xffffffff-rj-k-no",
-      "duration": "1:24"
-    },
-      {
-      "artist": "Yen Luu",
-      "title": "Knoten Teil 2",
-      "url": "https://youtube.com",
-      "thumbnail_image": "",
-      "duration": "5:30"
-    },
-      {
-      "artist": "Yen Luu",
-      "title": "Knoten Teil 3",
-      "url": "https://youtube.com",
-      "thumbnail_image": "",
-      "duration": "1:30"
-    }
-  ]
+    "artist": "Kaepten Sailnator",
+    "title": "Segeltheorie | Segelkurs #2",
+    "url": "https://www.youtube.com/watch?v=LbBLVeyXoAI&t=183s",
+    "thumbnail_image": "https://i.ytimg.com/vi/LbBLVeyXoAI/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLAg96r8AxK3ro_AIEounrbp9nmcIQ",
+    "duration": "08:58"
+  },
+    {
+    "artist": "Kaepten Sailnator",
+    "title": "Der Amwindkurs | Segelkurs #3",
+    "url": "https://youtube.com",
+    "thumbnail_image": "https://i.ytimg.com/vi/H7pSpyj8nHU/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDZzmLSNMpypXOaijOqOs3wcr_YqQ",
+    "duration": "07:21"
+  },
+  {
+    "artist": "YouTube Kanal: Segeln",
+    "title": "Knoten für SBF Binnen + SBF See",
+    "url": "https://www.youtube.com/watch?v=LM_vfDtu9Eg&list=PLYDNf83Q02FXrSLrJJbh2fFml4uz4TmFg",
+    "thumbnail_image": "https://i.ytimg.com/vi/LM_vfDtu9Eg/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLC2EbSEL9_lq44nX1B4iVe5hHRn3Q",
+    "duration": "02:49"
+  }
+]

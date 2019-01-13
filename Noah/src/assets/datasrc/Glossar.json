@@ -1,36 +1,284 @@
-[
-  {
-    "key": "A",
-    "data": [
-      {
-        "title": "Anker",
-        "description": "as ist ein Anker",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "anleinen",
-        "description": "so geht das ..",
-        "image": "data:image/gif;base64,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",
-        "buchRef": "S. 123"
-      }
-    ]
-  },
-  {
-    "key": "B",
-    "data": [
-      {
-        "title": "Boot",
-        "description": "das ist ein Boot",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "banleinen",
-        "description": "so geht das ..",
-        "image": "" ,
-        "buchRef": ""
-      }
-    ]
-  }
-]
+[{
+	"key": "A",
+	"data": [{
+		"title": "Achteraus",
+		"description": "Bezeichnet die Wasserfl\u00e4che hinter einem Boot",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Achtern",
+		"description": "Bezeichnet den hinteren Teil. Wird h\u00e4ufig verwendet im Kontext mit Achteraus, Achterliek, Achterleine, Achterstag",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Achterstag",
+		"description": "Eine feste Stange, die vom Masttopp zum Heck des Bootes f\u00fchrt und verhindert, dass der Mast nach vorne kippt.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Aufschie\u00dfer",
+		"description": "Man\u00f6ver, bei der das Boot in den wahren Wind gedreht wird, um das Boot zu stoppen",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "B",
+	"data": [{
+		"title": "Back holen",
+		"description": "Auf die andere Seite holen, z.B. die Fock.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Baum",
+		"description": "Die Querstange zum Mast, auch Gro\u00dfbaum genannt.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Beidrehen",
+		"description": "Man\u00f6ver zum Verlangsamen des Boots bei starkem Wind oder hohem Wellengang.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "C",
+	"data": [{
+		"title": "Cruiser",
+		"description": "Segelboot, das weniger auf Geschwindigkeit ausgelegt ist und f\u00fcr die leichte Bedienbarkeit bekannt ist.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "D",
+	"data": [{
+		"title": "Dirk",
+		"description": "Die Dirk ist eine Leine, die von der Spitze des Mastes zum Baum zur\u00fcck an Deck verl\u00e4uft. Sie h\u00e4lt den Baum bei geborgenem Segel in seiner horizontalen Lage.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "E",
+	"data": [{
+		"title": "Einhand",
+		"description": "Alles, was ein Segler allein an Bord macht.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "F",
+	"data": [{
+		"title": "Fieren",
+		"description": "Das Losgeben einer Leine, wenn die Segel zu dicht geholt ist.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Fock",
+		"description": "Ein anderes Wort f\u00fcr Vorsegel",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "G",
+	"data": [{
+		"title": "Gischt",
+		"description": "Gischt ist wei\u00dfes Spritzwasser, das im Sturm von den Wellenk\u00e4mmen wegweht.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Gro\u00dfbaum",
+		"description": "Siehe Baum",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Gro\u00dfsegel",
+		"description": "Das Segel, welches am Gro\u00dfmast eines Segelbootes gefahren wird. Auch Gro\u00df genannt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "H",
+	"data": [{
+		"title": "Halbwind",
+		"description": "Das Boot steht im Winkel von 90\u00b0 zum scheinbaren Wind.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Halse",
+		"description": "Man\u00f6ver, bei dem das Boot mit dem Heck durch den Wind dreht.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "I",
+	"data": [{
+		"title": "In Fahrt",
+		"description": "Ein Schiff ist in Fahrt, wenn es weder im Hafen festgemacht ist, noch vor Anker liegt, noch auf Grund sitzt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "J",
+	"data": [{
+		"title": "Jolle",
+		"description": "Jollen haben die folgenden Eigenschaften: Sie k\u00f6nnen gleiten. Sie k\u00f6nnen kentern. Sie besitzen keinen festen Ballast.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "K",
+	"data": [{
+		"title": "Kielwasser",
+		"description": "Die klar erkennbare Spur verwirbelten Wassers, die ein fahrendes Schiff hinter sich l\u00e4sst. Im Kielwasser eines Schiffes l\u00e4uft ein Boot deutlich langsamer.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Kimmkieler",
+		"description": "Eine Yacht, die an jeder Bootsseite einen Kiel hat. Ein Kimmkieler kann problemlos aufrecht trocken fallen. Dem gegen\u00fcber steht der erh\u00f6hte Wasserwiderstand, was den Kimmkieler zu keinem besonders schnellen Boot macht.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Klampe",
+		"description": "Apparat zum Belegen einer Leine.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Klar zur Wende",
+		"description": "Kommando, zur Vorbereitung des Wendeman\u00f6vers, bei der die Crew bei dem Kommando Rhe die Seite wechseln muss. Das Kommando Rhe leitet die Wende ein.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Kreuzen",
+		"description": "Segelman\u00f6ver, bei dem das Boot immer wieder mit Wendeman\u00f6vern mit dem Bug durch den Wind dreht. Die Strecke zwischen zwei Wenden hei\u00dft Schlag.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Kr\u00e4ngung",
+		"description": "Eine Neigung des Boots, zum Beispiel durch einen Winddruck, welche das Boot in eine Schr\u00e4glage versetzt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "L",
+	"data": [{
+		"title": "Lee",
+		"description": "Die vom Wind abgewandte Bootsseite. Gegen\u00fcber von Lee liegt Luv.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Leichte Brise",
+		"description": "Auf der Beaufort Skala, die Windst\u00e4rke 3.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Liek",
+		"description": "Die Lieken werden unterschieden in Vorliek, Unterliek und Achterliek und bezeichnen jeweilig eine Seite eines Segels.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Luv",
+		"description": "Die dem Wind zugewandte Bootsseite. Gegen\u00fcber von Luv liegt Lee.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Luvgierig",
+		"description": "Das Segelboot wird nach Luv gezogen. Jedes Segelboot wird bei Kr\u00e4ngung luvgierig, was die Kentergefahr verringert.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "M",
+	"data": [{
+		"title": "Mann-\u00fcber-Bord-Man\u00f6ver",
+		"description": "Segelman\u00f6ver, zur Rettung eines \u00fcber Bord gefallenen Crewmitglieds. In der Pr\u00fcfung wird eine Boje \u00fcber Bord geworfen und durch Wendeman\u00f6ver wieder eingeholt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "O",
+	"data": [{
+		"title": "Orkan",
+		"description": "Auf der Beaufort Skala, die Windst\u00e4rke 12.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "P",
+	"data": [{
+		"title": "Pinne",
+		"description": "Instrument zum Lenken des Ruders.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "Q",
+	"data": [{
+		"title": "Q-Wende",
+		"description": "Segelman\u00f6ver, bei dem klassischerweise mit dem Bug durch den Wind vom Raumschotkurs in den anderen Raumschotkurs gefahren wird. Es erfolgt eine Kurs\u00e4nderung von circa 270\u00b0, wodurch sich auch die Q-Form ableiten l\u00e4sst.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "S",
+	"data": [{
+		"title": "Scheinbarer Wind",
+		"description": "Die Windgeschwindigkeit und Windrichtung in Bezug zum Boot. Der Scheinbare Wind ist das Ergebnis aus Windrichtung und Windst\u00e4rke des Wahren Windes und des Fahrtwindes.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Schot",
+		"description": "Leine, mit der ein Segel dichtgeholt oder gefiert werden kann. Man unterscheidet zwischen Gro\u00dfschot, Steuerbordschot, Backbordschot.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Sch\u00e4kel",
+		"description": "Ein Verbindungselement f\u00fcr Leinen, Segel und andere Teile aller Art.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Segellatte",
+		"description": "Aussteifung des Achterlieks.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Stag",
+		"description": "Die Stange am Segelboot, das den Mast des Bootes h\u00e4lt \u2013 Man unterscheidet zwischen Vorstag, Achterstag und Backstag.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "T",
+	"data": [{
+		"title": "Trimmen",
+		"description": "Segel trimmen bedeutet, dem Segel das optimale Profil geben.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "U",
+	"data": [{
+		"title": "Unterliekstrecker",
+		"description": "Eine Leine, zum Strecken des Unterlieks, um den unteren Teil des Gro\u00dfsegels flach zu trimmen.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "V",
+	"data": [{
+		"title": "Verklicker",
+		"description": "Kleine Fahne auf dem Mast eines Segelbootes, welcher die Windrichtung des scheinbaren Windes anzeigt.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Vorwindkurs",
+		"description": "Auf diesem Kurs wird der Vortrieb durch Winddruck erzeugt, bei dem der scheinbare Wind von achtern kommt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "W",
+	"data": [{
+		"title": "Wahrer Wind",
+		"description": "Die Windgeschwindigkeit und Windrichtung in Bezug zum Wasser. \u2013 zur Abgrenzung vom scheinbaren Wind.",
+		"image": "",
+		"buchRef": ""
+	}]
+}]
