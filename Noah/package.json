@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "postinstall": "react-native-schemes-manager all",
+    "postinstall": "react-native-schemes-manager all"
   },
   "xcodeSchemes": {
 		"Debug": ["Staging", "Preflight"],
@@ -13,14 +13,10 @@
 		"projectDirectory": "iOS",
 		"settings": {
 			"fix-script": {
-				// Additional environment variables your code might need
-				// They will be set using an `export` right before the scheme manager script runs.
 				"env": {
 					"NODE_BINARY": "/usr/bin/node6",
 					"LOGGING_LEVEL": "4"
 				},
-				// If you need to use some other command to run the scheme manager script
-				// (for example, if you use a library like Sentry).
 				"nodeCommand": "$NODE_BINARY ../node_modules/@sentry/cli/bin/sentry-cli react-native xcode"
 			}
 		}
@@ -54,5 +50,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
+  }
 }
