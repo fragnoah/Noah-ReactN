@@ -1,110 +1,284 @@
-[
-  {
-    "key": "A",
-    "data": [
-      {
-        "title": "Achtern",
-        "description": "Bezeichnet den hinteren Teil. Wird häufig verwendet im Kontext mit Achteraus, Achterliek, Achterleine, Achterstag",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "Achteraus",
-        "description": "Bezeichnet die Wasserfläche hinter einem Boot",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "Achteraus",
-        "description": "Die hintere Seite des Segels",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "Achterstag",
-        "description": "Eine feste Stange, die vom Masttopp zum Heck des Bootes führt und verhindert, dass der Mast nach vorne kippt.",
-        "image": "",
-        "buchRef": ""
-      },
-      {
-        "title": "Aufschießer",
-        "description": "Manöver, bei der das Boot in den wahren Wind gedreht wird, um das Boot zu stoppen",
-        "image": "",
-        "buchRef": ""
-      }
-    ]
-  },
-  {
-    "key": "B",
-    "data": [
-      {
-        "title": "Back holen",
-        "description": "Auf die andere Seite holen, z.B. die Fock.",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "Baum",
-        "description": "Die Querstange zum Mast, auch Großbaum genannt.",
-        "image": "" ,
-        "buchRef": ""
-      },
-      {
-        "title": "Beidrehen",
-        "description": "Manöver zum Verlangsamen des Boots bei starkem Wind oder hohem Wellengang.",
-        "image": "" ,
-        "buchRef": ""
-      }
-    ]
-  },
-  {
-    "key": "C",
-    "data": [
-      {
-        "title": "Cruiser",
-        "description": "Segelboot, das weniger auf Geschwindigkeit ausgelegt ist und für die leichte Bedienbarkeit bekannt ist.",
-        "image": "",
-        "buchRef": "" 
-      }
-    ]
-  },
-  {
-    "key": "D",
-    "data": [
-      {
-        "title": "Dirk",
-        "description": "Die Dirk ist eine Leine, die von der Spitze des Mastes zum Baum zurück an Deck verläuft. Sie hält den Baum bei geborgenem Segel in seiner horizontalen Lage.",
-        "image": "",
-        "buchRef": "" 
-      }
-    ]
-  },
-  {
-    "key": "E",
-    "data": [
-      {
-        "title": "Einhand",
-        "description": "Alles, was ein Segler allein an Bord macht.",
-        "image": "",
-        "buchRef": "" 
-      }
-    ]
-  },
-  {
-    "key": "F",
-    "data": [
-      {
-        "title": "Fieren",
-        "description": "Ein anderes Wort für Vorsegel",
-        "image": "",
-        "buchRef": "" 
-      },
-      {
-        "title": "Fock",
-        "description": "Ein anderes Wort für Vorsegel",
-        "image": "",
-        "buchRef": "" 
-      }     
-    ]
-  }
-]
+[{
+	"key": "A",
+	"data": [{
+		"title": "Achteraus",
+		"description": "Bezeichnet die Wasserfl\u00e4che hinter einem Boot",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Achtern",
+		"description": "Bezeichnet den hinteren Teil. Wird h\u00e4ufig verwendet im Kontext mit Achteraus, Achterliek, Achterleine, Achterstag",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Achterstag",
+		"description": "Eine feste Stange, die vom Masttopp zum Heck des Bootes f\u00fchrt und verhindert, dass der Mast nach vorne kippt.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Aufschie\u00dfer",
+		"description": "Man\u00f6ver, bei der das Boot in den wahren Wind gedreht wird, um das Boot zu stoppen",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "B",
+	"data": [{
+		"title": "Back holen",
+		"description": "Auf die andere Seite holen, z.B. die Fock.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Baum",
+		"description": "Die Querstange zum Mast, auch Gro\u00dfbaum genannt.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Beidrehen",
+		"description": "Man\u00f6ver zum Verlangsamen des Boots bei starkem Wind oder hohem Wellengang.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "C",
+	"data": [{
+		"title": "Cruiser",
+		"description": "Segelboot, das weniger auf Geschwindigkeit ausgelegt ist und f\u00fcr die leichte Bedienbarkeit bekannt ist.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "D",
+	"data": [{
+		"title": "Dirk",
+		"description": "Die Dirk ist eine Leine, die von der Spitze des Mastes zum Baum zur\u00fcck an Deck verl\u00e4uft. Sie h\u00e4lt den Baum bei geborgenem Segel in seiner horizontalen Lage.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "E",
+	"data": [{
+		"title": "Einhand",
+		"description": "Alles, was ein Segler allein an Bord macht.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "F",
+	"data": [{
+		"title": "Fieren",
+		"description": "Das Losgeben einer Leine, wenn die Segel zu dicht geholt ist.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Fock",
+		"description": "Ein anderes Wort f\u00fcr Vorsegel",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "G",
+	"data": [{
+		"title": "Gischt",
+		"description": "Gischt ist wei\u00dfes Spritzwasser, das im Sturm von den Wellenk\u00e4mmen wegweht.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Gro\u00dfbaum",
+		"description": "Siehe Baum",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Gro\u00dfsegel",
+		"description": "Das Segel, welches am Gro\u00dfmast eines Segelbootes gefahren wird. Auch Gro\u00df genannt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "H",
+	"data": [{
+		"title": "Halbwind",
+		"description": "Das Boot steht im Winkel von 90\u00b0 zum scheinbaren Wind.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Halse",
+		"description": "Man\u00f6ver, bei dem das Boot mit dem Heck durch den Wind dreht.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "I",
+	"data": [{
+		"title": "In Fahrt",
+		"description": "Ein Schiff ist in Fahrt, wenn es weder im Hafen festgemacht ist, noch vor Anker liegt, noch auf Grund sitzt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "J",
+	"data": [{
+		"title": "Jolle",
+		"description": "Jollen haben die folgenden Eigenschaften: Sie k\u00f6nnen gleiten. Sie k\u00f6nnen kentern. Sie besitzen keinen festen Ballast.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "K",
+	"data": [{
+		"title": "Kielwasser",
+		"description": "Die klar erkennbare Spur verwirbelten Wassers, die ein fahrendes Schiff hinter sich l\u00e4sst. Im Kielwasser eines Schiffes l\u00e4uft ein Boot deutlich langsamer.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Kimmkieler",
+		"description": "Eine Yacht, die an jeder Bootsseite einen Kiel hat. Ein Kimmkieler kann problemlos aufrecht trocken fallen. Dem gegen\u00fcber steht der erh\u00f6hte Wasserwiderstand, was den Kimmkieler zu keinem besonders schnellen Boot macht.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Klampe",
+		"description": "Apparat zum Belegen einer Leine.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Klar zur Wende",
+		"description": "Kommando, zur Vorbereitung des Wendeman\u00f6vers, bei der die Crew bei dem Kommando Rhe die Seite wechseln muss. Das Kommando Rhe leitet die Wende ein.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Kreuzen",
+		"description": "Segelman\u00f6ver, bei dem das Boot immer wieder mit Wendeman\u00f6vern mit dem Bug durch den Wind dreht. Die Strecke zwischen zwei Wenden hei\u00dft Schlag.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Kr\u00e4ngung",
+		"description": "Eine Neigung des Boots, zum Beispiel durch einen Winddruck, welche das Boot in eine Schr\u00e4glage versetzt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "L",
+	"data": [{
+		"title": "Lee",
+		"description": "Die vom Wind abgewandte Bootsseite. Gegen\u00fcber von Lee liegt Luv.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Leichte Brise",
+		"description": "Auf der Beaufort Skala, die Windst\u00e4rke 3.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Liek",
+		"description": "Die Lieken werden unterschieden in Vorliek, Unterliek und Achterliek und bezeichnen jeweilig eine Seite eines Segels.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Luv",
+		"description": "Die dem Wind zugewandte Bootsseite. Gegen\u00fcber von Luv liegt Lee.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Luvgierig",
+		"description": "Das Segelboot wird nach Luv gezogen. Jedes Segelboot wird bei Kr\u00e4ngung luvgierig, was die Kentergefahr verringert.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "M",
+	"data": [{
+		"title": "Mann-\u00fcber-Bord-Man\u00f6ver",
+		"description": "Segelman\u00f6ver, zur Rettung eines \u00fcber Bord gefallenen Crewmitglieds. In der Pr\u00fcfung wird eine Boje \u00fcber Bord geworfen und durch Wendeman\u00f6ver wieder eingeholt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "O",
+	"data": [{
+		"title": "Orkan",
+		"description": "Auf der Beaufort Skala, die Windst\u00e4rke 12.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "P",
+	"data": [{
+		"title": "Pinne",
+		"description": "Instrument zum Lenken des Ruders.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "Q",
+	"data": [{
+		"title": "Q-Wende",
+		"description": "Segelman\u00f6ver, bei dem klassischerweise mit dem Bug durch den Wind vom Raumschotkurs in den anderen Raumschotkurs gefahren wird. Es erfolgt eine Kurs\u00e4nderung von circa 270\u00b0, wodurch sich auch die Q-Form ableiten l\u00e4sst.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "S",
+	"data": [{
+		"title": "Scheinbarer Wind",
+		"description": "Die Windgeschwindigkeit und Windrichtung in Bezug zum Boot. Der Scheinbare Wind ist das Ergebnis aus Windrichtung und Windst\u00e4rke des Wahren Windes und des Fahrtwindes.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Schot",
+		"description": "Leine, mit der ein Segel dichtgeholt oder gefiert werden kann. Man unterscheidet zwischen Gro\u00dfschot, Steuerbordschot, Backbordschot.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Sch\u00e4kel",
+		"description": "Ein Verbindungselement f\u00fcr Leinen, Segel und andere Teile aller Art.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Segellatte",
+		"description": "Aussteifung des Achterlieks.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Stag",
+		"description": "Die Stange am Segelboot, das den Mast des Bootes h\u00e4lt \u2013 Man unterscheidet zwischen Vorstag, Achterstag und Backstag.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "T",
+	"data": [{
+		"title": "Trimmen",
+		"description": "Segel trimmen bedeutet, dem Segel das optimale Profil geben.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "U",
+	"data": [{
+		"title": "Unterliekstrecker",
+		"description": "Eine Leine, zum Strecken des Unterlieks, um den unteren Teil des Gro\u00dfsegels flach zu trimmen.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "V",
+	"data": [{
+		"title": "Verklicker",
+		"description": "Kleine Fahne auf dem Mast eines Segelbootes, welcher die Windrichtung des scheinbaren Windes anzeigt.",
+		"image": "",
+		"buchRef": ""
+	}, {
+		"title": "Vorwindkurs",
+		"description": "Auf diesem Kurs wird der Vortrieb durch Winddruck erzeugt, bei dem der scheinbare Wind von achtern kommt.",
+		"image": "",
+		"buchRef": ""
+	}]
+}, {
+	"key": "W",
+	"data": [{
+		"title": "Wahrer Wind",
+		"description": "Die Windgeschwindigkeit und Windrichtung in Bezug zum Wasser. \u2013 zur Abgrenzung vom scheinbaren Wind.",
+		"image": "",
+		"buchRef": ""
+	}]
+}]
