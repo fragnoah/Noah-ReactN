@@ -14,7 +14,7 @@ export const videoItemStyle = {
       thumbnailContainerStyle: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 10,
+        marginLeft: 5,
         marginRight: 10
       },
       imageStyle: {
@@ -25,11 +25,13 @@ export const videoItemStyle = {
       containerStyle: {
         borderBottomWidth: 1,
         padding: 5,
+        paddingRight: 10,
         backgroundColor: '#fff',
         justifyContent: 'flex-start',
         flexDirection: 'row',
         borderColor: '#ddd',
-        position: 'relative'
+        position: 'relative',
+        borderRadius: 5,
       }
 
 };
