@@ -24,7 +24,12 @@ import {
 import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
 
-class markedQuestion extends Component {
+/**
+ * Wiederholungsseite für markierte Fragen
+ * ! Anmerkungen siehe QuestionPage
+ * @author Timur Burkholz
+ */
+class MarkedQuestion extends Component {
     constructor(props) {
         super(props);
         this.arrnew = jsondata.filter(val => {
@@ -394,5 +399,5 @@ const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
 
-export default connect(mapStateToProbs, actions)(markedQuestion);
+export default connect(mapStateToProbs, actions)(MarkedQuestion);
 

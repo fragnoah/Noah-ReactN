@@ -12,7 +12,10 @@ const initalstate = {
     qno: 0,
     auswahl: []
 };
-
+/**
+ * Redux-Reducer um Redux-Store zu bearbeiten und aufzurufen
+ * @author Timur Burkholz
+ */
 export default (state = initalstate, action) => {
     switch (action.type) {
 

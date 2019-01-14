@@ -26,7 +26,7 @@ class VideoDetail extends Component {
         containerStyle
       } = videoItemStyle;
     return (
-      <Card>
+      <Card cardStyle={{ borderRadius: 5 }}>
         <CardSection style={containerStyle}>
           {this.renderThumbnail(thumbnail_image)}
           <View style={headerContentStyle}>

@@ -8,7 +8,15 @@ import { menuStyle } from './styleSheets';
 import * as img from '../assets/img';
 
 
-class startPage extends Component {
+ /**
+  * @brief StartPage des Prüfungsmodus
+  * @author Timur Burkholz
+  */
+class StartPage extends Component {
+    /** 
+     * Beim aufrufen der Page
+     * Überprüfung, ob eine Prüfung im Redux-Store gespeichert ist
+     */
     componentWillMount() {
         if (this.props.quiz.qno !== 29 && this.props.quiz.fragebogen !== '') {
             this.props.resetDefault();
@@ -25,7 +33,11 @@ class startPage extends Component {
         if (this.props.quiz.qno === 29) {
             this.props.resetFb();
         } 
-    }   
+    }
+    /**
+     * Speichert ausgewählten Fragebogen in Redux-State
+     * @param {*} fb 
+     */   
     getFb(fb) {
         this.props.resetFb();
         this.props.selectFb(fb);
@@ -130,5 +142,5 @@ const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
 
-export default connect(mapStateToProbs, actions)(startPage);
+export default connect(mapStateToProbs, actions)(StartPage);
 

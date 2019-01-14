@@ -24,6 +24,11 @@ import {
 import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
 
+/**
+ * Wiederholungsseite für falsche Fragen
+ * ! Anmerkungen siehe QuestionPage
+ * @author Timur Burkholz
+ */
 class RepeatPage extends Component {
     constructor(props) {
         super(props);

@@ -17,7 +17,13 @@ const persistConfig = {
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-
+/**
+ * Start-Component, beim Starten der App
+ * Hierbei Wir Redux-Persist im Render() initialisiert
+ * Damit wird Redux-Store wiederhergestellt
+ * Somit Speicherung von Fragebögen möglich 
+ * @author Timur Burkholz
+ */
 class App extends Component {
     
     componentDidMount() {
