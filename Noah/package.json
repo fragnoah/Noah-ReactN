@@ -8,19 +8,24 @@
     "postinstall": "react-native-schemes-manager all"
   },
   "xcodeSchemes": {
-		"Debug": ["Staging", "Preflight"],
-		"Release": ["Beta"],
-		"projectDirectory": "iOS",
-		"settings": {
-			"fix-script": {
-				"env": {
-					"NODE_BINARY": "/usr/bin/node6",
-					"LOGGING_LEVEL": "4"
-				},
-				"nodeCommand": "$NODE_BINARY ../node_modules/@sentry/cli/bin/sentry-cli react-native xcode"
-			}
-		}
-	},
+    "Debug": [
+      "Staging",
+      "Preflight"
+    ],
+    "Release": [
+      "Beta"
+    ],
+    "projectDirectory": "iOS",
+    "settings": {
+      "fix-script": {
+        "env": {
+          "NODE_BINARY": "/usr/bin/node6",
+          "LOGGING_LEVEL": "4"
+        },
+        "nodeCommand": "$NODE_BINARY ../node_modules/@sentry/cli/bin/sentry-cli react-native xcode"
+      }
+    }
+  },
   "dependencies": {
     "d3-scale": "^2.1.2",
     "immutability-helper": "^2.8.1",

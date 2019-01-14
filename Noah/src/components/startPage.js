@@ -7,6 +7,7 @@ import { iosFix, debug } from '../utils';
 import { menuStyle } from './styleSheets';
 import * as img from '../assets/img';
 
+
  /**
   * @brief StartPage des Prüfungsmodus
   * @author Timur Burkholz
