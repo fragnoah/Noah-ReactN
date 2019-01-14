@@ -20,7 +20,7 @@
     "settings": {
       "fix-script": {
         "env": {
-          "NODE_BINARY": "/usr/bin/node6",
+          "NODE_BINARY": "/usr/local/bin/node",
           "LOGGING_LEVEL": "4"
         }
       }
