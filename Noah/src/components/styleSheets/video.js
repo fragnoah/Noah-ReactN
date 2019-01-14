@@ -23,15 +23,20 @@ export const videoItemStyle = {
         width: null
       },
       containerStyle: {
-        borderBottomWidth: 1,
+        //borderBottomWidth: 1,
         padding: 5,
         paddingRight: 10,
         backgroundColor: '#fff',
         justifyContent: 'flex-start',
         flexDirection: 'row',
-        borderColor: '#ddd',
+        borderColor: 'rgba(21,98,231,0.75)',
         position: 'relative',
         borderRadius: 5,
+      },
+      cardStyle: {
+          borderWidth: 1,
+          borderRadius: 5,
+          borderColor: 'rgba(21,98,231,0.75)',
+          elevation: 1,
       }
-
 };
