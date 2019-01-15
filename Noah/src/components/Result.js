@@ -100,8 +100,8 @@ class Result extends Component {
                 <ScrollView>
                     <Card cardStyle={cardStyle}>
                         <Text style={cardTitle}>{this.Ergebnis}</Text>
-                        <Text>Basisfragen: {this.props.quiz.basisScore} von 7 </Text>
-                        <Text>Spezifische Fragen: {this.props.quiz.spezScore} von 23 </Text>           
+                        <Text>Basisfragen: {this.props.quiz.basisScore} von 7 richtig beantwortet </Text>
+                        <Text>Spezifische Fragen: {this.props.quiz.spezScore} von 23 richtig beantwortet </Text>           
                     </Card>
 
                     <Card cardStyle={cardStyle}>
@@ -112,7 +112,7 @@ class Result extends Component {
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Auswertung</Text>
+                        <Text style={cardTitle}>Wiederholung</Text>
                         <ButtonWithImage
                             buttonText="Falsche Fragen" 
                             onPress={() => this.wrongRepeate()}
@@ -142,7 +142,7 @@ class Result extends Component {
                 
                 <View>
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Navigation </Text>
+                        <Text style={cardTitle}>Menü</Text>
                         <ButtonWithImage
                             buttonText="Fragebögen" 
                             onPress={actions.toTests}
