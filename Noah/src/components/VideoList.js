@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import VideoDetail from './VideoDetail';
+import { iosFix } from '../utils';
 
 class VideoList extends Component {
   
@@ -38,14 +39,6 @@ class VideoList extends Component {
       );
   }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
 
 const mapStateToProps = state => {
   console.log(state);

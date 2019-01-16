@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, ImageBackground } from 'react-native';
 import LearnQuestionList from './LearnQuestionList';
-
+import { iosFix } from '../utils';
 class LearnSegel extends Component {
 //const Quest = (props) => {
     //render(props) {
@@ -27,13 +27,5 @@ class LearnSegel extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
 
 export default LearnSegel;

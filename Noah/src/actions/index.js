@@ -1,8 +1,16 @@
 export * from './NavActions';
 export * from './LearnActions';
-/*
-export * from './Quizactions';
-*/
+export * from './messages';
+/**
+ * @author Timur Burkholz
+ */
+
+
+/**
+ * Auswahl Fragebogen
+ * Zugriff auf Redux-Store
+ * @param fb 
+ */
 export const selectFb = (fb) => {
     return {
       type: 'select_fb',
@@ -43,6 +51,11 @@ export const getSpezScore = (spezScore) => {
     payload: spezScore
   };
 };
+/**
+ * Speichern falscher Fragen
+ * Zugriff auf Redux-Store
+ * @param i 
+ */
 export const wrong = (i) => {
   return {
     type: 'wrong',
@@ -96,12 +109,22 @@ export const resetDefault = () => {
     type: 'reset_default'
   };
 };
+/**
+ * Speichern bestandenen Fragebogen
+ * Notwendig für Statistische Auswertung
+ * Zugriff auf Redux-Store
+ * @param i 
+ */
 export const passFb = (fb) => {
   return {
     type: 'pass_Fb',
     payload: fb
   };
 };
+/**
+ * Nächste Frage auswählen
+ * Zugriff auf Redux-Store
+ */
 export const increment = () => {
   return {
     type: 'inc'
@@ -112,4 +135,9 @@ export const decrement = () => {
     type: 'dec'
   };
 };
-
+export const safeAuswahl = (auswahl) => {
+  return {
+    type: 'safe_auswahl',
+    payload: auswahl
+  };
+};

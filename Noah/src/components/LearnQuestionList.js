@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import LearnQuestionItem from './LearnQuestionItem';
+import { iosFix } from '../utils';
 
 class LearnQuestionList extends Component {
   constructor(props) {
@@ -72,14 +73,6 @@ class LearnQuestionList extends Component {
       );
   }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
 
 const mapStateToProps = state => {
   return { pool: state.pool };

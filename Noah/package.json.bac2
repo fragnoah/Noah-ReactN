@@ -20,9 +20,10 @@
     "settings": {
       "fix-script": {
         "env": {
-          "NODE_BINARY": "/usr/local/bin/node",
+          "NODE_BINARY": "/usr/bin/node6",
           "LOGGING_LEVEL": "4"
-        }
+        },
+        "nodeCommand": "$NODE_BINARY ../node_modules/@sentry/cli/bin/sentry-cli react-native xcode"
       }
     }
   },

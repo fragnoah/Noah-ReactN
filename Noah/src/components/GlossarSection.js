@@ -10,6 +10,7 @@ import { CardSection } from './common';
 import * as actions from '../actions';
 // import CacheImage from './CacheImage';
 import GlossarEntry from './GlossarEntry';
+import { glossaryStyle } from './styleSheets';
 
 class GlossarSection extends Component {
 
@@ -28,6 +29,7 @@ class GlossarSection extends Component {
     
   render() {
     const { key } = this.props.glossar;
+    const { sectionContainer, sectionTitle } = glossaryStyle;
 
     //console.log(this.props);
     return (
@@ -35,8 +37,8 @@ class GlossarSection extends Component {
       onPress={() => this.props.selectGlossarySection(key)}
       >
         <View>
-          <CardSection style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>{key}</Text>
+          <CardSection style={sectionContainer}>
+            <Text style={sectionTitle}>{key}</Text>
           </CardSection>
           {this.renderSection()}
         </View>
@@ -45,29 +47,6 @@ class GlossarSection extends Component {
   }
 
 }
-
-const styles = {
-  descriptionStyle: {
-    paddingLeft: 15,
-    paddingRight: 5,
-    flex: 1
-  }, 
-  boldText: {
-    fontWeight: 'bold'
-  },
-  sectionTitle: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    //backgroundColor: '#8CD6FC'
-  },
-  sectionContainer: {
-    backgroundColor: '#8CD6FC',
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderButtomWidth: 2,
-    borderColor: 'rgba(21,98,231,1)',
-  }
-};
 
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedGlossarSection === ownProps.glossar.key;

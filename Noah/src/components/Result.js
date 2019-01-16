@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Platform, ImageBackground } from 'react-native';
+import { View, ScrollView, Text, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import { ProgressCircle, BarChart, Grid, XAxis } from 'react-native-svg-charts';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
-import * as scale from 'd3-scale';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
+import { iosFix } from '../utils';
+import PureChart from 'react-native-pure-chart';
+import { menuStyle, userMessage } from './styleSheets';
+import * as img from '../assets/img';
 
-
+/**
+ * Ergebnisseite
+ * @author Timur Burkholz
+ */
 class Result extends Component {
     checkScore() {
-         this.Ergebnis = 'leider nicht bestanden';
+         this.Ergebnis = 'Leider nicht bestanden';
         if (this.props.quiz.basisScore >= 5 && this.props.quiz.spezScore >= 18) {
-            this.Ergebnis = 'Glückwünsch,bestanden';
-            if (this.props.quiz.passedFb.includes(this.props.quiz.fragebogen) === false) {
-                this.props.passFb(this.props.quiz.fragebogen);
+            this.Ergebnis = 'Glückwünsch, bestanden';
+            if (this.props.quiz.passedFb.includes(this.props.quiz.fragebogen) === false 
+                && this.props.quiz.fragebogen !== 'random') {
+                    this.props.passFb(this.props.quiz.fragebogen);
             }
         }
     }
+    /**
+     * Hierbei können falsche Fragen wiederholt werde
+     * Bei Buttonklick
+     * Weiterleitung zu RepeatPage.js Pages
+     */
     wrongRepeate() {
         if (this.props.quiz.wrongAns.length > 0) {
         this.props.resetWrongAnswer();
@@ -31,6 +42,11 @@ class Result extends Component {
             });
         }
     }
+    /**
+     * Hierbei können markierte Fragen wiederholt werde
+     * Bei Buttonklick
+     * Weiterleitung zu MarkedQuestion.js Pages
+     */
     marked() {
         this.props.resetMarked();
         if (this.props.quiz.marked.length > 0) {
@@ -43,7 +59,12 @@ class Result extends Component {
                     icon: 'info'
                 });
             }
-        }
+    }
+    /**
+     * Hierbei können alle Fragen wiederholt werde
+     * Bei Buttonklick
+     * Weiterleitung zu RepeatAll.js Pages
+     */
     all() {
         this.props.resetMarked();
         actions.toRepeatAll();
@@ -57,81 +78,59 @@ class Result extends Component {
             bigButtonStyle,
             imageStyle,
            // noImageStyle
-        } = styles;
-        const progess = this.props.quiz.passedFb.length / 15;
-        const rest = 15 - this.props.quiz.passedFb.length;
-        const data = [
-            {
-                value: this.props.quiz.passedFb.length,
-                label: 'Bestandene Fragebögen',
-                svg: {
-                    fill: 'rgb(50,205,50)',
-                },
-            },
-            {
-                value: rest,
-                label: 'Noch zu bestehen',
-                svg: {
-                    fill: 'rgb(255,0,0)',
-                },
-            },
-        ];
+        } = menuStyle;
+       
+        // Inhalt für Stastik, passedFB= Redux-State mit bestanden FB
+        const passed = this.props.quiz.passedFb.length;
+        const rest = 15 - passed; 
         
+       const sampleData = [
+        {
+          seriesName: 'Anzahl Fragebögen',
+          data: [
+            { x: 'bestanden', y: passed },
+            { x: 'zu bestehen', y: rest },
+          ],
+          color: '#297AB1'
+        },
+    ]
         this.checkScore();
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView>
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Ergebnis </Text>
-                        <Text>Basispunkte: {this.props.quiz.basisScore} von 7 </Text>
-                        <Text>Spezpunkte: {this.props.quiz.spezScore} von 23 </Text>
-                        <Text>{this.Ergebnis}</Text>
+                        <Text style={cardTitle}>{this.Ergebnis}</Text>
+                        <Text>Basisfragen: {this.props.quiz.basisScore} von 7 richtig beantwortet </Text>
+                        <Text>Spezifische Fragen: {this.props.quiz.spezScore} von 23 richtig beantwortet </Text>           
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Statistik</Text>
-                        <View style={{ height: 200 }}>
-                            <BarChart
-                                style={{ flex: 1 }}
-                                data={data}
-                                yAccessor={({ item }) => item.value}
-                                gridMin={0}
-                                svg={{ fill: 'rgb(134, 65, 244)' }}
-                            />
-                            <XAxis
-                                style={{ marginTop: 10 }}
-                                data={data}
-                                scale={scale.scaleBand}
-                                formatLabel={(_, index) => data[index].label}
-                            />
+                        <Text style={cardTitle}>Übersicht deiner bestandenen Fragebögen</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            <PureChart data={sampleData} type='bar' />
                         </View>
-                        <ProgressCircle
-                            style={{ height: 100, backgroundColor: 'transparent' }}
-                            progress={progess}
-                            progressColor={'rgb(50,205,50)'}
-                            startAngle={-Math.PI * 0.8}
-                            endAngle={Math.PI * 0.8}
-                        />
                     </Card>
 
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>Test analysieren</Text>
+                        <Text style={cardTitle}>Wiederholung</Text>
                         <ButtonWithImage
                             buttonText="Falsche Fragen" 
                             onPress={() => this.wrongRepeate()}
                             buttonStyle={bigButtonStyle} 
                             imageStyle={imageStyle}
                             imgLeft={require('../assets/img/wrong.png')}
+                            disabled={this.props.quiz.wrongAns.length === 0}
                         />
                         <ButtonWithImage
-                            buttonText="Makierte Fragen" 
+                            buttonText="Markierte Fragen" 
                             onPress={() => this.marked()} 
                             buttonStyle={smallButtonStyle} 
                             imageStyle={imageStyle}
-                            imgLeft={require('../assets/img/flag.png')}
+                            imgLeft={img.mark}
+                            disabled={this.props.quiz.marked.length === 0}
                         />
                         <ButtonWithImage
-                        buttonText="alle Fragen" 
+                        buttonText="Alle Fragen" 
                         onPress={() => this.all()} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={imageStyle}
@@ -143,16 +142,16 @@ class Result extends Component {
                 
                 <View>
                     <Card cardStyle={cardStyle}>
-                        <Text style={cardTitle}>weiter </Text>
+                        <Text style={cardTitle}>Menü</Text>
                         <ButtonWithImage
-                            buttonText="zu den Fragebögen" 
+                            buttonText="Fragebögen" 
                             onPress={actions.toTests}
                             buttonStyle={bigButtonStyle} 
                             imageStyle={imageStyle}
                             imgLeft={require('../assets/img/test.png')}
                         />
                         <ButtonWithImage
-                            buttonText="zum Hauptmenü" 
+                            buttonText="Hauptmenü" 
                             onPress={actions.toMain} 
                             buttonStyle={smallButtonStyle} 
                             imageStyle={imageStyle}
@@ -162,7 +161,11 @@ class Result extends Component {
                 </View>
 
                 </ScrollView>
-                <FlashMessage ref="myLocalFlashMessage" />
+                <FlashMessage 
+                    style={userMessage.flashMessage} 
+                    ref="myLocalFlashMessage" 
+                    position="top"
+                /> 
             </View>
         );
     }
@@ -183,48 +186,6 @@ class Result extends Component {
         );
     }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
-const styles = {
-    cardStyle: {
-        paddingLeft: 5,
-        paddingTop: 5,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-    },
-    cardTitle: {
-        fontSize: 20,
-        opacity: 1
-    },
-    smallButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-        marginTop: 5
-    },
-    bigButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-    },
-    imageStyle: {
-        height: 40,
-        width: 40
-    },
-    noImageStyle: {
-        height: 0,
-        width: 40
-    }
-};
 
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };

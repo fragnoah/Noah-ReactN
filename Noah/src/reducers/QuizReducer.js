@@ -9,14 +9,20 @@ const initalstate = {
     marked: [],
     wrongArr: [],
     passedFb: [],
-    qno: 0
+    qno: 0,
+    auswahl: []
 };
-
+/**
+ * Redux-Reducer um Redux-Store zu bearbeiten und aufzurufen
+ * @author Timur Burkholz
+ */
 export default (state = initalstate, action) => {
     switch (action.type) {
 
         case 'select_fb':
            return { ...state, fragebogen: action.payload };
+        case 'safe_auswahl':
+           return { ...state, auswahl: action.payload };
         case 'select_answer': {
             const newItem = action.payload;
             return { 
@@ -41,7 +47,8 @@ export default (state = initalstate, action) => {
                 marked: [],
                 wrongAns: [],
                 wrongArr: [],
-                qno: 0
+                qno: 0,
+                auswahl: [],
             };
         }
         case 'inc': {
@@ -95,8 +102,12 @@ export default (state = initalstate, action) => {
                 marked: state.marked.filter(item => item !== action.payload)
             };
         }
-        case 'reset_marked': {
-            return { ...state, arr: [] };
+        case 'pass_Fb': {
+            const newItem = action.payload;
+            return { 
+                ...state,
+                passedFb: [...state.passedFb, newItem]
+            };
         }
         case 'reset_default': {
             return { ...state, 
@@ -106,12 +117,8 @@ export default (state = initalstate, action) => {
                 wrongArr: [],
             };
         }
-        case 'pass_Fb': {
-            const newItem = action.payload;
-            return { 
-                ...state,
-                passedFb: [...state.passedFb, newItem]
-            };
+        case 'reset_marked': {
+            return { ...state, arr: [] };
         }
         default:
             return state;

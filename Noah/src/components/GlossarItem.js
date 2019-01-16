@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { CardSection, ImageCardSection } from './common';
 import * as actions from '../actions';
 // import CacheImage from './CacheImage';
+import { glossaryStyle } from './styleSheets';
 
 class GlossarSection extends Component {
 
@@ -25,7 +26,7 @@ class GlossarSection extends Component {
           text={description} 
           image={image} 
           buchRef={buchRef}
-          textStyle={styles.descriptionTextStyle}
+          textStyle={glossaryStyle.descriptionTextStyle}
         />
       );
     }
@@ -39,8 +40,8 @@ class GlossarSection extends Component {
       onPress={() => this.props.selectGlossaryTitle(title)}
       >
         <View>
-          <CardSection style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>{title}</Text>
+          <CardSection style={glossaryStyle.itemContainer}>
+            <Text style={glossaryStyle.sectionTitle}>{title}</Text>
           </CardSection>
           {this.renderDescription()}
         </View>
@@ -49,23 +50,6 @@ class GlossarSection extends Component {
   }
 
 }
-
-const styles = {
-  descriptionTextStyle: {
-    fontSize: 15,
-    paddingLeft: 10,
-    paddingRight: 5,
-    flex: 1
-  },
-  sectionTitle: {
-    fontWeight: 'bold',
-    fontSize: 18
-  },
-  sectionContainer: {
-    paddingTop: 10,
-    paddingBottom: 10
-  }
-};
 
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedGlossarTitle === ownProps.item.title;

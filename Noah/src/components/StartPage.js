@@ -3,8 +3,20 @@ import { ScrollView, Text, Alert, Platform, ImageBackground } from 'react-native
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Card, ButtonWithImage } from './common';
+import { iosFix, debug } from '../utils';
+import { menuStyle } from './styleSheets';
+import * as img from '../assets/img';
 
-class startPage extends Component {
+
+ /**
+  * @brief StartPage des Prüfungsmodus
+  * @author Timur Burkholz
+  */
+class StartPage extends Component {
+    /** 
+     * Beim aufrufen der Page
+     * Überprüfung, ob eine Prüfung im Redux-Store gespeichert ist
+     */
     componentWillMount() {
         if (this.props.quiz.qno !== 29 && this.props.quiz.fragebogen !== '') {
             this.props.resetDefault();
@@ -21,11 +33,49 @@ class startPage extends Component {
         if (this.props.quiz.qno === 29) {
             this.props.resetFb();
         } 
-    }   
+    }
+    /**
+     * Speichert ausgewählten Fragebogen in Redux-State
+     * @param {*} fb 
+     */   
     getFb(fb) {
         this.props.resetFb();
         this.props.selectFb(fb);
         actions.toQuestions();
+    }
+
+    renderDebug() {
+        if (debug) {
+            const { 
+                cardStyle,
+                cardTitle,      
+                bigButtonStyle,
+                imageStyle,             
+                smallButtonStyle,                
+                noImageStyle
+            } = menuStyle;
+            return (
+                <Card cardStyle={cardStyle}>
+                    <Text style={cardTitle}>For Debug</Text>
+                    <ButtonWithImage 
+                        buttonText="Statistik Test" 
+                        onPress={actions.toResult} 
+                        buttonStyle={bigButtonStyle} 
+                        imageStyle={imageStyle}
+                        imgLeft={img.statistic}
+                    />   
+                                    
+                    <ButtonWithImage 
+                        buttonText="Test" 
+                        onPress={() => this.getFb('debug')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    /> 
+                                      
+                </Card>
+            
+            );
+        }
     }
 
     renderContent() {
@@ -34,14 +84,13 @@ class startPage extends Component {
             cardTitle,             
             smallButtonStyle,
             bigButtonStyle,
-            imageStyle,
             noImageStyle
-        } = styles;
+        } = menuStyle;
 
         return (
             <ScrollView>
                 <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>vorgefertigter Test </Text>
+                    <Text style={cardTitle}>Fragebogen starten</Text>
                     <ButtonWithImage 
                         buttonText="Fragebogen 1" 
                         onPress={() => this.getFb('fb1')}
@@ -57,25 +106,17 @@ class startPage extends Component {
 
                 </Card>
                 <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Test generieren</Text>
+                    <Text style={cardTitle}>Zufallstest starten</Text>
                     <ButtonWithImage 
-                        buttonText="noch zu entwerfen" 
-                        onPress={actions.toGlossar} 
+                        buttonText="Zufallsfragen" 
+                        onPress={() => this.getFb('random')}
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                 </Card>  
+                
+                {this.renderDebug()}
 
-                <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Statistik</Text>
-                    <ButtonWithImage 
-                        buttonText="Statistik Test" 
-                        onPress={actions.toResult} 
-                        buttonStyle={bigButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/statistics.png')}
-                    />
-                </Card>
             </ScrollView>
         );
     }
@@ -97,51 +138,9 @@ class startPage extends Component {
     }
 }
 
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
-
-const styles = {
-    cardStyle: {
-        paddingLeft: 5,
-        paddingTop: 5,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255,255,255, 0.3)',
-    },
-    cardTitle: {
-        fontSize: 20,
-        opacity: 1
-    },
-    smallButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-        marginTop: 5
-    },
-    bigButtonStyle: {
-        padding: 0,
-        marginLeft: 20,
-        marginRight: 2,
-        opacity: 1,
-    },
-    imageStyle: {
-        height: 50,
-        width: 50
-    },
-    noImageStyle: {
-        height: 0,
-        width: 50
-    }
-};
-
 const mapStateToProbs = state => {
     return { quiz: state.selectedFb };
 };
 
-export default connect(mapStateToProbs, actions)(startPage);
+export default connect(mapStateToProbs, actions)(StartPage);
 

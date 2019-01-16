@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, ScrollView, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import GlossarSection from './GlossarSection';
+import { iosFix } from '../utils';
 
 class GlossarList extends Component {
 
@@ -38,14 +39,6 @@ class GlossarList extends Component {
       );
   }
 }
-
-const iosFix = {
-    style: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    path: require('../assets/img/NOAH_Wallpaper.png'),
-};
 
 const mapStateToProps = state => {
   return { glossary: state.glossary };

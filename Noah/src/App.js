@@ -3,7 +3,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { Platform } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { PersistGate } from 'redux-persist/lib/integration/react';
+import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 //import Thunk from 'redux-thunk';
@@ -13,28 +13,19 @@ import reducers from './reducers';
 const persistConfig = {
     key: 'root',
     storage,
+    whitelist: ['selectedFb']
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-//const store = compose(persistedReducer, {}, applyMiddleware(Thunk));
-
+/**
+ * Start-Component, beim Starten der App
+ * Hierbei Wir Redux-Persist im Render() initialisiert
+ * Damit wird Redux-Store wiederhergestellt
+ * Somit Speicherung von Fragebögen möglich 
+ * @author Timur Burkholz
+ */
 class App extends Component {
-    /*
-    constructor() {
-        super();
-        console.log('OS: ', Platform.OS, ' (', Platform.Version, ')');
-        if (Platform.OS === 'android') {
-            console.log('Trying to show');
-            //SplashScreen.show();
-        }
-    }
-    */
-
-    componentWillMount() {
-        // https://github.com/crazycodeboy/react-native-splash-screen
-        //if (Platform.OS === 'android') SplashScreen.show();
-    }
-
+    
     componentDidMount() {
         // https://github.com/crazycodeboy/react-native-splash-screen
         // do stuff while splash screen is shownc
@@ -49,7 +40,7 @@ class App extends Component {
         const persistor = persistStore(store);
         return (
             <Provider store={store}>
-                <PersistGate persistor={persistor}>
+                <PersistGate loading={null} persistor={persistor}>
                     <Router />
                 </PersistGate>
             </Provider>
