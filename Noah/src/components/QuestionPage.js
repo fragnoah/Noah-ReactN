@@ -37,7 +37,7 @@ class QuestionPage extends Component {
         super(props);
         this.basisScore = 0;
         this.spezScore = 0;
-        let auswahl = [];
+        let auswahl = this.props.quiz.auswahl;
         this.state = {
             lighted: false,
         };
