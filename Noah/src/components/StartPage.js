@@ -90,7 +90,7 @@ class StartPage extends Component {
         return (
             <ScrollView>
                 <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>vorgefertigter Test </Text>
+                    <Text style={cardTitle}>Fragebogen starten</Text>
                     <ButtonWithImage 
                         buttonText="Fragebogen 1" 
                         onPress={() => this.getFb('fb1')}
@@ -106,7 +106,7 @@ class StartPage extends Component {
 
                 </Card>
                 <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Test generieren</Text>
+                    <Text style={cardTitle}>Zufallstest starten</Text>
                     <ButtonWithImage 
                         buttonText="Zufallsfragen" 
                         onPress={() => this.getFb('random')}
