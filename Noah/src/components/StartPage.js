@@ -10,7 +10,7 @@ import * as img from '../assets/img';
 
  /**
   * @brief StartPage des Prüfungsmodus
-  * @author Timur Burkholz
+  * @author Timur Burkholz, Yen Luu
   */
 class StartPage extends Component {
     /** 
@@ -102,6 +102,53 @@ class StartPage extends Component {
                         onPress={() => this.getFb('fb2')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
+                    />
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 3" 
+                        onPress={() => this.getFb('fb3')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 4" 
+                        onPress={() => this.getFb('fb4')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 5" 
+                        onPress={() => this.getFb('fb5')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                          <ButtonWithImage 
+                        buttonText="Fragebogen 6" 
+                        onPress={() => this.getFb('fb6')}
+                        buttonStyle={bigButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 7" 
+                        onPress={() => this.getFb('fb7')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 8" 
+                        onPress={() => this.getFb('fb8')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 9" 
+                        onPress={() => this.getFb('fb9')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    <ButtonWithImage 
+                        buttonText="Fragebogen 10" 
+                        onPress={() => this.getFb('fb10')} 
+                        buttonStyle={smallButtonStyle} 
+                        imageStyle={noImageStyle}
+                    />
                     />
 
                 </Card>
