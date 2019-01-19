@@ -6,6 +6,5 @@
 <p>For more information, please contact me:<br>
 Owner: Yen <br>
 Website: https://fragnoah.de/ <br>
-Name: Yen <br>
 E-Mail: hello@fragnoah.de </p>
 
