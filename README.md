@@ -1,5 +1,6 @@
-# Noah 
+## Noah 
 
-A react-native App for learning for german sailboot theorical exam.
+# A react-native App to prepare for the SBF Binnen Sailing exam. 
 
-More informations will follow
+For more information, visit: https://fragnoah.de/ or contact me: hello@fragnoah.de
+
