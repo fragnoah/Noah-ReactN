@@ -21,8 +21,8 @@ class StartPage extends Component {
         if (this.props.quiz.qno !== 29 && this.props.quiz.fragebogen !== '') {
             this.props.resetDefault();
             Alert.alert(
-                'Mitteilung',
-                'Letzen Versuch fortsetzen?',
+                'Fortsetzen',
+                'Möchtest du deine letzte Prüfung fortsetzen?',
                 [
                 { text: 'Abbrechen', onPress: () => this.props.resetFb(), style: 'cancel' },
                 { text: 'OK', onPress: () => actions.toQuestions() },
@@ -92,59 +92,59 @@ class StartPage extends Component {
                 <Card cardStyle={cardStyle}>
                     <Text style={cardTitle}>Fragebogen starten</Text>
                     <ButtonWithImage 
-                        buttonText="Fragebogen 1" 
+                        buttonText="Prüfungsbogen Variante 1" 
                         onPress={() => this.getFb('fb1')}
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
-                        buttonText="Fragebogen 2" 
+                        buttonText="Prüfungsbogen Variante 2" 
                         onPress={() => this.getFb('fb2')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
-                        buttonText="Fragebogen 3" 
+                        buttonText="Prüfungsbogen Variante 3" 
                         onPress={() => this.getFb('fb3')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
-                        buttonText="Fragebogen 4" 
+                        buttonText="Prüfungsbogen Variante 4" 
                         onPress={() => this.getFb('fb4')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     <ButtonWithImage 
-                        buttonText="Fragebogen 5" 
+                        buttonText="Prüfungsbogen Variante 5" 
                         onPress={() => this.getFb('fb5')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                           <ButtonWithImage 
-                        buttonText="Fragebogen 6" 
+                        buttonText="Prüfungsbogen Variante 6" 
                         onPress={() => this.getFb('fb6')}
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
-                        buttonText="Fragebogen 7" 
+                        buttonText="Prüfungsbogen Variante 7" 
                         onPress={() => this.getFb('fb7')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
-                        buttonText="Fragebogen 8" 
+                        buttonText="Prüfungsbogen Variante 8" 
                         onPress={() => this.getFb('fb8')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     />
                     <ButtonWithImage 
-                        buttonText="Fragebogen 9" 
+                        buttonText="Prüfungsbogen Variante 9" 
                         onPress={() => this.getFb('fb9')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     <ButtonWithImage 
-                        buttonText="Fragebogen 10" 
+                        buttonText="Prüfungsbogen Variante 10" 
                         onPress={() => this.getFb('fb10')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
@@ -155,7 +155,7 @@ class StartPage extends Component {
                 <Card cardStyle={cardStyle}>
                     <Text style={cardTitle}>Zufallstest starten</Text>
                     <ButtonWithImage 
-                        buttonText="Zufallsfragen" 
+                        buttonText="Zufälliger Prüfungsbogen" 
                         onPress={() => this.getFb('random')}
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
