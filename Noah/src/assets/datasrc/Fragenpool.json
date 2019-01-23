@@ -9,7 +9,7 @@
       "option3": "Ein Inhaber eines Sportbootführerscheins muss die Fahrzeugführung übernehmen.",
       "option4": "Ein Inhaber eines Sportbootführerscheins muss die Verantwortung übernehmen."
     },
-    "buchRef": "S. 1234",
+    "buchRef": "",
     "image": "",
     "highlightWords": ["muss bestimmt werden."],
     "video": "",
@@ -31,7 +31,7 @@
     "highlightWords": ["0,5 ‰"],
     "video": "",
     "category": "Basis",
-    "solve": "Merke dir 0.5%"
+    "solve": ""
   },
   {
     "id": 3,
@@ -45,10 +45,10 @@
     },
     "buchRef": "",
     "image": "",
-    "highlightWords": ["option1"],
+    "highlightWords": ["über Grund"],
     "video": "",
     "category": "Basis",
-    "solve": "Anker-Land-über Grund"
+    "solve": ""
   },
   {
     "id": 4,
@@ -62,15 +62,15 @@
     },
     "buchRef": "",
     "image": "",
-    "highlightWords": ["option4"],
+    "highlightWords": "1",
     "video": "",
     "category": "Basis",
-    "solve": "Merke dir 1sec"
+    "solve": ""
   },
   {
     "id": 5,
     "frageText": "Wie lang ist die Dauer eines langen Tons ?",
-    "correctAnswer": "4",
+    "correctAnswer": "option4",
     "options": {
       "option1": "Etwa 4 - 6 Sekunden.",
       "option2": "Etwa 2 - 6 Sekunden.",
@@ -82,7 +82,7 @@
     "highlightWords": ["option1"],
     "video": "",
     "category": "Basis",
-    "solve": "Merke dir 4sec"
+    "solve": ""
   },
   {
     "id": 6,
