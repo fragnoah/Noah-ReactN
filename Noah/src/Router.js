@@ -16,6 +16,7 @@ import StartPage from './components/StartPage';
 import learnbasic from './components/LearnBasic';
 import learnbinnen from './components/LearnBinnen';
 import learnsegel from './components/LearnSegel';
+// import IntroSlider from './components/IntroSlider';
 import { 
     toMain, 
     toResult, 
