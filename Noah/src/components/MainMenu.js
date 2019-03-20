@@ -1,29 +1,40 @@
 import React, { Component } from 'react';
-import { View, Platform, ImageBackground } from 'react-native';
+import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import { ButtonWithImage } from './common';
 import { iosFix } from '../utils';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class MainMenu extends Component {
-    renderContent() {
+    resetFragen() {
+        this.props.resetKatalog();
+        console.log('reset');
+        actions.toLearn();
         console.log(this.props);
+    }
+    renderContent() {
         return (
-            <View>
-                <ButtonWithImage
-                    onPress={actions.toTests}
-                    buttonText="Prüfungsmodus"
-                    imgLeft={require('../assets/img/test.png')}
-                    buttonStyle={{ padding: 5 }}
-                />
-                
-                <ButtonWithImage
-                    onPress={actions.toLearn} 
-                    buttonText="Lernmodus" 
-                    imgLeft={require('../assets/img/book.png')}
-                    buttonStyle={{ padding: 5 }}
-                />
-            </View>
+            <ScrollView>
+                <TouchableOpacity onPress={() => this.resetFragen()}>
+                    <Image source={require('../assets/img/Fragenkatalog.png')} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={actions.toVideos}>
+                    <Image source={require('../assets/img/Videos.png')} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={actions.toTests}>
+                    <Image source={require('../assets/img/Fragebogen.png')} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={actions.toTests}>
+                    <Image source={require('../assets/img/Pruefungsmodus.png')} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={actions.toGlossar}>
+                    <Image source={require('../assets/img/Glossar.png')} />
+                </TouchableOpacity>
+            </ScrollView>
         );
     }
 

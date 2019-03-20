@@ -10,7 +10,10 @@ const initalstate = {
     wrongArr: [],
     passedFb: [],
     qno: 0,
-    auswahl: []
+    auswahl: [],
+    frage: 0,
+    katalog: '',
+    auswahlKatalog: []
 };
 /**
  * Redux-Reducer um Redux-Store zu bearbeiten und aufzurufen
@@ -21,8 +24,12 @@ export default (state = initalstate, action) => {
 
         case 'select_fb':
            return { ...state, fragebogen: action.payload };
+        case 'select_katalog':
+           return { ...state, katalog: action.payload };
         case 'safe_auswahl':
            return { ...state, auswahl: action.payload };
+        case 'safe_ids':
+           return { ...state, auswahlKatalog: action.payload };
         case 'select_answer': {
             const newItem = action.payload;
             return { 
@@ -57,11 +64,24 @@ export default (state = initalstate, action) => {
         case 'dec': {
             return { ...state, qno: state.qno - 1 };
         }
+        case 'forward': {
+            return { ...state, qno: state.frage + 1 };
+        }
+        case 'back': {
+            return { ...state, qno: state.frage - 1 };
+        }
         case 'reset_wrong': {
             return { ...state, wrongAns: [] };
         }
         case 'reset_wrongAnswer': {
             return { ...state, wrongArr: [] };
+        }
+        case 'reset_katalog': {
+            return { ...state, 
+                katalog: '',
+                frage: 0,
+                auswahlKatalog: []
+        };
         }
         case 'get_BasisScore': 
             return { ...state, basisScore: action.payload };

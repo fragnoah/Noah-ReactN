@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, Platform, ImageBackground } from 'react-native';
+import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { connect } from 'react-redux';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
 import { iosFix } from '../utils';
 import { menuStyle } from './styleSheets';
 
 class LearnMenu extends Component {
-
+    getKatalog(katalog) {
+        this.props.selectKatalog(katalog);
+        actions.toKatalog();
+    }
     
     renderContent() {
         const { 
@@ -16,53 +20,19 @@ class LearnMenu extends Component {
             smallButtonStyle,
             imageStyle
         } = menuStyle;
-
         return (
             <ScrollView>
-                <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Fragen lernen </Text>
-                    <ButtonWithImage 
-                        buttonText="Basis" 
-                        onPress={actions.toLearnBasicQuestions}
-                        buttonStyle={bigButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/question.png')}
-                    />
-                    <ButtonWithImage 
-                        buttonText="Binnen" 
-                        onPress={actions.toLearnBinnenQuestions} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/question.png')}
-                    />
-                    <ButtonWithImage 
-                        buttonText="Segel" 
-                        onPress={actions.toLearnSegelQuestions} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/question.png')}
-                    />
-                </Card>
-                <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Nachschlagen</Text>
-                    <ButtonWithImage 
-                        buttonText="Glossar" 
-                        onPress={actions.toGlossar} 
-                        buttonStyle={bigButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/folder.png')}
-                    />
-                </Card>
-                <Card cardStyle={cardStyle}>
-                    <Text style={cardTitle}>Praxis </Text>
-                    <ButtonWithImage 
-                        buttonText="Videos" 
-                        onPress={actions.toVideos} 
-                        buttonStyle={bigButtonStyle} 
-                        imageStyle={imageStyle}
-                        imgLeft={require('../assets/img/film.png')}
-                    />
-            </Card>
+                 <TouchableOpacity onPress={() => this.getKatalog('Basis')}>
+                    <Image source={require('../assets/img/Basisfragen.png')} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => this.getKatalog('Binnen')}>
+                    <Image source={require('../assets/img/Binnenfragen.png')} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => this.getKatalog('Segeln')}>
+                    <Image source={require('../assets/img/Segelfragen.png')} />
+                </TouchableOpacity>
             </ScrollView>
         );
     }
@@ -83,5 +53,8 @@ class LearnMenu extends Component {
         );
     }
 }
+const mapStateToProbs = state => {
+    return { quiz: state.selectedFb };
+};
 
-export default LearnMenu;
+export default connect(mapStateToProbs, actions)(LearnMenu);

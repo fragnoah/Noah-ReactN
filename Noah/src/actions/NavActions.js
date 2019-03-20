@@ -56,9 +56,14 @@ export const toLearnSegelQuestions = () => {
 };
 
 export const toGlossar = () => {
-  Actions.glossar();
+  Actions.glossary();
 };
 
 export const toVideos = () => {
-  Actions.videos();
+  Actions.video();
+};
+export const toKatalog = () => {
+  //console.log(testNumber);
+  //Actions.quest({ Testnumber: testNumber });
+  Actions.katalog();
 };

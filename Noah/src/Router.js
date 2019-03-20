@@ -32,6 +32,7 @@ import GlossarList from './components/GlossarList';
 import VideoList from './components/VideoList';
 import * as img from './assets/img';
 import { styles } from './components/styleSheets/Router';
+import Fragekatalog from './components/Fragekatalog';
 
 /**
  * @brief Routing der verschiedenen Pages
@@ -175,6 +176,32 @@ class RouterComponent extends Component {
                         initial
                     />
                 </Scene>
+                
+                <Scene key="glossary"> 
+                    <Scene 
+                        key="glossar" 
+                        title="Glossar" 
+                        component={GlossarList} 
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                </Scene>
+
+                <Scene key="video"> 
+                    <Scene 
+                        key="videos" 
+                        title="Videos" 
+                        component={VideoList} 
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                </Scene>
 
                 <Scene key="prepare"> 
                     <Scene 
@@ -186,6 +213,12 @@ class RouterComponent extends Component {
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
+                    />
+                    <Scene 
+                        key="katalog" 
+                        title="Fragenkatalog" 
+                        component={Fragekatalog} 
+                        backButtonImage={img.backButton}
                     />
                     <Scene 
                         key="learnbasic" 
@@ -203,18 +236,6 @@ class RouterComponent extends Component {
                         key="learnsegel" 
                         title="Segelfragen" 
                         component={learnsegel} 
-                        backButtonImage={img.backButton}
-                    />
-                    <Scene 
-                        key="glossar" 
-                        title="Glossar" 
-                        component={GlossarList} 
-                        backButtonImage={img.backButton}
-                    />
-                    <Scene 
-                        key="videos" 
-                        title="Videos" 
-                        component={VideoList} 
                         backButtonImage={img.backButton}
                     />
                 </Scene>

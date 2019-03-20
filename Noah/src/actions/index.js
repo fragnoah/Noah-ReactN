@@ -141,3 +141,30 @@ export const safeAuswahl = (auswahl) => {
     payload: auswahl
   };
 };
+export const safeIds = (ids) => {
+  return {
+    type: 'safe_ids',
+    payload: ids
+  };
+};
+export const back = () => {
+  return {
+    type: 'back'
+  };
+};
+export const forward = () => {
+  return {
+    type: 'forward'
+  };
+};
+export const selectKatalog = (katalog) => {
+  return {
+    type: 'select_katalog',
+    payload: katalog
+  };
+};
+export const resetKatalog = () => {
+  return {
+    type: 'reset_katalog'
+  };
+};
