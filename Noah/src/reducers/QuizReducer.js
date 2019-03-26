@@ -65,10 +65,10 @@ export default (state = initalstate, action) => {
             return { ...state, qno: state.qno - 1 };
         }
         case 'forward': {
-            return { ...state, qno: state.frage + 1 };
+            return { ...state, frage: state.frage + 1 };
         }
         case 'back': {
-            return { ...state, qno: state.frage - 1 };
+            return { ...state, frage: state.frage - 1 };
         }
         case 'reset_wrong': {
             return { ...state, wrongAns: [] };
@@ -81,6 +81,13 @@ export default (state = initalstate, action) => {
                 katalog: '',
                 frage: 0,
                 auswahlKatalog: []
+        };
+        }
+        // die frage nummer muss raus -> anpassen zum speichern der fragenummer bezogen auf Katalog
+        case 'reset_ids': {
+            return { ...state, 
+                auswahlKatalog: [],
+                frage: 0,
         };
         }
         case 'get_BasisScore': 

@@ -1,7 +1,7 @@
 /*
     Enable Lösung in Questionpages
 */
-export const debug = false;
+export const debug = true;
 
 
 /*

@@ -40,12 +40,14 @@ class Fragekatalog extends Component {
             lighted: false,
         };
         if (this.props.quiz.katalog === 'Basis') {
+            this.props.resetIds();
             for (let i = 1; i <= 72; i++) {
                 ids.push(i);
             }
             this.props.safeIds(ids);
         }
         if (this.props.quiz.katalog === 'Binnen') {
+            this.props.resetIds();
             for (let i = 73; i <= 253; i++) {
                 ids.push(i);
             }
@@ -54,6 +56,7 @@ class Fragekatalog extends Component {
             this.props.safeIds(ids);
         }
         if (this.props.quiz.katalog === 'Segeln') {
+            this.props.resetIds();
             for (let i = 254; i <= 300; i++) {
                 ids.push(i);
                 }
@@ -131,21 +134,22 @@ class Fragekatalog extends Component {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
 
         if (canHighlight) {
-            if (this.state.lighted) {
+        /*   if (this.state.lighted) {
                 return (
                     <ImageButton
                         //onPress={() => this.undoHighlight()}
-                        onPress={console.log("fehlt")} 
+                        onPress={console.log('fehlt')} 
                         img={img.highlighted}
                         buttonStyle={markButtonStyle} 
                         imageStyle={markButtonImageStyle}
                     />
                 );            
             }
+        */
             return (
                 <ImageButton
                     //onPress={() => this.doHighlight()}
-                    onPress={console.log("fehlt")} 
+                    onPress={console.log('fehlt')} 
                     img={img.highlight}
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
@@ -156,21 +160,22 @@ class Fragekatalog extends Component {
     
     renderMarkButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
-        if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
+        /*if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
             return (
                 <ImageButton
                     //onPress={() => this.markQuestion()}
-                    onPress={console.log("fehlt")}                    
+                    onPress={console.log('fehlt')}                    
                     img={img.marked}
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
                 />
             );            
         } 
+        */
         return (
             <ImageButton
                 //onPress={() => this.markQuestion()} 
-                onPress={console.log("fehlt")} 
+                onPress={console.log('fehlt')} 
                 img={img.mark}
                 buttonStyle={markButtonStyle} 
                 imageStyle={markButtonImageStyle}
@@ -219,6 +224,23 @@ class Fragekatalog extends Component {
                 highlight = this.arrnew[this.props.quiz.frage].highlightWords;
             } 
 */
+        let correct = '';
+        switch (this.arrnew[this.props.quiz.frage].correctAnswer) {
+        case 'option1':
+            correct = this.arrnew[this.props.quiz.frage].options.option1;
+            break;
+        case 'option2':
+            correct = this.arrnew[this.props.quiz.frage].options.option2;
+            break;
+        case 'option3':
+            correct = this.arrnew[this.props.quiz.frage].options.option3;
+            break;
+        case 'option4':
+            correct = this.arrnew[this.props.quiz.frage].options.option4;
+            break;
+        default:
+            correct = '';
+        }
         const { 
             navButtonImageStyle, 
             navButtonStyle, 
@@ -246,7 +268,8 @@ class Fragekatalog extends Component {
                             text={this.arrnew[this.props.quiz.frage].frageText} 
                             image={this.arrnew[this.props.quiz.frage].image}
                            // progress={[this.props.quiz.qno + 1, ' / 30']}
-                        />                
+                        />
+                        <Text>{correct}</Text>                
                     
                     </Card>
                 </ScrollView>    
@@ -262,12 +285,14 @@ class Fragekatalog extends Component {
                         textStyle={navTextStyle}
                         removeEmptyImage
                     />
-
+                    
+                    {this.renderMarkButton()}
+                    {this.renderHighlightButton()}
                     
                     <ButtonWithImage
                         onPress={() => this.next()}
                         buttonText="Nächste"
-                        disabled={this.props.quiz.frage === this.arrnew.length}
+                        disabled={this.props.quiz.frage === this.arrnew.length - 1}
                         imgRight={require('../assets/img/arrowRight.png')}
                         imageStyle={navButtonImageStyle}
                         buttonStyle={navButtonStyle}
@@ -291,16 +316,6 @@ class Fragekatalog extends Component {
     }
 
     render() {
-        if (Platform.OS === 'ios') {
-            return (
-                <ImageBackground
-                    source={iosFix.path}
-                    style={iosFix.style}
-                >
-                    {this.renderContent()}
-                </ImageBackground>
-            );
-        }
         return (
             this.renderContent()
         );

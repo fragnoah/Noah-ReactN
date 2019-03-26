@@ -36,7 +36,7 @@
   {
     "id": 3,
     "frageText": "Wann ist ein Fahrzeug in Fahrt?",
-    "correctAnswer": "auf Grund",
+    "correctAnswer": "option3",
     "options": {
       "option1": "Wenn es weder vor Anker liegt noch an Land festgemacht ist noch Fahrt über Grund macht.",
       "option2": "Wenn es weder auf Grund sitzt noch vor Anker liegt noch manövrierbehindert oder manövrierunfähig ist.",
@@ -53,7 +53,7 @@
   {
     "id": 4,
     "frageText": "Wie lang ist die Dauer eines kurzen Tons?",
-    "correctAnswer": "1 Sekunde",
+    "correctAnswer": "option4",
     "options": {
       "option1": "Etwa 2 Sekunden.",
       "option2": "Weniger als 1 Sekunde.",

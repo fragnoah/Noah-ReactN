@@ -43,12 +43,9 @@ class RouterComponent extends Component {
     /**
      * @brief Handling des transparenten Background für iOS
      */
+    
     renderIOS() {
         return (
-            <ImageBackground
-                source={img.wallPaper}
-                style={styles.backgroundImage}
-            >
                 <Router
                     navigationBarStyle={styles.viewNavBarStyle}
                     sceneStyle={styles.sceneStyleIOS}
@@ -57,27 +54,19 @@ class RouterComponent extends Component {
                 >
                     {this.renderScenes()}
                 </Router>
-            </ImageBackground>
-
         );
     }
 
     renderAndroid() {
         return (
-            <ImageBackground
-                source={img.wallPaper}
-                style={styles.backgroundImage}
-            >
                 <Router
                     navigationBarStyle={styles.viewNavBarStyle}
                     sceneStyle={styles.sceneStyle}
                 >
                     {this.renderScenes()}
                 </Router>
-            </ImageBackground>
         );
     }
-
      /**
      * @brief Pages werden als Scene eingebunden
      */

@@ -168,3 +168,8 @@ export const resetKatalog = () => {
     type: 'reset_katalog'
   };
 };
+export const resetIds = () => {
+  return {
+    type: 'reset_ids'
+  };
+};
