@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { ButtonWithImage } from './common';
 import { iosFix } from '../utils';
 import { connect } from 'react-redux';
-import { Dimensions } from 'react-native';
 import * as actions from '../actions';
 
 class MainMenu extends Component {
@@ -15,26 +14,50 @@ class MainMenu extends Component {
     }
     renderContent() {
         const width = Dimensions.get('window').width;
+        const anpass = width * 0.93;
+
+        const styles = StyleSheet.create({
+            image: {
+                width: '100%',
+                height: 220,
+                marginTop: 30,
+                resizeMode: 'contain' 
+            },
+            container: {
+                width: anpass,
+
+            },
+            logo: {
+                width: 150,
+                height: 120
+            },
+            first: {
+                width: '100%',
+                height: 220,
+            }
+        });
         return (
-            <ScrollView>
-                <TouchableOpacity onPress={() => this.resetFragen()}>
-                    <Image source={require('../assets/img/Fragenkatalog.png')} style={{ width: '93%', alignItems: 'center', justifyContent: 'center', flex: 1 }} />
+            <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Image source={require('../assets/img/Logo.png')} style={styles.logo} />
+                
+                <TouchableOpacity onPress={() => this.resetFragen()} style={styles.container}>
+                    <Image source={require('../assets/img/Fragenkatalog.png')} style={styles.first} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={actions.toVideos}>
-                    <Image source={require('../assets/img/Videos.png')} style={{ width: width, marginTop: 50, }} />
+                <TouchableOpacity onPress={actions.toVideos} style={styles.container}>
+                    <Image source={require('../assets/img/Videos.png')} style={styles.image} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={actions.toTests}>
-                    <Image source={require('../assets/img/Fragebogen.png')} style={{ width: width }}/>
+                <TouchableOpacity onPress={actions.toTests} style={styles.container}>
+                    <Image source={require('../assets/img/Fragebogen.png')} style={styles.image} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={actions.toTests}>
-                    <Image source={require('../assets/img/Pruefungsmodus.png')} style={{ width: width }} />
+                <TouchableOpacity onPress={actions.toTests} style={styles.container}>
+                    <Image source={require('../assets/img/Pruefungsmodus.png')} style={styles.image} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={actions.toGlossar}>
-                    <Image source={require('../assets/img/Glossar.png')} style={{ width: width }} />
+                <TouchableOpacity onPress={actions.toGlossar} style={styles.container}>
+                    <Image source={require('../assets/img/Glossar.png')} style={styles.image} />
                 </TouchableOpacity>
             </ScrollView>
         );

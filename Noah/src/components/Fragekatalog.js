@@ -4,7 +4,9 @@ import {
     Text,
     ScrollView,
     Platform,
-    ImageBackground
+    ImageBackground,
+    StyleSheet,
+    Image
     } from 'react-native';
 import { connect } from 'react-redux';
 import RadioForm, { 
@@ -17,6 +19,7 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/Fragenpool.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
+import { Actions } from 'react-native-router-flux';
 import { 
     radioButtonStyle, 
     questionButtonStyle, 
@@ -38,9 +41,11 @@ class Fragekatalog extends Component {
         let ids = [];
         this.state = {
             lighted: false,
+            klicked: false
         };
         if (this.props.quiz.katalog === 'Basis') {
             this.props.resetIds();
+            Actions.refresh({ key: 'katalog', title: 'Basis' });
             for (let i = 1; i <= 72; i++) {
                 ids.push(i);
             }
@@ -73,15 +78,26 @@ class Fragekatalog extends Component {
     prev() {
         if (this.props.quiz.frage >= 1) {
             this.props.back();
+            this.klicked = false;
         }
     }
     /**
      * Drücken des Buttons-Weiter
      */
     next() {
+        if (this.state.klicked === true) {
             if (this.props.quiz.frage < this.arrnew.length - 1) {
+                this.setState({
+                    klicked: false
+                });
                 this.props.forward();
             }
+        }
+        else {
+            this.setState({
+                klicked: true
+            });
+        }
     }
     /**
      * Auswahl einer Antwort mit Radiobutton -> Speicherung in Redux-State
@@ -203,6 +219,64 @@ class Fragekatalog extends Component {
             );
         }
     }
+    renderQuestion() {
+        const style = StyleSheet.create({
+            questText: {
+                textAlign: 'center',
+                color: 'black',
+                fontSize: 20,
+                paddingTop: 5,
+                paddingBottom: 5,
+                fontWeight: 'bold'
+                }
+            });
+            const encodedData = this.arrnew[this.props.quiz.frage].image;
+        return (
+            <View>
+                <Text style={style.questText}>Frage {this.arrnew[this.props.quiz.frage].id}</Text>
+                <Text style={style.questText}>{this.arrnew[this.props.quiz.frage].frageText}</Text>
+                <Image style={questionCardStyle.imgStyle} source={{ uri: `data:image/gif;base64,${encodedData}` }} />
+            </View>
+        );
+    }
+    renderAnswer() {
+        const styles = StyleSheet.create({
+            newText: {
+                textAlign: 'center',
+                color: 'rgba(133,187,243, 0.5)',
+                fontSize: 20,
+                paddingTop: 5,
+                paddingBottom: 5,
+                fontWeight: 'bold'
+                }
+            });
+        let correct = '';
+            switch (this.arrnew[this.props.quiz.frage].correctAnswer) {
+            case 'option1':
+                correct = this.arrnew[this.props.quiz.frage].options.option1;
+                break;
+            case 'option2':
+                correct = this.arrnew[this.props.quiz.frage].options.option2;
+                break;
+            case 'option3':
+                correct = this.arrnew[this.props.quiz.frage].options.option3;
+                break;
+            case 'option4':
+                correct = this.arrnew[this.props.quiz.frage].options.option4;
+                break;
+            default:
+                correct = '';
+            }
+
+        if (this.state.klicked === true) {
+            return (
+                <View>
+                    <Text style={styles.newText}>Antwort:</Text>
+                    <Text style={styles.newText}>{correct}</Text>                
+                </View>
+            );
+        }
+    }
     
     renderContent() {
         /*
@@ -224,30 +298,12 @@ class Fragekatalog extends Component {
                 highlight = this.arrnew[this.props.quiz.frage].highlightWords;
             } 
 */
-        let correct = '';
-        switch (this.arrnew[this.props.quiz.frage].correctAnswer) {
-        case 'option1':
-            correct = this.arrnew[this.props.quiz.frage].options.option1;
-            break;
-        case 'option2':
-            correct = this.arrnew[this.props.quiz.frage].options.option2;
-            break;
-        case 'option3':
-            correct = this.arrnew[this.props.quiz.frage].options.option3;
-            break;
-        case 'option4':
-            correct = this.arrnew[this.props.quiz.frage].options.option4;
-            break;
-        default:
-            correct = '';
-        }
         const { 
             navButtonImageStyle, 
             navButtonStyle, 
             navTextStyle, 
             navTextStyle2 
         } = questionButtonStyle;
-
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView
@@ -260,21 +316,21 @@ class Fragekatalog extends Component {
                             */
                         }}
                 >  
-                    <Card cardStyle={questionCardStyle.cardStyle}>
+                    <Card cardStyle={questionCardStyle.NewCardStyle}>
                         <ImageCardSection 
-                            style={questionCardStyle.questionSection}
+                            style={questionCardStyle.newQuestionSection}
                             imgStyle={questionCardStyle.imgStyle} 
                             id={this.arrnew[this.props.quiz.frage].id} 
                             text={this.arrnew[this.props.quiz.frage].frageText} 
                             image={this.arrnew[this.props.quiz.frage].image}
                            // progress={[this.props.quiz.qno + 1, ' / 30']}
                         />
-                        <Text>{correct}</Text>                
-                    
                     </Card>
+                    {this.renderQuestion()}
+                    {this.renderAnswer()}
                 </ScrollView>    
 
-                <Card cardStyle={questionCardStyle.navCardStyle}>
+                <Card cardStyle={questionCardStyle.NewNavCardStyle}>
                     <ButtonWithImage
                         onPress={() => this.prev()}
                         buttonText="Zurück"

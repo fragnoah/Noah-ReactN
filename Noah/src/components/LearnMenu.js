@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, ButtonWithImage } from './common';
 import * as actions from '../actions';
@@ -13,25 +13,44 @@ class LearnMenu extends Component {
     }
     
     renderContent() {
-        const { 
-            cardStyle,
-            cardTitle, 
-            bigButtonStyle,
-            smallButtonStyle,
-            imageStyle
-        } = menuStyle;
+        const width = Dimensions.get('window').width;
+        const anpass = width * 0.93;
+
+        const styles = StyleSheet.create({
+            image: {
+                width: '100%',
+                height: 220,
+                marginTop: 30,
+                resizeMode: 'contain' 
+            },
+            container: {
+                width: anpass,
+
+            },
+            logo: {
+                width: 150,
+                height: 120
+            },
+            first: {
+                width: '100%',
+                height: 220,
+            }
+        });
+        
         return (
-            <ScrollView>
-                 <TouchableOpacity onPress={() => this.getKatalog('Basis')}>
-                    <Image source={require('../assets/img/Basisfragen.png')} />
+            <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Image source={require('../assets/img/Logo.png')} style={styles.logo} />
+                
+                 <TouchableOpacity onPress={() => this.getKatalog('Basis')} style={styles.container}>
+                    <Image source={require('../assets/img/Basisfragen.png')} style={styles.first} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.getKatalog('Binnen')}>
-                    <Image source={require('../assets/img/Binnenfragen.png')} />
+                <TouchableOpacity onPress={() => this.getKatalog('Binnen')} style={styles.container}>
+                    <Image source={require('../assets/img/Binnenfragen.png')} style={styles.image} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.getKatalog('Segeln')}>
-                    <Image source={require('../assets/img/Segelfragen.png')} />
+                <TouchableOpacity onPress={() => this.getKatalog('Segeln')} style={styles.container}>
+                    <Image source={require('../assets/img/Segelfragen.png')} style={styles.image} />
                 </TouchableOpacity>
             </ScrollView>
         );

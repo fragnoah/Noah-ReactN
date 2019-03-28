@@ -73,7 +73,7 @@ class RouterComponent extends Component {
     renderScenes() {
         return (
             <Scene key="root" hideNavBar titleStyle={styles.titleStyle}>
-                <Scene key="main" initial>
+                <Scene key="main" hideNavBar initial>
                     <Scene 
                         key="menu" 
                         title="Menü"    
@@ -202,6 +202,7 @@ class RouterComponent extends Component {
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
+                        hideNavBar
                     />
                     <Scene 
                         key="katalog" 

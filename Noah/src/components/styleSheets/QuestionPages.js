@@ -92,6 +92,15 @@ export const questionCardStyle = {
         flexDirection: 'row',
         flex: 0,
     },
+    NewNavCardStyle: {
+        //paddingLeft: 5,
+        paddingTop: 5,
+        paddingBottom: 5,
+        backgroundColor: 'rgba(133,187,243, 0.5)',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        flex: 0,
+    },
     cardStyle: {
         backgroundColor: 'rgba(255,255,255, 0.3)',
         borderWidth: 1,
@@ -108,8 +117,14 @@ export const questionCardStyle = {
         marginTop: 2,
         flex: 1
     },
+    newCardStyle: {
+        flex: 1
+    },
     questionSection: { //Fragetext & Elemente
         backgroundColor: '#8CD6FC',        
+    },
+    newQuestionSection: { //Fragetext & Elemente
+        textAlign: 'center'      
     },
     imgStyle: {  // Bild in Frage; nur an der Höhe schrauben!
         height: 80,
