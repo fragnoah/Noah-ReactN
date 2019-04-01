@@ -221,23 +221,41 @@ class Fragekatalog extends Component {
     }
     renderQuestion() {
         const style = StyleSheet.create({
-            questText: {
+            questTextTop: {
                 textAlign: 'center',
                 color: 'black',
                 fontSize: 20,
                 paddingTop: 5,
                 paddingBottom: 5,
-                fontWeight: 'bold'
-                }
+                fontWeight: 'bold',
+                marginTop: 30
+                },
+            questText: {
+            textAlign: 'center',
+            color: 'black',
+            fontSize: 20,
+            paddingTop: 5,
+            paddingBottom: 5,
+            fontWeight: 'bold',
+            }
             });
             const encodedData = this.arrnew[this.props.quiz.frage].image;
-        return (
-            <View>
-                <Text style={style.questText}>Frage {this.arrnew[this.props.quiz.frage].id}</Text>
-                <Text style={style.questText}>{this.arrnew[this.props.quiz.frage].frageText}</Text>
-                <Image style={questionCardStyle.imgStyle} source={{ uri: `data:image/gif;base64,${encodedData}` }} />
-            </View>
+            if (encodedData) {
+                return (
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={style.questTextTop}>Frage {this.arrnew[this.props.quiz.frage].id}</Text>
+                    <Text style={style.questText}>{this.arrnew[this.props.quiz.frage].frageText}</Text>
+                    <Image style={{ height: 80, width: '100%', resizeMode: 'contain' }} source={{ uri: encodedData }} />
+                </View>
         );
+        }
+        else {
+        return (
+        <View>
+            <Text style={style.questTextTop}>Frage {this.arrnew[this.props.quiz.frage].id}</Text>
+            <Text style={style.questText}>{this.arrnew[this.props.quiz.frage].frageText}</Text>
+        </View>
+        )}
     }
     renderAnswer() {
         const styles = StyleSheet.create({
@@ -248,6 +266,16 @@ class Fragekatalog extends Component {
                 paddingTop: 5,
                 paddingBottom: 5,
                 fontWeight: 'bold'
+                },
+
+            newTextTop: {
+                textAlign: 'center',
+                color: 'rgba(133,187,243, 0.5)',
+                fontSize: 20,
+                paddingTop: 5,
+                paddingBottom: 5,
+                fontWeight: 'bold',
+                marginTop: 70
                 }
             });
         let correct = '';
@@ -271,7 +299,7 @@ class Fragekatalog extends Component {
         if (this.state.klicked === true) {
             return (
                 <View>
-                    <Text style={styles.newText}>Antwort:</Text>
+                    <Text style={styles.newTextTop}>Antwort:</Text>
                     <Text style={styles.newText}>{correct}</Text>                
                 </View>
             );
@@ -316,16 +344,6 @@ class Fragekatalog extends Component {
                             */
                         }}
                 >  
-                    <Card cardStyle={questionCardStyle.NewCardStyle}>
-                        <ImageCardSection 
-                            style={questionCardStyle.newQuestionSection}
-                            imgStyle={questionCardStyle.imgStyle} 
-                            id={this.arrnew[this.props.quiz.frage].id} 
-                            text={this.arrnew[this.props.quiz.frage].frageText} 
-                            image={this.arrnew[this.props.quiz.frage].image}
-                           // progress={[this.props.quiz.qno + 1, ' / 30']}
-                        />
-                    </Card>
                     {this.renderQuestion()}
                     {this.renderAnswer()}
                 </ScrollView>    
