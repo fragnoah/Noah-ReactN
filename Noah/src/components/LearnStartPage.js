@@ -22,7 +22,7 @@ class StartPage extends Component {
             this.props.resetLearnDefault();
             Alert.alert(
                 'Mitteilung',
-                'Letzen Versuch fortsetzen?',
+                'Möchtest du deinen letzten Fragebogen fortsetzen?',
                 [
                 { text: 'Abbrechen', onPress: () => this.props.resetLearnFb(), style: 'cancel' },
                 { text: 'OK', onPress: () => actions.toLearnExam() },

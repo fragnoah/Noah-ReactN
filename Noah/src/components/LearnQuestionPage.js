@@ -155,7 +155,7 @@ class LearnQuestionPage extends Component {
             }
     }
     /**
-     * markieren einer Frage
+     * markieren einer Frage, aktuell hier nicht geused, aber states sind bereits angepasst
      */
     markQuestion() {
         if (this.props.quiz.learnmarked.includes(this.props.quiz.learnqno) === true) {
@@ -214,6 +214,9 @@ class LearnQuestionPage extends Component {
     }
 
     renderMarkButton() {
+        
+        /* aktuell nicht genutzt, um zu nutzen einfach entkommentieren, States bereits in Redux angepasst ;)
+        
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
         if (this.props.quiz.learnmarked.includes(this.props.quiz.learnqno)) {
             return (
@@ -232,7 +235,8 @@ class LearnQuestionPage extends Component {
                 buttonStyle={markButtonStyle} 
                 imageStyle={markButtonImageStyle}
             />  
-        );         
+        ); 
+        */         
     }
 
     renderRadioButtons(radioProps, init, key) {
