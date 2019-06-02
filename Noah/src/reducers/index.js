@@ -6,6 +6,7 @@ import GlossarReducer from './GlossarReducer';
 import GlossarSection from './GlossarySectionReducer';
 import GlossarTitle from './GlossaryTitleReducer';
 import VideoIndex from './VideoReducer';
+import LearnReducer from './LearnReducer';
  
 export default combineReducers({
     selectedFb: QuizReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     glossary: GlossarReducer,
     selectedGlossarSection: GlossarSection,
     selectedGlossarTitle: GlossarTitle,
-    videoindex: VideoIndex
+    videoindex: VideoIndex,
+    learn: LearnReducer
 });

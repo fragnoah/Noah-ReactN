@@ -33,6 +33,8 @@ import VideoList from './components/VideoList';
 import * as img from './assets/img';
 import { styles } from './components/styleSheets/Router';
 import Fragekatalog from './components/Fragekatalog';
+import LearnStartPage from './components/LearnStartPage';
+import LearnQuestionPage from './components/LearnQuestionPage';
 
 /**
  * @brief Routing der verschiedenen Pages
@@ -86,7 +88,35 @@ class RouterComponent extends Component {
                         initial 
                     />
                 </Scene>
-                
+
+                <Scene key="learnStart">
+                    <Scene 
+                        key="learnStart" 
+                        title="Learnmodus"
+                        component={LearnStartPage}
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                </Scene>
+
+
+                <Scene key="learnExam">
+                    <Scene 
+                        key="learnExam" 
+                        title="Fragenbögen lernen"
+                        component={LearnQuestionPage}
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+                </Scene>
+
+
                 <Scene key="exam">
                     <Scene 
                         key="test" 
@@ -99,6 +129,7 @@ class RouterComponent extends Component {
                         initial 
                     />
                 </Scene>
+
                 
                 <Scene key="doExam">
                     <Scene

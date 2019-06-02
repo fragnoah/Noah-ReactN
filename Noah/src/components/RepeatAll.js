@@ -116,8 +116,8 @@ class RepeatAll extends Component {
 
     renderHighlightButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
-
-        if (canHighlight) {
+        const enable = false;
+        if (enable) {
             if (this.state.lighted) {
                 return (
                     <ImageButton

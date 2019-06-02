@@ -13,7 +13,7 @@ import reducers from './reducers';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['selectedFb']
+    whitelist: ['selectedFb', 'learn']
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 

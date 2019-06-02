@@ -32,21 +32,21 @@ import * as fest from '../assets/datasrc/StandardFB';
  * Die eigentliche Prüfungsseite
  * @author Timur Burkholz
  */
-class QuestionPage extends Component {
+class LearnQuestionPage extends Component {
     constructor(props) {
         super(props);
         this.basisScore = 0;
         this.spezScore = 0;
-        let auswahl = this.props.quiz.auswahl;
+        let auswahl = this.props.quiz.learnauswahl;
         this.state = {
             lighted: false,
         };
-        if (this.props.quiz.fragebogen !== 'random') {
-            auswahl = fest[this.props.quiz.fragebogen];
-            this.props.safeAuswahl(auswahl);
+        if (this.props.quiz.learnfragebogen !== 'random') {
+            auswahl = fest[this.props.quiz.learnfragebogen];
+            this.props.safeLearnAuswahl(auswahl);
         }    
-        if (this.props.quiz.fragebogen === 'random') {
-            if (this.props.quiz.auswahl.length === 0) {
+        if (this.props.quiz.learnfragebogen === 'random') {
+            if (this.props.quiz.learnauswahl.length === 0) {
                 const basis = [];
                 while (basis.length < 7) {
                     const r = Math.floor(Math.random() * 72) + 1;
@@ -65,7 +65,7 @@ class QuestionPage extends Component {
                     if (segeln.indexOf(r) === -1) segeln.push(r);
                 }
                 auswahl = [...basis, ...binnen, ...segeln];
-                this.props.safeAuswahl(auswahl);
+                this.props.safeLearnAuswahl(auswahl);
             }
         }
         /**
@@ -81,11 +81,11 @@ class QuestionPage extends Component {
      * Drücken des Buttons-Zurück
      */
     prev() {
-        if (this.props.quiz.qno >= 1) {
-            if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-                this.props.selectAnswer('-1');
+        if (this.props.quiz.learnqno >= 1) {
+            if (this.props.quiz.learnarr[this.props.quiz.learnqno] === undefined) {
+                this.props.selectLearnAnswer('-1');
             }
-            this.props.decrement();
+            this.props.decrementLearn();
             this.setState({
                 lighted: false
             });
@@ -95,11 +95,11 @@ class QuestionPage extends Component {
      * Drücken des Buttons-Weiter
      */
     next() {
-            if (this.props.quiz.qno < this.arrnew.length - 1) {
-                if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-                    this.props.selectAnswer('-1');
+            if (this.props.quiz.learnqno < this.arrnew.length - 1) {
+                if (this.props.quiz.learnarr[this.props.quiz.learnqno] === undefined) {
+                    this.props.selectLearnAnswer('-1');
                 }
-                this.props.increment();
+                this.props.incrementLearn();
                 this.setState({
                     lighted: false
                 });
@@ -108,9 +108,16 @@ class QuestionPage extends Component {
                 });
             } else {
                 // wenn das Ende des Arrays erreicht ist
+                
+                
+                /** 
+                aktuell nicht implementiert, hier könnte man sich jedoch den Score für Learnfragen anzeigen lassen
+                und zu der neuen LearnResult.js (müsste angepasst werden)
+                
+                
                 for (let i = 0, l = this.arrnew.length; i < l; i++) {
                     console.log(i);
-                    if (this.props.quiz.arr[i] === this.arrnew[i].correctAnswer) {
+                    if (this.props.quiz.learnarr[i] === this.arrnew[i].correctAnswer) {
                         if (this.arrnew[i].category === 'Basis') {
                             this.basisScore++;
                             console.log('BasisFrage richtig');
@@ -124,13 +131,15 @@ class QuestionPage extends Component {
                             console.log('SegelnFrage richtig');
                         }
                     }
-                if (this.props.quiz.arr[i] !== this.arrnew[i].correctAnswer) { 
-                        this.props.wrong(i);
+                if (this.props.quiz.learnarr[i] !== this.arrnew[i].correctAnswer) { 
+                        this.props.wrongLearn(i);
                 }
             }
-            this.props.getBasisScore(this.basisScore);
-            this.props.getSpezScore(this.spezScore);
+            this.props.getLearnBasisScore(this.basisScore);
+            this.props.getLearnSpezScore(this.spezScore);
             actions.toResult();
+            */
+           actions.toLearnStart();
         }
     }
     /**
@@ -138,19 +147,19 @@ class QuestionPage extends Component {
      * @param ans 
      */
     answer(ans) {
-        if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-            this.props.selectAnswer(ans);
+        if (this.props.quiz.learnarr[this.props.quiz.learnqno] === undefined) {
+            this.props.selectLearnAnswer(ans);
         }
-        if (this.props.quiz.arr[this.props.quiz.qno] !== ans) {
-            this.props.updateAnswer(ans, this.props.quiz.qno);
+        if (this.props.quiz.learnarr[this.props.quiz.learnqno] !== ans) {
+            this.props.updateLearnAnswer(ans, this.props.quiz.learnqno);
             }
     }
     /**
      * markieren einer Frage
      */
     markQuestion() {
-        if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
-            this.props.unmark(this.props.quiz.qno);
+        if (this.props.quiz.learnmarked.includes(this.props.quiz.learnqno) === true) {
+            this.props.unmarkLearn(this.props.quiz.learnqno);
             showMessage({
                 message: 'Hinweis',
                 description: 'Frage nicht mehr markiert',
@@ -158,7 +167,7 @@ class QuestionPage extends Component {
                 icon: 'success'
             });
         } else {
-            this.props.mark(this.props.quiz.qno);
+            this.props.markLearn(this.props.quiz.learnqno);
             showMessage({
                 message: 'Hinweis',
                 description: 'Frage wurde markiert',
@@ -181,8 +190,8 @@ class QuestionPage extends Component {
 
     renderHighlightButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
-        const enable = false;
-        if (enable) {
+
+        if (canHighlight) {
             if (this.state.lighted) {
                 return (
                     <ImageButton
@@ -206,7 +215,7 @@ class QuestionPage extends Component {
 
     renderMarkButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
-        if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
+        if (this.props.quiz.learnmarked.includes(this.props.quiz.learnqno)) {
             return (
                 <ImageButton
                     onPress={() => this.markQuestion()}                    
@@ -259,17 +268,17 @@ class QuestionPage extends Component {
             return (
                 <View style={{ flexDirection: 'column' }}>
                 <Text>
-                    Kategorie: {this.arrnew[this.props.quiz.qno].category}
+                    Kategorie: {this.arrnew[this.props.quiz.learnqno].category}
                 </Text>
                 <Text>
-                    Korrekteantwort: {this.arrnew[this.props.quiz.qno].correctAnswer}
+                    Korrekteantwort: {this.arrnew[this.props.quiz.learnqno].correctAnswer}
                 </Text>
                 <Text>
                     {console.log(this.props)}
-                    Fragebogen: {this.props.quiz.fragebogen}
+                    Fragebogen: {this.props.quiz.learnfragebogen}
                 </Text>
                 <Text>
-                    Qno: {this.props.quiz.qno}
+                    Qno: {this.props.quiz.learnqno}
                 </Text>
             </View>
             );
@@ -278,21 +287,21 @@ class QuestionPage extends Component {
 
     renderContent() {
         let highlight = ['abc'];
-        switch (this.arrnew[this.props.quiz.qno].highlightWords[0]) {
+        switch (this.arrnew[this.props.quiz.learnqno].highlightWords[0]) {
             case 'option1':
-                highlight[0] = this.arrnew[this.props.quiz.qno].options.option1;
+                highlight[0] = this.arrnew[this.props.quiz.learnqno].options.option1;
                 break;
             case 'option2':
-                highlight[0] = this.arrnew[this.props.quiz.qno].options.option2;
+                highlight[0] = this.arrnew[this.props.quiz.learnqno].options.option2;
                 break;
             case 'option3':
-                highlight[0] = this.arrnew[this.props.quiz.qno].options.option3;
+                highlight[0] = this.arrnew[this.props.quiz.learnqno].options.option3;
                 break;
             case 'option4':
-                highlight[0] = this.arrnew[this.props.quiz.qno].options.option4;
+                highlight[0] = this.arrnew[this.props.quiz.learnqno].options.option4;
                 break;
             default:
-                highlight = this.arrnew[this.props.quiz.qno].highlightWords;
+                highlight = this.arrnew[this.props.quiz.learnqno].highlightWords;
             } 
 
         /**
@@ -300,41 +309,41 @@ class QuestionPage extends Component {
          */    
         const radioProps = [ 
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.qno].options.option1.includes(highlight) ? 
+                this.arrnew[this.props.quiz.learnqno].options.option1.includes(highlight) ? 
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
-                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option1}
-                /> : this.arrnew[this.props.quiz.qno].options.option1),
+                    textToHighlight={this.arrnew[this.props.quiz.learnqno].options.option1}
+                /> : this.arrnew[this.props.quiz.learnqno].options.option1),
                 value: 'option1' },
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.qno].options.option2.includes(highlight) ?  
+                this.arrnew[this.props.quiz.learnqno].options.option2.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
-                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option2}
-                /> : this.arrnew[this.props.quiz.qno].options.option2),
+                    textToHighlight={this.arrnew[this.props.quiz.learnqno].options.option2}
+                /> : this.arrnew[this.props.quiz.learnqno].options.option2),
                 value: 'option2' },
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.qno].options.option3.includes(highlight) ?  
+                this.arrnew[this.props.quiz.learnqno].options.option3.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
-                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option3}
-                /> : this.arrnew[this.props.quiz.qno].options.option3),
+                    textToHighlight={this.arrnew[this.props.quiz.learnqno].options.option3}
+                /> : this.arrnew[this.props.quiz.learnqno].options.option3),
                  value: 'option3' },
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.qno].options.option4.includes(highlight) ?  
+                this.arrnew[this.props.quiz.learnqno].options.option4.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
-                    textToHighlight={this.arrnew[this.props.quiz.qno].options.option4}
-                /> : this.arrnew[this.props.quiz.qno].options.option4),
+                    textToHighlight={this.arrnew[this.props.quiz.learnqno].options.option4}
+                /> : this.arrnew[this.props.quiz.learnqno].options.option4),
                     value: 'option4' },
         ];
 
         let init = null;
-        switch (this.props.quiz.arr[this.props.quiz.qno]) {
+        switch (this.props.quiz.learnarr[this.props.quiz.learnqno]) {
             case 'option1':
                 init = 0;
             break;
@@ -374,14 +383,14 @@ class QuestionPage extends Component {
                         <ImageCardSection 
                             style={questionCardStyle.questionSection}
                             imgStyle={questionCardStyle.imgStyle} 
-                            id={this.arrnew[this.props.quiz.qno].id} 
-                            text={this.arrnew[this.props.quiz.qno].frageText} 
-                            image={this.arrnew[this.props.quiz.qno].image}
-                            progress={[this.props.quiz.qno + 1, ' / 30']}
+                            id={this.arrnew[this.props.quiz.learnqno].id} 
+                            text={this.arrnew[this.props.quiz.learnqno].frageText} 
+                            image={this.arrnew[this.props.quiz.learnqno].image}
+                            progress={[this.props.quiz.learnqno + 1, ' / 30']}
                         />                
                     
                         <CardSection style={{ backgroundColor: 'transparent' }}>                  
-                            {this.renderRadioButtons(radioProps, init, this.props.quiz.qno)}
+                            {this.renderRadioButtons(radioProps, init, this.props.quiz.learnqno)}
                         </CardSection>  
                     </Card>
                 </ScrollView>    
@@ -390,7 +399,7 @@ class QuestionPage extends Component {
                     <ButtonWithImage
                         onPress={() => this.prev()}
                         buttonText="Zurück"
-                        disabled={this.props.quiz.qno === 0}
+                        disabled={this.props.quiz.learnqno === 0}
                         imgLeft={require('../assets/img/arrowLeft.png')}
                         imageStyle={navButtonImageStyle}
                         buttonStyle={navButtonStyle}
@@ -403,7 +412,7 @@ class QuestionPage extends Component {
                     
                     <ButtonWithImage
                         onPress={() => this.next()}
-                        buttonText={this.props.quiz.qno === 29 ? 'Ergebnis' : 'Nächste'}
+                        buttonText={this.props.quiz.learnqno === 29 ? 'Zum Start' : 'Nächste'}
                         imgRight={require('../assets/img/arrowRight.png')}
                         imageStyle={navButtonImageStyle}
                         buttonStyle={navButtonStyle}
@@ -444,7 +453,7 @@ class QuestionPage extends Component {
 }
 
 const mapStateToProbs = state => {
-    return { quiz: state.selectedFb };
+    return { quiz: state.learn };
 };
 
-export default connect(mapStateToProbs, actions)(QuestionPage);
+export default connect(mapStateToProbs, actions)(LearnQuestionPage);

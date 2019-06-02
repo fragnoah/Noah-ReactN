@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, ImageBackground, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
-import { ButtonWithImage } from './common';
-import { iosFix } from '../utils';
+import { ScrollView, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -48,7 +46,7 @@ class MainMenu extends Component {
                     <Image source={require('../assets/img/Videos.png')} style={styles.image} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={actions.toTests} style={styles.container}>
+                <TouchableOpacity onPress={actions.toLearnStart} style={styles.container}>
                     <Image source={require('../assets/img/Fragebogen.png')} style={styles.image} />
                 </TouchableOpacity>
 
@@ -71,7 +69,7 @@ class MainMenu extends Component {
 }
 
 const mapStateToProbs = state => {
-    return { quiz: state.selectedFb };
+    return { quiz: state.selectedFb, learn: state.learn };
 };
 
 export default connect(mapStateToProbs, actions)(MainMenu);

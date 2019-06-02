@@ -5,13 +5,21 @@ export const toMain = () => {
 };
 
 export const toTests = () => {
- // resetFb();
         Actions.exam(); 
 };
+export const toLearnStart = () => {
+         Actions.learnStart(); 
+};
+
+export const toLearnExam = () => {
+  Actions.learnExam(); 
+};
+
 
 export const toLearn = () => {
   Actions.prepare(); 
 };
+
 
 export const toResult = () => {
   // ToDo: Prüflogik bisherige Fragen

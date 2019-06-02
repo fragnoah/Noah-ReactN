@@ -1,6 +1,7 @@
 export * from './NavActions';
 export * from './LearnActions';
 export * from './messages';
+export * from './LearnExam';
 /**
  * @author Timur Burkholz
  */
