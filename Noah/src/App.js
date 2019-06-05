@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SplashScreen from 'react-native-splash-screen';
 import { Platform } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -26,14 +25,6 @@ const persistedReducer = persistReducer(persistConfig, reducers);
  */
 class App extends Component {
     
-    componentDidMount() {
-        // https://github.com/crazycodeboy/react-native-splash-screen
-        // do stuff while splash screen is shownc
-        // After having done stuff (such as async tasks) hide the splash screen
-        if (Platform.OS === 'android') {
-            SplashScreen.hide();
-        }
-    }
 
     render() {
         const store = createStore(persistedReducer);
