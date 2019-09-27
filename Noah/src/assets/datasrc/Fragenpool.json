@@ -70,7 +70,7 @@
   {
     "id": 5,
     "frageText": "Wie lang ist die Dauer eines langen Tons ?",
-    "correctAnswer": "4",
+    "correctAnswer": "option1",
     "options": {
       "option1": "Etwa 4 - 6 Sekunden.",
       "option2": "Etwa 2 - 6 Sekunden.",
@@ -531,9 +531,9 @@
     "frageText": "Wie kann mitgeholfen werden, die Lebensmöglichkeiten der Pflanzen- und Tierwelt in Gewässern und Feuchtgebieten zu bewahren und zu fördern?",
     "correctAnswer": "option1",
     "options": {
-      "option1": "Durch umweltbewusstes Verhalten und Beachtung der ?Zehn goldenen Regeln für das Verhalten von Wassersportlern in der Natur?.",
+      "option1": "Durch umweltbewusstes Verhalten und Beachtung der Zehn goldenen Regeln für das Verhalten von Wassersportlern in der Natur.",
       "option2": "Durch vorausschauendes Fahren und Ausweichen entsprechend der Verkehrsvorschriften.",
-      "option3": "Durch umweltbewusstes Verhalten und Beachtung der ?Zehn Grundregeln für den Wassersport?.",
+      "option3": "Durch umweltbewusstes Verhalten und Beachtung der Zehn Grundregeln für den Wassersport.",
       "option4": "Durch umsichtiges Verhalten und Beachtung der Verkehrsvorschriften."
     },
     "buchRef": "",
@@ -614,7 +614,7 @@
   {
     "id": 38,
     "frageText": "Wie viel Ankerkette bzw. -leine soll man unter günstigen Verhältnissen beim Ankern an einem geschützten Ankerplatz ausstecken?",
-    "correctAnswer": "",
+    "correctAnswer": "option2",
     "options": {
       "option1": "Mindestens die fünffache Wassertiefe bei Kette oder die dreifache bei Leine.",
       "option2": "Mindestens die dreifache Wassertiefe bei Kette oder die fünffache bei Leine.",
@@ -803,8 +803,8 @@
     "frageText": "Welche Anlegeseite ist mit rechtsdrehendem Propeller empfehlenswert und warum?",
     "correctAnswer": "option1",
     "options": {
-      "option1": "Die Backbordseite ? der Radeffekt zieht das Fahrzeug an die Pier.",
-      "option2": "Die Steuerbordseite ? der Radeffekt zieht das Fahrzeug an die Pier.",
+      "option1": "Die Backbordseite - der Radeffekt zieht das Fahrzeug an die Pier.",
+      "option2": "Die Steuerbordseite - der Radeffekt zieht das Fahrzeug an die Pier.",
       "option3": "Die Steuerbord- oder Backbordseite je nach Ruderlage.",
       "option4": "Es gibt keine empfehlenswerte Anlegeseite."
     },
@@ -2671,7 +2671,7 @@
   {
     "id": 158,
     "frageText": "Wie ist eine geschützte Badezone gekennzeichnet?",
-    "correctAnswer": "",
+    "correctAnswer": "option1",
     "options": {
       "option1": "Durch gelbe Tonnen.",
       "option2": "Durch grüne Tonnen.",
@@ -3115,7 +3115,7 @@
     "frageText": "Ein Fahrzeug unter Segel kreuzt eine Binnenschifffahrtsstraße. In der Fahrwassermitte kommt ihm ein Kleinfahrzeug mit Maschinenantrieb zu Berg entgegen. Wer ist ausweichpflichtig?",
     "correctAnswer": "option1",
     "options": {
-      "option1": "ahrzeug mit Maschinenantrieb.",
+      "option1": "Fahrzeug mit Maschinenantrieb.",
       "option2": "Fahrzeug in der Talfahrt.",
       "option3": "Fahrzeug unter Segel.",
       "option4": "Beide sind ausweichpflichtig."

@@ -106,7 +106,7 @@ class RouterComponent extends Component {
                 <Scene key="learnExam">
                     <Scene 
                         key="learnExam" 
-                        title="Fragenbögen lernen"
+                        title="Lernmodus"
                         component={LearnQuestionPage}
                         onLeft={toMain}
                         leftButtonImage={img.leftButton}

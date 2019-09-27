@@ -1,4 +1,4 @@
-package com.noah;
+package com.fragnoah.noah;
 
 import android.app.Application;
 

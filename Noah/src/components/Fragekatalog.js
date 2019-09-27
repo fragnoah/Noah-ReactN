@@ -3,32 +3,22 @@ import {
     View,
     Text,
     ScrollView,
-    Platform,
-    ImageBackground,
     StyleSheet,
     Image
     } from 'react-native';
 import { connect } from 'react-redux';
-import RadioForm, { 
-   /* RadioButtonLabel, 
-    RadioButtonInput, 
-    RadioButton */
-} from 'react-native-simple-radio-button';
-import Highlighter from 'react-native-highlight-words';
-import FlashMessage, { showMessage } from 'react-native-flash-message';
-import jsondata from '../assets/datasrc/Fragenpool.json';
-import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
-import * as actions from '../actions';
 import { Actions } from 'react-native-router-flux';
-import { 
-    radioButtonStyle, 
+import FlashMessage from 'react-native-flash-message';
+import jsondata from '../assets/datasrc/Fragenpool.json';
+import { Card, ButtonWithImage } from './common';
+import * as actions from '../actions';
+import {  
     questionButtonStyle, 
     questionCardStyle, 
     userMessage,
-    highlighter
 } from './styleSheets';
-import { iosFix, debug, canHighlight } from '../utils';
-import * as img from '../assets/img';
+import { debug } from '../utils';
+
 
 /**
  * Fragenkatalog
@@ -85,120 +75,28 @@ class Fragekatalog extends Component {
      * Drücken des Buttons-Weiter
      */
     next() {
+        if (this.props.quiz.frage < this.arrnew.length - 1) {
         if (this.state.klicked === true) {
-            if (this.props.quiz.frage < this.arrnew.length - 1) {
                 this.setState({
                     klicked: false
                 });
                 this.props.forward();
             }
-        }
         else {
             this.setState({
                 klicked: true
             });
         }
     }
-    /**
-     * Auswahl einer Antwort mit Radiobutton -> Speicherung in Redux-State
-     * @param ans 
-     */
-    /*
-    answer(ans) {
-        if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
-            this.props.selectAnswer(ans);
-        }
-        if (this.props.quiz.arr[this.props.quiz.qno] !== ans) {
-            this.props.updateAnswer(ans, this.props.quiz.qno);
+        if (this.props.quiz.frage === this.arrnew.length - 1) {
+            this.setState({
+                klicked: true
+            });
             }
-    }
-    /**
-     * markieren einer Frage
-     
-    markQuestion() {
-        if (this.props.quiz.marked.includes(this.props.quiz.qno) === true) {
-            this.props.unmark(this.props.quiz.qno);
-            showMessage({
-                message: 'Hinweis',
-                description: 'Frage nicht mehr markiert',
-                type: 'success',
-                icon: 'success'
-            });
-        } else {
-            this.props.mark(this.props.quiz.qno);
-            showMessage({
-                message: 'Hinweis',
-                description: 'Frage wurde markiert',
-                type: 'success',
-                icon: 'success'
-            });
-        }
-    }
-    doHighlight() {
-        this.setState({
-            lighted: true
-        });
+        
     }
 
-    undoHighlight() {
-        this.setState({
-            lighted: false
-        });
-    }
-    */
-    renderHighlightButton() {
-        const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
 
-        if (canHighlight) {
-        /*   if (this.state.lighted) {
-                return (
-                    <ImageButton
-                        //onPress={() => this.undoHighlight()}
-                        onPress={console.log('fehlt')} 
-                        img={img.highlighted}
-                        buttonStyle={markButtonStyle} 
-                        imageStyle={markButtonImageStyle}
-                    />
-                );            
-            }
-        */
-            return (
-                <ImageButton
-                    //onPress={() => this.doHighlight()}
-                    onPress={console.log('fehlt')} 
-                    img={img.highlight}
-                    buttonStyle={markButtonStyle} 
-                    imageStyle={markButtonImageStyle}
-                />  
-            );
-        }         
-    }
-    
-    renderMarkButton() {
-        const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
-        /*if (this.props.quiz.marked.includes(this.props.quiz.qno)) {
-            return (
-                <ImageButton
-                    //onPress={() => this.markQuestion()}
-                    onPress={console.log('fehlt')}                    
-                    img={img.marked}
-                    buttonStyle={markButtonStyle} 
-                    imageStyle={markButtonImageStyle}
-                />
-            );            
-        } 
-        */
-        return (
-            <ImageButton
-                //onPress={() => this.markQuestion()} 
-                onPress={console.log('fehlt')} 
-                img={img.mark}
-                buttonStyle={markButtonStyle} 
-                imageStyle={markButtonImageStyle}
-            />  
-        );         
-    }
-    
     renderDebug() {
         if (debug === true) {
             return (
@@ -234,7 +132,7 @@ class Fragekatalog extends Component {
             textAlign: 'center',
             color: 'black',
             fontSize: 20,
-            paddingTop: 5,
+            paddingTop: 0,
             paddingBottom: 5,
             fontWeight: 'bold',
             }
@@ -261,21 +159,25 @@ class Fragekatalog extends Component {
         const styles = StyleSheet.create({
             newText: {
                 textAlign: 'center',
-                color: 'rgba(133,187,243, 0.5)',
-                fontSize: 20,
-                paddingTop: 5,
-                paddingBottom: 5,
-                fontWeight: 'bold'
-                },
-
-            newTextTop: {
-                textAlign: 'center',
-                color: 'rgba(133,187,243, 0.5)',
+                color: 'rgba(123,159,217, 1)',
                 fontSize: 20,
                 paddingTop: 5,
                 paddingBottom: 5,
                 fontWeight: 'bold',
-                marginTop: 70
+                paddingLeft: 20,
+                paddingRight: 20
+                },
+
+            newTextTop: {
+                textAlign: 'center',
+                color: 'rgba(123,159,217, 1)',
+                fontSize: 20,
+                paddingTop: 0,
+                paddingBottom: 5,
+                fontWeight: 'bold',
+                marginTop: 30,
+                paddingLeft: 20,
+                paddingRight: 20
                 }
             });
         let correct = '';
@@ -305,32 +207,46 @@ class Fragekatalog extends Component {
             );
         }
     }
+    renderNextButton() {
+        const { 
+            navButtonImageStyle, 
+            navButtonStyle,  
+            navTextStyle2 
+        } = questionButtonStyle;
+
+        if (this.props.quiz.frage < this.arrnew.length - 1) {
+        return (
+        <ButtonWithImage
+            onPress={() => this.next()}
+            buttonText="Nächste"
+            imgRight={require('../assets/img/arrowRight.png')}
+            imageStyle={navButtonImageStyle}
+            buttonStyle={navButtonStyle}
+            textStyle={navTextStyle2}
+            removeEmptyImage
+        />
+        );
+        }
+        if (this.props.quiz.frage === this.arrnew.length - 1 && this.state.klicked !== true) {
+            return (
+            <ButtonWithImage
+                onPress={() => this.next()}
+                buttonText="Nächste"
+                imgRight={require('../assets/img/arrowRight.png')}
+                imageStyle={navButtonImageStyle}
+                buttonStyle={navButtonStyle}
+                textStyle={navTextStyle2}
+                removeEmptyImage
+            />
+            );
+        }
+    }
     
     renderContent() {
-        /*
-        let highlight = ['abc'];
-        switch (this.arrnew[this.props.quiz.qno].highlightWords[0]) {
-            case 'option1':
-                highlight[0] = this.arrnew[this.props.quiz.frage].options.option1;
-                break;
-            case 'option2':
-                highlight[0] = this.arrnew[this.props.quiz.frage].options.option2;
-                break;
-            case 'option3':
-                highlight[0] = this.arrnew[this.props.quiz.frage].options.option3;
-                break;
-            case 'option4':
-                highlight[0] = this.arrnew[this.props.quiz.frage].options.option4;
-                break;
-            default:
-                highlight = this.arrnew[this.props.quiz.frage].highlightWords;
-            } 
-*/
         const { 
             navButtonImageStyle, 
             navButtonStyle, 
-            navTextStyle, 
-            navTextStyle2 
+            navTextStyle,  
         } = questionButtonStyle;
         return (
             <View style={{ flex: 1 }}>
@@ -360,19 +276,7 @@ class Fragekatalog extends Component {
                         removeEmptyImage
                     />
                     
-                    {this.renderMarkButton()}
-                    {this.renderHighlightButton()}
-                    
-                    <ButtonWithImage
-                        onPress={() => this.next()}
-                        buttonText="Nächste"
-                        disabled={this.props.quiz.frage === this.arrnew.length - 1}
-                        imgRight={require('../assets/img/arrowRight.png')}
-                        imageStyle={navButtonImageStyle}
-                        buttonStyle={navButtonStyle}
-                        textStyle={navTextStyle2}
-                        removeEmptyImage
-                    />
+                    {this.renderNextButton()}
                 </Card>
 
                 {this.renderDebug()}

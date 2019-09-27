@@ -26,8 +26,8 @@ class MainMenu extends Component {
 
             },
             logo: {
-                width: 150,
-                height: 120
+                width: 100,
+                height: 80
             },
             first: {
                 width: '100%',

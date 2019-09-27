@@ -1,4 +1,4 @@
-package com.noah;
+package com.fragnoah.noah;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;

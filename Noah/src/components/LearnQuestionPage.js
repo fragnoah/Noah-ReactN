@@ -191,7 +191,7 @@ class LearnQuestionPage extends Component {
     renderHighlightButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
 
-        if (canHighlight) {
+        
             if (this.state.lighted) {
                 return (
                     <ImageButton
@@ -209,8 +209,7 @@ class LearnQuestionPage extends Component {
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
                 />  
-            );
-        }         
+            );      
     }
 
     renderMarkButton() {
@@ -290,6 +289,11 @@ class LearnQuestionPage extends Component {
     }
 
     renderContent() {
+        let highlight = [];
+        let correctAns = this.arrnew[this.props.quiz.learnqno].correctAnswer;
+        highlight = this.arrnew[this.props.quiz.learnqno].options[correctAns];
+        /*
+        Falls Highlights befüllt werden
         let highlight = ['abc'];
         switch (this.arrnew[this.props.quiz.learnqno].highlightWords[0]) {
             case 'option1':
@@ -307,13 +311,14 @@ class LearnQuestionPage extends Component {
             default:
                 highlight = this.arrnew[this.props.quiz.learnqno].highlightWords;
             } 
-
-        /**
+        
+        
+            /**
          * RadioButtons mit Fragentexten
          */    
         const radioProps = [ 
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.learnqno].options.option1.includes(highlight) ? 
+                this.arrnew[this.props.quiz.learnqno].options.option1.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
@@ -321,7 +326,7 @@ class LearnQuestionPage extends Component {
                 /> : this.arrnew[this.props.quiz.learnqno].options.option1),
                 value: 'option1' },
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.learnqno].options.option2.includes(highlight) ?  
+                this.arrnew[this.props.quiz.learnqno].options.option2.includes(highlight) ?    
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
