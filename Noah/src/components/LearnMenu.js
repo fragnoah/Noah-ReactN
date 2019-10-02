@@ -28,8 +28,8 @@ class LearnMenu extends Component {
 
             },
             logo: {
-                width: 100,
-                height: 80
+                width: 150,
+                height: 120
             },
             first: {
                 width: '100%',
@@ -39,12 +39,10 @@ class LearnMenu extends Component {
         
         return (
             <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
-                <TouchableOpacity onPress={() => actions.toMain()} >
-                    <Image source={require('../assets/img/Logo.png')} style={styles.logo} />
-                </TouchableOpacity>
-
+                <Image source={require('../assets/img/Logo.png')} style={styles.logo} />
+                
                  <TouchableOpacity onPress={() => this.getKatalog('Basis')} style={styles.container}>
-                    <Image source={require('../assets/img/Basisfragen.png')} style={styles.first} />
+                    <Image source={require('../assets/img/Basisfragen.png')} style={styles.image} />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => this.getKatalog('Binnen')} style={styles.container}>

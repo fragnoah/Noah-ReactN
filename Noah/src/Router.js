@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import {
-    ImageBackground,
+    //ImageBackground,
     //Image,
     //View,
+    Text,
     Platform
 } from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient';
@@ -28,17 +29,26 @@ import RepeatPage from './components/RepeatPage';
 import MarkedQuestion from './components/MarkedQuestion';
 import RepeatAll from './components/RepeatAll';
 
-import GlossarList from './components/GlossarList';
+import Videos2List from './components/Videos2List';
+import GlossarList from './components/GlossarList_New_Try';
 import VideoList from './components/VideoList';
 import * as img from './assets/img';
 import { styles } from './components/styleSheets/Router';
 import Fragekatalog from './components/Fragekatalog';
 import LearnStartPage from './components/LearnStartPage';
 import LearnQuestionPage from './components/LearnQuestionPage';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
+const TabIcon = ({ title }) => {
+    return (
+        <Text style={{ fontWeight: 'bold', color: 'black' }}>{title}</Text>
+    );
+}
 
 /**
- * @brief Routing der verschiedenen Pages
- * @author Matthias Cohn
+ * @brief Hierarchie der Scenen und Tab-Gruppierung
+ * @author Vickry Mukhtar
  */
 class RouterComponent extends Component {
 
@@ -50,7 +60,7 @@ class RouterComponent extends Component {
         return (
                 <Router
                     navigationBarStyle={styles.viewNavBarStyle}
-                    sceneStyle={styles.sceneStyleIOS}
+                    //sceneStyle={styles.sceneStyleIOS}
                     // getSceneStyle={() => ({ backgroundColor: 'transparent' })}
                     // Transparent funktioniert unter iOS nicht
                 >
@@ -65,6 +75,8 @@ class RouterComponent extends Component {
                     navigationBarStyle={styles.viewNavBarStyle}
                     sceneStyle={styles.sceneStyle}
                 >
+
+
                     {this.renderScenes()}
                 </Router>
         );
@@ -74,8 +86,19 @@ class RouterComponent extends Component {
      */
     renderScenes() {
         return (
-            <Scene key="root" hideNavBar titleStyle={styles.titleStyle}>
-                <Scene key="main" hideNavBar initial>
+            <Scene 
+            key="root" 
+            tabs={true}
+            tabBarStyle={{ backgroundColor: '#FFFFFF'}}
+            hideNavBar 
+            titleStyle={styles.titleStyle}
+            tabBarStyle={styles.tabBarStyle}
+            >
+                    
+            
+            <Scene key="main" title="Start" icon={TabIcon} 
+                //hideNavBar
+                 initial>
                     <Scene 
                         key="menu" 
                         title="Menü"    
@@ -87,117 +110,9 @@ class RouterComponent extends Component {
                         rightButtonStyle={styles.infButtonStyle}
                         initial 
                     />
-                </Scene>
+            </Scene>
 
-                <Scene key="learnStart">
-                    <Scene 
-                        key="learnStart" 
-                        title="Learnmodus"
-                        component={LearnStartPage}
-                        onLeft={toMain}
-                        leftButtonImage={img.leftButton}
-                        leftButtonIconStyle={styles.leftImageButton}
-                        leftButtonStyle={styles.navImageButtonStyle}
-                        initial 
-                    />
-                </Scene>
-
-
-                <Scene key="learnExam">
-                    <Scene 
-                        key="learnExam" 
-                        title="Lernmodus"
-                        component={LearnQuestionPage}
-                        onLeft={toMain}
-                        leftButtonImage={img.leftButton}
-                        leftButtonIconStyle={styles.leftImageButton}
-                        leftButtonStyle={styles.navImageButtonStyle}
-                        initial 
-                    />
-                </Scene>
-
-
-                <Scene key="exam">
-                    <Scene 
-                        key="test" 
-                        title="Prüfungsmodus"
-                        component={StartPage}
-                        onLeft={toMain}
-                        leftButtonImage={img.leftButton}
-                        leftButtonIconStyle={styles.leftImageButton}
-                        leftButtonStyle={styles.navImageButtonStyle}
-                        initial 
-                    />
-                </Scene>
-
-                
-                <Scene key="doExam">
-                    <Scene
-                        key="quest"
-                        title="Prüfung"
-                        renderBackButton={() => (null)}
-                        onRight={toMain} 
-                        rightTitle='Abbrechen' 
-                        component={QuestionPage}  
-                        rightButtonTextStyle={{ color: 'white', fontSize: 14 }}  
-                        initial                 
-                    />
-                </Scene>
-                
-                <Scene key="resultPages">
-                    <Scene
-                        key="result"
-                        title="Ergebnis"
-                        component={Result}
-                        renderBackButton={() => (null)}
-                        onRight={resultInfo}
-                        rightButtonImage={img.infoButton}
-                        rightButtonIconStyle={styles.infImageButton}
-                        rightButtonStyle={styles.infButtonStyle}
-                        initial
-                    />
-                </Scene>
-                <Scene key="marked">
-                    <Scene 
-                        key="mark" 
-                        title="markierte Fragen" 
-                        component={MarkedQuestion} 
-                        renderBackButton={() => (null)}
-                        onLeft={toResult}
-                        leftButtonImage={img.leftButton}
-                        leftButtonIconStyle={styles.leftImageButton}
-                        leftButtonStyle={styles.navImageButtonStyle}
-                        initial
-                    />
-                </Scene>
-                <Scene key="repeatAll">
-                    <Scene 
-                        key="all" 
-                        title="Wiederholung" 
-                        component={RepeatAll}
-                        renderBackButton={() => (null)}
-                        onLeft={toResult}
-                        leftButtonImage={img.leftButton}
-                        leftButtonIconStyle={styles.leftImageButton}
-                        leftButtonStyle={styles.navImageButtonStyle}
-                        initial 
-                    />
-                </Scene>
-                <Scene key="repeatWrong">
-                    <Scene 
-                        key="repeat" 
-                        title="Wiederholung" 
-                        component={RepeatPage} 
-                        renderBackButton={() => (null)}
-                        onLeft={toResult}
-                        leftButtonImage={img.leftButton}
-                        leftButtonIconStyle={styles.leftImageButton}
-                        leftButtonStyle={styles.navImageButtonStyle}
-                        initial
-                    />
-                </Scene>
-                
-                <Scene key="glossary"> 
+            <Scene key="glossary" title="Lexikon" icon={TabIcon}> 
                     <Scene 
                         key="glossar" 
                         title="Glossar" 
@@ -208,10 +123,22 @@ class RouterComponent extends Component {
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
                     />
-                </Scene>
+            </Scene>
 
-                <Scene key="video"> 
+            <Scene key="videos2" title="Videos" icon={TabIcon}> 
                     <Scene 
+                        key="videos2" 
+                        title="Videos2" 
+                        component={Videos2List} 
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+
+                    <Scene key="video"> 
+                        <Scene 
                         key="videos" 
                         title="Videos" 
                         component={VideoList} 
@@ -220,11 +147,38 @@ class RouterComponent extends Component {
                         leftButtonIconStyle={styles.leftImageButton}
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
-                    />
-                </Scene>
+                        />
+                    </Scene>
+            </Scene>
 
-                <Scene key="prepare"> 
+            <Scene key="learnStart" title="Lernen" icon={TabIcon}>
                     <Scene 
+                        key="learnStart" 
+                        title="Learnmodus"
+                        component={LearnStartPage}
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                    />
+
+                    <Scene key="learnExam">
+                        <Scene 
+                        key="learnExam" 
+                        title="Fragenbögen lernen"
+                        component={LearnQuestionPage}
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                        hideNavBar
+                        />
+                    </Scene>
+
+                    <Scene key="prepare"> 
+                        <Scene 
                         key="learn" 
                         title="Lernen" 
                         component={LearnMenu} 
@@ -234,33 +188,122 @@ class RouterComponent extends Component {
                         leftButtonStyle={styles.navImageButtonStyle}
                         initial 
                         hideNavBar
-                    />
-                    <Scene 
+                        />
+                        <Scene 
                         key="katalog" 
                         title="Fragenkatalog" 
                         component={Fragekatalog} 
                         backButtonImage={img.backButton}
-                    />
-                    <Scene 
+                        />
+                        <Scene 
                         key="learnbasic" 
                         title="Basisfragen" 
                         component={learnbasic} 
                         backButtonImage={img.backButton}
-                    />
-                    <Scene 
+                        />
+                        <Scene 
                         key="learnbinnen" 
                         title="Binnenfragen" 
                         component={learnbinnen} 
                         backButtonImage={img.backButton}
-                    />
-                    <Scene 
+                        />
+                        <Scene 
                         key="learnsegel" 
                         title="Segelfragen" 
                         component={learnsegel} 
                         backButtonImage={img.backButton}
-                    />
+                        />
+                    </Scene>
+
+                </Scene>
+                
+
+                <Scene key="exam" title="Exam" icon={TabIcon}>
+                        <Scene 
+                        key="test" 
+                        title="Prüfungsmodus"
+                        component={StartPage}
+                        onLeft={toMain}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                        hideNavBar
+                        />
+                    
+                    <Scene key="doExam">
+                        <Scene
+                        key="quest"
+                        title="Prüfung"
+                        renderBackButton={() => (null)}
+                        onRight={toMain} 
+                        rightTitle='Abbrechen' 
+                        component={QuestionPage}  
+                        rightButtonTextStyle={{ color: 'white', fontSize: 14 }}  
+                        initial   
+                        hideNavBar              
+                        />
+                    </Scene>
+
+                    <Scene key="resultPages">
+                        <Scene
+                        key="result"
+                        title="Ergebnis"
+                        component={Result}
+                        renderBackButton={() => (null)}
+                        onRight={resultInfo}
+                        rightButtonImage={img.infoButton}
+                        rightButtonIconStyle={styles.infImageButton}
+                        rightButtonStyle={styles.infButtonStyle}
+                        initial
+                        />
+                    </Scene>
+
+                    <Scene key="marked">
+                        <Scene 
+                        key="mark" 
+                        title="markierte Fragen" 
+                        component={MarkedQuestion} 
+                        renderBackButton={() => (null)}
+                        onLeft={toResult}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial
+                        />
+                    </Scene>
+
+                    <Scene key="repeatAll">
+                        <Scene 
+                        key="all" 
+                        title="Wiederholung" 
+                        component={RepeatAll}
+                        renderBackButton={() => (null)}
+                        onLeft={toResult}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial 
+                        />
+                    </Scene>
+
+                    <Scene key="repeatWrong">
+                        <Scene 
+                        key="repeat" 
+                        title="Wiederholung" 
+                        component={RepeatPage} 
+                        renderBackButton={() => (null)}
+                        onLeft={toResult}
+                        leftButtonImage={img.leftButton}
+                        leftButtonIconStyle={styles.leftImageButton}
+                        leftButtonStyle={styles.navImageButtonStyle}
+                        initial
+                        />
+                    </Scene>
                 </Scene>
             </Scene>
+                
+              
         );
     }
 

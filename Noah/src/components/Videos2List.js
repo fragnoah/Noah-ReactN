@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import { FlatList, View, ScrollView, Platform, ImageBackground } from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import { FlatList, ScrollView, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import GlossarSection from './GlossarSection';
+import Videos2Section from './Videos2Section';
 import { iosFix } from '../utils';
 
+/**
+ * @brief Strukturierung analog zum Glossar
+ * @author Vickry Mukhtar
+ */
 
-class GlossarList extends Component {
+class Videos2List extends Component {
 
-
-
-  renderItem(glossar) {
-    return <GlossarSection glossar={glossar.item} />;
+  renderItem(videos2) {
+    return <Videos2Section videos2={videos2.item} />;
   }
-
 
   renderContent() {
     console.log(this.props);
-    console.log('data_glossary:', this.props.glossary);
-    console.log('searchstate', this.state.search);
-
     return (
-      <ScrollView>
+      <ScrollView  
+      >
         <FlatList 
-          data={this.props.glossary}
+          horizontal={true}
+
+          data={this.props.videos2}
           renderItem={this.renderItem}
-          keyExtractor={(glossar) => glossar.key}
+          keyExtractor={(videos2) => videos2.key}
         />
       </ScrollView>
     ); 
@@ -45,11 +45,11 @@ class GlossarList extends Component {
       return (
           this.renderContent()
       );
-  }
+    }      
 }
 
 const mapStateToProps = state => {
-  return { glossary: state.glossary };
+  return { videos2: state.videos2 };
 };
 
-export default connect(mapStateToProps)(GlossarList);
+export default connect(mapStateToProps)(Videos2List);

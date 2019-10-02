@@ -9,6 +9,13 @@
  * Zugriff auf Redux-Store
  * @param fb 
  */
+export const setCheckbox = (checked) => {
+  return {
+    type: 'checked',
+    payload: checked
+  };
+};
+
 export const selectLearnFb = (fb) => {
     return {
       type: 'select_Learnfb',

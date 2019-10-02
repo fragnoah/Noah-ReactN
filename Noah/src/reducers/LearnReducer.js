@@ -13,7 +13,8 @@ const initalstate = {
     learnauswahl: [],
     learnfrage: 0,
     learnkatalog: '',
-    learnauswahlKatalog: []
+    learnauswahlKatalog: [],
+    checked: false
 };
 /**
  * Redux-Reducer um Redux-Store zu bearbeiten und aufzurufen
@@ -24,6 +25,8 @@ export default (state = initalstate, action) => {
 
         case 'select_Learnfb':
            return { ...state, learnfragebogen: action.payload };
+        case 'checked':
+           return { ...state, checked: action.payload };
         case 'select_Learnkatalog':
            return { ...state, learnkatalog: action.payload };
         case 'safe_Learnauswahl':

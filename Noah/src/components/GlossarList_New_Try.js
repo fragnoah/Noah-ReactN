@@ -17,8 +17,7 @@ class GlossarList extends Component {
 
   renderContent() {
     console.log(this.props);
-    console.log('data_glossary:', this.props.glossary);
-    console.log('searchstate', this.state.search);
+
 
     return (
       <ScrollView>

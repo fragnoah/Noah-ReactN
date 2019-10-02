@@ -4,8 +4,10 @@ import {
     Text,
     ScrollView,
     Platform,
-    ImageBackground
+    ImageBackground,
+    Alert
     } from 'react-native';
+import CountDown from 'react-native-countdown-component';
 import { connect } from 'react-redux';
 import RadioForm, { 
    /* RadioButtonLabel, 
@@ -15,6 +17,7 @@ import RadioForm, {
 import Highlighter from 'react-native-highlight-words';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 import jsondata from '../assets/datasrc/Fragenpool.json';
+import glossardata from '../assets/datasrc/Glossar.json';
 import { Card, CardSection, ImageCardSection, ButtonWithImage, ImageButton } from './common';
 import * as actions from '../actions';
 import { 
@@ -35,6 +38,10 @@ import * as fest from '../assets/datasrc/StandardFB';
 class LearnQuestionPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            totalDurationL: ''
+          };
+          console.log('constructor props checked', this.props.quiz.checked);
         this.basisScore = 0;
         this.spezScore = 0;
         let auswahl = this.props.quiz.learnauswahl;
@@ -77,6 +84,15 @@ class LearnQuestionPage extends Component {
             return auswahl.includes(val.id);
         });
     }
+    componentDidMount() {
+        const that = this;
+        this.finished = false;
+        //Settign up the duration of countdown in seconds to re-render */
+        //that.setState({ totalDuration: 3600 });
+        that.setState({ totalDurationL: 36 });//TODO: change duration
+        console.log('mount ', this.state.totalDurationL);
+    }
+    
     /**
      * Drücken des Buttons-Zurück
      */
@@ -110,10 +126,10 @@ class LearnQuestionPage extends Component {
                 // wenn das Ende des Arrays erreicht ist
                 
                 
-                /** 
+                /*
                 aktuell nicht implementiert, hier könnte man sich jedoch den Score für Learnfragen anzeigen lassen
                 und zu der neuen LearnResult.js (müsste angepasst werden)
-                
+                */
                 
                 for (let i = 0, l = this.arrnew.length; i < l; i++) {
                     console.log(i);
@@ -132,14 +148,14 @@ class LearnQuestionPage extends Component {
                         }
                     }
                 if (this.props.quiz.learnarr[i] !== this.arrnew[i].correctAnswer) { 
-                        this.props.wrongLearn(i);
+                        this.props.wrong(i);
                 }
             }
             this.props.getLearnBasisScore(this.basisScore);
             this.props.getLearnSpezScore(this.spezScore);
             actions.toResult();
-            */
-           actions.toLearnStart();
+            
+           //actions.toLearnStart();
         }
     }
     /**
@@ -191,7 +207,7 @@ class LearnQuestionPage extends Component {
     renderHighlightButton() {
         const { markButtonStyle, markButtonImageStyle } = questionButtonStyle;
 
-        
+        if (canHighlight) {
             if (this.state.lighted) {
                 return (
                     <ImageButton
@@ -209,7 +225,8 @@ class LearnQuestionPage extends Component {
                     buttonStyle={markButtonStyle} 
                     imageStyle={markButtonImageStyle}
                 />  
-            );      
+            );
+        }         
     }
 
     renderMarkButton() {
@@ -287,13 +304,85 @@ class LearnQuestionPage extends Component {
             );
         }
     }
+    /**
+ * @brief Scannen nach Glossarwörtern in der Frage und ersetzen mit Link
+ * @author Nils Engeln
+ */
+    renderFrage() {
+        let i = 0;
+        let j = 0;
+        let flag = 0;
+        let transform = '';
+        let frageData = this.arrnew[this.props.quiz.learnqno].frageText;
+        //TODO: fbfrbfb {this.arrnew[this.props.quiz.learnqno].frageText}
 
+        for (i = 0; i < glossardata.length; i++) {
+            //console.log('i', i);
+            //console.log('length ', glossardata[i].data.length);
+            for (j = 0; j < glossardata[i].data.length; j++) {
+                //console.log('j', j);
+                //console.log(glossardata[i].data[j].title);
+                let word = glossardata[i].data[j].title;
+                let result = frageData.indexOf(glossardata[i].data[j].title);
+                let description = glossardata[i].data[j].description;
+                //console.log('result: ', result);
+                if (result !== -1) {
+                    //console.log(word.length);
+                    let s1 = frageData.substring(0, result);
+                    let s2 = frageData.substring(result, (result + word.length));
+                    let s3 = frageData.substring((result + word.length), this.arrnew[this.props.quiz.learnqno].frageText.length);
+                    //console.log(s1);
+                    //console.log(s2);
+                    //console.log(s3);
+                    transform = (<Text style={{color: '#000'}}> 
+                        {s1}
+                        <Text onPress={() =>
+                            { Alert.alert(word, description); }}
+                            style={{ color: '#00F' }}>
+                        {s2}
+                        </Text> 
+                        {s3}
+                    </Text>);
+                    flag = 1;
+                }
+            }
+        }
+        //console.log(this.arrnew[this.props.quiz.learnqno].frageText);
+        if (flag === 1) frageData = transform;
+        return frageData;
+    }
+        /**
+         * @brief Funktion des Timers wird implementiert
+         * @author Nils Engeln
+         */
+    renderTimer() { 
+        console.log('props:', this.props);
+        console.log('state checked:', this.props.quiz.checked);
+        console.log('total ', this.state.totalDurationL);
+        if (this.props.quiz.checked === true) {
+        return (
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+              <Text style={{ textAlign: 'center' }}>Verbleibende Zeit:</Text>
+            <CountDown
+              until={this.state.totalDurationL}
+              //duration of countdown in seconds
+              timeToShow={['M', 'S']}
+              timeLabels={{ m: 'MM', s: 'SS' }}
+              //formate to show
+              onFinish={() => { this.finished = true; }}//alert('finished')}
+              //on Finish call
+              //onPress={() => alert('no cheating!')}
+              //on Press call
+              size={20}
+              //size
+              digitStyle={{ backgroundColor: '#0040FF' }}
+            />
+          </View>
+        );
+        }
+    }
     renderContent() {
-        let highlight = [];
-        let correctAns = this.arrnew[this.props.quiz.learnqno].correctAnswer;
-        highlight = this.arrnew[this.props.quiz.learnqno].options[correctAns];
-        /*
-        Falls Highlights befüllt werden
+        console.log(glossardata);
         let highlight = ['abc'];
         switch (this.arrnew[this.props.quiz.learnqno].highlightWords[0]) {
             case 'option1':
@@ -311,14 +400,13 @@ class LearnQuestionPage extends Component {
             default:
                 highlight = this.arrnew[this.props.quiz.learnqno].highlightWords;
             } 
-        
-        
-            /**
+
+        /**
          * RadioButtons mit Fragentexten
          */    
         const radioProps = [ 
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.learnqno].options.option1.includes(highlight) ?  
+                this.arrnew[this.props.quiz.learnqno].options.option1.includes(highlight) ? 
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
@@ -326,7 +414,7 @@ class LearnQuestionPage extends Component {
                 /> : this.arrnew[this.props.quiz.learnqno].options.option1),
                 value: 'option1' },
             { label: (this.state.lighted === true &&
-                this.arrnew[this.props.quiz.learnqno].options.option2.includes(highlight) ?    
+                this.arrnew[this.props.quiz.learnqno].options.option2.includes(highlight) ?  
                 <Highlighter
                     highlightStyle={highlighter.lighted}
                     searchWords={[highlight.toString()]}
@@ -389,18 +477,21 @@ class LearnQuestionPage extends Component {
                         }}
                 >  
                     <Card cardStyle={questionCardStyle.cardStyle}>
-                        <ImageCardSection 
+                        <ImageCardSection
                             style={questionCardStyle.questionSection}
                             imgStyle={questionCardStyle.imgStyle} 
                             id={this.arrnew[this.props.quiz.learnqno].id} 
-                            text={this.arrnew[this.props.quiz.learnqno].frageText} 
+                            text={this.renderFrage(this.arrnew[this.props.quiz.learnqno].frageText)} //{this.arrnew[this.props.quiz.learnqno].frageText}
                             image={this.arrnew[this.props.quiz.learnqno].image}
                             progress={[this.props.quiz.learnqno + 1, ' / 30']}
                         />                
                     
                         <CardSection style={{ backgroundColor: 'transparent' }}>                  
                             {this.renderRadioButtons(radioProps, init, this.props.quiz.learnqno)}
-                        </CardSection>  
+                        </CardSection>
+                        <CardSection style={{ backgroundColor: 'transparent' }}>                  
+                            {this.renderTimer()}
+                        </CardSection>   
                     </Card>
                 </ScrollView>    
 
@@ -442,6 +533,7 @@ class LearnQuestionPage extends Component {
             </View>
              
         );
+        
     }
 
     render() {

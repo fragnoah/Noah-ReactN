@@ -24,6 +24,9 @@ export default (state = initalstate, action) => {
 
         case 'select_fb':
            return { ...state, fragebogen: action.payload };
+        case 'checked':
+            console.log('inside quizreducer checke: action.payload', action.payload);
+           return { ...state, checked: action.payload };
         case 'select_katalog':
            return { ...state, katalog: action.payload };
         case 'safe_auswahl':

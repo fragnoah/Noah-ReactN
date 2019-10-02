@@ -38,6 +38,11 @@
 		"description": "Man\u00f6ver zum Verlangsamen des Boots bei starkem Wind oder hohem Wellengang.",
 		"image": "",
 		"buchRef": ""
+	}, {
+		"title": "Butan",
+		"description": "Gas, welches brennt.",
+		"image": "",
+		"buchRef": ""
 	}]
 }, {
 	"key": "C",

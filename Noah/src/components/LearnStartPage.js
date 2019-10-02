@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, Alert, Platform, ImageBackground } from 'react-native';
+import { View, CheckBox, ScrollView, Text, Alert, Platform, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Card, ButtonWithImage } from './common';
@@ -17,6 +17,10 @@ class StartPage extends Component {
      * Beim aufrufen der Page
      * Überprüfung, ob eine Prüfung im Redux-Store gespeichert ist
      */
+    state = {
+        checked: false
+    }
+    
     componentWillMount() {
         if (this.props.quiz.learnqno !== 29 && this.props.quiz.learnfragebogen !== '') {
             this.props.resetLearnDefault();
@@ -34,17 +38,19 @@ class StartPage extends Component {
             this.props.resetLearnFb();
         } 
     }
-    /**
+    /** 
      * Speichert ausgewählten Fragebogen in Redux-State
      * @param {*} fb 
      */   
     getFb(fb) {
         this.props.resetLearnFb();
         this.props.selectLearnFb(fb);
+        console.log('state checked LearnStartPage:', this.state.checked);
+        this.props.setCheckbox(this.state.checked);
         console.log(this.props);
         actions.toLearnExam();
     }
-
+    //handleCheckBox = () => this.setState({ checked: !this.state.checked })
     renderDebug() {
         if (debug) {
             const { 
@@ -77,8 +83,11 @@ class StartPage extends Component {
             
             );
         }
-    }
-
+    }    
+    /**
+     * @brief Hinzufügen der Checkbox für den Timer
+     * @author Nils Engeln
+     */
     renderContent() {
         const { 
             cardStyle,
@@ -93,75 +102,17 @@ class StartPage extends Component {
                 <Card cardStyle={cardStyle}>
                     <Text style={cardTitle}>Feste Fragebögen</Text>
                     <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 1" 
+                        buttonText="Fragebogen 1" 
                         onPress={() => this.getFb('fb1')}
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
-
                     <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 2" 
+                        buttonText="Fragebogen 2" 
                         onPress={() => this.getFb('fb2')} 
                         buttonStyle={smallButtonStyle} 
                         imageStyle={noImageStyle}
                     />
-
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 3" 
-                        onPress={() => this.getFb('fb3')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 4" 
-                        onPress={() => this.getFb('fb4')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 5" 
-                        onPress={() => this.getFb('fb5')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 6" 
-                        onPress={() => this.getFb('fb6')}
-                        buttonStyle={bigButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 7" 
-                        onPress={() => this.getFb('fb7')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 8" 
-                        onPress={() => this.getFb('fb8')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-                    
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 9" 
-                        onPress={() => this.getFb('fb9')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-                    
-                    <ButtonWithImage 
-                        buttonText="Prüfungsbogen Variante 10" 
-                        onPress={() => this.getFb('fb10')} 
-                        buttonStyle={smallButtonStyle} 
-                        imageStyle={noImageStyle}
-                    />
-
 
                 </Card>
                 <Card cardStyle={cardStyle}>
@@ -172,6 +123,17 @@ class StartPage extends Component {
                         buttonStyle={bigButtonStyle} 
                         imageStyle={noImageStyle}
                     />
+                </Card>  
+                <Card cardStyle={cardStyle}>
+                        <CheckBox 
+                            center
+                            checked={this.state.checked} 
+                            onValueChange={() => this.setState({ checked: !this.state.checked })} //{this.handleCheckBox}
+                            text='Accept terms and conditions'
+                        />
+                        <Text>
+                            Timer aktivieren? (60min)    
+                        </Text>              
                 </Card>  
                 
                 {this.renderDebug()}

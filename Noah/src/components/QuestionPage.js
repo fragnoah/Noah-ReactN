@@ -27,6 +27,9 @@ import {
 import { iosFix, debug, canHighlight } from '../utils';
 import * as img from '../assets/img';
 import * as fest from '../assets/datasrc/StandardFB';
+import CountDown from 'react-native-countdown-component';
+//import CountDown to show the timer
+
 
 /**
  * Die eigentliche Prüfungsseite
@@ -35,6 +38,9 @@ import * as fest from '../assets/datasrc/StandardFB';
 class QuestionPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            totalDuration: '', //State für den Timer @author Nils Engeln
+          };
         this.basisScore = 0;
         this.spezScore = 0;
         let auswahl = this.props.quiz.auswahl;
@@ -77,6 +83,13 @@ class QuestionPage extends Component {
             return auswahl.includes(val.id);
         });
     }
+    componentDidMount() {
+        const that = this;
+        this.finished = false;
+        //Settign up the duration of countdown in seconds to re-render */
+        //that.setState({ totalDuration: 3600 });
+        that.setState({ totalDuration: 36 });//TODO: change duration Author: Nils Engeln
+    }
     /**
      * Drücken des Buttons-Zurück
      */
@@ -95,7 +108,8 @@ class QuestionPage extends Component {
      * Drücken des Buttons-Weiter
      */
     next() {
-            if (this.props.quiz.qno < this.arrnew.length - 1) {
+        console.log(this.CountDown);
+            if ((this.props.quiz.qno < this.arrnew.length - 1) && (this.finished !== true)) {
                 if (this.props.quiz.arr[this.props.quiz.qno] === undefined) {
                     this.props.selectAnswer('-1');
                 }
@@ -275,6 +289,33 @@ class QuestionPage extends Component {
             );
         }
     }
+    /**
+    * @brief Funktion des Timers wird implementiert
+    * @author Nils Engeln
+    */
+    renderTimer() { 
+        console.log('total ', this.state.totalDuration);
+        return (
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+              <Text style={{ textAlign: 'center' }}>Verbleibende Zeit:</Text>
+            <CountDown
+              until={this.state.totalDuration}
+              //duration of countdown in seconds
+              timeToShow={['M', 'S']}
+              timeLabels={{ m: 'MM', s: 'SS' }}
+              //formate to show
+              onFinish={() => { this.finished = true; }}//alert('finished')}
+              //on Finish call
+              onPress={() => alert('no cheating!')}
+              //on Press call
+              size={20}
+              //size
+              digitStyle={{ backgroundColor: '#0040FF' }}
+            />
+          </View>
+        );
+    }
+    
 
     renderContent() {
         let highlight = ['abc'];
@@ -383,6 +424,9 @@ class QuestionPage extends Component {
                         <CardSection style={{ backgroundColor: 'transparent' }}>                  
                             {this.renderRadioButtons(radioProps, init, this.props.quiz.qno)}
                         </CardSection>  
+                        <CardSection style={{ backgroundColor: 'transparent' }}>                  
+                            {this.renderTimer()}
+                        </CardSection> 
                     </Card>
                 </ScrollView>    
 
@@ -441,6 +485,7 @@ class QuestionPage extends Component {
             this.renderContent()
         );
     }
+    
 }
 
 const mapStateToProbs = state => {

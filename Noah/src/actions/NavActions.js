@@ -75,3 +75,6 @@ export const toKatalog = () => {
   //Actions.quest({ Testnumber: testNumber });
   Actions.katalog();
 };
+export const toVideos2 = () => {
+  Actions.videos2();
+};

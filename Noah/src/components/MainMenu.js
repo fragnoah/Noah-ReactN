@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import {Actions} from 'react-native-router-flux';
+
 
 class MainMenu extends Component {
     resetFragen() {
@@ -26,23 +28,44 @@ class MainMenu extends Component {
 
             },
             logo: {
-                width: 100,
-                height: 80
-            },
-            first: {
                 width: '100%',
-                height: 220,
+                height: 90,
+                marginTop: 30,
+                resizeMode: 'contain'
+
+                /*},
+                    first: {
+                    width: '100%',
+                    height: 220,
+                */
+
+                /*
+                    --Die alte Mediathek--
+                    --Um zu reaktivieren, wieder mit der unten zu findenden Videos2 tauschen!--
+
+                    <TouchableOpacity onPress={actions.toVideos2} style={styles.container}>
+                        <Image source={require('../assets/img/Videos.png')} style={styles.image} />
+                    </TouchableOpacity>
+                */
+               
             }
         });
         return (
-            <ScrollView contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
+            <View>
                 <Image source={require('../assets/img/Logo.png')} style={styles.logo} />
+            
+
+            <ScrollView horizontal={true} 
+            contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
+    
+                
+                
                 
                 <TouchableOpacity onPress={() => this.resetFragen()} style={styles.container}>
-                    <Image source={require('../assets/img/Fragenkatalog.png')} style={styles.first} />
+                    <Image source={require('../assets/img/Fragenkatalog.png')} style={styles.image} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={actions.toVideos} style={styles.container}>
+                <TouchableOpacity onPress={actions.toVideos2} style={styles.container}>
                     <Image source={require('../assets/img/Videos.png')} style={styles.image} />
                 </TouchableOpacity>
 
@@ -57,7 +80,10 @@ class MainMenu extends Component {
                 <TouchableOpacity onPress={actions.toGlossar} style={styles.container}>
                     <Image source={require('../assets/img/Glossar.png')} style={styles.image} />
                 </TouchableOpacity>
+
+                
             </ScrollView>
+            </View>
         );
     }
 
@@ -73,4 +99,3 @@ const mapStateToProbs = state => {
 };
 
 export default connect(mapStateToProbs, actions)(MainMenu);
-

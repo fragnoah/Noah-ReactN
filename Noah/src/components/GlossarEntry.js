@@ -15,13 +15,13 @@ class GlossarEntry extends Component {
   }
 
   renderItem(item) {
-    //console.log('Item rendern', item);
+    console.log('Item rendern', item);
     return <GlossarItem item={item.item} />;
     //return <GlossarSection glossar={glossar.item} />;
   }
     
   render() {
-    //console.log('Entryprops ', this.props);
+    console.log('Entryprops ', this.props);
     return (
       <FlatList 
           data={this.props.entry}
