@@ -27,7 +27,7 @@
     }
   },
   "dependencies": {
-    "d3-scale": "^2.1.2",
+    "d3-scale": "^4.0.2",
     "immutability-helper": "^2.8.1",
     "react": "16.6.1",
     "react-native": "0.57.5",
